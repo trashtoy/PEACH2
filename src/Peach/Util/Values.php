@@ -34,7 +34,7 @@ class Values
     
     /**
      * 指定された値を整数に変換します.
-     * この関数は変換処理に {@link intval() intval()} を利用します.
+     * この関数は変換処理に {@link http://jp1.php.net/manual/ja/function.intval.php intval()} を利用します.
      * 
      * 最小値が指定されている場合,
      * 変換後の値が最小値より小さければ最小値を返します.
@@ -79,7 +79,7 @@ class Values
      * 
      * __toString() が定義されているオブジェクトの場合は __toString() の結果,
      * それ以外のオブジェクトはクラス名を返します.
-     * リソース型の場合は {@link get_resource_type() get_resource_type()} にリソース ID
+     * リソース型の場合は {@link http://jp1.php.net/manual/ja/function.get-resource-type.php get_resource_type()} にリソース ID
      * を付け足した結果を返します.
      * それ以外は string 型にキャストした結果を返します.
      * 
@@ -202,7 +202,7 @@ class Values
     
     /**
      * 指定された値の型を返します.
-     * 内部関数の {@link gettype() gettype()} とほぼ同じ動作をしますが,
+     * 内部関数の {@link http://jp1.php.net/manual/ja/function.gettype.php gettype()} とほぼ同じ動作をしますが,
      * 引数にオブジェクトを指定した場合に文字列 "object"
      * ではなくその値のクラス名を返すところが異なります.
      * 
