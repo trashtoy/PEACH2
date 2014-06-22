@@ -208,9 +208,13 @@ class Strings
     
     /**
      * 文字列内に含まれる {0}, {1}, {2} などのテンプレート変数を, $args 内の各要素で置き換えます. 例えば
-     * <code>template('My name is {0}. I am {1} years old', array('Taro', 18))</code>
+     * <code>
+     * template('My name is {0}. I am {1} years old', array('Taro', 18));
+     * </code>
      * の結果は次のようになります.
-     * <code>"My name is Taro. I am 18 years old"</code>
+     * <code>
+     * "My name is Taro. I am 18 years old"
+     * </code>
      * 
      * $template が NULL の場合は NULL を返します.
      * 
