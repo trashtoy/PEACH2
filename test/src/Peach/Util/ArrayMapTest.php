@@ -207,4 +207,18 @@ class ArrayMapTest extends \PHPUnit_Framework_TestCase
         );
         $this->assertSame($expected, $this->object->asArray());
     }
+    
+    /**
+     * ArrayMap に登録されている各マッピングを取り出す Iterator を返すことを確認します.
+     */
+    public function testGetIterator()
+    {
+        $i = $this->object->getIterator();
+        $this->assertInstanceOf("Traversable", $i);
+        $result = array();
+        foreach ($i as $key => $value) {
+            $result[$key] = $value;
+        }
+        $this->assertSame(array("key1" => "foo", "key2" => "bar", "key3" => "baz"), $result);
+    }
 }

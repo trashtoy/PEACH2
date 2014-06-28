@@ -25,8 +25,10 @@ namespace Peach\Util;
 /**
  * PHP の配列機能を使った Map の実装です.
  * このマップはキーに整数または文字列しか使えないという制限があります.
+ * 
+ * このクラスは foreach で各マッピングのキーと値を取り出すことが出来ます.
  */
-class ArrayMap implements Map
+class ArrayMap implements Map, \IteratorAggregate
 {
     /**
      * マッピングを保持する配列です.
@@ -198,5 +200,14 @@ class ArrayMap implements Map
     public function asArray()
     {
         return $this->data;
+    }
+    
+    /**
+     * このマップに登録されているマッピングを取り出す Iterator を返します.
+     * @return \Iterator
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->data);
     }
 }
