@@ -89,7 +89,7 @@ class ArraysTest extends \PHPUnit_Framework_TestCase
         );
         $this->assertEquals($test2[1], Arrays::min($test2));
         
-        $this->assertNull(Arrays::max(array()));
+        $this->assertNull(Arrays::min(array()));
         
         $comparator = new ArraysTest_Comparator();
         $result     = Arrays::min(array("three", "one", "five", "two", "four"), $comparator);
