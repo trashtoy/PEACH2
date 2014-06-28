@@ -95,7 +95,7 @@ class HashMap implements Map
      *                             (NULL の場合は {@link DefaultEquator} が適用されます)
      * @param  int       $capacity 容量 (デフォルトは 16, 最小で 2)
      */
-    public function __construct(Map $map = null, Equator $e = null, $capacity = 16)
+    public function __construct($map = null, Equator $e = null, $capacity = 16)
     {
         $this->table    = array();
         $this->equator  = isset($e) ? $e : DefaultEquator::getInstance();
@@ -129,7 +129,7 @@ class HashMap implements Map
             return;
         }
         
-        throw new Exception("\$map must be \\Peach\\Util\\Map or array.");
+        throw new \InvalidArgumentException("Argument (" . Values::getType($map) . ") must be array or \\Peach\\Util\\Map");
     }
     
     /**
