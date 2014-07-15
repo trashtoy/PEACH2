@@ -217,9 +217,11 @@ class TimestampTest extends AbstractTimeTest
         $d1 = new Timestamp(2012, 5, 21, 7, 30, 15);
         $d2 = new Timestamp(2012, 5, 21, 7, 30, 45);
         $d3 = new Date(2012, 5, 21);
+        $w  = new TimeWrapper($d1);
         $this->assertTrue($d1->equals($d1));
         $this->assertFalse($d1->equals($d2));
         $this->assertFalse($d1->equals($d3));
+        $this->assertFalse($d1->equals($w));
     }
     
     /**

@@ -77,6 +77,44 @@ class UtilTest extends \PHPUnit_Framework_TestCase
             $this->assertLessThan(0, Util::compareTime($d1[$i], $d1[$i + 1]));
             $this->assertGreaterThan(0, Util::compareTime($d1[$i + 1], $d1[$i]));
         }
+        
+        /*
+         * ラッパーオブジェクトを含めたテスト
+         */
+        $obj1 = new Date(2012, 5, 21);
+        $obj2 = new Datetime(2012, 5, 21, 0, 0);
+        $obj3 = new Timestamp(2012, 5, 21, 0, 0, 0);
+        $d2   = array(
+            $obj1,
+            $obj2,
+            $obj3,
+            new TimeWrapper($obj1),
+            new TimeWrapper($obj2),
+            new TimeWrapper($obj3),
+        );
+        $zeroTest1 = array(0, 1, 2, 3, 4, 5);
+        $zeroTest2 = array(3, 4, 5, 0, 1, 2);
+        $subTest1  = array(1, 2, 2, 4, 5, 5);
+        $subTest2  = array(0, 0, 1, 3, 3, 4);
+        $subTest3  = array(3, 3, 4, 0, 0, 1);
+        
+        for ($i = 0; $i < 6; $i ++) {
+            $i1 = $zeroTest1[$i];
+            $i2 = $zeroTest2[$i];
+            $i3 = $subTest1[$i];
+            $i4 = $subTest2[$i];
+            $i5 = $subTest3[$i];
+            
+            // あるオブジェクトと、そのオブジェクトのラッパーオブジェクトの比較は 0 を返します
+            $this->assertSame(0, Util::compareTime($d2[$i1], $d2[$i2]));
+            $this->assertSame(0, Util::compareTime($d2[$i2], $d2[$i1]));
+            
+            // 共通フィールドがすべて等しい場合、より多くのフィールドを持つほうが大となります
+            $this->assertGreaterThan(0, Util::compareTime($d2[$i3], $d2[$i4]));
+            $this->assertGreaterThan(0, Util::compareTime($d2[$i3], $d2[$i5]));
+            $this->assertLessThan(0, Util::compareTime($d2[$i4], $d2[$i3]));
+            $this->assertLessThan(0, Util::compareTime($d2[$i5], $d2[$i3]));
+        }
     }
     
     /**
