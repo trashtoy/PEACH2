@@ -52,4 +52,10 @@ abstract class Context
      * @return mixed
      */
     public abstract function getResult();
+    
+    /**
+     * テキストノードを処理します.
+     * @param  Text
+     */
+    public abstract function handleText(Text $node);
 }
