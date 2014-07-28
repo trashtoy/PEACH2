@@ -54,6 +54,12 @@ abstract class Context
     public abstract function getResult();
     
     /**
+     * 空要素タグを処理します.
+     * @param  EmptyElement
+     */
+    public abstract function handleEmptyElement(EmptyElement $node);
+    
+    /**
      * テキストノードを処理します.
      * @param  Text
      */

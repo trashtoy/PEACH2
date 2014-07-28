@@ -16,6 +16,11 @@ class TestContext extends Context
         return $this->result;
     }
     
+    public function handleEmptyElement(EmptyElement $node)
+    {
+        $this->result = "handleEmptyElement";
+    }
+    
     public function handleText(Text $node)
     {
         $this->result = "handleText";
