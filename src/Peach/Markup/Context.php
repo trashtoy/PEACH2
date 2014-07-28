@@ -64,4 +64,10 @@ abstract class Context
      * @param  Text
      */
     public abstract function handleText(Text $node);
+    
+    /**
+     * 整形済テキストを処理します.
+     * @param  Code
+     */
+    public abstract function handleCode(Code $node);
 }

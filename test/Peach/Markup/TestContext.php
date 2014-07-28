@@ -25,4 +25,9 @@ class TestContext extends Context
     {
         $this->result = "handleText";
     }
+    
+    public function handleCode(Code $node)
+    {
+        $this->result = "handleCode";
+    }
 }
