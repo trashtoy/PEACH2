@@ -70,4 +70,10 @@ abstract class Context
      * @param  Code
      */
     public abstract function handleCode(Code $node);
+    
+    /**
+     * None を処理します.
+     * @param  None
+     */
+    public abstract function handleNone(None $none);
 }

@@ -30,4 +30,9 @@ class TestContext extends Context
     {
         $this->result = "handleCode";
     }
+    
+    public function handleNone(None $none)
+    {
+        $this->result = "handleNone";
+    }
 }
