@@ -72,6 +72,12 @@ abstract class Context
     public abstract function handleCode(Code $node);
     
     /**
+     * NodeList を処理します.
+     * @param  NodeList
+     */
+    public abstract function handleNodeList(NodeList $node);
+    
+    /**
      * None を処理します.
      * @param  None
      */

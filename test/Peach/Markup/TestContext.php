@@ -31,6 +31,11 @@ class TestContext extends Context
         $this->result = "handleCode";
     }
     
+    public function handleNodeList(NodeList $nodeList)
+    {
+        $this->result = "handleNodeList";
+    }
+    
     public function handleNone(None $none)
     {
         $this->result = "handleNone";
