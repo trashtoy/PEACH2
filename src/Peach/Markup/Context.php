@@ -54,6 +54,12 @@ abstract class Context
     public abstract function getResult();
     
     /**
+     * コンテナ要素を処理します.
+     * @param  ContainerElement
+     */
+    public abstract function handleContainerElement(ContainerElement $node);
+    
+    /**
      * 空要素タグを処理します.
      * @param  EmptyElement
      */
