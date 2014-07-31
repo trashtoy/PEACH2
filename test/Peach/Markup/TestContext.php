@@ -16,6 +16,11 @@ class TestContext extends Context
         return $this->result;
     }
     
+    public function handleCode(Code $node)
+    {
+        $this->result = "handleCode";
+    }
+    
     public function handleComment(Comment $node)
     {
         $this->result = "handleComment";
@@ -31,16 +36,6 @@ class TestContext extends Context
         $this->result = "handleEmptyElement";
     }
     
-    public function handleText(Text $node)
-    {
-        $this->result = "handleText";
-    }
-    
-    public function handleCode(Code $node)
-    {
-        $this->result = "handleCode";
-    }
-    
     public function handleNodeList(NodeList $nodeList)
     {
         $this->result = "handleNodeList";
@@ -49,5 +44,10 @@ class TestContext extends Context
     public function handleNone(None $none)
     {
         $this->result = "handleNone";
+    }
+    
+    public function handleText(Text $node)
+    {
+        $this->result = "handleText";
     }
 }
