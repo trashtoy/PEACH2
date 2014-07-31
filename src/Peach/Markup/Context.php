@@ -78,6 +78,12 @@ abstract class Context
     public abstract function handleCode(Code $node);
     
     /**
+     * コメントノードを処理します.
+     * @param  Comment
+     */
+    public abstract function handleComment(Comment $node);
+    
+    /**
      * NodeList を処理します.
      * @param  NodeList
      */
