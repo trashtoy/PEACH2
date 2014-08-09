@@ -143,4 +143,37 @@ class TestUtil
         }
         return $expected;
     }
+    
+    /**
+     * テストノードを DebugBuilder::build() で処理した場合の想定結果を返します.
+     * @return string
+     */
+    public static function getDebugBuildResult()
+    {
+        static $expected = null;
+        if ($expected === null) {
+            $expected = implode("\r\n", array(
+                "ContainerElement(html) {",
+                "    ContainerElement(head) {",
+                "        EmptyElement(meta)",
+                "        ContainerElement(title) {",
+                "            Text",
+                "        }",
+                "    }",
+                "    ContainerElement(body) {",
+                "        ContainerElement(form) {",
+                "            Text",
+                "            EmptyElement(input)",
+                "            EmptyElement(br)",
+                "            EmptyElement(input)",
+                "            Text",
+                "            EmptyElement(br)",
+                "            EmptyElement(input)",
+                "        }",
+                "    }",
+                "}",
+            )) . "\r\n";
+        }
+        return $expected;
+    }
 }
