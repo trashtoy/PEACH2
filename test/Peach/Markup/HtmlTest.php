@@ -497,4 +497,59 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
     {
         Html::alias(array("tag" => "valid1", "hogehoge" => "invalid1"));
     }
+    
+    /**
+     * closure() のテストです. 以下について確認します.
+     * 
+     * - 返り値のクロージャを実行すると, 指定したメソッドを呼び出すこと
+     * - 同じ引数で複数回実行すると, 同一のオブジェクトを返すこと
+     * 
+     * @covers Peach\Markup\Html::closure
+     */
+    public function testClosure()
+    {
+        $t  = Html::closure("tag");
+        $co = Html::closure("comment");
+        $cc = Html::closure("conditionalComment");
+        $s  = Html::closure("select");
+        $this->assertInstanceOf("Closure", $t);
+        
+        $ex1 = implode("\r\n", array(
+            '<div>',
+            '    <!--TEST-->',
+            '    <p>Hello World!</p>',
+            '    <!--[if lt IE 9]>',
+            '    <script src="ieonly.js"></script>',
+            '    <![endif]-->',
+            '    <select name="foo">',
+            '        <option value="1">A</option>',
+            '        <option value="2" selected>B</option>',
+            '        <option value="3">C</option>',
+            '    </select>',
+            '</div>',
+        ));
+        $result = $t("div")
+            ->append($co("TEST"))
+            ->append($t("p")->append("Hello World!"))
+            ->append($cc("lt IE 9", $t("script")->attr("src", "ieonly.js")))
+            ->append(
+                $s(2, array("A" => 1, "B" => 2, "C" => 3), array("name" => "foo"))
+            );
+        $this->assertSame($ex1, $result->write());
+        
+        $t2 = Html::closure("tag");
+        $this->assertSame($t2, $t);
+    }
+    
+    /**
+     * closure() の引数に存在しないメソッド名を指定した場合,
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @expectedException \InvalidArgumentException
+     * @covers Peach\Markup\Html::closure
+     */
+    public function testClosureByUndefinedMethod()
+    {
+        Html::closure("notfound");
+    }
 }

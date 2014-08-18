@@ -373,4 +373,79 @@ class Html
             eval("function {$select}(\$c1, \$c2, \$a = array()) { return \Peach\Markup\Html::select(\$c1, \$c2, \$a); }");
         }
     }
+    
+    /**
+     * このクラスで定義されているメソッドを呼び出すためのクロージャを生成します.
+     * 引数に指定することができるメソッド名は以下の通りです.
+     * 
+     * - {@link Html::tag()}
+     * - {@link Html::comment()}
+     * - {@link Html::conditionalComment()}
+     * - {@link Html::select()}
+     * 
+     * 使用例を挙げます.
+     * <code>
+     * $t = Html::closure("tag");
+     * $c = Html::closure("comment");
+     * echo $t("div")
+     *     ->append($c("TEST"))
+     *     ->append($t("h1")->append("Sample"))
+     *     ->append($t("p")->append("Hello World!"))
+     *     ->write();
+     * </code>
+     * このコードは以下の内容と等価です.
+     * <code>
+     * echo Html::tag("div")
+     *     ->append(Html::comment("TEST"))
+     *     ->append(Html::tag("h1")->append("Sample"))
+     *     ->append(Html::tag("p")->append("Hello World!"))
+     *     ->write();
+     * </code>
+     * いずれも以下の結果を出力します.
+     * <code>
+     * <div>
+     *     <!--TEST-->
+     *     <h1>Sample</h1>
+     *     <p>Hello world!</p>
+     * </div>
+     * </code>
+     * 
+     * 同様の処理を行うメソッドとして alias() がありますが,
+     * alias() は関数定義を行うことでグローバルスコープに影響を及ぼしてしまうため,
+     * 使用することはあまり好ましくありません.
+     * 特に理由がない限り alias() ではなく closure() を使用するようにしてください.
+     * 
+     * @param string $name メソッド名
+     */
+    public static function closure($name)
+    {
+        static $closures = array("tag" => null, "comment" => null, "conditionalComment" => null, "select" => null);
+        if (!array_key_exists($name, $closures)) {
+            throw new \InvalidArgumentException("Method '{$name}' is not found.");
+        }
+        if ($closures[$name] === null) {
+            $closures[$name] = self::createClosure($name);
+        }
+        return $closures[$name];
+    }
+    
+    /**
+     * @param string $name
+     * @return \Closure
+     */
+    private static function createClosure($name)
+    {
+        switch ($name) {
+            case "tag":
+                return function ($n = null, $a = array()) { return self::tag($n, $a); };
+            case "comment":
+                return function ($c, $p = "", $s = "") { return self::comment($c, $p, $s); };
+            case "conditionalComment":
+                return function ($c1, $c2) { return self::conditionalComment($c1, $c2); };
+            case "select":
+                return function ($c1, $c2, $a = array()) { return self::select($c1, $c2, $a); };
+            default:
+                throw new \Excption("Invalid name specified.");
+        }
+    }
 }
