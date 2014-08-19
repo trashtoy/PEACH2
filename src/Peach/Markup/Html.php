@@ -416,6 +416,8 @@ class Html
      * 特に理由がない限り alias() ではなく closure() を使用するようにしてください.
      * 
      * @param string $name メソッド名
+     * @return \Closure 指定されたメソッド名を呼び出すクロージャ
+     * @throws \InvalidArgumentException 指定されたメソッド名が存在しない場合
      */
     public static function closure($name)
     {
@@ -447,5 +449,40 @@ class Html
             default:
                 throw new \Excption("Invalid name specified.");
         }
+    }
+    
+    /**
+     * 指定されたメソッド名を呼び出すクロージャの一覧を返します.
+     * 使用例を挙げます.
+     * <code>
+     * list($t, $c) = Html::closures(array("tag", "comment"));
+     * </code>
+     * このコードは以下の内容と等価です.
+     * <code>
+     * $t = Html::closure("tag");
+     * $c = Html::closure("comment");
+     * </code>
+     * 
+     * 以下のように, メソッド名をキーとして対応するクロージャを取り出すこともできます.
+     * <code>
+     * $closures = Html::closures(array("tag", "comment"));
+     * $t = $closures["tag"];
+     * $c = $closures["comment"];
+     * </code>
+     * 
+     * @param  array $names メソッド名の配列
+     * @return array        指定されたメソッドを呼び出すクロージャの配列
+     * @throws \InvalidArgumentException 配列内に不正なメソッド名が 1 つ以上存在した場合
+     */
+    public static function closures(array $names)
+    {
+        $result = array();
+        foreach ($names as $name) {
+            $name          = Values::stringValue($name);
+            $closure       = self::closure($name);
+            $result[]      = $closure;
+            $result[$name] = $closure;
+        }
+        return $result;
     }
 }

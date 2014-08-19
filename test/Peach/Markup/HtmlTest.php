@@ -552,4 +552,41 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
     {
         Html::closure("notfound");
     }
+    
+    /**
+     * 引数に指定したそれぞれのメソッド名について, 対応するクロージャを返すことを確認します.
+     * 
+     * @covers Peach\Markup\Html::closure
+     */
+    public function testClosures()
+    {
+        $ex1 = Html::closure("tag");
+        $ex2 = Html::closure("comment");
+        $ex3 = Html::closure("select");
+        $ex4 = Html::closure("conditionalComment");
+        
+        $c = Html::closures(array("tag", "comment", "select", "conditionalComment"));
+        $this->assertSame($ex1, $c["tag"]);
+        $this->assertSame($ex2, $c["comment"]);
+        $this->assertSame($ex3, $c["select"]);
+        $this->assertSame($ex4, $c["conditionalComment"]);
+        
+        list($c1, $c2, $c3, $c4) = Html::closures(array("tag", "comment", "select", "conditionalComment"));
+        $this->assertSame($ex1, $c1);
+        $this->assertSame($ex2, $c2);
+        $this->assertSame($ex3, $c3);
+        $this->assertSame($ex4, $c4);
+    }
+    
+    /**
+     * 引数の配列内に存在しないメソッド名が含まれている場合,
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @expectedException \InvalidArgumentException
+     * @covers Peach\Markup\Html::closures
+     */
+    public function testClosuresFail()
+    {
+        Html::closures(array("tag", "invalid", "comment"));
+    }
 }
