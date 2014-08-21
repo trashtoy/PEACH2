@@ -40,7 +40,6 @@ class EmptyElementTest extends ElementTest
     /**
      * Context の handleEmptyElement() が呼び出されることを確認します.
      * @covers Peach\Markup\EmptyElement::accept
-     * @todo   Implement testAccept().
      */
     public function testAccept()
     {

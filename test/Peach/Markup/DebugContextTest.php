@@ -88,7 +88,6 @@ class DebugContextTest extends ContextTest
      * handleEmptyElement() のテストです.
      * 
      * @covers Peach\Markup\DebugContext::handleEmptyElement
-     * @todo   Implement testHandleEmptyElement().
      */
     public function testHandleEmptyElement()
     {
