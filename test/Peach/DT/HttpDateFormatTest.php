@@ -90,7 +90,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * をスローすることを確認します.
      * 
      * @expectedException \InvalidArgumentException
-     * @covers HttpDateFormat::parseDate
+     * @covers Peach\DT\HttpDateFormat::parseDate
      */
     public function testParseDateFail()
     {
@@ -116,7 +116,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * をスローすることを確認します.
      * 
      * @expectedException \InvalidArgumentException
-     * @covers HttpDateFormat::parseDatetime
+     * @covers Peach\DT\HttpDateFormat::parseDatetime
      */
     public function testParseDatetimeFail()
     {
@@ -142,7 +142,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * をスローすることを確認します.
      * 
      * @expectedException \InvalidArgumentException
-     * @covers HttpDateFormat::parseTimestamp
+     * @covers Peach\DT\HttpDateFormat::parseTimestamp
      */
     public function testParseTimestampFail()
     {
