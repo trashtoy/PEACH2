@@ -38,8 +38,6 @@ namespace Peach\DT;
  * 
  * 参考文献:
  * {@link http://www.arielworks.net/articles/2004/0125a モジュール版PHPで「If-Modified-Since」に対応する}
- * 
- * @package DT
  */
 class HttpDateFormat implements Format
 {

@@ -26,8 +26,6 @@ namespace Peach\Markup;
  * ノードを内部に含めることが出来るインタフェースです.
  * このインタフェースを実装したクラスに
  * {@link NodeList} や {@link ContainerElement} などがあります.
- * 
- * @package Markup
  */
 interface Container extends Component
 {

@@ -42,8 +42,6 @@ namespace Peach\DT;
  * この場合, 内部のタイムゾーンと出力用のタイムゾーンの時差が -4 時間となるため,
  * new Datetime(2012, 5, 21, 7, 30) の時間オブジェクトを書式化した結果は
  * "2012-05-21T03:30+5:00" となります.
- * 
- * @package DT
  */
 class W3cDatetimeFormat implements Format
 {

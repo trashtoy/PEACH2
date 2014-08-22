@@ -31,8 +31,6 @@ namespace Peach\DT;
  * - {@link Date::parse}
  * - {@link Datetime::parse}
  * - {@link Timestamp::parse}
- * 
- * @package DT
  */
 interface Format
 {

@@ -29,8 +29,6 @@ namespace Peach\Markup;
  * 
  * ただし整形済テキスト ({@link Code}) については例外です.
  * テキストに含まれる改行文字をありのまま出力します.
- * 
- * @package Markup
  */
 class MinimalBreakControl implements BreakControl
 {

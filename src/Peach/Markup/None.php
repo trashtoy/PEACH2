@@ -29,8 +29,6 @@ namespace Peach\Markup;
  * 
  * - コンテナに append しても何も追加されない
  * - Context に処理させても何も行われない (ただし DebugContext を除く)
- * 
- * @package Markup
  */
 class None implements Component
 {
