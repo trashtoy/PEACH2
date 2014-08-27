@@ -23,7 +23,7 @@
 namespace Peach\Markup;
 
 /**
- * {@link Builder Builder} で処理可能なパーツであることを示すインタフェースです.
+ * {@link Builder} で処理可能なパーツであることを示すインタフェースです.
  * このインタフェースを実装したオブジェクトは
  * {@link Builder::build()} メソッドの引数に指定して
  * HTML コードなどに加工することが出来ます.

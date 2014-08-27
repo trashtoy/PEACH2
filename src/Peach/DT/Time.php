@@ -33,7 +33,7 @@ use Peach\Util\Comparable;
  * - TIMESTAMP : 年・月・日・時・分・秒のフィールドを持ちます
  * 
  * とある時間オブジェクトについて, そのオブジェクトの型が何かを調べるには
- * {@link Time::getType() getType()} メソッドを使用してください.
+ * {@link Time::getType()} メソッドを使用してください.
  * 
  * 時間オブジェクトを操作するための各種メソッド (get, add, set, setAll など)
  * は文字列型の引数を指定して呼び出す仕様となっていますが,

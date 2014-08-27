@@ -81,7 +81,7 @@ abstract class Element implements Node
      * 指定された属性の値を返します.
      * 属性が存在しないか, 値の省略された属性の場合は NULL を返します.
      * 属性が存在しているかどうかを調べる場合は
-     * {@link Element::hasAttribute() hasAttribute()}
+     * {@link Element::hasAttribute()}
      * を使用してください.
      * 
      * @param  string 属性名

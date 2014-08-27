@@ -25,7 +25,7 @@ namespace Peach\Markup;
 /**
  * 各ノードを変換する処理を担当するクラスです.
  * このクラスは Visitor パターンにより設計されています (Visitor クラスに相当します).
- * {@link Builder Builder} クラスと連携して以下のように動作します.
+ * {@link Builder} クラスと連携して以下のように動作します.
  * 
  * 1. エンドユーザーが Builder オブジェクトの {@link Builder::build()} メソッドを実行します
  * 2. build() メソッドの内部で新しい Context オブジェクトが生成されます

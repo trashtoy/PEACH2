@@ -85,7 +85,7 @@ class DefaultEquator implements Equator
      * 
      * - boolean 型にキャストした結果 FALSE となるような引数については 0
      * - 引数が数値表現の場合はその絶対値
-     * - それ以外の値の場合は, 引数の文字列表現の {@link md5() md5()} ハッシュの一部
+     * - それ以外の値の場合は, 引数の文字列表現の {@link http://www.php.net/manual/function.md5.php md5()} ハッシュの一部
      * 
      * @param  mixed $var
      * @return int   引数のハッシュ値
