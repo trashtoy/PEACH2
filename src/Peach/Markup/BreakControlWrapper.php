@@ -52,7 +52,7 @@ class BreakControlWrapper implements BreakControl
     
     /**
      * ラップ対象の BreakControl オブジェクトを返します.
-     * @return BreakControl
+     * @return BreakControl このオブジェクトがラップしている BreakControl
      */
     public function getOriginal()
     {
@@ -60,10 +60,10 @@ class BreakControlWrapper implements BreakControl
     }
     
     /**
-     * オリジナルの breaks() を呼び出します.
+     * この実装はオリジナルの breaks() をそのまま返します.
      * 
-     * @param  ContainerElement $node
-     * @return bool
+     * @param  ContainerElement $node 判定対象の要素
+     * @return bool ラップしているオブジェクトの breaks() の結果
      */
     public function breaks(ContainerElement $node)
     {

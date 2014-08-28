@@ -28,9 +28,9 @@ namespace Peach\Markup;
 abstract class Builder
 {
     /**
-     * 指定されたノードを加工します. 返り値の型は具象クラスによって異なります.
-     * @param  Component
-     * @return mixed
+     * 指定された Component を加工します. 返り値の型は具象クラスによって異なります.
+     * @param  Component 加工対象の Component
+     * @return mixed     加工した結果
      */
     public final function build(Component $node)
     {

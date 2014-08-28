@@ -33,8 +33,8 @@ abstract class AbstractRenderer implements Renderer
     /**
      * 開始タグをマークアップします.
      * この書式化ルールは SGML, XML 共通です.
-     * @param  Element
-     * @return string
+     * @param  Element 要素
+     * @return string  開始タグ ("<tagName attr... >")
      */
     public final function formatStartTag(Element $element)
     {
@@ -44,8 +44,8 @@ abstract class AbstractRenderer implements Renderer
     /**
      * 終了タグをマークアップします.
      * この書式化ルールは SGML, XML 共通です.
-     * @param  Element
-     * @return string
+     * @param  Element 要素
+     * @return string  終了タグ ("</tagName>")
      */
     public final function formatEndTag(Element $element)
     {
@@ -55,8 +55,8 @@ abstract class AbstractRenderer implements Renderer
     /**
      * 空要素タグをマークアップします.
      * タグの末尾の書式化方法は各サブクラスに依存します.
-     * @param  Element
-     * @return string
+     * @param  Element 要素
+     * @return string  空要素タグ ("<tagName attr... >" または <tagName attr... />")
      */
     public final function formatEmptyTag(Element $element)
     {

@@ -110,7 +110,7 @@ class Indent
     
     /**
      * インデント一つ分の文字列です.
-     * @return string
+     * @return string インデント一つ分の文字列
      */
     public function getUnit()
     {
@@ -129,7 +129,7 @@ class Indent
     
     /**
      * 改行コードを返します.
-     * @return string
+     * @return string 改行コード ("\n" や "\r\n" など)
      */
     public function breakCode()
     {
@@ -139,7 +139,7 @@ class Indent
     /**
      * インデントレベルを一つ上げます.
      * 改行コードを返します.
-     * @return string
+     * @return string 改行コード
      */
     public function stepUp()
     {
@@ -151,7 +151,7 @@ class Indent
      * インデントレベルを一つ下げます.
      * 新しいレベルのインデント文字列を返します.
      * 
-     * @return string
+     * @return string 現在の一つ下のレベルのインデント文字列
      */
     public function stepDown()
     {
