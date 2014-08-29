@@ -55,12 +55,12 @@ class Comment implements Container, Node
     
     /**
      * 指定された prefix と suffix を持つ Comment オブジェクトを構築します.
-     * prefix と suffix は, 条件付きコメントの先頭 ("[if IE 6]>" など) と
+     * prefix と suffix は, 主に条件付きコメントの先頭 ("[if IE 6]>" など) と
      * 末尾 ("<![endif]" など) に使用されます.
      * 引数を指定しない場合は通常のコメントノードを生成します.
      * 
-     * @param string $prefix 条件付きコメントの冒頭
-     * @param string $suffix 条件付きコメントの末尾
+     * @param string $prefix コメントの冒頭 ("[if IE 6]>" など)
+     * @param string $suffix コメントの末尾 ("<![endif]" など)
      */
     public function __construct($prefix = "", $suffix = "")
     {
@@ -70,8 +70,9 @@ class Comment implements Container, Node
     }
     
     /**
-     * 条件付きコメントの冒頭の文字列を返します.
-     * @return string
+     * コメントの冒頭の文字列を返します.
+     * 
+     * @return string コメントの冒頭文字列. 存在しない場合は空文字列
      */
     public function getPrefix()
     {
@@ -79,8 +80,9 @@ class Comment implements Container, Node
     }
     
     /**
-     * 条件付きコメントの末尾の文字列を返します.
-     * @return string
+     * コメントの末尾の文字列を返します.
+     * 
+     * @return string コメントの末尾の文字列. 存在しない場合は空文字列
      */
     public function getSuffix()
     {
@@ -91,7 +93,7 @@ class Comment implements Container, Node
      * 指定された Context にこのノードを処理させます.
      * {@link Context::handleComment()} を呼び出します.
      * 
-     * @param Context $context
+     * @param Context $context このノードを処理する Context
      */
     public function accept(Context $context)
     {
@@ -111,7 +113,7 @@ class Comment implements Container, Node
     /**
      * このコメントノードに含まれる子ノードの一覧を返します.
      * 
-     * @return array
+     * @return array 子ノードの一覧
      */
     public function getChildNodes()
     {
