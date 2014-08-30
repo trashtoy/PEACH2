@@ -31,8 +31,8 @@ namespace Peach\Markup;
 interface Component
 {
     /**
-     * 指定された Context にこのノードを処理させます. Visitor パターンの accept() に相当します.
-     * @param Context
+     * 指定された Context にこのオブジェクトを処理させます. Visitor パターンの accept() に相当します.
+     * @param Context この Component を処理する Context
      */
     public function accept(Context $context);
 }

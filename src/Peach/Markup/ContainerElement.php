@@ -51,7 +51,7 @@ class ContainerElement extends Element implements Container
      * この要素に子ノードを追加します.
      * 
      * @param  mixed 追加する値
-     * @throws Exception 指定されたノードの中にこのノードが存在している場合
+     * @throws \InvalidArgumentException 指定されたノードの中にこのノードが存在している場合
      */
     public function append($var)
     {
@@ -70,7 +70,7 @@ class ContainerElement extends Element implements Container
     /**
      * 指定された Context にこのノードを処理させます.
      * {@link Context::handleContainerElement()} を呼び出します.
-     * @param Context $context
+     * @param Context $context このノードを処理する Context
      */
     public function accept(Context $context)
     {
