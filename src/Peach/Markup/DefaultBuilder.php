@@ -73,7 +73,7 @@ class DefaultBuilder extends Builder
      * この Builder に指定された Indent オブジェクトをセットします.
      * null を指定した場合は設定を解除します.
      * 
-     * @param  Indent $indent
+     * @param  Indent $indent セットする Indent オブジェクト
      */
     public function setIndent(Indent $indent = null)
     {
@@ -101,7 +101,7 @@ class DefaultBuilder extends Builder
      * - null を指定した場合 : 現在セットされている Renderer を解除します
      * - それ以外: InvalidArgumentException をスローします
      * 
-     * @param  Renderer|string $renderer
+     * @param  Renderer|string $renderer セットする Renderer または対応する文字列
      * @throws \InvalidArgumentException 不正な引数をセットした場合
      */
     public function setRenderer($renderer = null)
@@ -151,7 +151,7 @@ class DefaultBuilder extends Builder
      * この Builder に指定された BreakControl をセットします.
      * null を指定した場合は設定を解除します.
      * 
-     * @param  BreakControl $breakControl
+     * @param  BreakControl $breakControl セットする BreakControl
      */
     public function setBreakControl(BreakControl $breakControl = null)
     {
@@ -159,7 +159,10 @@ class DefaultBuilder extends Builder
     }
     
     /**
-     * @return Markup_Context
+     * この Builder にセットされている Indent, Renderer, BreakControl
+     * を使って新しい DefaultContext を生成します.
+     * 
+     * @return DefaultContext 新しい DefaultContext
      */
     protected function createContext()
     {

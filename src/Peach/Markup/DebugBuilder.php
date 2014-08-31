@@ -41,7 +41,7 @@ class DebugBuilder extends Builder
     
     /**
      * この Builder にセットされた echoMode で DebugContext を初期化します.
-     * @return DebugContext
+     * @return DebugContext 新しい DebugContext
      */
     protected function createContext()
     {
