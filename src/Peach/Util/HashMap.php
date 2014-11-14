@@ -140,7 +140,7 @@ class HashMap implements Map
     /**
      * このマップの容量を計算します.
      * 引数以上で最小の 2 の累乗となる整数を返します.
-     * @param int 容量
+     * @param int $capacity 容量
      */
     private static function detectCapacity($capacity)
     {
@@ -157,8 +157,8 @@ class HashMap implements Map
     
     /**
      * 指定されたキーと値をこの Map に関連づけます.
-     * @param mixed キー
-     * @param mixed 値
+     * @param mixed $key   キー
+     * @param mixed $value 値
      */
     public function put($key, $value)
     {
@@ -240,9 +240,9 @@ class HashMap implements Map
         return $size;
     }
     
-    /*
+    /**
      * この HashMap に含まれるキーの一覧を返します.
-     * @return array
+     * @return array この HashMap に含まれるキーの配列
      */
     public function keys()
     {
@@ -259,8 +259,8 @@ class HashMap implements Map
      * 指定されたキーによるマッピングが存在するかどうかを調べます.
      * マッピングが存在する場合に TRUE を返します.
      * 
-     * @param  mixed キー
-     * @return bool  マッピングが存在する場合に TRUE
+     * @param  mixed $key キー
+     * @return bool       マッピングが存在する場合に TRUE
      */
     public function containsKey($key)
     {
@@ -278,7 +278,7 @@ class HashMap implements Map
     
     /**
      * 指定されたキーのマッピングを削除します.
-     * @param mixed キー
+     * @param mixed $key キー
      */
     public function remove($key)
     {
@@ -336,9 +336,9 @@ class HashMap implements Map
      * ユーザーは, 必要に応じてこのメソッドをオーバーライドし,
      * 機能拡張した HashMapEntry を返すようにすることもできます.
      * 
-     * @param  mixed マッピングのキー.
-     * @param  mixed マッピングの値.
-     * @return HashMapEntry
+     * @param  mixed $key   マッピングのキー
+     * @param  mixed $value マッピングの値
+     * @return HashMapEntry 引数の $key と $value をマッピングした HashMapEntry
      */
     protected function createEntry($key, $value)
     {

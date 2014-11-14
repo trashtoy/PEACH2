@@ -109,9 +109,11 @@ class DefaultComparator implements Comparator
     }
     
     /**
-     * @param  mixed $var1
-     * @param  mixed $var2
-     * @return int
+     * 引数 $var1 と $var2 を比較し, 結果を 0, 1, -1 のいずれかで返します.
+     * 
+     * @param  mixed $var1 比較対象の値
+     * @param  mixed $var2 比較対象の値
+     * @return int         引数 $var1 のほうが大きい場合は 1, $var2 のほうが大きい場合は -1, 等しい場合は 0
      */
     private static function compareArrays($var1, $var2)
     {

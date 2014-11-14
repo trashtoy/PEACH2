@@ -163,9 +163,11 @@ class Arrays
     }
     
     /**
-     * @param  string  $value
-     * @param  string  $type
-     * @return boolean
+     * 指定された値が第 2 引数で指定した型にマッチするかどうかを調べます.
+     * 
+     * @param  string  $value 検査対象の値
+     * @param  string  $type  型
+     * @return bool           引数 $value の型が $type に合致する場合に true
      */
     private static function pickupMatch($value, $type)
     {

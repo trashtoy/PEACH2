@@ -47,8 +47,8 @@ abstract class AbstractMapEntry implements MapEntry
     
     /**
      * 新しいエントリーオブジェクトを構築します.
-     * @param mixed キー
-     * @param mixed 値
+     * @param mixed $key   キー
+     * @param mixed $value 値
      */
     public function __construct($key, $value)
     {
