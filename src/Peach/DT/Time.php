@@ -164,16 +164,16 @@ interface Time extends Comparable
     
     /**
      * 引数のフィールドを, $amount だけ増加 (負の場合は減少) させます.
-     * @param  string  対象のフィールド
-     * @param  int     加算する量. マイナスの場合は過去方向に移動する.
-     * @return Time 設定後の時間オブジェクト
+     * @param  string $field  対象のフィールド
+     * @param  int    $amount 加算する量. マイナスの場合は過去方向に移動する.
+     * @return Time           設定後の時間オブジェクト
      */
     public function add($field, $amount);
     
     /**
      * 指定されたフォーマットを使ってこの時間オブジェクトを書式化します.
      * フォーマットを指定しない場合はデフォルトの方法 (SQL などで使われる慣用表現) で書式化を行ないます.
-     * @param  Format $format
+     * @param  Format $format Format オブジェクト (省略可)
      * @return string このオブジェクトの書式化. 引数を指定しない場合は "YYYY-MM-DD" あるいは "YYYY-MM-DD hh:mm:ss" などの文字列
      */
     public function format(Format $format = null);

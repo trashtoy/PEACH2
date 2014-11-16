@@ -204,6 +204,10 @@ class Timestamp extends Datetime
         return new Timestamp($this->year, $this->month, $this->date, $this->hour, $this->minute, $this->second);
     }
     
+    /**
+     * このクラスのフィールドを調整するための FieldAdjuster を返します.
+     * @return FieldAdjuster
+     */
     private function getAdjuster()
     {
         static $adjuster = null;

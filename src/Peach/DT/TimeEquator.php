@@ -37,6 +37,10 @@ use Peach\Util\Values;
 class TimeEquator implements Equator
 {
     /**
+     * 比較対象のフィールドの配列です.
+     * array("year", "month", "date")
+     * のような文字列型の配列となります.
+     * 
      * @var array
      */
     private $fields;
