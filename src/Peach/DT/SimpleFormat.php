@@ -218,7 +218,7 @@ class SimpleFormat implements Format
      * 
      * @param  string $pattern パターン文字 ("Y", "m", "d" など)
      * @return string          引数のパターン文字に対応するフィールド名称
-     * @throws Exception       不正なパターン文字が指定された場合
+     * @throws \Exception      不正なパターン文字が指定された場合
      */
     private function getKey($pattern)
     {
@@ -235,7 +235,7 @@ class SimpleFormat implements Format
                 return $key;
             }
         }
-        throw new Exception("Illegal pattern: " . $pattern);
+        throw new \Exception("Illegal pattern: " . $pattern);
     }
     
     /**
@@ -244,7 +244,7 @@ class SimpleFormat implements Format
      * @param  Time   $d   変換対象の時間オブジェクト
      * @param  string $key パターン文字 ("Y", "m", "d" など)
      * @return int         変換結果
-     * @throws Exception   不正なパターン文字が指定された場合
+     * @throws \Exception  不正なパターン文字が指定された場合
      */
     private function formatKey(Time $d, $key)
     {
@@ -279,7 +279,7 @@ class SimpleFormat implements Format
             case "b":
                 return $sec;
             default:
-                throw new Exception("Illegal pattern: " . $key);
+                throw new \Exception("Illegal pattern: " . $key);
         }
     }
     
@@ -361,7 +361,7 @@ class SimpleFormat implements Format
      * 
      * @param  string $format   指定された文字列
      * @param  string $expected 想定されるパターン文字列
-     * @throws Exception
+     * @throws \InvalidArgumentException
      */
     private function throwFormatException($format, $expected)
     {
