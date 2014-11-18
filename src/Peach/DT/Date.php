@@ -177,6 +177,7 @@ class Date extends AbstractTime
     
     /**
      * 年と月の不整合を調整します.
+     * @param Map $fields 調整対象のフィールド一覧
      */
     private function adjustMonth(Map $fields)
     {
@@ -210,6 +211,7 @@ class Date extends AbstractTime
     
     /**
      * 年の値を4桁に調整します. (10000年問題に対応するまでの暫定的処置です.)
+     * @param Map $fields 調整対象のフィールド一覧
      */
     private function adjustYear(Map $fields)
     {
@@ -373,7 +375,8 @@ class Date extends AbstractTime
     /**
      * 指定された年がうるう年かどうかを判定します.
      * 
-     * @return bool うるう年である場合に TRUE, それ以外は FALSE
+     * @param  int $year 判定対象の年
+     * @return bool      うるう年である場合に TRUE, それ以外は FALSE
      */
     private static function checkLeapYear($year)
     {
@@ -397,9 +400,9 @@ class Date extends AbstractTime
     
     /**
      * 指定された月の日数を返します.
-     * @param  int 年
-     * @param  int 月
-     * @return int 引数で指定された月の日数. すなわち, 28 から 31 までの整数.
+     * @param  int $year  年
+     * @param  int $month 月
+     * @return int        引数で指定された月の日数. すなわち, 28 から 31 までの整数.
      */
     private static function getDateCountOf($year, $month)
     {
