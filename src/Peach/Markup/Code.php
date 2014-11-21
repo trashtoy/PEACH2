@@ -39,7 +39,7 @@ use Peach\Util\Values;
 class Code implements Node
 {
     /**
-     *
+     * 整形済テキスト
      * @var string
      */
     private $text;

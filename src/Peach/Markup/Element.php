@@ -62,7 +62,7 @@ abstract class Element implements Node
     
     /**
      * 要素名が適切かどうかを判断します.
-     * @param  string 要素名
+     * @param  string $name 要素名
      * @throws \InvalidArgumentException
      * @todo   バリデーションを厳格化
      */
@@ -89,8 +89,8 @@ abstract class Element implements Node
      * {@link Element::hasAttribute()}
      * を使用してください.
      * 
-     * @param  string 属性名
-     * @return string 属性の値. 存在しないか, 値の省略された属性の場合は NULL
+     * @param  string $name 属性名
+     * @return string       属性の値. 存在しないか, 値の省略された属性の場合は NULL
      */
     public function getAttribute($name)
     {
@@ -99,8 +99,8 @@ abstract class Element implements Node
     
     /**
      * 指定された属性が存在するかどうかを調べます.
-     * @param  string  属性名
-     * @return boolean 属性が存在する場合は TRUE, それ以外は FALSE
+     * @param  string  $name 属性名
+     * @return bool          属性が存在する場合は TRUE, それ以外は FALSE
      */
     public function hasAttribute($name)
     {
@@ -130,7 +130,7 @@ abstract class Element implements Node
      * キーが省略された場合 (具体的にはキーに整数が指定された場合) は,
      * その値を属性名とする Boolean 属性を設定します.
      * 
-     * @param array|ArrayMap 属性の一覧
+     * @param array|ArrayMap $attr 属性の一覧
      */
     public function setAttributes($attr)
     {
@@ -155,7 +155,7 @@ abstract class Element implements Node
     
     /**
      * 指定された属性を削除します.
-     * @param string 属性名
+     * @param string $name 属性名
      */
     public function removeAttribute($name)
     {

@@ -38,7 +38,7 @@ class EmptyElement extends Element
      * 指定された Context にこのノードを処理させます.
      * {@link Context::handleEmptyElement()} を呼び出します.
      * 
-     * @param Context
+     * @param Context $context このノードを処理する Context
      */
     public function accept(Context $context)
     {

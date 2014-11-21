@@ -35,13 +35,14 @@ use Peach\Util\ArrayMap;
 class HelperObject implements Container
 {
     /**
-     *
+     * このオブジェクトを生成した Helper オブジェクトです.
+     * このオブジェクトの prototype を生成する場合などに使用されます.
      * @var Helper
      */
     private $helper;
     
     /**
-     *
+     * このオブジェクトがラップしている Component です.
      * @var Component
      */
     private $node;
@@ -212,6 +213,8 @@ class HelperObject implements Container
     }
     
     /**
+     * このオブジェクトをプロトタイプとして, 新しい HelperObject を生成します.
+     * 
      * @return Element
      */
     private function createPrototype()

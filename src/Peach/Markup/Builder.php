@@ -34,13 +34,13 @@ abstract class Builder
 {
     /**
      * 指定された Component を加工します. 返り値の型は具象クラスによって異なります.
-     * @param  Component 加工対象の Component
-     * @return mixed     加工した結果
+     * @param  Component $c 加工対象の Component
+     * @return mixed        加工した結果
      */
-    public final function build(Component $node)
+    public final function build(Component $c)
     {
         $context = $this->createContext();
-        $context->handle($node);
+        $context->handle($c);
         return $context->getResult();
     }
     

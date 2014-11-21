@@ -45,7 +45,8 @@ class Html
     private function __construct() {}
     
     /**
-     * @param  bool $xml
+     * 新しい DefaultBuilder を生成します.
+     * @param  bool $xml XHTML 形式の場合は true, HTML 形式の場合は false
      * @return DefaultBuilder
      */
     private static function createBuilder($xml = false)
@@ -342,6 +343,7 @@ class Html
     }
     
     /**
+     * alias() の本処理です.
      * @param  array $options
      * @throws InvalidArgumentException
      */
@@ -437,7 +439,8 @@ class Html
     }
     
     /**
-     * @param string $name
+     * 指定されたメソッドのクロージャを生成します.
+     * @param string $name メソッド名
      * @return \Closure
      */
     private static function createClosure($name)

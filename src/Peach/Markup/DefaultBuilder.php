@@ -39,16 +39,19 @@ use Peach\Util\Values;
 class DefaultBuilder extends Builder
 {
     /**
+     * DefaultContext のコンストラクタに渡される Indent オブジェクトです.
      * @var Indent
      */
     private $indent;
     
     /**
+     * DefaultContext のコンストラクタに渡される Renderer オブジェクトです.
      * @var Renderer
      */
     private $renderer;
     
     /**
+     * DefaultContext のコンストラクタに渡される BreakControl オブジェクトです.
      * @var BreakControl
      */
     private $breakControl;
@@ -115,6 +118,9 @@ class DefaultBuilder extends Builder
     }
     
     /**
+     * 指定された引数で Renderer オブジェクトを初期化します.
+     * 
+     * @see    Renderer::setRenderer()
      * @param  Renderer|string $var
      * @return Renderer
      * @throws \InvalidArgumentException

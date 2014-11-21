@@ -44,7 +44,7 @@ class ContainerElement extends Element implements Container
     /**
      * 指定された要素名を持つコンテナ要素を構築します.
      * 
-     * @param string 要素名
+     * @param string $name 要素名
      */
     public function __construct($name)
     {
@@ -55,7 +55,7 @@ class ContainerElement extends Element implements Container
     /**
      * この要素に子ノードを追加します.
      * 
-     * @param  mixed 追加する値
+     * @param  mixed $var 追加する値
      * @throws \InvalidArgumentException 指定されたノードの中にこのノードが存在している場合
      */
     public function append($var)

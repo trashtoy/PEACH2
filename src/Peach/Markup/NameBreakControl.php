@@ -45,6 +45,7 @@ class NameBreakControl extends BreakControlWrapper
     private $noBreakNames;
     
     /**
+     * 指定された要素の改行ルールを強制する NameBreakControl インスタンスを生成します。
      * 
      * @param array $breakNames   強制的に改行する要素名
      * @param array $noBreakNames 強制的に改行しない要素名

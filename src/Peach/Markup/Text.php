@@ -43,7 +43,7 @@ class Text implements Node
     
     /**
      * 指定された内容のテキストノードを構築します.
-     * @param string テキストの内容
+     * @param string $text テキストの内容
      */
     public function __construct($text)
     {

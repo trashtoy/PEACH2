@@ -63,19 +63,19 @@ class Indent
     const CRLF   = "\r\n";
     
     /**
-     * 
+     * 現在のインデントレベルです.
      * @var int
      */
     private $level;
     
     /**
-     * 
+     * インデント一つ分の文字列です.
      * @var string
      */
     private $unit;
     
     /**
-     * 
+     * 改行コードです.
      * @var string
      */
     private $breakCode;

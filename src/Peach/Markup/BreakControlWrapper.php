@@ -36,7 +36,7 @@ namespace Peach\Markup;
 class BreakControlWrapper implements BreakControl
 {
     /**
-     *
+     * ラップ対象の BreakControl
      * @var BreakControl
      */
     private $original;

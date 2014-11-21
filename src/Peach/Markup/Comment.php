@@ -35,7 +35,7 @@ use Peach\Util\Values;
 class Comment implements Container, Node
 {
     /**
-     *
+     * 子ノードの一覧です.
      * @var NodeList
      */
     private $nodeList;

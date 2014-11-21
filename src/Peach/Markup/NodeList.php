@@ -59,6 +59,7 @@ class NodeList implements Container
      * 引数に値を設定した場合, その値をリストに追加した状態で初期化します.
      * 
      * @param Component|array|string $var 追加するノード
+     * @param Node $owner この NodeList を内部に持つ Node オブジェクト (エンドユーザーが直接使用することはありません)
      */
     public function __construct($var = null, Node $owner = null)
     {
