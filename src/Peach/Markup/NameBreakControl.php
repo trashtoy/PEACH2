@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
@@ -40,6 +45,7 @@ class NameBreakControl extends BreakControlWrapper
     private $noBreakNames;
     
     /**
+     * 指定された要素の改行ルールを強制する NameBreakControl インスタンスを生成します。
      * 
      * @param array $breakNames   強制的に改行する要素名
      * @param array $noBreakNames 強制的に改行しない要素名

@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\DT;
 
 /**
@@ -38,8 +43,6 @@ namespace Peach\DT;
  * 
  * 参考文献:
  * {@link http://www.arielworks.net/articles/2004/0125a モジュール版PHPで「If-Modified-Since」に対応する}
- * 
- * @package DT
  */
 class HttpDateFormat implements Format
 {
@@ -89,9 +92,9 @@ class HttpDateFormat implements Format
     /**
      * {@link HttpDateFormat::parseTimestamp()} の実行結果を Date にキャストします.
      * 
-     * @param  string       HTTP-date 形式の文字列
-     * @return Date      変換結果
-     * @throws Exception    フォーマットが不正な場合
+     * @param  string $format            HTTP-date 形式の文字列
+     * @return Date                      変換結果
+     * @throws \InvalidArgumentException フォーマットが不正な場合
      */
     public function parseDate($format)
     {
@@ -101,9 +104,9 @@ class HttpDateFormat implements Format
     /**
      * {@link HttpDateFormat::parseTimestamp()} の実行結果を Datetime にキャストします.
      * 
-     * @param  string       HTTP-date 形式の文字列
-     * @return Datetime  変換結果
-     * @throws Exception    フォーマットが不正な場合
+     * @param  string $format            HTTP-date 形式の文字列
+     * @return Datetime                  変換結果
+     * @throws \InvalidArgumentException フォーマットが不正な場合
      */
     public function parseDatetime($format)
     {
@@ -113,7 +116,7 @@ class HttpDateFormat implements Format
     /**
      * HTTP-date 形式のフォーマットを Timestamp に変換します.
      * 
-     * @param  string    $format         HTTP-date 形式の文字列
+     * @param  string $format            HTTP-date 形式の文字列
      * @return Timestamp                 変換結果
      * @throws \InvalidArgumentException フォーマットが不正な場合
      */
@@ -155,8 +158,8 @@ class HttpDateFormat implements Format
      * この日付の 00:00 の時刻を GMT に変換した結果を Http-date にして返します.
      * 例えばシステム時刻の時差が UTC+9 だった場合, 前日の 15:00 の HTTP-date 表現を返り値とします.
      * 
-     * @param  Date 書式化対象の時間オブジェクト
-     * @return string この日付の HTTP-date 表現
+     * @param  Date $d 書式化対象の時間オブジェクト
+     * @return string  この日付の HTTP-date 表現
      */
     public function formatDate(Date $d)
     {
@@ -166,8 +169,8 @@ class HttpDateFormat implements Format
     /**
      * この時刻の HTTP-date 表現を返します.
      * 
-     * @param  Datetime 書式化対象の時間オブジェクト
-     * @return string この時刻の HTTP-date 表現
+     * @param  Datetime $d 書式化対象の時間オブジェクト
+     * @return string      この時刻の HTTP-date 表現
      */
     public function formatDatetime(Datetime $d)
     {
@@ -186,8 +189,8 @@ class HttpDateFormat implements Format
     /**
      * この時刻の HTTP-date 表現を返します.
      * 
-     * @param  Timestamp 書式化対象の時間オブジェクト
-     * @return string この時刻の HTTP-date 表現
+     * @param  Timestamp $d 書式化対象の時間オブジェクト
+     * @return string       この時刻の HTTP-date 表現
      */
     public function formatTimestamp(Timestamp $d)
     {
@@ -217,8 +220,8 @@ class HttpDateFormat implements Format
     
     /**
      * 月の略称を書式化します.
-     * @param  int    月
-     * @return string 引数の月の略称
+     * @param  int $month 月
+     * @return string     引数の月の略称
      */
     private function getMonthDescription($month)
     {
@@ -243,7 +246,8 @@ class HttpDateFormat implements Format
      * もしも引数の 2 桁年が, 現在の 2 桁年よりも大きい場合,
      * 前世紀の年と判断します.
      * 
-     * @param int $y 変換対象の 2 桁年
+     * @param  int $y 変換対象の 2 桁年
+     * @return int    4 桁の年
      */
     private function getFullYear($y)
     {
@@ -255,9 +259,9 @@ class HttpDateFormat implements Format
     }
     
     /**
-     * 曜日の略称を(ry
-     * @param  int    曜日の値
-     * @return string 曜日の略称
+     * 曜日の略称を書式化します.
+     * @param  int $day 曜日の値
+     * @return string   曜日の略称
      */
     private function getDayDescription($day)
     {

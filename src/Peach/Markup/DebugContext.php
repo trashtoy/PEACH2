@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
@@ -59,6 +64,8 @@ class DebugContext extends Context
     }
     
     /**
+     * ノードの開始を書式化します.
+     * 
      * @param string $name
      */
     private function startNode($name)
@@ -83,6 +90,7 @@ class DebugContext extends Context
     }
     
     /**
+     * 指定された文字列をインデントして追記します.
      * @param string $contents
      */
     private function append($contents)
@@ -95,6 +103,8 @@ class DebugContext extends Context
     }
     
     /**
+     * 指定された Container の子ノードを再帰的に処理します.
+     * 
      * @param Container $container
      */
     private function handleContainer(Container $container)

@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
@@ -50,7 +55,10 @@ class SgmlRenderer extends AbstractRenderer
     /**
      * 値の省略された属性を書式化します.
      * この実装は, 指定された属性名をそのまま返します.
+     * 
      * @see AbstractRenderer::formatBooleanAttribute()
+     * @param  string $name 属性名
+     * @return string       引数と同じ文字列
      */
     protected function formatBooleanAttribute($name)
     {

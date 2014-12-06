@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 use Peach\Util\Strings;
 
@@ -29,16 +34,19 @@ use Peach\Util\Strings;
 class DefaultContext extends Context
 {
     /**
+     * マークアップ時の改行やインデント処理を担当します.
      * @var Indent
      */
     private $indent;
     
     /**
+     * タグの出力方式 (空要素や boolean 属性などの扱い) を制御します.
      * @var Renderer
      */
     private $renderer;
     
     /**
+     * 開始タグの直後に改行するかどうかの判定を行います.
      * @var BreakControl
      */
     private $breakControl;
@@ -88,7 +96,7 @@ class DefaultContext extends Context
     
     /**
      * コメントノードを読み込みます.
-     * @param Comment
+     * @param Comment $comment
      */
     public function handleComment(Comment $comment)
     {
@@ -120,6 +128,12 @@ class DefaultContext extends Context
         $this->isCommentMode = false;
     }
     
+    /**
+     * コメントノードを 1 行 ("<--foobar-->") で記述するか改行するかの判定を行います.
+     * 
+     * @param  Comment $comment
+     * @return bool
+     */
     private function checkBreakModeInComment(Comment $comment)
     {
         $nodes = $comment->getChildNodes();
@@ -165,16 +179,16 @@ class DefaultContext extends Context
     
     /**
      * EmptyElement を読み込みます.
-     * @param EmptyElement
+     * @param EmptyElement $element
      * @see Context::handleEmptyElement()
      */
-    public function handleEmptyElement(EmptyElement $node) {
-        $this->result .= $this->indent() . $this->renderer->formatEmptyTag($node);
+    public function handleEmptyElement(EmptyElement $element) {
+        $this->result .= $this->indent() . $this->renderer->formatEmptyTag($element);
     }
     
     /**
      * ContainerElement を読み込みます.
-     * @param ContainerElement
+     * @param ContainerElement $element
      * @see Context::handleContainerElement()
      */
     public function handleContainerElement(ContainerElement $element)
@@ -244,6 +258,7 @@ class DefaultContext extends Context
     }
     
     /**
+     * インデントモードが ON の場合は空白文字, OFF の場合は空文字列を返します.
      * @return string
      */
     private function indent()
@@ -252,7 +267,7 @@ class DefaultContext extends Context
     }
     
     /**
-     * 
+     * インデントモードが ON の場合は改行コード, OFF の場合は空文字列を返します.
      * @return string
      */
     private function breakCode()
@@ -261,6 +276,7 @@ class DefaultContext extends Context
     }
     
     /**
+     * 予期しないインデントを回避するため, 改行コードを文字参照に置き換えます.
      * @param  string $text
      * @return string
      */
@@ -270,6 +286,7 @@ class DefaultContext extends Context
     }
     
     /**
+     * 意図しないタイミングでコメントノードが終了するのを防ぐため, "-->" を文字参照に置き換えます.
      * @param  string $text
      * @return string
      */

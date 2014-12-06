@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Util;
 
 /**
@@ -63,8 +68,8 @@ class Strings
      * 引数の文字列を CR, LF, CRLF で分割し, 結果の配列を返します.
      * 結果の配列の各要素に改行コードは含まれません.
      * 
-     * @param  string 分割対象の文字列
-     * @return array  行単位で分割された文字列の配列
+     * @param  string $str 分割対象の文字列
+     * @return array       行単位で分割された文字列の配列
      */
     public static function getLines($str)
     {
@@ -73,9 +78,9 @@ class Strings
     
     /**
      * 指定された文字列が空白文字の集合からなる文字列かどうかを返します.
-     * @param  string
-     * @return boolean 引数が NULL, 空文字列, "\r", "\n", "\t", 
-     *                 半角スペースから成る文字列の場合に TRUE, それ以外は FALSE
+     * @param  string $str 検査対象の文字列
+     * @return bool        引数が NULL, 空文字列, "\r", "\n", "\t", 
+     *                     半角スペースから成る文字列の場合に TRUE, それ以外は FALSE
      */
     public static function isWhitespace($str)
     {
@@ -87,8 +92,8 @@ class Strings
      * 引数が空文字列か, '/' で終わる文字列の場合は引数をそのまま返します.
      * それ以外の場合は, 引数の末尾に '/' を連結した文字列を返します.
      * 
-     * @param  string 変換対象の文字列
-     * @return string 基底ディレクトリ名
+     * @param  string $basedir 変換対象の文字列
+     * @return string          基底ディレクトリ名
      */
     public static function basedir($basedir)
     {
@@ -120,9 +125,9 @@ class Strings
      * 
      * インデックスが存在しない場合は FALSE を返します.
      * 
-     * @param  string 検索文字列
-     * @param  string 検索対象の文字
-     * @return int    インデックス. ただし存在しない場合は FALSE
+     * @param  string $text 検索文字列
+     * @param  string $chr  検索対象の文字
+     * @return int          インデックス. ただし存在しない場合は FALSE
      */
     public static function getRawIndex($text, $chr)
     {
@@ -142,9 +147,9 @@ class Strings
      * $prefix が空文字列の場合は TRUE を返します.
      * 引数が文字列以外の場合は {@link Values::stringValue} が適用されます.
      * 
-     * @param  string 検査対象の文字列
-     * @param  string 開始する文字列
-     * @return bool   引数 $text の先頭が $prefix である場合に TRUE
+     * @param  string $text   検査対象の文字列
+     * @param  string $prefix 開始する文字列
+     * @return bool           引数 $text の先頭が $prefix である場合に TRUE
      */
     public static function startsWith($text, $prefix)
     {
@@ -166,9 +171,9 @@ class Strings
      * $suffix が空文字列の場合は TRUE を返します.
      * 引数が文字列以外の場合は {@link Values::stringValue} が適用されます.
      * 
-     * @param  string 検査対象の文字列
-     * @param  string 終了する文字列
-     * @return bool   引数 $text の末尾が $suffix に等しい場合に TRUE
+     * @param  string $text   検査対象の文字列
+     * @param  string $suffix 終了する文字列
+     * @return bool           引数 $text の末尾が $suffix に等しい場合に TRUE
      */
     public static function endsWith($text, $suffix)
     {
@@ -194,9 +199,9 @@ class Strings
      * - ("[ABC\\]", "]") => FALSE ("\\" がその後ろの "]" をエスケープしているとみなされる)
      * - ("[ABC\\\\]", "]") => TRUE ("\\\\" が一つの文字として扱われるため, 直後の "]" に影響しない)
      * 
-     * @param  string 検査対象の文字列
-     * @param  string 検査対象の文字
-     * @return bool   引数 $text の末尾が, '\' でエスケープされていない $chr で終了している場合のみ TRUE
+     * @param  string $text 検査対象の文字列
+     * @param  string $chr  検査対象の文字
+     * @return bool         引数 $text の末尾が, '\' でエスケープされていない $chr で終了している場合のみ TRUE
      */
     public static function endsWithRawChar($text, $chr)
     {
@@ -218,9 +223,9 @@ class Strings
      * 
      * $template が NULL の場合は NULL を返します.
      * 
-     * @param  string テンプレート
-     * @param  array  置き換える内容の配列
-     * @return string テンプレートの適用結果
+     * @param  string $template テンプレート
+     * @param  array  $args     置き換える内容の配列
+     * @return string           テンプレートの適用結果
      */
     public static function template($template, array $args = array())
     {

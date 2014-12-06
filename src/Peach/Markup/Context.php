@@ -20,12 +20,17 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
  * 各ノードを変換する処理を担当するクラスです.
  * このクラスは Visitor パターンにより設計されています (Visitor クラスに相当します).
- * {@link Builder Builder} クラスと連携して以下のように動作します.
+ * {@link Builder} クラスと連携して以下のように動作します.
  * 
  * 1. エンドユーザーが Builder オブジェクトの {@link Builder::build()} メソッドを実行します
  * 2. build() メソッドの内部で新しい Context オブジェクトが生成されます
@@ -39,59 +44,59 @@ abstract class Context
      * オブジェクトの種類に応じて, このクラスの具象クラスで定義された各 handle メソッドに処理が割り当てられます.
      * Visitor パターンの visit メソッドに相当します.
      * 
-     * @param  Component
+     * @param Component $c 処理対象の Component
      */
-    public final function handle(Component $node)
+    public final function handle(Component $c)
     {
-        $node->accept($this);
+        $c->accept($this);
     }
     
     /**
      * 処理結果を取得します. まだ handle() が実行されていない場合は NULL を返します.
      * 
-     * @return mixed
+     * @return mixed 処理結果
      */
     public abstract function getResult();
     
     /**
      * コンテナ要素を処理します.
-     * @param  ContainerElement
+     * @param ContainerElement $node 処理対象のコンテナ要素
      */
     public abstract function handleContainerElement(ContainerElement $node);
     
     /**
-     * 空要素タグを処理します.
-     * @param  EmptyElement
+     * 空要素を処理します.
+     * @param EmptyElement $node 処理対象の空要素
      */
     public abstract function handleEmptyElement(EmptyElement $node);
     
     /**
      * テキストノードを処理します.
-     * @param  Text
+     * @param Text $node 処理対象のテキスト
      */
     public abstract function handleText(Text $node);
     
     /**
      * 整形済テキストを処理します.
-     * @param  Code
+     * @param Code $node 処理対象の整形済テキスト
      */
     public abstract function handleCode(Code $node);
     
     /**
      * コメントノードを処理します.
-     * @param  Comment
+     * @param Comment $node 処理対象のコメント
      */
     public abstract function handleComment(Comment $node);
     
     /**
      * NodeList を処理します.
-     * @param  NodeList
+     * @param NodeList $nodeList 処理対象の NodeList
      */
-    public abstract function handleNodeList(NodeList $node);
+    public abstract function handleNodeList(NodeList $nodeList);
     
     /**
      * None を処理します.
-     * @param  None
+     * @param None $none 処理対象の None オブジェクト
      */
     public abstract function handleNone(None $none);
 }

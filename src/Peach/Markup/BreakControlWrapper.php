@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
@@ -31,7 +36,7 @@ namespace Peach\Markup;
 class BreakControlWrapper implements BreakControl
 {
     /**
-     *
+     * ラップ対象の BreakControl
      * @var BreakControl
      */
     private $original;
@@ -52,7 +57,7 @@ class BreakControlWrapper implements BreakControl
     
     /**
      * ラップ対象の BreakControl オブジェクトを返します.
-     * @return BreakControl
+     * @return BreakControl このオブジェクトがラップしている BreakControl
      */
     public function getOriginal()
     {
@@ -60,10 +65,10 @@ class BreakControlWrapper implements BreakControl
     }
     
     /**
-     * オリジナルの breaks() を呼び出します.
+     * この実装はオリジナルの breaks() をそのまま返します.
      * 
-     * @param  ContainerElement $node
-     * @return bool
+     * @param  ContainerElement $node 判定対象の要素
+     * @return bool ラップしているオブジェクトの breaks() の結果
      */
     public function breaks(ContainerElement $node)
     {

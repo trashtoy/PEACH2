@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 use Peach\Util\Values;
 
@@ -34,16 +39,19 @@ use Peach\Util\Values;
 class DefaultBuilder extends Builder
 {
     /**
+     * DefaultContext のコンストラクタに渡される Indent オブジェクトです.
      * @var Indent
      */
     private $indent;
     
     /**
+     * DefaultContext のコンストラクタに渡される Renderer オブジェクトです.
      * @var Renderer
      */
     private $renderer;
     
     /**
+     * DefaultContext のコンストラクタに渡される BreakControl オブジェクトです.
      * @var BreakControl
      */
     private $breakControl;
@@ -73,7 +81,7 @@ class DefaultBuilder extends Builder
      * この Builder に指定された Indent オブジェクトをセットします.
      * null を指定した場合は設定を解除します.
      * 
-     * @param  Indent $indent
+     * @param  Indent $indent セットする Indent オブジェクト
      */
     public function setIndent(Indent $indent = null)
     {
@@ -101,7 +109,7 @@ class DefaultBuilder extends Builder
      * - null を指定した場合 : 現在セットされている Renderer を解除します
      * - それ以外: InvalidArgumentException をスローします
      * 
-     * @param  Renderer|string $renderer
+     * @param  Renderer|string $renderer セットする Renderer または対応する文字列
      * @throws \InvalidArgumentException 不正な引数をセットした場合
      */
     public function setRenderer($renderer = null)
@@ -110,6 +118,9 @@ class DefaultBuilder extends Builder
     }
     
     /**
+     * 指定された引数で Renderer オブジェクトを初期化します.
+     * 
+     * @see    Renderer::setRenderer()
      * @param  Renderer|string $var
      * @return Renderer
      * @throws \InvalidArgumentException
@@ -151,7 +162,7 @@ class DefaultBuilder extends Builder
      * この Builder に指定された BreakControl をセットします.
      * null を指定した場合は設定を解除します.
      * 
-     * @param  BreakControl $breakControl
+     * @param  BreakControl $breakControl セットする BreakControl
      */
     public function setBreakControl(BreakControl $breakControl = null)
     {
@@ -159,7 +170,10 @@ class DefaultBuilder extends Builder
     }
     
     /**
-     * @return Markup_Context
+     * この Builder にセットされている Indent, Renderer, BreakControl
+     * を使って新しい DefaultContext を生成します.
+     * 
+     * @return DefaultContext 新しい DefaultContext
      */
     protected function createContext()
     {

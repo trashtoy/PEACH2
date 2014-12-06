@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\DT;
 use Peach\Util\Values;
 use Peach\Util\Strings;
@@ -347,8 +352,8 @@ abstract class AbstractTime implements Time
      * 指定されたフィールド名を $fields のインデックスに変換します.
      * 不正なフィールド名の場合は -1 を返します.
      * 
-     * @param  string フィールド名
-     * @return int    インデックス
+     * @param  string $field フィールド名
+     * @return int           インデックス
      * 
      * @see    Time::$YEAR
      * @see    Time::$MONTH

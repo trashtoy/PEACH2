@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\DT;
 use Peach\Util\Equator;
 use Peach\Util\Values;
@@ -32,6 +37,10 @@ use Peach\Util\Values;
 class TimeEquator implements Equator
 {
     /**
+     * 比較対象のフィールドの配列です.
+     * array("year", "month", "date")
+     * のような文字列型の配列となります.
+     * 
      * @var array
      */
     private $fields;

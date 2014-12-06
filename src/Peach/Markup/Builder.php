@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
@@ -28,14 +33,14 @@ namespace Peach\Markup;
 abstract class Builder
 {
     /**
-     * 指定されたノードを加工します. 返り値の型は具象クラスによって異なります.
-     * @param  Component
-     * @return mixed
+     * 指定された Component を加工します. 返り値の型は具象クラスによって異なります.
+     * @param  Component $c 加工対象の Component
+     * @return mixed        加工した結果
      */
-    public final function build(Component $node)
+    public final function build(Component $c)
     {
         $context = $this->createContext();
-        $context->handle($node);
+        $context->handle($c);
         return $context->getResult();
     }
     

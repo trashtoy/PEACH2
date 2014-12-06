@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Util;
 
 /**
@@ -158,9 +163,11 @@ class Arrays
     }
     
     /**
-     * @param  string  $value
-     * @param  string  $type
-     * @return boolean
+     * 指定された値が第 2 引数で指定した型にマッチするかどうかを調べます.
+     * 
+     * @param  string  $value 検査対象の値
+     * @param  string  $type  型
+     * @return bool           引数 $value の型が $type に合致する場合に true
      */
     private static function pickupMatch($value, $type)
     {

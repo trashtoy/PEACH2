@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
@@ -41,7 +46,7 @@ class DebugBuilder extends Builder
     
     /**
      * この Builder にセットされた echoMode で DebugContext を初期化します.
-     * @return DebugContext
+     * @return DebugContext 新しい DebugContext
      */
     protected function createContext()
     {

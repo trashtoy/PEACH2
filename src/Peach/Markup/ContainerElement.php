@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
@@ -39,7 +44,7 @@ class ContainerElement extends Element implements Container
     /**
      * 指定された要素名を持つコンテナ要素を構築します.
      * 
-     * @param string 要素名
+     * @param string $name 要素名
      */
     public function __construct($name)
     {
@@ -50,8 +55,8 @@ class ContainerElement extends Element implements Container
     /**
      * この要素に子ノードを追加します.
      * 
-     * @param  mixed 追加する値
-     * @throws Exception 指定されたノードの中にこのノードが存在している場合
+     * @param  mixed $var 追加する値
+     * @throws \InvalidArgumentException 指定されたノードの中にこのノードが存在している場合
      */
     public function append($var)
     {
@@ -70,7 +75,7 @@ class ContainerElement extends Element implements Container
     /**
      * 指定された Context にこのノードを処理させます.
      * {@link Context::handleContainerElement()} を呼び出します.
-     * @param Context $context
+     * @param Context $context このノードを処理する Context
      */
     public function accept(Context $context)
     {

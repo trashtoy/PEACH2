@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\DT;
 use Peach\Util\Comparable;
 
@@ -33,7 +38,7 @@ use Peach\Util\Comparable;
  * - TIMESTAMP : 年・月・日・時・分・秒のフィールドを持ちます
  * 
  * とある時間オブジェクトについて, そのオブジェクトの型が何かを調べるには
- * {@link Time::getType() getType()} メソッドを使用してください.
+ * {@link Time::getType()} メソッドを使用してください.
  * 
  * 時間オブジェクトを操作するための各種メソッド (get, add, set, setAll など)
  * は文字列型の引数を指定して呼び出す仕様となっていますが,
@@ -159,16 +164,16 @@ interface Time extends Comparable
     
     /**
      * 引数のフィールドを, $amount だけ増加 (負の場合は減少) させます.
-     * @param  string  対象のフィールド
-     * @param  int     加算する量. マイナスの場合は過去方向に移動する.
-     * @return Time 設定後の時間オブジェクト
+     * @param  string $field  対象のフィールド
+     * @param  int    $amount 加算する量. マイナスの場合は過去方向に移動する.
+     * @return Time           設定後の時間オブジェクト
      */
     public function add($field, $amount);
     
     /**
      * 指定されたフォーマットを使ってこの時間オブジェクトを書式化します.
      * フォーマットを指定しない場合はデフォルトの方法 (SQL などで使われる慣用表現) で書式化を行ないます.
-     * @param  Format $format
+     * @param  Format $format Format オブジェクト (省略可)
      * @return string このオブジェクトの書式化. 引数を指定しない場合は "YYYY-MM-DD" あるいは "YYYY-MM-DD hh:mm:ss" などの文字列
      */
     public function format(Format $format = null);

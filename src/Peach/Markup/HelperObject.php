@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 use Peach\Util\ArrayMap;
 
@@ -30,13 +35,14 @@ use Peach\Util\ArrayMap;
 class HelperObject implements Container
 {
     /**
-     *
+     * このオブジェクトを生成した Helper オブジェクトです.
+     * このオブジェクトの prototype を生成する場合などに使用されます.
      * @var Helper
      */
     private $helper;
     
     /**
-     *
+     * このオブジェクトがラップしている Component です.
      * @var Component
      */
     private $node;
@@ -207,6 +213,8 @@ class HelperObject implements Container
     }
     
     /**
+     * このオブジェクトをプロトタイプとして, 新しい HelperObject を生成します.
+     * 
      * @return Element
      */
     private function createPrototype()

@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 use Peach\Util\Values;
 
@@ -145,8 +150,10 @@ class Helper
     }
     
     /**
-     * @param  string
-     * @return Element
+     * 指定された要素名を持つ新しい Element オブジェクトを返します.
+     * 
+     * @param  string  $name 要素名
+     * @return Element       指定された要素名を持つ Element
      */
     private function createElement($name)
     {

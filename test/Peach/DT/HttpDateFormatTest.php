@@ -55,7 +55,6 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * - 引数 $clearCache を指定した場合に新しいインスタンスを生成すること
      * 
      * @covers Peach\DT\HttpDateFormat::getInstance
-     * @todo   Implement testGetInstance().
      */
     public function testGetInstance()
     {
@@ -90,7 +89,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * をスローすることを確認します.
      * 
      * @expectedException \InvalidArgumentException
-     * @covers HttpDateFormat::parseDate
+     * @covers Peach\DT\HttpDateFormat::parseDate
      */
     public function testParseDateFail()
     {
@@ -116,7 +115,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * をスローすることを確認します.
      * 
      * @expectedException \InvalidArgumentException
-     * @covers HttpDateFormat::parseDatetime
+     * @covers Peach\DT\HttpDateFormat::parseDatetime
      */
     public function testParseDatetimeFail()
     {
@@ -142,7 +141,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * をスローすることを確認します.
      * 
      * @expectedException \InvalidArgumentException
-     * @covers HttpDateFormat::parseTimestamp
+     * @covers Peach\DT\HttpDateFormat::parseTimestamp
      */
     public function testParseTimestampFail()
     {

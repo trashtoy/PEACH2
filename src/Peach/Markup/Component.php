@@ -20,10 +20,15 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
- * {@link Builder Builder} で処理可能なパーツであることを示すインタフェースです.
+ * {@link Builder} で処理可能なパーツであることを示すインタフェースです.
  * このインタフェースを実装したオブジェクトは
  * {@link Builder::build()} メソッドの引数に指定して
  * HTML コードなどに加工することが出来ます.
@@ -31,8 +36,8 @@ namespace Peach\Markup;
 interface Component
 {
     /**
-     * 指定された Context にこのノードを処理させます. Visitor パターンの accept() に相当します.
-     * @param Context
+     * 指定された Context にこのオブジェクトを処理させます. Visitor パターンの accept() に相当します.
+     * @param Context $context この Component を処理する Context
      */
     public function accept(Context $context);
 }

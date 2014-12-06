@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 use Peach\Util\Values;
 
@@ -34,7 +39,7 @@ use Peach\Util\Values;
 class Code implements Node
 {
     /**
-     *
+     * 整形済テキスト
      * @var string
      */
     private $text;
@@ -51,7 +56,7 @@ class Code implements Node
     /**
      * 整形済テキストの内容を返します.
      * 
-     * @return string
+     * @return string 整形済テキスト
      */
     public function getText()
     {
@@ -62,7 +67,7 @@ class Code implements Node
      * 指定された Context にこのノードを処理させます.
      * {@link Context::handleCode()} を呼び出します.
      * 
-     * @param Context $context
+     * @param Context $context このノードを処理する Context
      */
     public function accept(Context $context)
     {
@@ -72,7 +77,7 @@ class Code implements Node
     /**
      * このオブジェクトの文字列表現です.
      * {@link Code::getText()} と同じ結果を返します.
-     * @return string
+     * @return string 整形済テキストの内容
      */
     public function __toString()
     {

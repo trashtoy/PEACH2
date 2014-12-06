@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\DT;
 use Peach\Util\Map;
 use Peach\Util\ArrayMap;
@@ -199,6 +204,10 @@ class Timestamp extends Datetime
         return new Timestamp($this->year, $this->month, $this->date, $this->hour, $this->minute, $this->second);
     }
     
+    /**
+     * このクラスのフィールドを調整するための FieldAdjuster を返します.
+     * @return FieldAdjuster
+     */
     private function getAdjuster()
     {
         static $adjuster = null;

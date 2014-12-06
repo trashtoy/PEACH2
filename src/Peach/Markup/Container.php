@@ -20,14 +20,17 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Markup;
 
 /**
  * ノードを内部に含めることが出来るインタフェースです.
  * このインタフェースを実装したクラスに
  * {@link NodeList} や {@link ContainerElement} などがあります.
- * 
- * @package Markup
  */
 interface Container extends Component
 {

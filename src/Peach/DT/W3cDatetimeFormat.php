@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\DT;
 
 /**
@@ -42,8 +47,6 @@ namespace Peach\DT;
  * この場合, 内部のタイムゾーンと出力用のタイムゾーンの時差が -4 時間となるため,
  * new Datetime(2012, 5, 21, 7, 30) の時間オブジェクトを書式化した結果は
  * "2012-05-21T03:30+5:00" となります.
- * 
- * @package DT
  */
 class W3cDatetimeFormat implements Format
 {
@@ -155,7 +158,8 @@ class W3cDatetimeFormat implements Format
     /**
      * "YYYY-MM-DD" 形式の文字列を解析します.
      * 
-     * @return Date
+     * @param  string $format 解析対象の文字列
+     * @return Date           解析結果
      * @see Format::parseDate()
      */
     public function parseDate($format)
@@ -175,7 +179,8 @@ class W3cDatetimeFormat implements Format
      * "YYYY-MM-DDThh:mm" 形式の文字列を解析します.
      * 文字列の末尾にタイムゾーン (+hh:mm や -hh:mm など) を含む場合は, システム時刻への変換を行います.
      * 
-     * @return Datetime 解析結果
+     * @param  string $format 解析対象の文字列
+     * @return Datetime       解析結果
      * @see Format::parseDatetime()
      */
     public function parseDatetime($format)
@@ -199,7 +204,9 @@ class W3cDatetimeFormat implements Format
     
     /**
      * "YYYY-MM-DDThh:mm:ss" 形式の文字列を解析します.
-     * @return Timestamp 解析結果
+     * 
+     * @param  string $format 解析対象の文字列
+     * @return Timestamp      解析結果
      * @see Format::parseTimestamp()
      */
     public function parseTimestamp($format)
@@ -224,7 +231,9 @@ class W3cDatetimeFormat implements Format
     
     /**
      * 指定された時間オブジェクトを "YYYY-MM-DD" 形式の文字列に変換します.
-     * @return string "YYYY-MM-DD" 形式の文字列
+     * 
+     * @param  Date $d 解析対象の Date オブジェクト
+     * @return string  "YYYY-MM-DD" 形式の文字列
      * @see    Format::formatDate()
      */
     public function formatDate(Date $d)
@@ -236,7 +245,8 @@ class W3cDatetimeFormat implements Format
      * 指定された時間オブジェクトを "YYYY-MM-DDThh:mm" 形式の文字列に変換します.
      * このインスタンスがタイムゾーンに対応している場合, 末尾にタイムゾーン文字列も付加します.
      * 
-     * @return string "YYYY-MM-DDThh:mm" 形式の文字列
+     * @param  Datetime $d 変換対象の Datetime オブジェクト
+     * @return string      "YYYY-MM-DDThh:mm" 形式の文字列
      * @see    Format::formatDatetime()
      */
     public function formatDatetime(Datetime $d)
@@ -249,7 +259,8 @@ class W3cDatetimeFormat implements Format
      * 指定された時間オブジェクトを "YYYY-MM-DDThh:mm:ss" 形式の文字列に変換します.
      * このインスタンスがタイムゾーンに対応している場合, 末尾にタイムゾーン文字列も付加します.
      * 
-     * @return string "YYYY-MM-DDThh:mm:ss" 形式の文字列
+     * @param  Timestamp $d 変換対象の Timestamp オブジェクト
+     * @return string       "YYYY-MM-DDThh:mm:ss" 形式の文字列
      * @see    Format::formatTimestamp()
      */
     public function formatTimestamp(Timestamp $d)
@@ -257,6 +268,13 @@ class W3cDatetimeFormat implements Format
         return $this->formatDatetime($d);
     }
     
+    /**
+     * 指定された文字列が想定されたフォーマットでなかった際に呼ばれるメソッドです.
+     * 
+     * @param string $format
+     * @param string $expected
+     * @throws \InvalidArgumentException
+     */
     private function throwFormatException($format, $expected)
     {
         throw new \InvalidArgumentException("Illegal format({$format}). Expected: {$expected}");
@@ -288,10 +306,9 @@ class W3cDatetimeFormat implements Format
      * フォーマットのタイムゾーンと, 時間オブジェクトのタイムゾーンを元に
      * 指定された時間オブジェクトの補正処理を行います.
      * 
-     * @param  Datetime $d
-     * @param  string      $tz      タイムゾーン文字列
-     * @param  bool        $toParse parse の場合は TRUE, format の場合は FALSE
-     * @return Datetime 補正結果の時間オブジェクト
+     * @param  Datetime $d  補正対象の時間オブジェクト
+     * @param  string   $tz タイムゾーン文字列
+     * @return Datetime     補正結果の時間オブジェクト
      */
     private function adjustFromParse(Datetime $d, $tz)
     {
@@ -299,6 +316,15 @@ class W3cDatetimeFormat implements Format
         return $d->add("minute", $externalOffset - $this->internalOffset);
     }
     
+    /**
+     * このオブジェクトがタイムゾーンを利用する場合は,
+     * 引数の時間オブジェクトを補正した結果を返します.
+     * タイムゾーンを利用しない場合は引数をそのまま返します.
+     * このメソッドは各種 format メソッドから呼ばれます.
+     * 
+     * @param  Datetime $d 補正対象の時間オブジェクト
+     * @return Datetime    補正結果
+     */
     private function adjustFromFormat(Datetime $d)
     {
         return $this->usingTz ? $d->add("minute", $this->internalOffset - $this->externalOffset) : $d;
@@ -306,6 +332,7 @@ class W3cDatetimeFormat implements Format
     
     /**
      * タイムゾーンを書式化します.
+     * @return string
      */
     private function formatTimezone()
     {

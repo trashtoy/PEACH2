@@ -20,6 +20,11 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+/**
+ * PHP class file.
+ * @auhtor trashtoy
+ * @since  2.0.0
+ */
 namespace Peach\Util;
 
 /**
@@ -42,8 +47,8 @@ abstract class AbstractMapEntry implements MapEntry
     
     /**
      * 新しいエントリーオブジェクトを構築します.
-     * @param mixed キー
-     * @param mixed 値
+     * @param mixed $key   キー
+     * @param mixed $value 値
      */
     public function __construct($key, $value)
     {
