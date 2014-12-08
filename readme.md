@@ -33,7 +33,7 @@ This module helps you to markup HTML or XML dynamically.
 Requirements
 ------------
 
-- PHP 5.3.0 Later
+- PHP 5.3.0 or later
 
 That's all.
 
