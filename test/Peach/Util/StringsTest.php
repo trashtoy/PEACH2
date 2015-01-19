@@ -170,6 +170,7 @@ class StringsTest extends \PHPUnit_Framework_TestCase
      * 
      * - 第 2 引数に空の配列を指定した場合は第 1 引数をそのまま返すこと
      * - 第 2 引数に指定した配列で第 1 引数のテンプレートが置換されること
+     * - 引数が null の場合は null を返すこと
      * 
      * @covers Peach\Util\Strings::template
      */
@@ -199,6 +200,8 @@ class StringsTest extends \PHPUnit_Framework_TestCase
         $test5 = "I am {name}, {age} years old.";
         $arr5 = array("name" => "John", "age" => 20);
         $this->assertSame($exp5, Strings::template($test5, $arr5));
+        
+        $this->assertNull(Strings::template(null, $arr5));
     }
 }
 
