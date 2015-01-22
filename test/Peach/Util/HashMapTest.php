@@ -35,6 +35,7 @@ class HashMapTest extends \PHPUnit_Framework_TestCase
      * - 引数を指定しない場合は空の HashMap が生成されること
      * - 引数に配列を指定した場合, その配列のキーと値をマッピングした HashMap が生成されること
      * - 引数に Map を指定した場合, その Map と同じマッピングの HashMap が生成されること
+     * - 第 3 引数に 2 より少ない整数を指定した場合は 2 として扱われること
      */
     public function test__construct()
     {
@@ -51,6 +52,10 @@ class HashMapTest extends \PHPUnit_Framework_TestCase
         $map3->put("second", 20);
         $this->assertSame(20, $map3->get("second"));
         $this->assertSame(2,  $map2->get("second"));
+        
+        $map4 = new HashMap(null, null, 2);
+        $map5 = new HashMap(null, null, -1);
+        $this->assertEquals($map4, $map5);
     }
     
     /**
@@ -113,8 +118,13 @@ class HashMapTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet()
     {
-        $this->assertSame("foo", $this->object->get(new HashMapTest_Object("10")));
-        $this->assertSame(null,  $this->object->get(new HashMapTest_Object(1000)));
+        $obj = $this->object;
+        $key = new HashMapTest_Object("10");
+        $this->assertSame("foo", $obj->get($key));
+        $this->assertSame(null,  $obj->get(new HashMapTest_Object(1000)));
+        
+        $obj->remove($key);
+        $this->assertSame(null, $obj->get($key));
     }
     
     /**
@@ -161,10 +171,17 @@ class HashMapTest extends \PHPUnit_Framework_TestCase
      */
     public function testContainsKey()
     {
+        $obj   = $this->object;
         $test1 = new HashMapTest_Object(5);
-        $this->assertFalse($this->object->containsKey($test1));
+        $this->assertFalse($obj->containsKey($test1));
+        
         $test2 = new HashMapTest_Object(10);
-        $this->assertTrue($this->object->containsKey($test2));
+        $test3 = new HashMapTest_Object(10); // $test2 と $test3 は等価 (ただし同一ではない)
+        $this->assertTrue($obj->containsKey($test2));
+        $this->assertTrue($obj->containsKey($test3));
+        
+        $obj->remove($test3);
+        $this->assertFalse($obj->containsKey($test3));
     }
     
     /**
@@ -181,10 +198,14 @@ class HashMapTest extends \PHPUnit_Framework_TestCase
         $map->remove(new HashMapTest_Object(150));
         $this->assertSame(3, $map->size());
         
-        $this->assertTrue($map->containsKey(new HashMapTest_Object(20)));
-        $map->remove(new HashMapTest_Object(20));
+        $key = new HashMapTest_Object(20);
+        $this->assertTrue($map->containsKey($key));
+        $map->remove($key);
         $this->assertSame(2, $map->size());
-        $this->assertFalse($map->containsKey(new HashMapTest_Object(20)));
+        $this->assertFalse($map->containsKey($key));
+        
+        $map->remove($key);
+        $this->assertSame(2, $map->size());
     }
     
     /**
