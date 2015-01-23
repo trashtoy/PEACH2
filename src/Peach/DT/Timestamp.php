@@ -207,11 +207,12 @@ class Timestamp extends Datetime
     /**
      * このクラスのフィールドを調整するための FieldAdjuster を返します.
      * @return FieldAdjuster
+     * @codeCoverageIgnore
      */
     private function getAdjuster()
     {
         static $adjuster = null;
-        if (!isset($adjuster)) {
+        if ($adjuster === null) {
             $adjuster = new FieldAdjuster(self::$SECOND, self::$MINUTE, 0, 59);
         }
         return $adjuster;
