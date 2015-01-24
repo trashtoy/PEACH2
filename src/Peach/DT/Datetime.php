@@ -268,11 +268,12 @@ class Datetime extends Date
     /**
      * 「時」フィールドを調整する Adjuster です
      * @return FieldAdjuster
+     * @codeCoverageIgnore
      */
     private function getHourAdjuster()
     {
         static $adjuster = null;
-        if (!isset($adjuster)) {
+        if ($adjuster === null) {
             $adjuster = new FieldAdjuster(self::$HOUR, self::$DATE, 0, 23);
         }
         return $adjuster;
@@ -281,11 +282,12 @@ class Datetime extends Date
     /**
      * 「分」フィールドを調整する Adjuster です
      * @return FieldAdjuster
+     * @codeCoverageIgnore
      */
     private function getMinuteAdjuster()
     {
         static $adjuster = null;
-        if (!isset($adjuster)) {
+        if ($adjuster === null) {
             $adjuster = new FieldAdjuster(self::$MINUTE, self::$HOUR, 0, 59);
         }
         return $adjuster;

@@ -159,6 +159,8 @@ class DatetimeTest extends AbstractTimeTest
      * - 比較が正常に出来る
      * - 同じオブジェクトの場合は FALSE を返す
      * - 異なる型との比較で, 共通のフィールドが全て等しい場合は, フィールドが多いほうが「後」
+     * 
+     * @covers Peach\DT\Datetime::after
      */
     public function testAfter()
     {
@@ -183,6 +185,8 @@ class DatetimeTest extends AbstractTimeTest
      * - 同じオブジェクトの場合は FALSE を返す
      * - 異なる型との比較で, 共通のフィールドが全て等しい場合は, フィールドが少ないほうが「前」
      * - Time 以外のオブジェクトと比較した場合は FALSE を返す
+     * 
+     * @covers Peach\DT\Datetime::before
      */
     public function testBefore()
     {
@@ -204,17 +208,32 @@ class DatetimeTest extends AbstractTimeTest
      * 以下の確認を行います.
      * 
      * - 比較が正常に出来る
+     * - 対象オブジェクトが Datetime を継承していない場合でも比較が出来る
+     * 
+     * @covers Peach\DT\Datetime::compareTo
+     * @covers Peach\DT\Datetime::compareFields
      */
     public function testCompareTo()
     {
         $d = array(
             new Datetime(2012, 3, 12, 23, 59),
+            new Datetime(2012, 5, 21,  3, 15),
             new Datetime(2012, 5, 21,  7, 30),
+            new Datetime(2012, 5, 21,  7, 45),
             new Datetime(2013, 1, 23,  1, 23),
         );
-        $this->assertGreaterThan(0, $d[1]->compareTo($d[0]));
-        $this->assertLessThan(0, $d[1]->compareTo($d[2]));
-        $this->assertSame(0, $d[1]->compareTo($d[1]));
+        $this->assertGreaterThan(0, $d[2]->compareTo($d[0]));
+        $this->assertGreaterThan(0, $d[2]->compareTo($d[1]));
+        $this->assertSame(0, $d[2]->compareTo($d[2]));
+        $this->assertLessThan(0, $d[2]->compareTo($d[3]));
+        $this->assertLessThan(0, $d[2]->compareTo($d[4]));
+
+        $w1 = new TimeWrapper($d[2]);
+        $w2 = $w1->add("hour", -3);
+        $w3 = $w1->add("minute", 15);
+        $this->assertGreaterThan(0, $d[2]->compareTo($w2));
+        $this->assertLessThan(0, $d[2]->compareTo($w3));
+        $this->assertSame(0, $d[2]->compareTo($w1));
     }
     
     /**
