@@ -103,6 +103,7 @@ class TimeWrapper implements Time
      * 
      * @param  Time $instance ラップ対象のオブジェクト
      * @return TimeWrapper
+     * @codeCoverageIgnore
      */
     protected function newInstance(Time $instance)
     {
