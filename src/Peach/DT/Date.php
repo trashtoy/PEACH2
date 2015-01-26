@@ -199,6 +199,7 @@ class Date extends AbstractTime
      * 月の調整をするための FieldAdjuster を返します.
      * 
      * @return FieldAdjuster
+     * @codeCoverageIgnore
      */
     private function getMonthAdjuster()
     {
