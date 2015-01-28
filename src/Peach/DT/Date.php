@@ -381,13 +381,13 @@ class Date extends AbstractTime
      */
     private static function checkLeapYear($year)
     {
-        if ($year % 4 != 0) {
+        if ($year % 4 !== 0) {
             return false;
         }
-        if ($year % 100 != 0) {
+        if ($year % 100 !== 0) {
             return true;
         }
-        return ($year % 400 == 0);
+        return ($year % 400 === 0);
     }
     
     /**
@@ -420,8 +420,9 @@ class Date extends AbstractTime
             case 10: return 31;
             case 11: return 30;
             case 12: return 31;
-            default:
-                throw new Exception();
         }
+        // @codeCoverageIgnoreStart
+        throw new \Exception();
+        // @codeCoverageIgnoreEnd
     }
 }

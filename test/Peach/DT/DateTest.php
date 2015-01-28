@@ -165,6 +165,7 @@ class DateTest extends AbstractTimeTest
      * - それ以外:       FALSE
      * 
      * @covers Peach\DT\Date::isLeapYear
+     * @covers Peach\DT\Date::checkLeapYear
      */
     public function testIsLeapYear()
     {
@@ -184,6 +185,7 @@ class DateTest extends AbstractTimeTest
      * 日数計算のテストを行います.
      * 
      * @covers Peach\DT\Date::getDateCount
+     * @covers Peach\DT\Date::getDateCountOf
      */
     public function testGetDateCount()
     {
@@ -277,6 +279,7 @@ class DateTest extends AbstractTimeTest
      * 以下の確認を行います.
      * 
      * - 比較が正常に出来る
+     * - 対象オブジェクトが Datetime を継承していない場合でも比較が出来る
      * 
      * @covers Peach\DT\Date::compareTo
      * @covers Peach\DT\Date::compareFields
@@ -295,6 +298,15 @@ class DateTest extends AbstractTimeTest
         $this->assertSame(0, $d[2]->compareTo($d[2]));
         $this->assertLessThan(0, $d[2]->compareTo($d[3]));
         $this->assertLessThan(0, $d[2]->compareTo($d[4]));
+        
+        $w1 = new TimeWrapper($d[2]);
+        $w2 = $w1->add("year", -1);
+        $w3 = $w1->add("month", 5);
+        $w4 = $w1->add("date",  3);
+        $this->assertGreaterThan(0, $d[2]->compareTo($w2));
+        $this->assertLessThan(0, $d[2]->compareTo($w3));
+        $this->assertLessThan(0, $d[2]->compareTo($w4));
+        $this->assertSame(0, $d[2]->compareTo($w1));
     }
     
     /**
