@@ -209,8 +209,9 @@ class DatetimeTest extends AbstractTimeTest
      * 
      * - 比較が正常に出来る
      * - 対象オブジェクトが Datetime を継承していない場合でも比較が出来る
+     * - 引数に時間オブジェクト以外の値を指定した場合は null を返す
      * 
-     * @covers Peach\DT\Datetime::compareTo
+     * @covers Peach\DT\AbstractTime::compareTo
      * @covers Peach\DT\Datetime::compareFields
      */
     public function testCompareTo()
@@ -234,6 +235,8 @@ class DatetimeTest extends AbstractTimeTest
         $this->assertGreaterThan(0, $d[2]->compareTo($w2));
         $this->assertLessThan(0, $d[2]->compareTo($w3));
         $this->assertSame(0, $d[2]->compareTo($w1));
+        
+        $this->assertNull($d[2]->compareTo("foobar"));
     }
     
     /**

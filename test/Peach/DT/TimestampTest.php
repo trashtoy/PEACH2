@@ -192,6 +192,7 @@ class TimestampTest extends AbstractTimeTest
      * 以下の確認を行います.
      * 
      * - 比較が正常に出来る
+     * - 引数に時間オブジェクト以外の値を指定した場合は null を返す
      */
     public function testCompareTo()
     {
@@ -203,6 +204,8 @@ class TimestampTest extends AbstractTimeTest
         $this->assertGreaterThan(0, $d[1]->compareTo($d[0]));
         $this->assertLessThan(0, $d[1]->compareTo($d[2]));
         $this->assertSame(0, $d[1]->compareTo($d[1]));
+        
+        $this->assertNull($d[1]->compareTo("foobar"));
     }
     
     /**

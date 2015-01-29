@@ -138,6 +138,7 @@ class DateTest extends AbstractTimeTest
      * 正しい曜日が取得できるかどうかテストします.
      * 
      * @covers Peach\DT\Date::getDay
+     * @covers Peach\DT\AbstractTime::getDayOf
      */
     public function testGetDay()
     {
@@ -146,7 +147,7 @@ class DateTest extends AbstractTimeTest
             new Date(1996, 3, 18),
             new Date(1999, 4, 6),
             new Date(2002, 7, 10),
-            new Date(2005, 10, 27),
+            new Date(2006, 1, 5),
             new Date(2008, 6, 13),
             new Date(2010, 7, 24)
         );
@@ -280,8 +281,9 @@ class DateTest extends AbstractTimeTest
      * 
      * - 比較が正常に出来る
      * - 対象オブジェクトが Datetime を継承していない場合でも比較が出来る
+     * - 引数に時間オブジェクト以外の値を指定した場合は null を返す
      * 
-     * @covers Peach\DT\Date::compareTo
+     * @covers Peach\DT\AbstractTime::compareTo
      * @covers Peach\DT\Date::compareFields
      */
     public function testCompareTo()
@@ -307,6 +309,8 @@ class DateTest extends AbstractTimeTest
         $this->assertLessThan(0, $d[2]->compareTo($w3));
         $this->assertLessThan(0, $d[2]->compareTo($w4));
         $this->assertSame(0, $d[2]->compareTo($w1));
+        
+        $this->assertNull($d[2]->compareTo("foobar"));
     }
     
     /**
