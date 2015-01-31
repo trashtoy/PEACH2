@@ -39,6 +39,7 @@ class DefaultEquator implements Equator
      * このクラスの唯一のインスタンスを返します.
      * 
      * @return DefaultEquator
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {
