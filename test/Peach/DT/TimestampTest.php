@@ -121,6 +121,11 @@ class TimestampTest extends AbstractTimeTest
      * 
      * - フィールドの加減が正常に出来ること.
      * - 不正なフィールド名を指定した場合に無視されること.
+     * 
+     * @covers Peach\DT\Timestamp::add
+     * @covers Peach\DT\FieldAdjuster::__construct
+     * @covers Peach\DT\FieldAdjuster::moveUp
+     * @covers Peach\DT\FieldAdjuster::moveDown
      */
     public function testAdd()
     {
@@ -267,6 +272,11 @@ class TimestampTest extends AbstractTimeTest
      * 
      * - 秒のフィールドの設定が出来る
      * - 不正な引数を指定した場合は同じオブジェクトを返す
+     * 
+     * @covers Peach\DT\Timestamp::set
+     * @covers Peach\DT\FieldAdjuster::__construct
+     * @covers Peach\DT\FieldAdjuster::moveUp
+     * @covers Peach\DT\FieldAdjuster::moveDown
      */
     public function testSet()
     {
@@ -294,6 +304,9 @@ class TimestampTest extends AbstractTimeTest
      * - 範囲外のフィールドが指定された場合に, 上位のフィールドから順に調整されること
      * 
      * @covers Peach\DT\Timestamp::setAll
+     * @covers Peach\DT\FieldAdjuster::__construct
+     * @covers Peach\DT\FieldAdjuster::moveUp
+     * @covers Peach\DT\FieldAdjuster::moveDown
      */
     public function testSetAll()
     {
