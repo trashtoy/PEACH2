@@ -83,6 +83,8 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * コンストラクタの引数に指定した値を返すことを確認します.
      * @covers Peach\DT\SimpleFormat::getFormat
+     * @covers Peach\DT\SimpleFormat::__construct
+     * @covers Peach\DT\SimpleFormat::createContext
      */
     public function testGetFormat()
     {
@@ -93,6 +95,8 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers Peach\DT\SimpleFormat::parseDate
+     * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseDate()
     {
@@ -113,6 +117,8 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers Peach\DT\SimpleFormat::parseDatetime
+     * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseDatetime()
     {
@@ -133,6 +139,8 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers Peach\DT\SimpleFormat::parseTimestamp
+     * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseTimestamp()
     {
@@ -153,6 +161,7 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers Peach\DT\SimpleFormat::formatDate
+     * @covers Peach\DT\SimpleFormat::formatKey
      */
     public function testFormatDate()
     {
@@ -167,6 +176,7 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers Peach\DT\SimpleFormat::formatDatetime
+     * @covers Peach\DT\SimpleFormat::formatKey
      */
     public function testFormatDatetime()
     {
@@ -181,6 +191,7 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers Peach\DT\SimpleFormat::formatTimestamp
+     * @covers Peach\DT\SimpleFormat::formatKey
      */
     public function testFormatTimestamp()
     {
