@@ -44,6 +44,7 @@ class ArraysTest extends \PHPUnit_Framework_TestCase
      * - Comparator が指定された場合はその Comparator の仕様に従って比較すること
      * 
      * @covers Peach\Util\Arrays::max
+     * @covers Peach\Util\Arrays::getTop
      */
     public function testMax()
     {
@@ -75,6 +76,7 @@ class ArraysTest extends \PHPUnit_Framework_TestCase
      * - Comparator が指定された場合はその Comparator の仕様に従って比較すること
      * 
      * @covers Peach\Util\Arrays::min
+     * @covers Peach\Util\Arrays::getTop
      */
     public function testMin()
     {
@@ -104,6 +106,7 @@ class ArraysTest extends \PHPUnit_Framework_TestCase
      * - 第 3 引数に true を指定した場合は元の配列の添字を維持すること
      * 
      * @covers Peach\Util\Arrays::pickup
+     * @covers Peach\Util\Arrays::pickupMatch
      */
     public function testPickup()
     {
