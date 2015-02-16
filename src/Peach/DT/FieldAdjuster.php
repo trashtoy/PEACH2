@@ -69,6 +69,7 @@ class FieldAdjuster
      * @param int $upperKey
      * @param int $min
      * @param int $max
+     * @codeCoverageIgnore
      */
     public function __construct($key, $upperKey, $min, $max)
     {
@@ -93,9 +94,6 @@ class FieldAdjuster
         $min        = $this->min;
         $field      = $fields->get($key);
         $upperField = $fields->get($upperKey);
-        if ($field <= $max) {
-            return;
-        }
         
         $range  = $max - $min + 1;
         $amount = intval(($field - $min) / $range);
@@ -118,9 +116,6 @@ class FieldAdjuster
         $min        = $this->min;
         $field      = $fields->get($key);
         $upperField = $fields->get($upperKey);
-        if ($min <= $field) {
-            return;
-        }
         
         $range  = $max - $min + 1;
         $amount = intval(($min - $field - 1) / $range) + 1;
