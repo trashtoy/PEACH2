@@ -211,6 +211,7 @@ class HttpDateFormat implements Format
     /**
      * 月の略称一覧です
      * @return array "Jan" から "Dec" までの月の略称を持つ配列
+     * @codeCoverageIgnore
      */
     private function getMonthMapping()
     {
@@ -273,8 +274,9 @@ class HttpDateFormat implements Format
             case 4: return "Thu";
             case 5: return "Fri";
             case 6: return "Sat";
-            default:
-                throw new \Exception("day: Out of range");
         }
+        // @codeCoverageIgnoreStart
+        throw new \Exception("day: Out of range");
+        // @codeCoverageIgnoreEnd
     }
 }
