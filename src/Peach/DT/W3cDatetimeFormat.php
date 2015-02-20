@@ -129,9 +129,11 @@ class W3cDatetimeFormat implements Format
     public function __construct($externalOffset = null, $internalOffset = null)
     {
         if ($externalOffset === false) {
+            // @codeCoverageIgnoreStart
             $this->usingTz        = false;
             $this->externalOffset = null;
             $this->internalOffset = null;
+            // @codeCoverageIgnoreEnd
         } else {
             $this->usingTz        = true;
             $this->externalOffset = Util::cleanTimeZoneOffset($externalOffset);
@@ -145,11 +147,12 @@ class W3cDatetimeFormat implements Format
      * また, 書式化する際にタイムゾーン文字列を付与しません.
      * 
      * @return W3cDatetimeFormat タイムゾーンに対応しないインスタンス
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {
         static $instance = null;
-        if (!isset($instance)) {
+        if ($instance === null) {
             $instance = new self(false);
         }
         return $instance;

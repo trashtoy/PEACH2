@@ -87,6 +87,7 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException InvalidArgumentException
      * @covers Peach\DT\W3cDatetimeFormat::parseDate
+     * @covers Peach\DT\W3cDatetimeFormat::throwFormatException
      */
     public function testParseDateFail()
     {
@@ -99,6 +100,8 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * 対応する Datetime オブジェクトに変換することを確認します.
      * 
      * @covers Peach\DT\W3cDatetimeFormat::parseDatetime
+     * @covers Peach\DT\W3cDatetimeFormat::adjustFromParse
+     * @covers Peach\DT\W3cDatetimeFormat::parseTimezone
      */
     public function testParseDatetime()
     {
@@ -119,6 +122,7 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException InvalidArgumentException
      * @covers Peach\DT\W3cDatetimeFormat::parseDatetime
+     * @covers Peach\DT\W3cDatetimeFormat::throwFormatException
      */
     public function testParseDatetimeFail()
     {
@@ -131,6 +135,8 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * 対応する Timestamp オブジェクトに変換することを確認します
      * 
      * @covers Peach\DT\W3cDatetimeFormat::parseTimestamp
+     * @covers Peach\DT\W3cDatetimeFormat::adjustFromParse
+     * @covers Peach\DT\W3cDatetimeFormat::parseTimezone
      */
     public function testParseTimestamp()
     {
@@ -151,6 +157,7 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException InvalidArgumentException
      * @covers Peach\DT\W3cDatetimeFormat::parseTimestamp
+     * @covers Peach\DT\W3cDatetimeFormat::throwFormatException
      */
     public function testParseTimestampFail()
     {
@@ -175,6 +182,8 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * "YYYY-MM-DDThh:mm+09:00" 形式の文字列を生成することを確認します.
      * タイムゾーンの設定がある場合は "YYYY-MM-DDThh:mm+9:00" のような文字列を生成します.
      * @covers Peach\DT\W3cDatetimeFormat::formatDatetime
+     * @covers Peach\DT\W3cDatetimeFormat::adjustFromFormat
+     * @covers Peach\DT\W3cDatetimeFormat::formatTimezone
      */
     public function testFormatDatetime()
     {
@@ -197,6 +206,8 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * "YYYY-MM-DDThh:mm:ss" 形式の文字列を生成することを確認します.
      * タイムゾーンの設定がある場合は "YYYY-MM-DDThh:mm:ss+9:00" のような文字列を生成します.
      * @covers Peach\DT\W3cDatetimeFormat::formatTimestamp
+     * @covers Peach\DT\W3cDatetimeFormat::adjustFromFormat
+     * @covers Peach\DT\W3cDatetimeFormat::formatTimezone
      */
     public function testFormatTimestamp()
     {
