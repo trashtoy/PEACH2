@@ -112,6 +112,18 @@ abstract class ElementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * setAttributes() の引数に配列, Map 以外の値を指定した場合に
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Markup\Element::setAttributes
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetAttributesFail()
+    {
+        $this->object->setAttributes("hoge");
+    }
+    
+    /**
      * setAttributes() の配列のキーに整数を指定した場合,
      * キーは無視されて値が Boolean 属性として登録されることを確認します.
      * 
