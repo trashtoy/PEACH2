@@ -46,13 +46,17 @@ class CommentTest extends \PHPUnit_Framework_TestCase
      * - コンストラクタ引数を省略した場合は空文字列となる
      * - コンストラクタの第一引数に指定した文字列を返す
      * 
+     * @covers Peach\Markup\Comment::__construct
      * @covers Peach\Markup\Comment::getPrefix
      */
     public function testGetPrefix()
     {
-        $this->assertSame("",            $this->object1->getPrefix());
-        $this->assertSame("test-prefix", $this->object2->getPrefix());
-        $this->assertSame("test-prefix", $this->object3->getPrefix());
+        $obj1 = new Comment();
+        $obj2 = new Comment("test-prefix");
+        $obj3 = new Comment("test-prefix", "test-suffix");
+        $this->assertSame("",            $obj1->getPrefix());
+        $this->assertSame("test-prefix", $obj2->getPrefix());
+        $this->assertSame("test-prefix", $obj3->getPrefix());
     }
 
     /**
