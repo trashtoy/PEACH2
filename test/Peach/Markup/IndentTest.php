@@ -33,6 +33,7 @@ class IndentTest extends \PHPUnit_Framework_TestCase
      * - stepUp() を行うたびに level が 1 ずつ増加すること
      * - stepDown() を行うたびに level が 1 ずつ減少すること
      * 
+     * @covers Peach\Markup\Indent::__construct
      * @covers Peach\Markup\Indent::getLevel
      * @covers Peach\Markup\Indent::stepUp
      * @covers Peach\Markup\Indent::stepDown
@@ -80,6 +81,7 @@ class IndentTest extends \PHPUnit_Framework_TestCase
      * - 現在の level が 0 以下の場合は空文字列を返すこと
      * 
      * @covers Peach\Markup\Indent::indent
+     * @covers Peach\Markup\Indent::handleIndent
      */
     public function testIndent()
     {
