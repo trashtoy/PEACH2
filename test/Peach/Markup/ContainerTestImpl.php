@@ -39,11 +39,12 @@ class ContainerTestImpl
         $test  = $this->test;
         $obj   = $this->object;
         $obj->append(null);
-        $obj->append("TEXT");
-        $obj->append(new EmptyElement("test"));
-        $obj->append(None::getInstance()); // added none
-        $obj->append($nList); // added 3 nodes
-        $test->assertSame(5, count($obj->getChildNodes()));
+        $obj->append("TEXT");                           // (count: 1)
+        $obj->append(new EmptyElement("test"));         // (count: 2)
+        $obj->append(None::getInstance());              // added nothing (count: 2)
+        $obj->append($nList);                           // added 3 nodes (count: 5)
+        $obj->append(array("A", "B", array("C", "D"))); // added 4 nodes (count: 9)
+        $test->assertSame(9, count($obj->getChildNodes()));
     }
     
     /**
