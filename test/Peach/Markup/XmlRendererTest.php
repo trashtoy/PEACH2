@@ -45,7 +45,10 @@ class XmlRendererTest extends AbstractRendererTest
     
     /**
      * 空要素タグの出力をテストします.
-     * @covers Peach\Markup\AbstractRenderer::formatEmptyTag
+     * 
+     * @covers Peach\Markup\XmlRenderer::formatEmptyTag
+     * @covers Peach\Markup\XmlRenderer::formatEmptyTagSuffix
+     * @covers Peach\Markup\AbstractRenderer::formatTagPrefix
      */
     public function testFormatEmptyTag()
     {
@@ -71,7 +74,10 @@ class XmlRendererTest extends AbstractRendererTest
     
     /**
      * 開始タグの出力をテストします.
+     * 
      * @covers Peach\Markup\XmlRenderer::formatStartTag
+     * @covers Peach\Markup\XmlRenderer::formatAttribute
+     * @covers Peach\Markup\XmlRenderer::formatBooleanAttribute
      */
     public function testFormatStartTag()
     {

@@ -47,12 +47,14 @@ class XmlRenderer extends AbstractRenderer
     
     /**
      * このクラスのインスタンスを取得します.
+     * 
      * @return XmlRenderer このクラスの唯一のインスタンス
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {
         static $instance = null;
-        if (!isset($instance)) {
+        if ($instance === null) {
             $instance = new self();
         }
         return $instance;

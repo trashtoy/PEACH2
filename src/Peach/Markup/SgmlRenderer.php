@@ -42,7 +42,8 @@ class SgmlRenderer extends AbstractRenderer
     /**
      * このクラスの唯一のインスタンスを取得します.
      * 
-     * @return SgmlRenderer 唯一のインスタンス
+     * @return SgmlRenderer このクラスの唯一のインスタンス
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {
