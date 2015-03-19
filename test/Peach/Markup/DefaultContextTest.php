@@ -164,6 +164,25 @@ EOS;
     }
     
     /**
+     * 空文字列の Code オブジェクトについては何も出力しないことを確認します.
+     * 
+     * @covers Peach\Markup\DefaultContext::handleCode
+     */
+    public function testHandleCodeByEmptyString()
+    {
+        $container = new NodeList();
+        $container->append(new Text("First"));
+        $container->append(new Code(""));
+        $container->append(new Text("Second"));
+        
+        $obj = $this->object;
+        $obj->handle($container);
+        
+        $expected = "First\r\n\r\nSecond";
+        $this->assertSame($expected, $obj->getResult());
+    }
+    
+    /**
      * handleEmptyElement のテストです. 以下を確認します.
      * 
      * - SGML 形式の場合 "<tagName>" となること
