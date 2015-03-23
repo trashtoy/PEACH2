@@ -228,7 +228,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         $obj2 = TestUtil::createTestHelperObject($h2);
         $this->assertSame(TestUtil::getCustomBuildResult(), $obj2->write());
     }
-
+    
     /**
      * このオブジェクトがラップしているノードが DebugBuilder によって build() されることを確認します.
      * @covers Peach\Markup\HelperObject::debug
