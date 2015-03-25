@@ -71,6 +71,7 @@ class HelperTest extends \PHPUnit_Framework_TestCase
      * - それ以外: 引数の文字列表現のテキストノード
      * 
      * @covers Peach\Markup\Helper::createNode
+     * @covers Peach\Markup\Helper::createElement
      */
     public function testCreateNode()
     {
@@ -108,5 +109,28 @@ class HelperTest extends \PHPUnit_Framework_TestCase
         $h = $this->object;
         $o = $h->createObject(TestUtil::getTestNode());
         $this->assertSame(TestUtil::getDefaultBuildResult(), $h->write($o));
+    }
+    
+    /**
+     * getBuilder() と setBuilder() のテストです. 以下について確認します.
+     * 
+     * - getBuilder() がコンストラクタの引数に指定した Builder オブジェクトと同一のものを返すこと
+     * - setBuilder() で指定した Builder オブジェクトが getBuilder() から取得できること
+     * 
+     * @covers Peach\Markup\Helper::__construct
+     * @covers Peach\Markup\Helper::getBuilder
+     * @covers Peach\Markup\Helper::setBuilder
+     */
+    public function testAccessBuilder()
+    {
+        $b1 = new DefaultBuilder();
+        $b1->setIndent(new Indent(0, Indent::TAB, Indent::LF));
+        $b2 = new DefaultBuilder();
+        $b2->setBreakControl(MinimalBreakControl::getInstance());
+        
+        $h = new Helper($b1);
+        $this->assertSame($b1, $h->getBuilder());
+        $h->setBuilder($b2);
+        $this->assertSame($b2, $h->getBuilder());
     }
 }
