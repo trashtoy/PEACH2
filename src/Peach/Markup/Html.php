@@ -51,6 +51,7 @@ class Html
      */
     private static function createBuilder($xml = false)
     {
+        // @codeCoverageIgnoreStart
         static $breakControl = null;
         if (!isset($breakControl)) {
             $breakControl = new NameBreakControl(
@@ -58,6 +59,8 @@ class Html
                 array("pre", "code", "textarea")
             );
         }
+        // @codeCoverageIgnoreEnd
+        
         $renderer = $xml ? XmlRenderer::getInstance() : SgmlRenderer::getInstance();
         $builder  = new DefaultBuilder();
         $builder->setBreakControl($breakControl);
@@ -72,11 +75,14 @@ class Html
      */
     private static function createHelper($xml = false)
     {
+        // @codeCoverageIgnoreStart
         static $emptyNodeNames = null;
         if (!isset($emptyNodeNames)) {
             // HTML4.01 および HTML5 (2014-02-04 勧告候補時点) の空要素一覧です
             $emptyNodeNames = array("area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr");
         }
+        // @codeCoverageIgnoreEnd
+        
         return new Helper(self::createBuilder($xml), $emptyNodeNames);
     }
     
@@ -97,6 +103,7 @@ class Html
      * HTML 形式のマークアップを行う Helper オブジェクトをグローバル Helper として設定します.
      * 
      * @return Helper このクラスが使用するグローバル Helper
+     * @codeCoverageIgnore
      */
     public static function getHelper()
     {

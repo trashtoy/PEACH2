@@ -28,6 +28,8 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * - 引数を省略した場合は HTML 形式で初期化されること
      * 
      * @covers Peach\Markup\Html::init
+     * @covers Peach\Markup\Html::createHelper
+     * @covers Peach\Markup\Html::createBuilder
      */
     public function testInit()
     {
@@ -218,6 +220,7 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * - 第 3 引数で select 要素の属性を指定できること
      * 
      * @covers Peach\Markup\Html::createSelectElement
+     * @covers Peach\Markup\Html::createOptions
      */
     public function testCreateSelectElement()
     {
@@ -348,6 +351,7 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * HelperObject を返すことを確認します.
      * 
      * @covers Peach\Markup\Html::select
+     * @covers Peach\Markup\Html::createOptions
      */
     public function testSelect()
     {
@@ -393,10 +397,12 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * - 引数に指定した内容でエイリアスを定義できること
      * 
      * @covers Peach\Markup\Html::alias
+     * @covers Peach\Markup\Html::handleAlias
      */
     public function testAlias()
     {
         $this->assertFalse(function_exists("tag"));
+        Html::alias(array());
         Html::alias();
         $this->assertTrue(function_exists("tag"));
         $this->assertSame("<p>Hello World!</p>", tag("p")->append("Hello World!")->write());
@@ -439,6 +445,7 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException \InvalidArgumentException
      * @covers Peach\Markup\Html::alias
+     * @covers Peach\Markup\Html::handleAlias
      */
     public function testAliasByAlreadyDefinedName()
     {
@@ -453,6 +460,7 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * InvalidArgumentException がスローされずに正常終了することを確認します.
      * 
      * @covers Peach\Markup\Html::alias
+     * @covers Peach\Markup\Html::handleAlias
      */
     public function testAliasBySameArguments()
     {
@@ -470,6 +478,7 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * InvalidArgumentException をスローすることを確認します.
      * 
      * @covers Peach\Markup\Html::alias
+     * @covers Peach\Markup\Html::handleAlias
      */
     public function testAliasByInvalidName()
     {
@@ -492,6 +501,7 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException \InvalidArgumentException
      * @covers Peach\Markup\Html::alias
+     * @covers Peach\Markup\Html::handleAlias
      */
     public function testAliasByUndefinedMethod()
     {
@@ -505,6 +515,7 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * - 同じ引数で複数回実行すると, 同一のオブジェクトを返すこと
      * 
      * @covers Peach\Markup\Html::closure
+     * @covers Peach\Markup\Html::createClosure
      */
     public function testClosure()
     {
@@ -547,6 +558,7 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException \InvalidArgumentException
      * @covers Peach\Markup\Html::closure
+     * @covers Peach\Markup\Html::createClosure
      */
     public function testClosureByUndefinedMethod()
     {
@@ -556,7 +568,8 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
     /**
      * 引数に指定したそれぞれのメソッド名について, 対応するクロージャを返すことを確認します.
      * 
-     * @covers Peach\Markup\Html::closure
+     * @covers Peach\Markup\Html::closures
+     * @covers Peach\Markup\Html::createClosure
      */
     public function testClosures()
     {
