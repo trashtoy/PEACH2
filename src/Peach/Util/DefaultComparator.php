@@ -166,6 +166,7 @@ class DefaultComparator implements Comparator
      * 唯一のインスタンスを返します.
      * 
      * @return DefaultComparator
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {

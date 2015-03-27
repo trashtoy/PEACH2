@@ -35,6 +35,10 @@ class DefaultComparatorTest extends \PHPUnit_Framework_TestCase
      * - Comparable の実装オブジェクトの場合, compareTo の結果で代償比較が行われること
      * 
      * @covers Peach\Util\DefaultComparator::compare
+     * @covers Peach\Util\DefaultComparator::compareObjects
+     * @covers Peach\Util\DefaultComparator::compareArrays
+     * @covers Peach\Util\DefaultComparator::compareTypes
+     * @covers Peach\Util\DefaultComparator::dump
      */
     public function testCompare()
     {
