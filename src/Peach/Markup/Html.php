@@ -461,9 +461,11 @@ class Html
                 return function ($c1, $c2) { return self::conditionalComment($c1, $c2); };
             case "select":
                 return function ($c1, $c2, $a = array()) { return self::select($c1, $c2, $a); };
-            default:
-                throw new \Excption("Invalid name specified.");
         }
+        
+        // @codeCoverageIgnoreStart
+        throw new \Excption("Invalid name specified.");
+        // @codeCoverageIgnoreEnd
     }
     
     /**
