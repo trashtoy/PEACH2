@@ -35,9 +35,12 @@ class DebugContextTest extends ContextTest
      */
     public function test__constructByEchoModeOn()
     {
+        ob_start();
         $obj = new DebugContext(true);
         $obj->handleText(new Text("foobar"));
-        $this->assertSame("Text\r\n", $this->getActualOutput());
+        $actual = ob_get_contents();
+        ob_end_clean();
+        $this->assertSame("Text\r\n", $actual);
     }
     
     /**
