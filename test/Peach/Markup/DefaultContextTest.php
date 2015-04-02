@@ -41,6 +41,8 @@ class DefaultContextTest extends ContextTest
      * - ノードが 1 つの場合 "<!--comment text-->" 形式になること
      * - ノードが複数の場合, コメントが改行されること
      * - 接頭辞および接尾辞が指定された場合は改行されること
+     * - 内部に別のコメントノードがあった場合, そのノードの中にあるオブジェクトだけを処理すること
+     * - 要素の中に 1 つだけコメントノードが含まれている場合 (indentMode が false の場合) に改行されないこと
      * 
      * @covers Peach\Markup\DefaultContext::handleComment
      * @covers Peach\Markup\DefaultContext::checkBreakModeInComment
@@ -85,6 +87,24 @@ class DefaultContextTest extends ContextTest
         $obj4      = $this->getTestObject();
         $obj4->handleComment($comment2);
         $this->assertSame($expected4, $obj4->getResult());
+        
+        $expected5 = "<!--TEST-->";
+        $comment3  = new Comment();
+        $comment3->append("TEST");
+        $comment4  = new Comment();
+        $comment4->append($comment3);
+        $obj5      = $this->getTestObject();
+        $obj5->handleComment($comment4);
+        $this->assertSame($expected5, $obj5->getResult());
+        
+        $expected6 = "<div><!--TEST--></div>";
+        $div       = new ContainerElement("div");
+        $comment5  = new Comment();
+        $comment5->append("TEST");
+        $div->append($comment5);
+        $obj6      = $this->getTestObject();
+        $obj6->handle($div);
+        $this->assertSame($expected6, $obj6->getResult());
     }
     
     /**
