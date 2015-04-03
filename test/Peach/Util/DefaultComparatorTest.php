@@ -90,6 +90,9 @@ class DefaultComparatorTest extends \PHPUnit_Framework_TestCase
         
         $this->assertGreaterThan(0, $c->compare(0, false));
         $this->assertLessThan(0, $c->compare(false, 0));
+        
+        $this->assertSame(0, $c->compare(1, 1.0));
+        $this->assertSame(0, $c->compare(1.0, 1));
     }
     
     /**
