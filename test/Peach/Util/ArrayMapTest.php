@@ -29,6 +29,30 @@ class ArrayMapTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * コンストラクタの引数の型に応じた初期データが生成されることを確認します.
+     * 
+     * @covers Peach\Util\ArrayMap::__construct
+     */
+    public function testConstructor()
+    {
+        $obj1 = new ArrayMap();
+        $this->assertSame(0, $obj1->size());
+        
+        $obj2 = new ArrayMap(array("foo" => 1, "bar" => 10, "hoge" => 200));
+        $this->assertSame(3, $obj2->size());
+        
+        $obj3 = new ArrayMap($this->object);
+        $this->assertSame($this->object->asArray(), $obj3->asArray());
+        
+        $hashMap = new HashMap();
+        $hashMap->put(new ArrayMapTest_Object("key1"), 100);
+        $hashMap->put(new ArrayMapTest_Object("key2"), 200);
+        $hashMap->put(new ArrayMapTest_Object("key3"), 300);
+        $obj4    = new ArrayMap($hashMap);
+        $this->assertSame(200, $obj4->get("Test:key2"));
+    }
+    
+    /**
      * 配列, Map 以外の型を引数に指定した場合に InvalidArgumentException
      * をスローすることを確認します.
      * 
@@ -60,6 +84,8 @@ class ArrayMapTest extends \PHPUnit_Framework_TestCase
 
     /**
      * 引数に指定した値でマッピングが上書きされることを確認します.
+     * キーにスカラー以外の値 (オブジェクト) が指定された場合は,
+     * 文字列に変換した結果をキーとして適用します.
      * 
      * @covers Peach\Util\ArrayMap::put
      */
@@ -70,6 +96,9 @@ class ArrayMapTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("X", $map->get("test"));
         $map->put("test", "Y");
         $this->assertEquals("Y", $map->get("test"));
+        
+        $map->put(new ArrayMapTest_Object("test"), "Z");
+        $this->assertEquals("Z", $map->get("Test:test"));
     }
     
     /**
@@ -220,5 +249,20 @@ class ArrayMapTest extends \PHPUnit_Framework_TestCase
             $result[$key] = $value;
         }
         $this->assertSame(array("key1" => "foo", "key2" => "bar", "key3" => "baz"), $result);
+    }
+}
+
+class ArrayMapTest_Object
+{
+    private $value;
+    
+    public function __construct($value)
+    {
+        $this->value = $value;
+    }
+    
+    public function __toString()
+    {
+        return "Test:{$this->value}";
     }
 }

@@ -75,6 +75,7 @@ class DefaultBreakControl implements BreakControl
      * 唯一のインスタンスを取得します.
      * 
      * @return DefaultBreakControl
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {

@@ -30,6 +30,7 @@ class FormatWrapperTest extends \PHPUnit_Framework_TestCase
     /**
      * コンストラクタの引数と等しい時間オブジェクトを返すことを確認します.
      * @covers Peach\DT\FormatWrapper::getOriginal
+     * @covers Peach\DT\FormatWrapper::__construct
      */
     public function testGetOriginal()
     {

@@ -26,7 +26,12 @@ class BreakControlWrapperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * コンストラクタの引数にしたものと同じオブジェクトを返すことを確認します.
+     * getOriginal() のテストです. 以下を確認します.
+     * 
+     * - コンストラクタの引数にしたものと同じオブジェクトを返すこと
+     * - コンストラクタの引数を省略した場合は DefaultBreakControl を返すこと
+     * 
+     * @covers Peach\Markup\BreakControlWrapper::__construct
      * @covers Peach\Markup\BreakControlWrapper::getOriginal
      */
     public function testGetOriginal()
@@ -34,6 +39,9 @@ class BreakControlWrapperTest extends \PHPUnit_Framework_TestCase
         $original = DefaultBreakControl::getInstance();
         $wrapper  = new BreakControlWrapper($original);
         $this->assertSame($original, $wrapper->getOriginal());
+        
+        $defaultObj = new BreakControlWrapper();
+        $this->assertSame($original, $defaultObj->getOriginal());
     }
     
     /**

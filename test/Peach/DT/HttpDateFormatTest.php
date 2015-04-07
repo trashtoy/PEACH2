@@ -90,6 +90,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException \InvalidArgumentException
      * @covers Peach\DT\HttpDateFormat::parseDate
+     * @covers Peach\DT\HttpDateFormat::throwFormatException
      */
     public function testParseDateFail()
     {
@@ -101,6 +102,8 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * Datetime オブジェクトに変換されることを確認します.
      * 
      * @covers Peach\DT\HttpDateFormat::parseDatetime
+     * @covers Peach\DT\HttpDateFormat::parseMonthDescription
+     * @covers Peach\DT\HttpDateFormat::getFullYear
      */
     public function testParseDatetime()
     {
@@ -116,6 +119,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException \InvalidArgumentException
      * @covers Peach\DT\HttpDateFormat::parseDatetime
+     * @covers Peach\DT\HttpDateFormat::throwFormatException
      */
     public function testParseDatetimeFail()
     {
@@ -127,6 +131,8 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * Timestamp に変換されることを確認します.
      * 
      * @covers Peach\DT\HttpDateFormat::parseTimestamp
+     * @covers Peach\DT\HttpDateFormat::parseMonthDescription
+     * @covers Peach\DT\HttpDateFormat::getFullYear
      */
     public function testParseTimestamp()
     {
@@ -142,6 +148,7 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException \InvalidArgumentException
      * @covers Peach\DT\HttpDateFormat::parseTimestamp
+     * @covers Peach\DT\HttpDateFormat::throwFormatException
      */
     public function testParseTimestampFail()
     {
@@ -151,6 +158,8 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * その日の0時0分の時刻を GMT に変換した結果を返します.
      * @covers Peach\DT\HttpDateFormat::formatDate
+     * @covers Peach\DT\HttpDateFormat::getMonthDescription
+     * @covers Peach\DT\HttpDateFormat::getDayDescription
      */
     public function testFormatDate()
     {
@@ -161,6 +170,8 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * その時刻が HTTP-date で書式化されることを確認します.
      * @covers Peach\DT\HttpDateFormat::formatDatetime
+     * @covers Peach\DT\HttpDateFormat::getMonthDescription
+     * @covers Peach\DT\HttpDateFormat::getDayDescription
      */
     public function testFormatDatetime()
     {
@@ -171,10 +182,14 @@ class HttpDateFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * その時刻が HTTP-date で書式化されることを確認します.
      * @covers Peach\DT\HttpDateFormat::formatTimestamp
+     * @covers Peach\DT\HttpDateFormat::getMonthDescription
+     * @covers Peach\DT\HttpDateFormat::getDayDescription
      */
     public function testFormatTimestamp()
     {
-        $d = new Timestamp(2009, 2, 14, 8, 31, 30);
-        $this->assertSame("Fri, 13 Feb 2009 23:31:30 GMT", $this->object->formatTimestamp($d));
+        $d1 = new Timestamp(2009, 2, 14, 8, 31, 30);
+        $this->assertSame("Fri, 13 Feb 2009 23:31:30 GMT", $this->object->formatTimestamp($d1));
+        $d2 = new Timestamp(2015, 10, 10, 11, 34, 4);
+        $this->assertSame("Sat, 10 Oct 2015 02:34:04 GMT", $this->object->formatTimestamp($d2));
     }
 }

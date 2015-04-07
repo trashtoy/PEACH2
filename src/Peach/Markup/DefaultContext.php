@@ -143,7 +143,7 @@ class DefaultContext extends Context
             case 1:
                 $node = $nodes[0];
                 if ($node instanceof Comment) {
-                    return $this->checkBreakModeInComment($node->getChildNodes());
+                    return $this->checkBreakModeInComment($node);
                 }
                 
                 return ($node instanceof Element);

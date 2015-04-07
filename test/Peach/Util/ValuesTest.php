@@ -133,6 +133,8 @@ class ValuesTest extends \PHPUnit_Framework_TestCase
      * - "F", "N" (大小問わず) で始まる文字列は false を返す.
      * 
      * @covers Peach\Util\Values::boolValue
+     * @covers Peach\Util\Values::handleBoolValue
+     * @covers Peach\Util\Values::stringToBool
      */
     public function testBoolValue()
     {

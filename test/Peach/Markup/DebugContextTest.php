@@ -29,6 +29,33 @@ class DebugContextTest extends ContextTest
     }
     
     /**
+     * 引数に true を指定して初期化した場合に自動で echo が行われることを確認します.
+     * 
+     * @covers Peach\Markup\DebugContext::__construct
+     */
+    public function test__constructByEchoModeOn()
+    {
+        ob_start();
+        $obj = new DebugContext(true);
+        $obj->handleText(new Text("foobar"));
+        $actual = ob_get_contents();
+        ob_end_clean();
+        $this->assertSame("Text\r\n", $actual);
+    }
+    
+    /**
+     * 引数に false を指定して初期化した場合は echo が行われないことを確認します.
+     * 
+     * @covers Peach\Markup\DebugContext::__construct
+     */
+    public function test__constructByEchoModeOff()
+    {
+        $obj = new DebugContext(false);
+        $obj->handleText(new Text("foobar"));
+        $this->assertFalse($this->hasOutput());
+    }
+    
+    /**
      * getResult() のテストです.
      * 各ノードのクラス名とその入れ子構造が出力されることを確認します.
      * 
@@ -48,6 +75,9 @@ class DebugContextTest extends ContextTest
      * handleComment() のテストです.
      * 
      * @covers Peach\Markup\DebugContext::handleComment
+     * @covers Peach\Markup\DebugContext::startNode
+     * @covers Peach\Markup\DebugContext::handleContainer
+     * @covers Peach\Markup\DebugContext::endNode
      */
     public function testHandleComment()
     {
@@ -68,6 +98,9 @@ class DebugContextTest extends ContextTest
      * handleContainerElement() のテストです.
      * 
      * @covers Peach\Markup\DebugContext::handleContainerElement
+     * @covers Peach\Markup\DebugContext::startNode
+     * @covers Peach\Markup\DebugContext::handleContainer
+     * @covers Peach\Markup\DebugContext::endNode
      */
     public function testHandleContainerElement()
     {
@@ -88,6 +121,7 @@ class DebugContextTest extends ContextTest
      * handleEmptyElement() のテストです.
      * 
      * @covers Peach\Markup\DebugContext::handleEmptyElement
+     * @covers Peach\Markup\DebugContext::append
      */
     public function testHandleEmptyElement()
     {
@@ -103,6 +137,9 @@ class DebugContextTest extends ContextTest
      * handleNodeList() のテストです.
      * 
      * @covers Peach\Markup\DebugContext::handleNodeList
+     * @covers Peach\Markup\DebugContext::startNode
+     * @covers Peach\Markup\DebugContext::handleContainer
+     * @covers Peach\Markup\DebugContext::endNode
      */
     public function testHandleNodeList()
     {
@@ -134,6 +171,7 @@ class DebugContextTest extends ContextTest
      * handleText() のテストです.
      * 
      * @covers Peach\Markup\DebugContext::handleText
+     * @covers Peach\Markup\DebugContext::append
      */
     public function testHandleText()
     {
@@ -149,6 +187,7 @@ class DebugContextTest extends ContextTest
      * handleCode() のテストです.
      * 
      * @covers Peach\Markup\DebugContext::handleCode
+     * @covers Peach\Markup\DebugContext::append
      */
     public function testHandleCode()
     {
@@ -169,6 +208,7 @@ class DebugContextTest extends ContextTest
      * handleNone() のテストです.
      * 
      * @covers Peach\Markup\DebugContext::handleNone
+     * @covers Peach\Markup\DebugContext::append
      */
     public function testHandleNone()
     {

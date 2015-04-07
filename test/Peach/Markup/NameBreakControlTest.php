@@ -4,17 +4,11 @@ namespace Peach\Markup;
 class NameBreakControlTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var NameBreakControl
-     */
-    protected $object;
-    
-    /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
     protected function setUp()
     {
-        $this->object = new NameBreakControl(array("A", "B", "C", "Q"), array("Q", "X", "Y", "Z"));
     }
     
     /**
@@ -33,11 +27,12 @@ class NameBreakControlTest extends \PHPUnit_Framework_TestCase
      * - どちらにも属する要素の場合, 強制改行のほうが優先されます.
      * - どちらにも属さない要素の場合, オリジナルの改行ルールに従います
      * 
+     * @covers Peach\Markup\NameBreakControl::__construct
      * @covers Peach\Markup\NameBreakControl::breaks
      */
     public function testBreaks()
     {
-        $c = $this->object;
+        $c = new NameBreakControl(array("A", "B", "C", "Q"), array("Q", "X", "Y", "Z"));
         
         $this->assertTrue($c->breaks($this->createBreakNode("A")));
         $this->assertTrue($c->breaks($this->createNoBreakNode("B")));

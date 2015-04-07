@@ -35,6 +35,10 @@ class DefaultComparatorTest extends \PHPUnit_Framework_TestCase
      * - Comparable の実装オブジェクトの場合, compareTo の結果で代償比較が行われること
      * 
      * @covers Peach\Util\DefaultComparator::compare
+     * @covers Peach\Util\DefaultComparator::compareObjects
+     * @covers Peach\Util\DefaultComparator::compareArrays
+     * @covers Peach\Util\DefaultComparator::compareTypes
+     * @covers Peach\Util\DefaultComparator::dump
      */
     public function testCompare()
     {
@@ -45,6 +49,16 @@ class DefaultComparatorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(       0, $c->compare("3",  3));
         
         $this->assertGreaterThan(0, $c->compare("2a", 2));
+        $this->assertLessThan(0, $c->compare(2, "2a"));
+        
+        $arr1 = array(0 => "hoge", 2 => "fuga", 1 => "piyo");
+        $arr2 = array(2 => "fuga", 0 => "hoge", 1 => "piyo");
+        $arr3 = array(0 => "xxxx", 1 => "yyyy", 2 => "zzzz");
+        $this->assertSame(0, $c->compare($arr1, $arr2));
+        $this->assertGreaterThan(0, $c->compare($arr3, $arr1));
+        $this->assertLessThan(0, $c->compare($arr1, $arr3));
+        $this->assertSame(0, $c->compare(array(), false));
+        $this->assertSame(0, $c->compare(false, array()));
         
         // Comparable を実装していないオブジェクトの場合
         // var_dump の結果が適用されるため, 13 と 5 は文字列として比較される
@@ -67,6 +81,18 @@ class DefaultComparatorTest extends \PHPUnit_Framework_TestCase
         $this->assertLessThan(   0, $c->compare($c2, $c3));
         $this->assertSame(       0, $c->compare($c1, $c4));
         $this->assertGreaterThan(0, $c->compare($c3, $c1));
+        
+        $this->assertGreaterThan(0, $c->compare($c1, null));
+        $this->assertLessThan(0, $c->compare(null, $c1));
+        
+        $this->assertGreaterThan(0, $c->compare(false, null));
+        $this->assertLessThan(0, $c->compare(null, false));
+        
+        $this->assertGreaterThan(0, $c->compare(0, false));
+        $this->assertLessThan(0, $c->compare(false, 0));
+        
+        $this->assertSame(0, $c->compare(1, 1.0));
+        $this->assertSame(0, $c->compare(1.0, 1));
     }
     
     /**
@@ -112,6 +138,9 @@ class DefaultComparatorTest_C implements Comparable
     
     public function compareTo($subject)
     {
+        if ($subject === null) {
+            return 1;
+        }
         if ($this->value !== $subject->value) {
             return $this->value - $subject->value;
         }

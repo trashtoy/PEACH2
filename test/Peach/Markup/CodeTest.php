@@ -29,11 +29,13 @@ class CodeTest extends \PHPUnit_Framework_TestCase
     /**
      * コンストラクタに指定した文字列を返すことを確認します.
      * 
+     * @covers Peach\Markup\Code::__construct
      * @covers Peach\Markup\Code::getText
      */
     public function testGetText()
     {
-        $this->assertSame("THIS IS SAMPLE", $this->object->getText());
+        $code = new Code("THIS IS SAMPLE");
+        $this->assertSame("THIS IS SAMPLE", $code->getText());
     }
     
     /**
@@ -55,6 +57,6 @@ class CodeTest extends \PHPUnit_Framework_TestCase
      */
     public function test__toString()
     {
-        $this->assertSame("THIS IS SAMPLE", $this->object->getText());
+        $this->assertSame("THIS IS SAMPLE", $this->object->__toString());
     }
 }

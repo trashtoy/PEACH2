@@ -45,7 +45,10 @@ class SgmlRendererTest extends AbstractRendererTest
     
     /**
      * 空要素タグの出力をテストします.
+     * 
      * @covers Peach\Markup\SgmlRenderer::formatEmptyTag
+     * @covers Peach\Markup\SgmlRenderer::formatEmptyTagSuffix
+     * @covers Peach\Markup\AbstractRenderer::formatTagPrefix
      */
     public function testFormatEmptyTag()
     {
@@ -71,7 +74,10 @@ class SgmlRendererTest extends AbstractRendererTest
     
     /**
      * 開始タグの出力をテストします.
+     * 
      * @covers Peach\Markup\SgmlRenderer::formatStartTag
+     * @covers Peach\Markup\SgmlRenderer::formatAttribute
+     * @covers Peach\Markup\SgmlRenderer::formatBooleanAttribute
      */
     public function testFormatStartTag()
     {

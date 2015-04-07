@@ -41,8 +41,14 @@ class DefaultContextTest extends ContextTest
      * - ノードが 1 つの場合 "<!--comment text-->" 形式になること
      * - ノードが複数の場合, コメントが改行されること
      * - 接頭辞および接尾辞が指定された場合は改行されること
+     * - 内部に別のコメントノードがあった場合, そのノードの中にあるオブジェクトだけを処理すること
+     * - 要素の中に 1 つだけコメントノードが含まれている場合 (indentMode が false の場合) に改行されないこと
      * 
      * @covers Peach\Markup\DefaultContext::handleComment
+     * @covers Peach\Markup\DefaultContext::checkBreakModeInComment
+     * @covers Peach\Markup\DefaultContext::formatChildNodes
+     * @covers Peach\Markup\DefaultContext::breakCode
+     * @covers Peach\Markup\DefaultContext::escapeEndComment
      */
     public function testHandleComment()
     {
@@ -81,6 +87,24 @@ class DefaultContextTest extends ContextTest
         $obj4      = $this->getTestObject();
         $obj4->handleComment($comment2);
         $this->assertSame($expected4, $obj4->getResult());
+        
+        $expected5 = "<!--TEST-->";
+        $comment3  = new Comment();
+        $comment3->append("TEST");
+        $comment4  = new Comment();
+        $comment4->append($comment3);
+        $obj5      = $this->getTestObject();
+        $obj5->handleComment($comment4);
+        $this->assertSame($expected5, $obj5->getResult());
+        
+        $expected6 = "<div><!--TEST--></div>";
+        $div       = new ContainerElement("div");
+        $comment5  = new Comment();
+        $comment5->append("TEST");
+        $div->append($comment5);
+        $obj6      = $this->getTestObject();
+        $obj6->handle($div);
+        $this->assertSame($expected6, $obj6->getResult());
     }
     
     /**
@@ -90,6 +114,8 @@ class DefaultContextTest extends ContextTest
      * - 特殊文字がエスケープされること
      * 
      * @covers Peach\Markup\DefaultContext::handleText
+     * @covers Peach\Markup\DefaultContext::indent
+     * @covers Peach\Markup\DefaultContext::escape
      */
     public function testHandleText()
     {
@@ -113,6 +139,8 @@ class DefaultContextTest extends ContextTest
      * 指定されたコードがインデントされた状態でマークアップされることを確認します.
      * 
      * @covers Peach\Markup\DefaultContext::handleCode
+     * @covers Peach\Markup\DefaultContext::indent
+     * @covers Peach\Markup\DefaultContext::breakCode
      */
     public function testHandleCode()
     {
@@ -156,12 +184,32 @@ EOS;
     }
     
     /**
+     * 空文字列の Code オブジェクトについては何も出力しないことを確認します.
+     * 
+     * @covers Peach\Markup\DefaultContext::handleCode
+     */
+    public function testHandleCodeByEmptyString()
+    {
+        $container = new NodeList();
+        $container->append(new Text("First"));
+        $container->append(new Code(""));
+        $container->append(new Text("Second"));
+        
+        $obj = $this->object;
+        $obj->handle($container);
+        
+        $expected = "First\r\n\r\nSecond";
+        $this->assertSame($expected, $obj->getResult());
+    }
+    
+    /**
      * handleEmptyElement のテストです. 以下を確認します.
      * 
      * - SGML 形式の場合 "<tagName>" となること
      * - XML 形式の場合 "<tagName />" となること
      * 
      * @covers Peach\Markup\DefaultContext::handleEmptyElement
+     * @covers Peach\Markup\DefaultContext::indent
      */
     public function testHandleEmptyElement()
     {
@@ -188,6 +236,8 @@ EOS;
      * - 複数のノードを持つ子孫ノードが存在する場合は, 改行してインデントすること
      * 
      * @covers Peach\Markup\DefaultContext::handleContainerElement
+     * @covers Peach\Markup\DefaultContext::formatChildNodes
+     * @covers Peach\Markup\DefaultContext::breakCode
      */
     public function testHandleContainerElement()
     {
@@ -236,6 +286,8 @@ EOS;
      * NodeList に含まれる各子ノードを handle することを確認します.
      * 
      * @covers Peach\Markup\DefaultContext::handleNodeList
+     * @covers Peach\Markup\DefaultContext::formatChildNodes
+     * @covers Peach\Markup\DefaultContext::breakCode
      */
     public function testHandleNodeList()
     {
@@ -270,6 +322,7 @@ EOS;
     }
     
     /**
+     * @covers Peach\Markup\DefaultContext::__construct
      * @covers Peach\Markup\DefaultContext::getResult
      */
     public function testGetResult()

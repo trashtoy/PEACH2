@@ -45,11 +45,12 @@ class None implements Component
     /**
      * このクラスの唯一のインスタンスを返します.
      * @return None
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {
         static $instance = null;
-        if (!isset($instance)) {
+        if ($instance === null) {
             $instance = new self();
         }
         

@@ -29,11 +29,13 @@ class TextTest extends \PHPUnit_Framework_TestCase
     /**
      * コンストラクタに指定した文字列を返すことを確認します.
      * 
+     * @covers Peach\Markup\Text::__construct
      * @covers Peach\Markup\Text::getText
      */
     public function testGetText()
     {
-        $this->assertSame("THIS IS TEST", $this->object->getText());
+        $obj = new Text("THIS IS TEST");
+        $this->assertSame("THIS IS TEST", $obj->getText());
     }
     
     /**

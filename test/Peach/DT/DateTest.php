@@ -138,6 +138,7 @@ class DateTest extends AbstractTimeTest
      * 正しい曜日が取得できるかどうかテストします.
      * 
      * @covers Peach\DT\Date::getDay
+     * @covers Peach\DT\AbstractTime::getDayOf
      */
     public function testGetDay()
     {
@@ -146,7 +147,7 @@ class DateTest extends AbstractTimeTest
             new Date(1996, 3, 18),
             new Date(1999, 4, 6),
             new Date(2002, 7, 10),
-            new Date(2005, 10, 27),
+            new Date(2006, 1, 5),
             new Date(2008, 6, 13),
             new Date(2010, 7, 24)
         );
@@ -165,6 +166,7 @@ class DateTest extends AbstractTimeTest
      * - それ以外:       FALSE
      * 
      * @covers Peach\DT\Date::isLeapYear
+     * @covers Peach\DT\Date::checkLeapYear
      */
     public function testIsLeapYear()
     {
@@ -184,6 +186,7 @@ class DateTest extends AbstractTimeTest
      * 日数計算のテストを行います.
      * 
      * @covers Peach\DT\Date::getDateCount
+     * @covers Peach\DT\Date::getDateCountOf
      */
     public function testGetDateCount()
     {
@@ -202,7 +205,11 @@ class DateTest extends AbstractTimeTest
      * 以下の確認を行います.
      * 
      * - フィールドの加減が正常に出来ること.
+     * - 繰り上がり・繰り下がり処理が正常に出来ること.
      * - 不正なフィールド名を指定した場合に無視されること.
+     *
+     * @covers Peach\DT\Date::add
+     * @covers Peach\DT\Date::adjust
      */
     public function testAdd()
     {
@@ -213,6 +220,9 @@ class DateTest extends AbstractTimeTest
         $this->assertEquals(new Date(2011, 12, 21),  $d1->add("month", -5));
         $this->assertEquals(new Date(2012, 6,  10),  $d1->add("date",  20));
         $this->assertEquals(new Date(2012, 4,  21),  $d1->add("date", -30));
+        
+        $this->assertEquals(new Date(2011, 5,  21),  $d1->add("date", -366));
+        $this->assertEquals(new Date(2013, 5,  21),  $d1->add("date",  365));
         
         $this->assertEquals(new Date(2012, 5,  21),  $d1->add("min",   10));
         $this->assertEquals(new Date(2012, 5,  21),  $d1->add("sec",  -10));
@@ -270,17 +280,37 @@ class DateTest extends AbstractTimeTest
      * 以下の確認を行います.
      * 
      * - 比較が正常に出来る
+     * - 対象オブジェクトが Datetime を継承していない場合でも比較が出来る
+     * - 引数に時間オブジェクト以外の値を指定した場合は null を返す
+     * 
+     * @covers Peach\DT\AbstractTime::compareTo
+     * @covers Peach\DT\Date::compareFields
      */
     public function testCompareTo()
     {
         $d = array(
+            new Date(2011, 8, 1),
             new Date(2012, 3, 12),
             new Date(2012, 5, 21),
+            new Date(2012, 5, 30),
             new Date(2013, 1, 23),
         );
-        $this->assertGreaterThan(0, $d[1]->compareTo($d[0]));
-        $this->assertLessThan(0, $d[1]->compareTo($d[2]));
-        $this->assertSame(0, $d[1]->compareTo($d[1]));
+        $this->assertGreaterThan(0, $d[2]->compareTo($d[0]));
+        $this->assertGreaterThan(0, $d[2]->compareTo($d[1]));
+        $this->assertSame(0, $d[2]->compareTo($d[2]));
+        $this->assertLessThan(0, $d[2]->compareTo($d[3]));
+        $this->assertLessThan(0, $d[2]->compareTo($d[4]));
+        
+        $w1 = new TimeWrapper($d[2]);
+        $w2 = $w1->add("year", -1);
+        $w3 = $w1->add("month", 5);
+        $w4 = $w1->add("date",  3);
+        $this->assertGreaterThan(0, $d[2]->compareTo($w2));
+        $this->assertLessThan(0, $d[2]->compareTo($w3));
+        $this->assertLessThan(0, $d[2]->compareTo($w4));
+        $this->assertSame(0, $d[2]->compareTo($w1));
+        
+        $this->assertNull($d[2]->compareTo("foobar"));
     }
     
     /**

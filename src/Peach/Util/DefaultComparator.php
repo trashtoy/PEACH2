@@ -76,6 +76,9 @@ class DefaultComparator implements Comparator
         ob_end_clean();
         
         $classNamePattern = "([a-zA-Z_\\x7f-\\xff][a-zA-Z0-9\\\\_\\x7f-\\xff]*)";
+        
+        // xdebug の設定によって処理が変わるため, コードカバレージの対象外とします
+        // @codeCoverageIgnoreStart
         if (preg_match("/^object\\({$classNamePattern}\\)#(\\d+)/", $data)) {
             return preg_replace("/^object\\({$classNamePattern}\\)#(\\d+)/", "$1", $data);
         }
@@ -83,6 +86,7 @@ class DefaultComparator implements Comparator
             return preg_replace("/^class {$classNamePattern}#(\\d+)/", "$1", $data);
         }
         return $data;
+        // @codeCoverageIgnoreEnd
     }
     
     /**
@@ -127,7 +131,7 @@ class DefaultComparator implements Comparator
     /**
      * 異なる値 $var1, $var2 について,
      * 一方が NULL や FALSE などの値だった場合の大小関係を定義します.
-     * この実装は NULL < FALSE < array() という順序付けをします.
+     * この実装は NULL < FALSE < その他 という順序付けをします.
      * 
      * @param  mixed $var1
      * @param  mixed $var2
@@ -147,12 +151,6 @@ class DefaultComparator implements Comparator
         if (is_bool($var2)) {
             return 1;
         }
-        if ($var1 === array()) {
-            return -1;
-        }
-        if ($var2 === array()) {
-            return 1;
-        }
         
         return 0;
     }
@@ -166,6 +164,7 @@ class DefaultComparator implements Comparator
      * 唯一のインスタンスを返します.
      * 
      * @return DefaultComparator
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {

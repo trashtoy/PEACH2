@@ -51,6 +51,7 @@ class MinimalBreakControl implements BreakControl
      * 唯一のインスタンスを取得します.
      * 
      * @return MinimalBreakControl
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {

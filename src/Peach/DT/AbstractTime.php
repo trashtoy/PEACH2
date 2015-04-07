@@ -257,6 +257,7 @@ abstract class AbstractTime implements Time
      * このオブジェクトが指す時刻を, SQL などで使われる慣用表現に変換して返します.
      *
      * @return string このオブジェクトの文字列表現 ("YYYY-MM-DD", "YYYY-MM-DD hh:mm" など)
+     * @codeCoverageIgnore
      */
     public function __toString()
     {
@@ -361,6 +362,7 @@ abstract class AbstractTime implements Time
      * @see    Time::$HOUR
      * @see    Time::$MINUTE
      * @see    Time::$SECOND
+     * @codeCoverageIgnore
      */
     private function getFieldIndex($field)
     {
