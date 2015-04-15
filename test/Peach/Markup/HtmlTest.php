@@ -509,6 +509,19 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * alias() の引数にキーが 0 となるようなメソッド名を指定した場合,
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @expectedException \InvalidArgumentException
+     * @covers Peach\Markup\Html::alias
+     * @covers Peach\Markup\Html::handleAlias
+     */
+    public function testAliasByZeroKey()
+    {
+        Html::alias(array("hogehoge"));
+    }
+    
+    /**
      * closure() のテストです. 以下について確認します.
      * 
      * - 返り値のクロージャを実行すると, 指定したメソッドを呼び出すこと

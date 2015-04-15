@@ -214,19 +214,11 @@ class Arrays
         if (!isset($c)) {
             $c = DefaultComparator::getInstance();
         }
-        reset($arr);
-        $upper = array();
-        $lower = array();
-        $first = array_shift($arr);
-        foreach ($arr as $value) {
-            $compValue = $c->compare($first, $value);
-            if (0 < $compValue) {
-                $lower[] = $value;
-            } else {
-                $upper[] = $value;
-            }
-        }
-        return self::concat(self::sort($lower, $c), $first, self::sort($upper, $c));
+        $func = function ($var1, $var2) use ($c) {
+            return $c->compare($var1, $var2);
+        };
+        usort($arr, $func);
+        return $arr;
     }
     
     /**
@@ -245,19 +237,11 @@ class Arrays
         if (!isset($c)) {
             $c = DefaultComparator::getInstance();
         }
-        reset($arr);
-        list($firstKey, $firstValue) = each($arr);
-        $upper = array();
-        $lower = array();
-        while (false !== (list($key, $value) = each($arr))) {
-            $compValue = $c->compare($firstValue, $value);
-            if (0 < $compValue) {
-                $lower[$key] = $value;
-            } else {
-                $upper[$key] = $value;
-            }
-        }
-        return self::asort($lower, $c) + array($firstKey => $firstValue) + self::asort($upper, $c);
+        $func = function ($var1, $var2) use ($c) {
+            return $c->compare($var1, $var2);
+        };
+        uasort($arr, $func);
+        return $arr;
     }
     
     /**
