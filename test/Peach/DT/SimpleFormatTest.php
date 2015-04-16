@@ -96,6 +96,11 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Peach\DT\SimpleFormat::parseDate
      * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat\Numbers::match
+     * @covers Peach\DT\SimpleFormat\Numbers::apply
+     * @covers Peach\DT\SimpleFormat\Raw::__construct
+     * @covers Peach\DT\SimpleFormat\Raw::match
+     * @covers Peach\DT\SimpleFormat\Raw::apply
      * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseDate()
@@ -118,6 +123,11 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Peach\DT\SimpleFormat::parseDatetime
      * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat\Numbers::match
+     * @covers Peach\DT\SimpleFormat\Numbers::apply
+     * @covers Peach\DT\SimpleFormat\Raw::__construct
+     * @covers Peach\DT\SimpleFormat\Raw::match
+     * @covers Peach\DT\SimpleFormat\Raw::apply
      * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseDatetime()
@@ -140,6 +150,11 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Peach\DT\SimpleFormat::parseTimestamp
      * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat\Numbers::match
+     * @covers Peach\DT\SimpleFormat\Numbers::apply
+     * @covers Peach\DT\SimpleFormat\Raw::__construct
+     * @covers Peach\DT\SimpleFormat\Raw::match
+     * @covers Peach\DT\SimpleFormat\Raw::apply
      * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseTimestamp()
