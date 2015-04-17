@@ -81,6 +81,32 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * コンストラクタの第 2 引数に長さ 7 未満の配列を指定した場合,
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\DT\SimpleFormat::__construct
+     * @covers Peach\DT\SimpleFormat::initDayList
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByTooShortArray()
+    {
+        new SimpleFormat("Y.m.d (E)", array("Sun", "Mon", "Tue", "Wed"));
+    }
+    
+    /**
+     * コンストラクタの第 2 引数に空文字列を含む配列を指定した場合,
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\DT\SimpleFormat::__construct
+     * @covers Peach\DT\SimpleFormat::initDayList
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByEmptyString()
+    {
+        new SimpleFormat("Y.m.d (E)", array("Sun", "Mon", "Tue", "Wed", "", "Fri", "Sat"));
+    }
+    
+    /**
      * コンストラクタの引数に指定した値を返すことを確認します.
      * @covers Peach\DT\SimpleFormat::getFormat
      * @covers Peach\DT\SimpleFormat::__construct
