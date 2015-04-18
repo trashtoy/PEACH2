@@ -93,6 +93,12 @@ class SimpleFormat implements Format
     private $dayList;
     
     /**
+     *
+     * @var array
+     */
+    private $patternList;
+    
+    /**
      * パターン文字列を分解した結果をあらわします.
      * 
      * @var array
@@ -110,6 +116,7 @@ class SimpleFormat implements Format
         $format        = strval($pattern);
         $this->format  = $format;
         $this->dayList = $this->initDayList($dayList);
+        $this->patternList = $this->initPatternList($this->dayList);
         $this->context = $this->createContext($format);
     }
     
@@ -135,6 +142,18 @@ class SimpleFormat implements Format
             }
         }
         return $values;
+    }
+    
+    /**
+     * パターン文字の一覧を作成します.
+     * @param  array $dayList 曜日文字列の配列
+     * @return array          Pattern オブジェクトの配列
+     */
+    private function initPatternList(array $dayList)
+    {
+        $patternList = $this->getDefaultPatternList();
+        $patternList["E"] = new Raw($dayList);
+        return $patternList;
     }
     
     /**
@@ -206,7 +225,7 @@ class SimpleFormat implements Format
      */
     public function formatTimestamp(Timestamp $d)
     {
-        $patternList = $this->getPatternList();
+        $patternList = $this->patternList;
         $result      = "";
         foreach ($this->context as $part) {
             $buf = array_key_exists($part, $patternList) ? $this->formatKey($d, $part) : stripslashes($part);
@@ -222,7 +241,7 @@ class SimpleFormat implements Format
      * @return array
      * @codeCoverageIgnore
      */
-    private function getPatternList()
+    private function getDefaultPatternList()
     {
         static $patterns = null;
         if (!isset($patterns)) {
@@ -258,7 +277,7 @@ class SimpleFormat implements Format
      */
     private function getPatternByPart($part)
     {
-        $patterns = $this->getPatternList();
+        $patterns = $this->patternList;
         return array_key_exists($part, $patterns) ? $patterns[$part] : new Raw(array(stripslashes($part)));
     }
     
@@ -302,6 +321,8 @@ class SimpleFormat implements Format
                 return str_pad($sec,   2, "0", STR_PAD_LEFT);
             case "b":
                 return $sec;
+            case "E":
+                return $this->dayList[$d->getDay()];
         }
         
         // @codeCoverageIgnoreStart
@@ -317,7 +338,7 @@ class SimpleFormat implements Format
      */
     private function createContext($format)
     {
-        $patternList = $this->getPatternList();
+        $patternList = $this->patternList;
         $result      = array();
         $current     = "";
         $escaped     = false;
