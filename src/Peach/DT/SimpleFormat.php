@@ -93,7 +93,10 @@ class SimpleFormat implements Format
     private $dayList;
     
     /**
-     *
+     * Pattern オブジェクトの配列です.
+     * キーが "Y", "n" などのパターン文字, 値がその文字に該当する
+     * Pattern オブジェクトとなります.
+     * 
      * @var array
      */
     private $patternList;
@@ -113,11 +116,11 @@ class SimpleFormat implements Format
      */
     public function __construct($pattern, array $dayList = array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"))
     {
-        $format        = strval($pattern);
-        $this->format  = $format;
-        $this->dayList = $this->initDayList($dayList);
+        $format            = strval($pattern);
+        $this->format      = $format;
+        $this->dayList     = $this->initDayList($dayList);
         $this->patternList = $this->initPatternList($this->dayList);
-        $this->context = $this->createContext($format);
+        $this->context     = $this->createContext($format);
     }
     
     /**
@@ -151,7 +154,7 @@ class SimpleFormat implements Format
      */
     private function initPatternList(array $dayList)
     {
-        $patternList = $this->getDefaultPatternList();
+        $patternList      = $this->getDefaultPatternList();
         $patternList["E"] = new Raw($dayList);
         return $patternList;
     }
@@ -197,7 +200,7 @@ class SimpleFormat implements Format
         $d = Date::now();
         return $d->toTimestamp()->setAll($this->interpret($format));
     }
-
+    
     /**
      * 指定された Date オブジェクトを書式化します.
      * @param  Date $d 書式化対象の時間オブジェクト
