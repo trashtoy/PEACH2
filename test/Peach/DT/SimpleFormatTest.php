@@ -68,6 +68,12 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
                     new SimpleFormatTest_FormatData($d2, "7時30分0秒"),
                     new SimpleFormatTest_FormatData($d3, "7時30分9秒")
                 ),
+                new SimpleFormatTest_Sample("Y年n月j日(E)",
+                    new SimpleFormatTest_ParseData("2012年3月7日(水)", "2012年3月7日(無)", $d4, $d5, $d6),
+                    new SimpleFormatTest_FormatData($d1, "2012年5月21日(月)"),
+                    new SimpleFormatTest_FormatData($d2, "2012年5月21日(月)"),
+                    new SimpleFormatTest_FormatData($d3, "2012年5月21日(月)")
+                ),
             );
         }
     }
@@ -81,9 +87,37 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * コンストラクタの第 2 引数に長さ 7 未満の配列を指定した場合,
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\DT\SimpleFormat::__construct
+     * @covers Peach\DT\SimpleFormat::initDayList
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByTooShortArray()
+    {
+        new SimpleFormat("Y.m.d (E)", array("Sun", "Mon", "Tue", "Wed"));
+    }
+    
+    /**
+     * コンストラクタの第 2 引数に空文字列を含む配列を指定した場合,
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\DT\SimpleFormat::__construct
+     * @covers Peach\DT\SimpleFormat::initDayList
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByEmptyString()
+    {
+        new SimpleFormat("Y.m.d (E)", array("Sun", "Mon", "Tue", "Wed", "", "Fri", "Sat"));
+    }
+    
+    /**
      * コンストラクタの引数に指定した値を返すことを確認します.
      * @covers Peach\DT\SimpleFormat::getFormat
      * @covers Peach\DT\SimpleFormat::__construct
+     * @covers Peach\DT\SimpleFormat::initDayList
+     * @covers Peach\DT\SimpleFormat::initPatternList
      * @covers Peach\DT\SimpleFormat::createContext
      */
     public function testGetFormat()
@@ -96,6 +130,11 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Peach\DT\SimpleFormat::parseDate
      * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat\Numbers::match
+     * @covers Peach\DT\SimpleFormat\Numbers::apply
+     * @covers Peach\DT\SimpleFormat\Raw::__construct
+     * @covers Peach\DT\SimpleFormat\Raw::match
+     * @covers Peach\DT\SimpleFormat\Raw::apply
      * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseDate()
@@ -118,6 +157,11 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Peach\DT\SimpleFormat::parseDatetime
      * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat\Numbers::match
+     * @covers Peach\DT\SimpleFormat\Numbers::apply
+     * @covers Peach\DT\SimpleFormat\Raw::__construct
+     * @covers Peach\DT\SimpleFormat\Raw::match
+     * @covers Peach\DT\SimpleFormat\Raw::apply
      * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseDatetime()
@@ -140,6 +184,11 @@ class SimpleFormatTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Peach\DT\SimpleFormat::parseTimestamp
      * @covers Peach\DT\SimpleFormat::interpret
+     * @covers Peach\DT\SimpleFormat\Numbers::match
+     * @covers Peach\DT\SimpleFormat\Numbers::apply
+     * @covers Peach\DT\SimpleFormat\Raw::__construct
+     * @covers Peach\DT\SimpleFormat\Raw::match
+     * @covers Peach\DT\SimpleFormat\Raw::apply
      * @covers Peach\DT\SimpleFormat::throwFormatException
      */
     public function testParseTimestamp()
@@ -238,7 +287,7 @@ class SimpleFormatTest_Sample
         SimpleFormatTest_FormatData $fDatetime,
         SimpleFormatTest_FormatData $fTimestamp)
     {
-        $this->format    = new SimpleFormat($format);
+        $this->format    = new SimpleFormat($format, array("日", "月", "火", "水", "木", "金", "土"));
         $this->parseData = $parseData;
         $this->formatDataList = array(
             "date"      => $fDate,
