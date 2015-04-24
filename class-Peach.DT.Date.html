@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\DT\Date | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.DT.AbstractTime.html">AbstractTime</a></li>
+				<li class="active"><a href="class-Peach.DT.Date.html">Date</a></li>
+				<li><a href="class-Peach.DT.Datetime.html">Datetime</a></li>
+				<li><a href="class-Peach.DT.FormatWrapper.html">FormatWrapper</a></li>
+				<li><a href="class-Peach.DT.HttpDateFormat.html">HttpDateFormat</a></li>
+				<li><a href="class-Peach.DT.ShiftFormat.html">ShiftFormat</a></li>
+				<li><a href="class-Peach.DT.SimpleFormat.html">SimpleFormat</a></li>
+				<li><a href="class-Peach.DT.TimeEquator.html">TimeEquator</a></li>
+				<li><a href="class-Peach.DT.Timestamp.html">Timestamp</a></li>
+				<li><a href="class-Peach.DT.TimeWrapper.html">TimeWrapper</a></li>
+				<li><a href="class-Peach.DT.UnixTimeFormat.html">UnixTimeFormat</a></li>
+				<li><a href="class-Peach.DT.Util.html">Util</a></li>
+				<li><a href="class-Peach.DT.W3cDatetimeFormat.html">W3cDatetimeFormat</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.DT.Format.html">Format</a></li>
+				<li><a href="class-Peach.DT.Time.html">Time</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DT.html" title="Summary of Peach\DT"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Date</h1>
+
+
+	<div class="description">
+	
+<p>DATE 型の時間オブジェクトです.
+このクラスは年・月・日のフィールドをサポートします.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Peach.DT.AbstractTime.html"><span>Peach\DT\AbstractTime</span></a>
+			
+			 implements 
+				<a href="class-Peach.DT.Time.html"><span>Peach\DT\Time</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Peach\DT\Date</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a>
+	</div>
+
+	<div>
+		<h4>Indirect known subclasses</h4>
+			<a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a>
+	</div>
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DT.Date.html#32-428" title="Go to source code">Peach/DT/Date.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="now" id="_now">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_now">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#59-70" title="Go to source code">now</a>( )</code>
+
+		<div class="description short">
+			
+<p>現在の日付の Date オブジェクトを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>現在の日付の Date オブジェクトを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code></code><br>現在の日付をあらわす Date オブジェクト<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parse" id="_parse">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parse">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#72-88" title="Go to source code">parse</a>( <span>string <var>$text</var></span>, <span><code><a href="class-Peach.DT.Format.html">Peach\DT\Format</a></code> <var>$format</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列を解析して Date
+オブジェクトに変換します. $format
+が指定されていない場合は <code><a href="class-Peach.DT.W3cDatetimeFormat.html#_getInstance">Peach\DT\W3cDatetimeFormat::getInstance()</a></code>
+を使って解析を行います. ("YYYY-MM-DD"
+形式の文字列を受理します.)</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列を解析して Date
+オブジェクトに変換します. $format
+が指定されていない場合は <code><a href="class-Peach.DT.W3cDatetimeFormat.html#_getInstance">Peach\DT\W3cDatetimeFormat::getInstance()</a></code>
+を使って解析を行います. ("YYYY-MM-DD"
+形式の文字列を受理します.)</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>変換対象の文字列</dd>
+					<dt><var>$format</var></dt>
+					<dd>変換に使用するフォーマット</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code></code><br>変換結果の Date オブジェクト<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#90-104" title="Go to source code">__construct</a>( <span>integer <var>$year</var></span>, <span>integer <var>$month</var></span>, <span>integer <var>$date</var></span> )</code>
+
+		<div class="description short">
+			
+<p>与えられた日付を表現する Peach_DT_Date
+オブジェクトを構築します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>与えられた日付を表現する Peach_DT_Date
+オブジェクトを構築します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$year</var></dt>
+					<dd>年</dd>
+					<dt><var>$month</var></dt>
+					<dd>月</dd>
+					<dt><var>$date</var></dt>
+					<dd>日</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getType" id="_getType">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getType">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#106-113" title="Go to source code">getType</a>( )</code>
+
+		<div class="description short">
+			
+<p>このオブジェクトの型 <code><a href="class-Peach.DT.Time.html#TYPE_DATE">Peach\DT\Time::<b>TYPE_DATE</b></a></code> を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このオブジェクトの型 <code><a href="class-Peach.DT.Time.html#TYPE_DATE">Peach\DT\Time::<b>TYPE_DATE</b></a></code> を返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>Time::TYPE_DATE<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__toString" id="___toString">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___toString">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#295-307" title="Go to source code">__toString</a>( )</code>
+
+		<div class="description short">
+			
+<p>このオブジェクトの文字列表現です. "YYYY-MM-DD"
+形式の文字列を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このオブジェクトの文字列表現です. "YYYY-MM-DD"
+形式の文字列を返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>"YYYY-MM-DD" 形式の文字列<br>
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Peach.DT.AbstractTime.html#___toString">Peach\DT\AbstractTime::__toString()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toDate" id="_toDate">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toDate">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#309-318" title="Go to source code">toDate</a>( )</code>
+
+		<div class="description short">
+			
+<p>このオブジェクトを Date 型にキャストします.
+返り値はこのオブジェクトのクローンです.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このオブジェクトを Date 型にキャストします.
+返り値はこのオブジェクトのクローンです.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code></code><br>このオブジェクトのクローン<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toDatetime" id="_toDatetime">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toDatetime">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#320-329" title="Go to source code">toDatetime</a>( )</code>
+
+		<div class="description short">
+			
+<p>このオブジェクトを Datetime 型にキャストします.
+この日付の 0 時 0 分を表す Datetime
+オブジェクトを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このオブジェクトを Datetime 型にキャストします.
+この日付の 0 時 0 分を表す Datetime
+オブジェクトを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code></code><br>このオブジェクトの時刻表現<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toTimestamp" id="_toTimestamp">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toTimestamp">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#331-340" title="Go to source code">toTimestamp</a>( )</code>
+
+		<div class="description short">
+			
+<p>このオブジェクトを Timestamp 型にキャストします.
+この日付の 0 時 0 分 0 秒を表す Timestamp
+オブジェクトを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このオブジェクトを Timestamp 型にキャストします.
+この日付の 0 時 0 分 0 秒を表す Timestamp
+オブジェクトを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code></code><br>このオブジェクトの時刻表現<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDay" id="_getDay">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDay">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#342-359" title="Go to source code">getDay</a>( )</code>
+
+		<div class="description short">
+			
+<p>この日付の曜日を返します. 返される値は 0 から 6
+までの整数で, 0 が日曜, 6 が土曜をあらわします.
+それぞれの整数は,
+このクラスで定義されている各定数に対応しています.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この日付の曜日を返します. 返される値は 0 から 6
+までの整数で, 0 が日曜, 6 が土曜をあらわします.
+それぞれの整数は,
+このクラスで定義されている各定数に対応しています.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>曜日 (0 以上 6 以下の整数)<br>
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Peach.DT.Time.html#SUNDAY">Peach\DT\Time::<b>SUNDAY</b></a></code></code><br>
+						<code><code><a href="class-Peach.DT.Time.html#MONDAY">Peach\DT\Time::<b>MONDAY</b></a></code></code><br>
+						<code><code><a href="class-Peach.DT.Time.html#TUESDAY">Peach\DT\Time::<b>TUESDAY</b></a></code></code><br>
+						<code><code><a href="class-Peach.DT.Time.html#WEDNESDAY">Peach\DT\Time::<b>WEDNESDAY</b></a></code></code><br>
+						<code><code><a href="class-Peach.DT.Time.html#THURSDAY">Peach\DT\Time::<b>THURSDAY</b></a></code></code><br>
+						<code><code><a href="class-Peach.DT.Time.html#FRIDAY">Peach\DT\Time::<b>FRIDAY</b></a></code></code><br>
+						<code><code><a href="class-Peach.DT.Time.html#SATURDAY">Peach\DT\Time::<b>SATURDAY</b></a></code></code><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isLeapYear" id="_isLeapYear">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isLeapYear">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#361-374" title="Go to source code">isLeapYear</a>( )</code>
+
+		<div class="description short">
+			
+<p>この年がうるう年かどうかを判定します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この年がうるう年かどうかを判定します.</p>
+
+<p>うるう年の判別ルールは以下の通りです.</p>
+
+<ul>
+	<li>4 で割り切れるはうるう年である</li>
+
+	<li>ただし 100 で割り切れる年はうるう年ではない</li>
+
+	<li>ただし 400 で割り切れる年はうるう年である</li>
+</ul>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>うるう年である場合に TRUE, それ以外は FALSE<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDateCount" id="_getDateCount">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDateCount">#</a>
+		<code><a href="source-class-Peach.DT.Date.html#393-400" title="Go to source code">getDateCount</a>( )</code>
+
+		<div class="description short">
+			
+<p>この月の日数を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この月の日数を返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>この月の日数. すなわち, 28 から 31 までの整数.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Peach.DT.AbstractTime.html#methods">Peach\DT\AbstractTime</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Peach.DT.AbstractTime.html#_add">add()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_after">after()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_before">before()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_compareTo">compareTo()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_equals">equals()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_format">format()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_formatTime">formatTime()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_get">get()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_set">set()</a>, 
+			<a href="class-Peach.DT.AbstractTime.html#_setAll">setAll()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-Peach.DT.Time.html#constants">Peach\DT\Time</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Peach.DT.Time.html#FRIDAY"><b>FRIDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#MONDAY"><b>MONDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#SATURDAY"><b>SATURDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#SUNDAY"><b>SUNDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#THURSDAY"><b>THURSDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#TUESDAY"><b>TUESDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#TYPE_DATE"><b>TYPE_DATE</b></a>, 
+			<a href="class-Peach.DT.Time.html#TYPE_DATETIME"><b>TYPE_DATETIME</b></a>, 
+			<a href="class-Peach.DT.Time.html#TYPE_TIMESTAMP"><b>TYPE_TIMESTAMP</b></a>, 
+			<a href="class-Peach.DT.Time.html#WEDNESDAY"><b>WEDNESDAY</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

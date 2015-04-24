@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Interface Peach\Util\Equator | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Util.AbstractMapEntry.html">AbstractMapEntry</a></li>
+				<li><a href="class-Peach.Util.ArrayMap.html">ArrayMap</a></li>
+				<li><a href="class-Peach.Util.ArrayMapEntry.html">ArrayMapEntry</a></li>
+				<li><a href="class-Peach.Util.Arrays.html">Arrays</a></li>
+				<li><a href="class-Peach.Util.DefaultComparator.html">DefaultComparator</a></li>
+				<li><a href="class-Peach.Util.DefaultEquator.html">DefaultEquator</a></li>
+				<li><a href="class-Peach.Util.HashMap.html">HashMap</a></li>
+				<li><a href="class-Peach.Util.HashMapEntry.html">HashMapEntry</a></li>
+				<li><a href="class-Peach.Util.Strings.html">Strings</a></li>
+				<li><a href="class-Peach.Util.Values.html">Values</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Util.Comparable.html">Comparable</a></li>
+				<li><a href="class-Peach.Util.Comparator.html">Comparator</a></li>
+				<li class="active"><a href="class-Peach.Util.Equator.html">Equator</a></li>
+				<li><a href="class-Peach.Util.Map.html">Map</a></li>
+				<li><a href="class-Peach.Util.MapEntry.html">MapEntry</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Util.html" title="Summary of Peach\Util"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Interface Equator</h1>
+
+
+	<div class="description">
+	
+<p>二つの値が等価かどうかを調べるためのインタフェースです.
+<code><a href="class-Peach.Util.HashMap.html">Peach\Util\HashMap</a></code>
+などでキーの等価性をチェックするために使用されます.</p>
+
+	</div>
+
+
+
+
+
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-Peach.DT.TimeEquator.html">Peach\DT\TimeEquator</a>, 
+			<a href="class-Peach.Util.DefaultEquator.html">Peach\Util\DefaultEquator</a>
+	</div>
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Util.html">Util</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.Util.Equator.html#30-64" title="Go to source code">Peach/Util/Equator.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="equate" id="_equate">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_equate">#</a>
+		<code><a href="source-class-Peach.Util.Equator.html#38-45" title="Go to source code">equate</a>( <span>mixed <var>$var1</var></span>, <span>mixed <var>$var2</var></span> )</code>
+
+		<div class="description short">
+			
+<p>引数 $var1 と $var2 が等しいと判断した場合に TRUE
+を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>引数 $var1 と $var2 が等しいと判断した場合に TRUE
+を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var1</var></dt>
+					<dd></dd>
+					<dt><var>$var2</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>引数の $var1, $var2 が等しい場合に TRUE を返します.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="hashCode" id="_hashCode">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_hashCode">#</a>
+		<code><a href="source-class-Peach.Util.Equator.html#47-63" title="Go to source code">hashCode</a>( <span>mixed <var>$var</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された値のハッシュ値を計算します.
+もしもこのオブジェクトの equate($var1, $var2) が TRUE
+を返す場合, hashCode($var1) と hashCode($var2)
+が必ず同じ値を返すようにしなければなりません.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された値のハッシュ値を計算します.
+もしもこのオブジェクトの equate($var1, $var2) が TRUE
+を返す場合, hashCode($var1) と hashCode($var2)
+が必ず同じ値を返すようにしなければなりません.</p>
+
+<p>この制約条件は, Java で例えると <a href="http://docs.oracle.com/javase/jp/7/api/java/lang/Object.html#equals(java.lang.Object)">java.lang.Object#equals()</a>, <a href="http://docs.oracle.com/javase/jp/7/api/java/lang/Object.html#hashCode()">java.lang.Object#hashCode()</a>
+で定義されている規約に相当します.</p>
+
+<p>また,
+このメソッドは不正な値が指定された場合に任意の例外を投げる必要があります.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd>任意の値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>ハッシュ値<br>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Exception.html">Exception</a></code></code><br>不正な値が指定された場合<br>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

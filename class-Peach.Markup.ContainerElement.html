@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\Markup\ContainerElement | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
+				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
+				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
+				<li><a href="class-Peach.Markup.Comment.html">Comment</a></li>
+				<li class="active"><a href="class-Peach.Markup.ContainerElement.html">ContainerElement</a></li>
+				<li><a href="class-Peach.Markup.Context.html">Context</a></li>
+				<li><a href="class-Peach.Markup.DebugBuilder.html">DebugBuilder</a></li>
+				<li><a href="class-Peach.Markup.DebugContext.html">DebugContext</a></li>
+				<li><a href="class-Peach.Markup.DefaultBreakControl.html">DefaultBreakControl</a></li>
+				<li><a href="class-Peach.Markup.DefaultBuilder.html">DefaultBuilder</a></li>
+				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
+				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
+				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
+				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
+				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
+				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
+				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
+				<li><a href="class-Peach.Markup.NodeList.html">NodeList</a></li>
+				<li><a href="class-Peach.Markup.None.html">None</a></li>
+				<li><a href="class-Peach.Markup.SgmlRenderer.html">SgmlRenderer</a></li>
+				<li><a href="class-Peach.Markup.Text.html">Text</a></li>
+				<li><a href="class-Peach.Markup.XmlRenderer.html">XmlRenderer</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
+				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
+				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
+				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Markup.html" title="Summary of Peach\Markup"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class ContainerElement</h1>
+
+
+	<div class="description">
+	
+<p>内部に子ノードを含めることができる要素です.
+子ノードが存在しない場合は "&lt;tag&gt;&lt;/tag&gt;"
+のように書式化されます.</p>
+
+<p>HTML の SCRIPT
+要素などはこのクラスを使って表現します.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Peach.Markup.Element.html"><span>Peach\Markup\Element</span></a>
+			
+			 implements 
+				<a href="class-Peach.Markup.Node.html"><span>Peach\Markup\Node</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Peach\Markup\ContainerElement</span></b>			
+			 implements 
+				<a href="class-Peach.Markup.Container.html"><span>Peach\Markup\Container</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.Markup.ContainerElement.html#30-93" title="Go to source code">Peach/Markup/ContainerElement.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.Markup.ContainerElement.html#44-53" title="Go to source code">__construct</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された要素名を持つコンテナ要素を構築します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された要素名を持つコンテナ要素を構築します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>要素名</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>要素名が空文字列だった場合<br>
+				</div>
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Peach.Markup.Element.html#___construct">Peach\Markup\Element::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="append" id="_append">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_append">#</a>
+		<code><a href="source-class-Peach.Markup.ContainerElement.html#55-64" title="Go to source code">append</a>( <span>mixed <var>$var</var></span> )</code>
+
+		<div class="description short">
+			
+<p>この要素に子ノードを追加します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この要素に子ノードを追加します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd>追加する値</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>指定されたノードの中にこのノードが存在している場合<br>
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Markup.Container.html#_append">Peach\Markup\Container::append()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getChildNodes" id="_getChildNodes">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getChildNodes">#</a>
+		<code><a href="source-class-Peach.Markup.ContainerElement.html#66-73" title="Go to source code">getChildNodes</a>( )</code>
+
+		<div class="description short">
+			
+<p>すべての子ノードを配列で返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>すべての子ノードを配列で返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>Node の配列<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Markup.Container.html#_getChildNodes">Peach\Markup\Container::getChildNodes()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="accept" id="_accept">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_accept">#</a>
+		<code><a href="source-class-Peach.Markup.ContainerElement.html#75-83" title="Go to source code">accept</a>( <span><code><a href="class-Peach.Markup.Context.html">Peach\Markup\Context</a></code> <var>$context</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された Context にこのノードを処理させます. <code><a href="class-Peach.Markup.Context.html#_handleContainerElement">Peach\Markup\Context::handleContainerElement()</a></code> を呼び出します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された Context にこのノードを処理させます. <code><a href="class-Peach.Markup.Context.html#_handleContainerElement">Peach\Markup\Context::handleContainerElement()</a></code> を呼び出します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$context</var></dt>
+					<dd>このノードを処理する Context</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Markup.Component.html#_accept">Peach\Markup\Component::accept()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="size" id="_size">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_size">#</a>
+		<code><a href="source-class-Peach.Markup.ContainerElement.html#85-92" title="Go to source code">size</a>( )</code>
+
+		<div class="description short">
+			
+<p>この要素が持つ子要素の個数を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この要素が持つ子要素の個数を返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>子要素の個数<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Peach.Markup.Element.html#methods">Peach\Markup\Element</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Peach.Markup.Element.html#_getAttribute">getAttribute()</a>, 
+			<a href="class-Peach.Markup.Element.html#_getAttributes">getAttributes()</a>, 
+			<a href="class-Peach.Markup.Element.html#_getName">getName()</a>, 
+			<a href="class-Peach.Markup.Element.html#_hasAttribute">hasAttribute()</a>, 
+			<a href="class-Peach.Markup.Element.html#_removeAttribute">removeAttribute()</a>, 
+			<a href="class-Peach.Markup.Element.html#_setAttribute">setAttribute()</a>, 
+			<a href="class-Peach.Markup.Element.html#_setAttributes">setAttributes()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

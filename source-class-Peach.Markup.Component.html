@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
+
+	<title>File Peach/Markup/Component.php | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
+				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
+				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
+				<li><a href="class-Peach.Markup.Comment.html">Comment</a></li>
+				<li><a href="class-Peach.Markup.ContainerElement.html">ContainerElement</a></li>
+				<li><a href="class-Peach.Markup.Context.html">Context</a></li>
+				<li><a href="class-Peach.Markup.DebugBuilder.html">DebugBuilder</a></li>
+				<li><a href="class-Peach.Markup.DebugContext.html">DebugContext</a></li>
+				<li><a href="class-Peach.Markup.DefaultBreakControl.html">DefaultBreakControl</a></li>
+				<li><a href="class-Peach.Markup.DefaultBuilder.html">DefaultBuilder</a></li>
+				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
+				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
+				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
+				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
+				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
+				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
+				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
+				<li><a href="class-Peach.Markup.NodeList.html">NodeList</a></li>
+				<li><a href="class-Peach.Markup.None.html">None</a></li>
+				<li><a href="class-Peach.Markup.SgmlRenderer.html">SgmlRenderer</a></li>
+				<li><a href="class-Peach.Markup.Text.html">Text</a></li>
+				<li><a href="class-Peach.Markup.XmlRenderer.html">XmlRenderer</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
+				<li class="active"><a href="class-Peach.Markup.Component.html">Component</a></li>
+				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
+				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Markup.html" title="Summary of Peach\Markup"><span>Namespace</span></a>
+			</li>
+			<li>
+				<a href="class-Peach.Markup.Component.html" title="Summary of Peach\Markup\Component"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a><span class="php-comment">/*
+</span></span><span id="3" class="l"><a class="l" href="#3"> 3: </a><span class="php-comment"> * Copyright (c) 2014 @trashtoy
+</span></span><span id="4" class="l"><a class="l" href="#4"> 4: </a><span class="php-comment"> * https://github.com/trashtoy/
+</span></span><span id="5" class="l"><a class="l" href="#5"> 5: </a><span class="php-comment"> * 
+</span></span><span id="6" class="l"><a class="l" href="#6"> 6: </a><span class="php-comment"> * Permission is hereby granted, free of charge, to any person obtaining a copy of
+</span></span><span id="7" class="l"><a class="l" href="#7"> 7: </a><span class="php-comment"> * this software and associated documentation files (the &quot;Software&quot;), to deal in
+</span></span><span id="8" class="l"><a class="l" href="#8"> 8: </a><span class="php-comment"> * the Software without restriction, including without limitation the rights to use,
+</span></span><span id="9" class="l"><a class="l" href="#9"> 9: </a><span class="php-comment"> * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+</span></span><span id="10" class="l"><a class="l" href="#10">10: </a><span class="php-comment"> * Software, and to permit persons to whom the Software is furnished to do so,
+</span></span><span id="11" class="l"><a class="l" href="#11">11: </a><span class="php-comment"> * subject to the following conditions:
+</span></span><span id="12" class="l"><a class="l" href="#12">12: </a><span class="php-comment"> * 
+</span></span><span id="13" class="l"><a class="l" href="#13">13: </a><span class="php-comment"> * The above copyright notice and this permission notice shall be included in all
+</span></span><span id="14" class="l"><a class="l" href="#14">14: </a><span class="php-comment"> * copies or substantial portions of the Software.
+</span></span><span id="15" class="l"><a class="l" href="#15">15: </a><span class="php-comment"> * 
+</span></span><span id="16" class="l"><a class="l" href="#16">16: </a><span class="php-comment"> * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+</span></span><span id="17" class="l"><a class="l" href="#17">17: </a><span class="php-comment"> * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+</span></span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-comment"> * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+</span></span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-comment"> * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+</span></span><span id="20" class="l"><a class="l" href="#20">20: </a><span class="php-comment"> * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+</span></span><span id="21" class="l"><a class="l" href="#21">21: </a><span class="php-comment"> * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</span></span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-comment"> */</span>
+</span><span id="23" class="l"><a class="l" href="#23">23: </a><span class="php-comment">/**
+</span></span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-comment"> * PHP class file.
+</span></span><span id="25" class="l"><a class="l" href="#25">25: </a><span class="php-comment"> * @auhtor trashtoy
+</span></span><span id="26" class="l"><a class="l" href="#26">26: </a><span class="php-comment"> * @since  2.0.0
+</span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment"> */</span>
+</span><span id="28" class="l"><a class="l" href="#28">28: </a><span class="php-keyword1">namespace</span> Peach\Markup;
+</span><span id="29" class="l"><a class="l" href="#29">29: </a>
+</span><span id="30" class="l"><a class="l" href="#30">30: </a><span class="php-comment">/**
+</span></span><span id="31" class="l"><a class="l" href="#31">31: </a><span class="php-comment"> * {@link Builder} で処理可能なパーツであることを示すインタフェースです.
+</span></span><span id="32" class="l"><a class="l" href="#32">32: </a><span class="php-comment"> * このインタフェースを実装したオブジェクトは
+</span></span><span id="33" class="l"><a class="l" href="#33">33: </a><span class="php-comment"> * {@link Builder::build()} メソッドの引数に指定して
+</span></span><span id="34" class="l"><a class="l" href="#34">34: </a><span class="php-comment"> * HTML コードなどに加工することが出来ます.
+</span></span><span id="35" class="l"><a class="l" href="#35">35: </a><span class="php-comment"> */</span>
+</span><span id="36" class="l"><a class="l" href="#36">36: </a><span class="php-keyword1">interface</span> <a id="Component" href="#Component">Component</a>
+</span><span id="37" class="l"><a class="l" href="#37">37: </a>{
+</span><span id="38" class="l"><a class="l" href="#38">38: </a>    <span class="php-comment">/**
+</span></span><span id="39" class="l"><a class="l" href="#39">39: </a><span class="php-comment">     * 指定された Context にこのオブジェクトを処理させます. Visitor パターンの accept() に相当します.
+</span></span><span id="40" class="l"><a class="l" href="#40">40: </a><span class="php-comment">     * @param Context $context この Component を処理する Context
+</span></span><span id="41" class="l"><a class="l" href="#41">41: </a><span class="php-comment">     */</span>
+</span><span id="42" class="l"><a class="l" href="#42">42: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_accept" href="#_accept">accept</a>(Context <span class="php-var">$context</span>);
+</span><span id="43" class="l"><a class="l" href="#43">43: </a>}
+</span><span id="44" class="l"><a class="l" href="#44">44: </a></span></code></pre>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

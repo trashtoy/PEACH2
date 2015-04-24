@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\Util\Strings | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Util.AbstractMapEntry.html">AbstractMapEntry</a></li>
+				<li><a href="class-Peach.Util.ArrayMap.html">ArrayMap</a></li>
+				<li><a href="class-Peach.Util.ArrayMapEntry.html">ArrayMapEntry</a></li>
+				<li><a href="class-Peach.Util.Arrays.html">Arrays</a></li>
+				<li><a href="class-Peach.Util.DefaultComparator.html">DefaultComparator</a></li>
+				<li><a href="class-Peach.Util.DefaultEquator.html">DefaultEquator</a></li>
+				<li><a href="class-Peach.Util.HashMap.html">HashMap</a></li>
+				<li><a href="class-Peach.Util.HashMapEntry.html">HashMapEntry</a></li>
+				<li class="active"><a href="class-Peach.Util.Strings.html">Strings</a></li>
+				<li><a href="class-Peach.Util.Values.html">Values</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Util.Comparable.html">Comparable</a></li>
+				<li><a href="class-Peach.Util.Comparator.html">Comparator</a></li>
+				<li><a href="class-Peach.Util.Equator.html">Equator</a></li>
+				<li><a href="class-Peach.Util.Map.html">Map</a></li>
+				<li><a href="class-Peach.Util.MapEntry.html">MapEntry</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Util.html" title="Summary of Peach\Util"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Strings</h1>
+
+
+	<div class="description">
+	
+<p>文字列処理に関するユーティリティクラスです</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Util.html">Util</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.Util.Strings.html#30-244" title="Go to source code">Peach/Util/Strings.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="explode" id="_explode">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_explode">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#40-64" title="Go to source code">explode</a>( <span>string <var>$separator</var></span>, <span>string <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>内部関数の <a href="http://jp1.php.net/manual/ja/function.explode.php">explode()</a> のカスタム版です. 基本的にはオリジナルの explode()
+と同じですが, 以下の点が異なります.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>内部関数の <a href="http://jp1.php.net/manual/ja/function.explode.php">explode()</a> のカスタム版です. 基本的にはオリジナルの explode()
+と同じですが, 以下の点が異なります.</p>
+
+<ul>
+	<li>$separator が空文字列の場合に空の配列を返す
+	(オリジナルは FALSE を返す)</li>
+
+	<li>$value が文字列以外の場合, <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
+	の結果を使用する</li>
+</ul>
+
+<p>引数をどのように指定しても,
+返り値が必ず配列型になることが特徴です.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$separator</var></dt>
+					<dd>セパレータ</dd>
+					<dt><var>$value</var></dt>
+					<dd>対象文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>セパレータが見つからないときは長さ 1 の配列,
+対象が空文字列の場合は空の配列, それ以外は explode()
+と同じ.<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLines" id="_getLines">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLines">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#66-77" title="Go to source code">getLines</a>( <span>string <var>$str</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列を行単位で分割します. 引数の文字列を
+CR, LF, CRLF で分割し, 結果の配列を返します.
+結果の配列の各要素に改行コードは含まれません.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列を行単位で分割します. 引数の文字列を
+CR, LF, CRLF で分割し, 結果の配列を返します.
+結果の配列の各要素に改行コードは含まれません.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$str</var></dt>
+					<dd>分割対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>行単位で分割された文字列の配列<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isWhitespace" id="_isWhitespace">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isWhitespace">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#79-88" title="Go to source code">isWhitespace</a>( <span>string <var>$str</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列が空白文字の集合からなる文字列かどうかを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列が空白文字の集合からなる文字列かどうかを返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$str</var></dt>
+					<dd>検査対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>引数が NULL, 空文字列, "\r", "\n", "\t",
+半角スペースから成る文字列の場合に TRUE, それ以外は FALSE<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="basedir" id="_basedir">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_basedir">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#90-111" title="Go to source code">basedir</a>( <span>string <var>$basedir</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列を基底ディレクトリに変換します.
+引数が空文字列か, '/'
+で終わる文字列の場合は引数をそのまま返します.
+それ以外の場合は, 引数の末尾に '/'
+を連結した文字列を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列を基底ディレクトリに変換します.
+引数が空文字列か, '/'
+で終わる文字列の場合は引数をそのまま返します.
+それ以外の場合は, 引数の末尾に '/'
+を連結した文字列を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$basedir</var></dt>
+					<dd>変換対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>基底ディレクトリ名<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRawIndex" id="_getRawIndex">
+
+		<td class="attributes"><code>
+			 public static
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRawIndex">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#113-143" title="Go to source code">getRawIndex</a>( <span>string <var>$text</var></span>, <span>string <var>$chr</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列の中で、"\"
+によるエスケープ処理のされていない文字列があらわれる
+最初のインデックスを返します. 偶数個の "\"
+が続いた後に対象の文字列が出現した場合に、そのインデックスを返り値とします.
+奇数個の "\" の後の文字については, その直前の "\"
+によってエスケープされているとみなして スルーします.
+以下に例を示します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列の中で、"\"
+によるエスケープ処理のされていない文字列があらわれる
+最初のインデックスを返します. 偶数個の "\"
+が続いた後に対象の文字列が出現した場合に、そのインデックスを返り値とします.
+奇数個の "\" の後の文字については, その直前の "\"
+によってエスケープされているとみなして スルーします.
+以下に例を示します.</p>
+
+<pre>
+getRawIndex(&quot;AB=CD=EF&quot;, &quot;=&quot;)     =&gt; 2
+getRawIndex(&quot;AB\\=CD=EF&quot;, &quot;=&quot;)   =&gt; 6
+getRawIndex(&quot;AB\\\\=CD=EF&quot;, &quot;=&quot;) =&gt; 4
+</pre>
+
+<p>インデックスが存在しない場合は FALSE を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>検索文字列</dd>
+					<dt><var>$chr</var></dt>
+					<dd>検索対象の文字</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>インデックス. ただし存在しない場合は FALSE<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="startsWith" id="_startsWith">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_startsWith">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#145-167" title="Go to source code">startsWith</a>( <span>string <var>$text</var></span>, <span>string <var>$prefix</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ある文字列が指定された文字列で始まっているかどうかを判別します.
+$prefix が空文字列の場合は TRUE を返します.
+引数が文字列以外の場合は <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
+が適用されます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ある文字列が指定された文字列で始まっているかどうかを判別します.
+$prefix が空文字列の場合は TRUE を返します.
+引数が文字列以外の場合は <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
+が適用されます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>検査対象の文字列</dd>
+					<dt><var>$prefix</var></dt>
+					<dd>開始する文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>引数 $text の先頭が $prefix である場合に TRUE<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="endsWith" id="_endsWith">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_endsWith">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#169-192" title="Go to source code">endsWith</a>( <span>string <var>$text</var></span>, <span>string <var>$suffix</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ある文字列が指定された文字列で終了しているかどうかを判別します.
+$suffix が空文字列の場合は TRUE を返します.
+引数が文字列以外の場合は <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
+が適用されます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ある文字列が指定された文字列で終了しているかどうかを判別します.
+$suffix が空文字列の場合は TRUE を返します.
+引数が文字列以外の場合は <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
+が適用されます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>検査対象の文字列</dd>
+					<dt><var>$suffix</var></dt>
+					<dd>終了する文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>引数 $text の末尾が $suffix に等しい場合に TRUE<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="endsWithRawChar" id="_endsWithRawChar">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_endsWithRawChar">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#194-212" title="Go to source code">endsWithRawChar</a>( <span>string <var>$text</var></span>, <span>string <var>$chr</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ある文字列が指定された文字で終了して,
+かつエスケープ処理されていないかを判別します.
+以下に例を示します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ある文字列が指定された文字で終了して,
+かつエスケープ処理されていないかを判別します.
+以下に例を示します.</p>
+
+<ul>
+	<li>("[ABC]", "]") =&gt; TRUE</li>
+
+	<li>("[ABC\\]", "]") =&gt; FALSE ("\\" がその後ろの "]"
+	をエスケープしているとみなされる)</li>
+
+	<li>("[ABC\\\\]", "]") =&gt; TRUE ("\\\\"
+	が一つの文字として扱われるため, 直後の "]"
+	に影響しない)</li>
+</ul>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>検査対象の文字列</dd>
+					<dt><var>$chr</var></dt>
+					<dd>検査対象の文字</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>引数 $text の末尾が, '\' でエスケープされていない $chr
+で終了している場合のみ TRUE<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="template" id="_template">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_template">#</a>
+		<code><a href="source-class-Peach.Util.Strings.html#214-243" title="Go to source code">template</a>( <span>string <var>$template</var></span>, <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>文字列内に含まれる {0}, {1}, {2}
+などのテンプレート変数を, $args
+内の各要素で置き換えます. 例えば</p>
+
+<pre>
+template(<span
+class="php-quote">'My name is {0}. I am {1} years old'</span>, <span
+class="php-keyword1">array</span>(<span class="php-quote">'Taro'</span>, <span
+class="php-num">18</span>));
+</pre>
+
+<p>の結果は次のようになります.</p>
+
+<pre>
+<span
+class="php-quote">&quot;My name is Taro. I am 18 years old&quot;</span>
+</pre>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>文字列内に含まれる {0}, {1}, {2}
+などのテンプレート変数を, $args
+内の各要素で置き換えます. 例えば</p>
+
+<pre>
+template(<span
+class="php-quote">'My name is {0}. I am {1} years old'</span>, <span
+class="php-keyword1">array</span>(<span class="php-quote">'Taro'</span>, <span
+class="php-num">18</span>));
+</pre>
+
+<p>の結果は次のようになります.</p>
+
+<pre>
+<span
+class="php-quote">&quot;My name is Taro. I am 18 years old&quot;</span>
+</pre>
+
+<p>$template が NULL の場合は NULL を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$template</var></dt>
+					<dd>テンプレート</dd>
+					<dt><var>$args</var></dt>
+					<dd>置き換える内容の配列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>テンプレートの適用結果<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

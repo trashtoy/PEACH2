@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Interface Peach\DT\Format | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.DT.AbstractTime.html">AbstractTime</a></li>
+				<li><a href="class-Peach.DT.Date.html">Date</a></li>
+				<li><a href="class-Peach.DT.Datetime.html">Datetime</a></li>
+				<li><a href="class-Peach.DT.FormatWrapper.html">FormatWrapper</a></li>
+				<li><a href="class-Peach.DT.HttpDateFormat.html">HttpDateFormat</a></li>
+				<li><a href="class-Peach.DT.ShiftFormat.html">ShiftFormat</a></li>
+				<li><a href="class-Peach.DT.SimpleFormat.html">SimpleFormat</a></li>
+				<li><a href="class-Peach.DT.TimeEquator.html">TimeEquator</a></li>
+				<li><a href="class-Peach.DT.Timestamp.html">Timestamp</a></li>
+				<li><a href="class-Peach.DT.TimeWrapper.html">TimeWrapper</a></li>
+				<li><a href="class-Peach.DT.UnixTimeFormat.html">UnixTimeFormat</a></li>
+				<li><a href="class-Peach.DT.Util.html">Util</a></li>
+				<li><a href="class-Peach.DT.W3cDatetimeFormat.html">W3cDatetimeFormat</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-Peach.DT.Format.html">Format</a></li>
+				<li><a href="class-Peach.DT.Time.html">Time</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DT.html" title="Summary of Peach\DT"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Interface Format</h1>
+
+
+	<div class="description">
+	
+<p>文字列から時間オブジェクトへの変換と,
+時間オブジェクトから文字列への変換をサポートするインタフェースです.
+このインタフェースで定義されている各メソッドは,
+以下の場所から使われることを想定しています.
+ユーザー自身がこれらのメソッドを呼び出す機会は基本的にありません.</p>
+
+<ul>
+	<li><code><a href="class-Peach.DT.Time.html#_format">Peach\DT\Time::format()</a></code></li>
+
+	<li><code><a href="class-Peach.DT.Date.html#_parse">Peach\DT\Date::parse()</a></code></li>
+
+	<li><code><a href="class-Peach.DT.Datetime.html#_parse">Peach\DT\Datetime::parse()</a></code></li>
+
+	<li><code><a href="class-Peach.DT.Timestamp.html#_parse">Peach\DT\Timestamp::parse()</a></code></li>
+</ul>
+
+	</div>
+
+
+
+
+
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-Peach.DT.FormatWrapper.html">Peach\DT\FormatWrapper</a>, 
+			<a href="class-Peach.DT.HttpDateFormat.html">Peach\DT\HttpDateFormat</a>, 
+			<a href="class-Peach.DT.SimpleFormat.html">Peach\DT\SimpleFormat</a>, 
+			<a href="class-Peach.DT.UnixTimeFormat.html">Peach\DT\UnixTimeFormat</a>, 
+			<a href="class-Peach.DT.W3cDatetimeFormat.html">Peach\DT\W3cDatetimeFormat</a>
+	</div>
+
+	<div>
+		<h4>Indirect known implementers</h4>
+			<a href="class-Peach.DT.ShiftFormat.html">Peach\DT\ShiftFormat</a>
+	</div>
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DT.Format.html#30-92" title="Go to source code">Peach/DT/Format.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="parseDate" id="_parseDate">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseDate">#</a>
+		<code><a href="source-class-Peach.DT.Format.html#42-49" title="Go to source code">parseDate</a>( <span>string <var>$format</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列を解析して DATE
+型の時間オブジェクトに変換します.
+解析に失敗した場合は例外をスローします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列を解析して DATE
+型の時間オブジェクトに変換します.
+解析に失敗した場合は例外をスローします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$format</var></dt>
+					<dd>解析対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>解析結果<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseDatetime" id="_parseDatetime">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseDatetime">#</a>
+		<code><a href="source-class-Peach.DT.Format.html#51-58" title="Go to source code">parseDatetime</a>( <span>string <var>$format</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列を解析して DATETIME
+型の時間オブジェクトに変換します.
+解析に失敗した場合は例外をスローします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列を解析して DATETIME
+型の時間オブジェクトに変換します.
+解析に失敗した場合は例外をスローします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$format</var></dt>
+					<dd>解析対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>解析結果<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseTimestamp" id="_parseTimestamp">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseTimestamp">#</a>
+		<code><a href="source-class-Peach.DT.Format.html#60-67" title="Go to source code">parseTimestamp</a>( <span>string <var>$format</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列を解析して TIMESTAMP
+型の時間オブジェクトに変換します.
+解析に失敗した場合は例外をスローします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列を解析して TIMESTAMP
+型の時間オブジェクトに変換します.
+解析に失敗した場合は例外をスローします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$format</var></dt>
+					<dd>解析対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>解析結果<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="formatDate" id="_formatDate">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_formatDate">#</a>
+		<code><a href="source-class-Peach.DT.Format.html#69-75" title="Go to source code">formatDate</a>( <span><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code> <var>$d</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された Date オブジェクトを書式化します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された Date オブジェクトを書式化します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$d</var></dt>
+					<dd>書式化対象の時間オブジェクト</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>このフォーマットによる文字列表現<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="formatDatetime" id="_formatDatetime">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_formatDatetime">#</a>
+		<code><a href="source-class-Peach.DT.Format.html#77-83" title="Go to source code">formatDatetime</a>( <span><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code> <var>$d</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された Datetime オブジェクトを書式化します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された Datetime オブジェクトを書式化します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$d</var></dt>
+					<dd>書式化対象の時間オブジェクト</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>このフォーマットによる文字列表現<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="formatTimestamp" id="_formatTimestamp">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_formatTimestamp">#</a>
+		<code><a href="source-class-Peach.DT.Format.html#85-91" title="Go to source code">formatTimestamp</a>( <span><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code> <var>$d</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された Timestamp オブジェクトを書式化します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された Timestamp オブジェクトを書式化します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$d</var></dt>
+					<dd>書式化対象の時間オブジェクト</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>このフォーマットによる文字列表現<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

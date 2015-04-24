@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\DT\ShiftFormat | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.DT.AbstractTime.html">AbstractTime</a></li>
+				<li><a href="class-Peach.DT.Date.html">Date</a></li>
+				<li><a href="class-Peach.DT.Datetime.html">Datetime</a></li>
+				<li><a href="class-Peach.DT.FormatWrapper.html">FormatWrapper</a></li>
+				<li><a href="class-Peach.DT.HttpDateFormat.html">HttpDateFormat</a></li>
+				<li class="active"><a href="class-Peach.DT.ShiftFormat.html">ShiftFormat</a></li>
+				<li><a href="class-Peach.DT.SimpleFormat.html">SimpleFormat</a></li>
+				<li><a href="class-Peach.DT.TimeEquator.html">TimeEquator</a></li>
+				<li><a href="class-Peach.DT.Timestamp.html">Timestamp</a></li>
+				<li><a href="class-Peach.DT.TimeWrapper.html">TimeWrapper</a></li>
+				<li><a href="class-Peach.DT.UnixTimeFormat.html">UnixTimeFormat</a></li>
+				<li><a href="class-Peach.DT.Util.html">Util</a></li>
+				<li><a href="class-Peach.DT.W3cDatetimeFormat.html">W3cDatetimeFormat</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.DT.Format.html">Format</a></li>
+				<li><a href="class-Peach.DT.Time.html">Time</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DT.html" title="Summary of Peach\DT"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class ShiftFormat</h1>
+
+
+	<div class="description">
+	
+<p>システム内部の時差とフォーマットの時差を自動で調整するためのフォーマットです.
+「閲覧しているユーザーのタイムゾーンに合わせて表示する時刻を調整したい」
+といったケースで, 既存の Format
+オブジェクトを上書きする形で利用します.</p>
+
+<p>サンプルとして,
+日本語のサイトがニューヨークのサーバーで管理されているというシナリオを考えます.
+サーバー側ではタイムゾーンを America/New_York (UTC-5)
+として時間の管理をしているが, ブラウザに出力する際は
+Asia/Tokyo (UTC+9) のタイムゾーンで表示させたいとします.</p>
+
+<pre>
+<span
+class="php-comment">// php.ini で timezone = America/New_York が設定されているものとする</span>
+
+<span
+class="php-comment">// 表示用の時刻を UTC+9 とする (-540 分のオフセットを指定する)</span>
+<span
+class="php-var">$f</span> = <span
+class="php-keyword1">new</span> ShiftFormat(<span
+class="php-keyword1">new</span> SimpleFormat(<span
+class="php-quote">&quot;Y/m/d H:i:s&quot;</span>), -<span
+class="php-num">540</span>);
+
+<span
+class="php-comment">// 日本のユーザーが入力した時刻をサーバー内部の時刻に変換する</span>
+<span
+class="php-var">$d</span> = Timestamp::parse(<span
+class="php-quote">&quot;2012/05/21 07:30:45&quot;</span>, <span
+class="php-var">$f</span>);
+<span class="php-keyword1">echo</span> <span
+class="php-var">$d</span>; <span
+class="php-comment">// &quot;2012-05-20 17:30:45&quot; (UTC+9 から UTC-5 に変換)</span>
+
+<span
+class="php-comment">// サーバで管理されている時刻を日本のユーザー向けに変換する</span>
+<span
+class="php-var">$d</span> = <span
+class="php-keyword1">new</span> Timestamp(<span
+class="php-num">2012</span>, <span class="php-num">1</span>, <span
+class="php-num">1</span>, <span class="php-num">0</span>, <span
+class="php-num">0</span>, <span class="php-num">0</span>);
+<span
+class="php-keyword1">echo</span> <span
+class="php-var">$d</span>-&gt;format(<span class="php-var">$f</span>); <span
+class="php-comment">// &quot;2012/01/01 14:00:00&quot; (UTC-5 から UTC+9 に変換)</span>
+</pre>
+
+<p>このクラスの parseDate と formatDate
+は時差の変換を行いません.
+オリジナルの実行結果をそのまま返します.</p>
+
+<p>ちなみに <code><a href="class-Peach.DT.W3cDatetimeFormat.html">Peach\DT\W3cDatetimeFormat</a></code> と <code><a href="class-Peach.DT.HttpDateFormat.html">Peach\DT\HttpDateFormat</a></code>
+に関しては,
+自身でタイムゾーンの変換機能をサポートしているため,
+このクラスを使う必要はありません.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Peach.DT.FormatWrapper.html"><span>Peach\DT\FormatWrapper</span></a>
+			
+			 implements 
+				<a href="class-Peach.DT.Format.html"><span>Peach\DT\Format</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Peach\DT\ShiftFormat</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DT.ShiftFormat.html#30-153" title="Go to source code">Peach/DT/ShiftFormat.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.DT.ShiftFormat.html#75-90" title="Go to source code">__construct</a>( <span><code><a href="class-Peach.DT.Format.html">Peach\DT\Format</a></code> <var>$original</var></span>, <span>integer <var>$externalOffset</var></span>, <span>integer <var>$internalOffset</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>フォーマットの時差とシステム時刻の時差を指定して,
+新しい ShiftFormat を構築します. 引数の単位は分です. UTC+1
+以降の場合は負の値, UTC-1
+以前の場合は正の値を指定してください.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>フォーマットの時差とシステム時刻の時差を指定して,
+新しい ShiftFormat を構築します. 引数の単位は分です. UTC+1
+以降の場合は負の値, UTC-1
+以前の場合は正の値を指定してください.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$original</var></dt>
+					<dd>調整対象のフォーマット</dd>
+					<dt><var>$externalOffset</var></dt>
+					<dd>フォーマットの時差 (単位は分)</dd>
+					<dt><var>$internalOffset</var></dt>
+					<dd>システム時刻の時差 (単位は分,
+省略した場合はシステム設定の値を使用)</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Peach.DT.FormatWrapper.html#___construct">Peach\DT\FormatWrapper::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseDatetime" id="_parseDatetime">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseDatetime">#</a>
+		<code><a href="source-class-Peach.DT.ShiftFormat.html#92-100" title="Go to source code">parseDatetime</a>( <span>string <var>$format</var></span> )</code>
+
+		<div class="description short">
+			
+<p>オリジナルの parseDatetime
+で得られた結果をシステム時刻に変換して返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>オリジナルの parseDatetime
+で得られた結果をシステム時刻に変換して返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$format</var></dt>
+					<dd>解析対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>変換結果<br>
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Peach.DT.FormatWrapper.html#_parseDatetime">Peach\DT\FormatWrapper::parseDatetime()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseTimestamp" id="_parseTimestamp">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseTimestamp">#</a>
+		<code><a href="source-class-Peach.DT.ShiftFormat.html#102-110" title="Go to source code">parseTimestamp</a>( <span>string <var>$format</var></span> )</code>
+
+		<div class="description short">
+			
+<p>オリジナルの parseTimestamp
+で得られた結果をシステム時刻に変換して返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>オリジナルの parseTimestamp
+で得られた結果をシステム時刻に変換して返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$format</var></dt>
+					<dd>解析対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>変換結果<br>
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Peach.DT.FormatWrapper.html#_parseTimestamp">Peach\DT\FormatWrapper::parseTimestamp()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="formatDatetime" id="_formatDatetime">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_formatDatetime">#</a>
+		<code><a href="source-class-Peach.DT.ShiftFormat.html#122-131" title="Go to source code">formatDatetime</a>( <span><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code> <var>$d</var></span> )</code>
+
+		<div class="description short">
+			
+<p>変換対象の時間オブジェクトを表示用のタイムゾーンに変換してから,
+オリジナルの formatDatetime を実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>変換対象の時間オブジェクトを表示用のタイムゾーンに変換してから,
+オリジナルの formatDatetime を実行します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$d</var></dt>
+					<dd>変換対象の時間オブジェクト</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>変換結果<br>
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Peach.DT.FormatWrapper.html#_formatDatetime">Peach\DT\FormatWrapper::formatDatetime()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="formatTimestamp" id="_formatTimestamp">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_formatTimestamp">#</a>
+		<code><a href="source-class-Peach.DT.ShiftFormat.html#133-142" title="Go to source code">formatTimestamp</a>( <span><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code> <var>$d</var></span> )</code>
+
+		<div class="description short">
+			
+<p>変換対象の時間オブジェクトを表示用のタイムゾーンに変換してから,
+オリジナルの formatTimestamp を実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>変換対象の時間オブジェクトを表示用のタイムゾーンに変換してから,
+オリジナルの formatTimestamp を実行します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$d</var></dt>
+					<dd>変換対象の時間オブジェクト</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>変換結果<br>
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Peach.DT.FormatWrapper.html#_formatTimestamp">Peach\DT\FormatWrapper::formatTimestamp()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Peach.DT.FormatWrapper.html#methods">Peach\DT\FormatWrapper</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Peach.DT.FormatWrapper.html#_formatDate">formatDate()</a>, 
+			<a href="class-Peach.DT.FormatWrapper.html#_getOriginal">getOriginal()</a>, 
+			<a href="class-Peach.DT.FormatWrapper.html#_parseDate">parseDate()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

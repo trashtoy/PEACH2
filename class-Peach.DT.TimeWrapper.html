@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\DT\TimeWrapper | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.DT.AbstractTime.html">AbstractTime</a></li>
+				<li><a href="class-Peach.DT.Date.html">Date</a></li>
+				<li><a href="class-Peach.DT.Datetime.html">Datetime</a></li>
+				<li><a href="class-Peach.DT.FormatWrapper.html">FormatWrapper</a></li>
+				<li><a href="class-Peach.DT.HttpDateFormat.html">HttpDateFormat</a></li>
+				<li><a href="class-Peach.DT.ShiftFormat.html">ShiftFormat</a></li>
+				<li><a href="class-Peach.DT.SimpleFormat.html">SimpleFormat</a></li>
+				<li><a href="class-Peach.DT.TimeEquator.html">TimeEquator</a></li>
+				<li><a href="class-Peach.DT.Timestamp.html">Timestamp</a></li>
+				<li class="active"><a href="class-Peach.DT.TimeWrapper.html">TimeWrapper</a></li>
+				<li><a href="class-Peach.DT.UnixTimeFormat.html">UnixTimeFormat</a></li>
+				<li><a href="class-Peach.DT.Util.html">Util</a></li>
+				<li><a href="class-Peach.DT.W3cDatetimeFormat.html">W3cDatetimeFormat</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.DT.Format.html">Format</a></li>
+				<li><a href="class-Peach.DT.Time.html">Time</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DT.html" title="Summary of Peach\DT"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class TimeWrapper</h1>
+
+
+	<div class="description">
+	
+<p>既存の時間オブジェクトを機能拡張するためのラッパークラスです.
+このクラスは Decorator パターンで設計されています.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Peach\DT\TimeWrapper</span></b>			
+			 implements 
+				<a href="class-Peach.DT.Time.html"><span>Peach\DT\Time</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DT.TimeWrapper.html#31-255" title="Go to source code">Peach/DT/TimeWrapper.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#43-51" title="Go to source code">__construct</a>( <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$original</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された時間オブジェクトをラップする TimeWrapper
+を構築します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された時間オブジェクトをラップする TimeWrapper
+を構築します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$original</var></dt>
+					<dd>ラップ対象の時間オブジェクト</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getOriginal" id="_getOriginal">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getOriginal">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#53-60" title="Go to source code">getOriginal</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象の時間オブジェクトを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象の時間オブジェクトを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>Time<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getType" id="_getType">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getType">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#62-69" title="Go to source code">getType</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトのタイプを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトのタイプを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>int<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_getType">Peach\DT\Time::getType()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="before" id="_before">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_before">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#71-79" title="Go to source code">before</a>( <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$time</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの before
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの before
+メソッドを実行します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$time</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>bool<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_before">Peach\DT\Time::before()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="after" id="_after">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_after">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#81-89" title="Go to source code">after</a>( <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$time</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの after
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの after
+メソッドを実行します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$time</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>bool<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_after">Peach\DT\Time::after()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="compareTo" id="_compareTo">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_compareTo">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#91-99" title="Go to source code">compareTo</a>( <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$subject</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの compareTo
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの compareTo
+メソッドを実行します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$subject</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>bool<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Comparable.html#_compareTo">Peach\Util\Comparable::compareTo()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="newInstance" id="_newInstance">
+
+		<td class="attributes"><code>
+			 protected 
+			<code><a href="class-Peach.DT.TimeWrapper.html">Peach\DT\TimeWrapper</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_newInstance">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#101-111" title="Go to source code">newInstance</a>( <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$instance</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたインスタンスをラップする新しい TimeWrapper
+を構築します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたインスタンスをラップする新しい TimeWrapper
+を構築します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$instance</var></dt>
+					<dd>ラップ対象のオブジェクト</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.TimeWrapper.html">Peach\DT\TimeWrapper</a></code></code><br>TimeWrapper<br>
+				</div>
+
+
+				<h4>CodeCoverageIgnore</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="add" id="_add">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.TimeWrapper.html">Peach\DT\TimeWrapper</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_add">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#113-123" title="Go to source code">add</a>( <span>string <var>$field</var></span>, <span>integer <var>$amount</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの add メソッドを実行し,
+その返り値をこのクラスでラップします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの add メソッドを実行し,
+その返り値をこのクラスでラップします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd></dd>
+					<dt><var>$amount</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.TimeWrapper.html">Peach\DT\TimeWrapper</a></code></code><br>TimeWrapper<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_add">Peach\DT\Time::add()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="set" id="_set">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.TimeWrapper.html">Peach\DT\TimeWrapper</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_set">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#125-135" title="Go to source code">set</a>( <span>string <var>$field</var></span>, <span>integer <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの set メソッドを実行し,
+その返り値をこのクラスでラップします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの set メソッドを実行し,
+その返り値をこのクラスでラップします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd></dd>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.TimeWrapper.html">Peach\DT\TimeWrapper</a></code></code><br>TimeWrapper<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_set">Peach\DT\Time::set()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setAll" id="_setAll">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.TimeWrapper.html">Peach\DT\TimeWrapper</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setAll">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#137-145" title="Go to source code">setAll</a>( <span>array|<code><a href="class-Peach.Util.ArrayMap.html">Peach\Util\ArrayMap</a></code> <var>$subject</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの setAll メソッドを実行し,
+その返り値をこのクラスでラップします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの setAll メソッドを実行し,
+その返り値をこのクラスでラップします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$subject</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.TimeWrapper.html">Peach\DT\TimeWrapper</a></code></code><br>TimeWrapper<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_setAll">Peach\DT\Time::setAll()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get" id="_get">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#147-156" title="Go to source code">get</a>( <span>string <var>$field</var></span> )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの get
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの get
+メソッドを実行します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$field</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>int<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_get">Peach\DT\Time::get()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="format" id="_format">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_format">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#158-166" title="Go to source code">format</a>( <span><code><a href="class-Peach.DT.Format.html">Peach\DT\Format</a></code> <var>$format</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの format
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの format
+メソッドを実行します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$format</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>string<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_format">Peach\DT\Time::format()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="formatTime" id="_formatTime">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_formatTime">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#168-175" title="Go to source code">formatTime</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの formatTime
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの formatTime
+メソッドを実行します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>string<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_formatTime">Peach\DT\Time::formatTime()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="equals" id="_equals">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_equals">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#177-190" title="Go to source code">equals</a>( <span>mixed <var>$obj</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたオブジェクトとこのオブジェクトを比較します.
+compareTo による比較結果が 0 を返し,
+かつクラスが同じ場合に TRUE を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたオブジェクトとこのオブジェクトを比較します.
+compareTo による比較結果が 0 を返し,
+かつクラスが同じ場合に TRUE を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd>比較対象のオブジェクト</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>二つのオブジェクトが等しい場合に TRUE, それ以外は FALSE<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_equals">Peach\DT\Time::equals()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDateCount" id="_getDateCount">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDateCount">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#192-199" title="Go to source code">getDateCount</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの getDateCount
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの getDateCount
+メソッドを実行します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>int<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_getDateCount">Peach\DT\Time::getDateCount()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDay" id="_getDay">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDay">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#201-208" title="Go to source code">getDay</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの getDay
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの getDay
+メソッドを実行します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>int<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_getDay">Peach\DT\Time::getDay()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isLeapYear" id="_isLeapYear">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isLeapYear">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#210-217" title="Go to source code">isLeapYear</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの isLeapYear
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの isLeapYear
+メソッドを実行します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>bool<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_isLeapYear">Peach\DT\Time::isLeapYear()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toDate" id="_toDate">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toDate">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#219-226" title="Go to source code">toDate</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの toDate
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの toDate
+メソッドを実行します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>Time<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_toDate">Peach\DT\Time::toDate()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toDatetime" id="_toDatetime">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toDatetime">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#228-235" title="Go to source code">toDatetime</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの toDatetime
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの toDatetime
+メソッドを実行します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>Time<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_toDatetime">Peach\DT\Time::toDatetime()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="toTimestamp" id="_toTimestamp">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toTimestamp">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#237-244" title="Go to source code">toTimestamp</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの toTimestamp
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの toTimestamp
+メソッドを実行します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>Time<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DT.Time.html#_toTimestamp">Peach\DT\Time::toTimestamp()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__toString" id="___toString">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___toString">#</a>
+		<code><a href="source-class-Peach.DT.TimeWrapper.html#246-254" title="Go to source code">__toString</a>( )</code>
+
+		<div class="description short">
+			
+<p>ラップ対象のオブジェクトの __toString
+メソッドを実行します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>ラップ対象のオブジェクトの __toString
+メソッドを実行します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>string<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-Peach.DT.Time.html#constants">Peach\DT\Time</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Peach.DT.Time.html#FRIDAY"><b>FRIDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#MONDAY"><b>MONDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#SATURDAY"><b>SATURDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#SUNDAY"><b>SUNDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#THURSDAY"><b>THURSDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#TUESDAY"><b>TUESDAY</b></a>, 
+			<a href="class-Peach.DT.Time.html#TYPE_DATE"><b>TYPE_DATE</b></a>, 
+			<a href="class-Peach.DT.Time.html#TYPE_DATETIME"><b>TYPE_DATETIME</b></a>, 
+			<a href="class-Peach.DT.Time.html#TYPE_TIMESTAMP"><b>TYPE_TIMESTAMP</b></a>, 
+			<a href="class-Peach.DT.Time.html#WEDNESDAY"><b>WEDNESDAY</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

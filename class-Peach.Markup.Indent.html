@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\Markup\Indent | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
+				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
+				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
+				<li><a href="class-Peach.Markup.Comment.html">Comment</a></li>
+				<li><a href="class-Peach.Markup.ContainerElement.html">ContainerElement</a></li>
+				<li><a href="class-Peach.Markup.Context.html">Context</a></li>
+				<li><a href="class-Peach.Markup.DebugBuilder.html">DebugBuilder</a></li>
+				<li><a href="class-Peach.Markup.DebugContext.html">DebugContext</a></li>
+				<li><a href="class-Peach.Markup.DefaultBreakControl.html">DefaultBreakControl</a></li>
+				<li><a href="class-Peach.Markup.DefaultBuilder.html">DefaultBuilder</a></li>
+				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
+				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
+				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
+				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
+				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li class="active"><a href="class-Peach.Markup.Indent.html">Indent</a></li>
+				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
+				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
+				<li><a href="class-Peach.Markup.NodeList.html">NodeList</a></li>
+				<li><a href="class-Peach.Markup.None.html">None</a></li>
+				<li><a href="class-Peach.Markup.SgmlRenderer.html">SgmlRenderer</a></li>
+				<li><a href="class-Peach.Markup.Text.html">Text</a></li>
+				<li><a href="class-Peach.Markup.XmlRenderer.html">XmlRenderer</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
+				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
+				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
+				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Markup.html" title="Summary of Peach\Markup"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Indent</h1>
+
+
+	<div class="description">
+	
+<p>コードを整形する際のインデント情報をあらわすクラスです.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.Markup.Indent.html#30-166" title="Go to source code">Peach/Markup/Indent.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.Markup.Indent.html#83-95" title="Go to source code">__construct</a>( <span>integer <var>$level</var> = <span class="php-num">0</span></span>, <span>string <var>$unit</var> = <code><a href="class-Peach.Markup.Indent.html#SPACE4">Peach\Markup\Indent::<b>SPACE4</b></a></code></span>, <span>string <var>$breakCode</var> = <code><a href="class-Peach.Markup.Indent.html#CRLF">Peach\Markup\Indent::<b>CRLF</b></a></code></span> )</code>
+
+		<div class="description short">
+			
+<p>新しい Indent オブジェクトを構築します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>新しい Indent オブジェクトを構築します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$level</var></dt>
+					<dd>インデントレベルの初期値です. デフォルトは 0 です.
+レベルは 0 未満でも構いません.</dd>
+					<dt><var>$unit</var></dt>
+					<dd>インデント一つ分の文字列です. デフォルトは半角スペース
+4 個です.</dd>
+					<dt><var>$breakCode</var></dt>
+					<dd>改行コードです. デフォルトは CRLF です.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLevel" id="_getLevel">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLevel">#</a>
+		<code><a href="source-class-Peach.Markup.Indent.html#107-114" title="Go to source code">getLevel</a>( )</code>
+
+		<div class="description short">
+			
+<p>現在のインデントレベルを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>現在のインデントレベルを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>インデントレベル<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUnit" id="_getUnit">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUnit">#</a>
+		<code><a href="source-class-Peach.Markup.Indent.html#116-123" title="Go to source code">getUnit</a>( )</code>
+
+		<div class="description short">
+			
+<p>インデント一つ分の文字列です.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>インデント一つ分の文字列です.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>インデント一つ分の文字列<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="indent" id="_indent">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_indent">#</a>
+		<code><a href="source-class-Peach.Markup.Indent.html#125-133" title="Go to source code">indent</a>( )</code>
+
+		<div class="description short">
+			
+<p>現在のレベルでインデントします. インデントレベルが 0
+以下の場合は空文字列を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>現在のレベルでインデントします. インデントレベルが 0
+以下の場合は空文字列を返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>現在のレベルのインデント文字列<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="breakCode" id="_breakCode">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_breakCode">#</a>
+		<code><a href="source-class-Peach.Markup.Indent.html#135-142" title="Go to source code">breakCode</a>( )</code>
+
+		<div class="description short">
+			
+<p>改行コードを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>改行コードを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>改行コード ("\n" や "\r\n" など)<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="stepUp" id="_stepUp">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_stepUp">#</a>
+		<code><a href="source-class-Peach.Markup.Indent.html#144-153" title="Go to source code">stepUp</a>( )</code>
+
+		<div class="description short">
+			
+<p>インデントレベルを一つ上げます.
+改行コードを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>インデントレベルを一つ上げます.
+改行コードを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>改行コード<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="stepDown" id="_stepDown">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_stepDown">#</a>
+		<code><a href="source-class-Peach.Markup.Indent.html#155-165" title="Go to source code">stepDown</a>( )</code>
+
+		<div class="description short">
+			
+<p>インデントレベルを一つ下げます.
+新しいレベルのインデント文字列を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>インデントレベルを一つ下げます.
+新しいレベルのインデント文字列を返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>現在の一つ下のレベルのインデント文字列<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="SPACE4" id="SPACE4">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.Markup.Indent.html#35-39" title="Go to source code"><b>SPACE4</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>半角スペース 4 個です.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>半角スペース 4 個です.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#SPACE4" class="anchor">#</a><code><span class="php-quote">&quot;    &quot;</span></code></div></td>
+	</tr>
+	<tr data-order="TAB" id="TAB">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.Markup.Indent.html#41-45" title="Go to source code"><b>TAB</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>タブ文字です.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>タブ文字です.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#TAB" class="anchor">#</a><code><span class="php-quote">&quot;\t&quot;</span></code></div></td>
+	</tr>
+	<tr data-order="CR" id="CR">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.Markup.Indent.html#47-51" title="Go to source code"><b>CR</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>改行コード CR です.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>改行コード CR です.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#CR" class="anchor">#</a><code><span class="php-quote">&quot;\r&quot;</span></code></div></td>
+	</tr>
+	<tr data-order="LF" id="LF">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.Markup.Indent.html#53-57" title="Go to source code"><b>LF</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>改行コード LF です.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>改行コード LF です.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#LF" class="anchor">#</a><code><span class="php-quote">&quot;\n&quot;</span></code></div></td>
+	</tr>
+	<tr data-order="CRLF" id="CRLF">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.Markup.Indent.html#59-63" title="Go to source code"><b>CRLF</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>改行コード CRLF です.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>改行コード CRLF です.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#CRLF" class="anchor">#</a><code><span class="php-quote">&quot;\r\n&quot;</span></code></div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

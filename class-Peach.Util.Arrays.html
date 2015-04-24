@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\Util\Arrays | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Util.AbstractMapEntry.html">AbstractMapEntry</a></li>
+				<li><a href="class-Peach.Util.ArrayMap.html">ArrayMap</a></li>
+				<li><a href="class-Peach.Util.ArrayMapEntry.html">ArrayMapEntry</a></li>
+				<li class="active"><a href="class-Peach.Util.Arrays.html">Arrays</a></li>
+				<li><a href="class-Peach.Util.DefaultComparator.html">DefaultComparator</a></li>
+				<li><a href="class-Peach.Util.DefaultEquator.html">DefaultEquator</a></li>
+				<li><a href="class-Peach.Util.HashMap.html">HashMap</a></li>
+				<li><a href="class-Peach.Util.HashMapEntry.html">HashMapEntry</a></li>
+				<li><a href="class-Peach.Util.Strings.html">Strings</a></li>
+				<li><a href="class-Peach.Util.Values.html">Values</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Util.Comparable.html">Comparable</a></li>
+				<li><a href="class-Peach.Util.Comparator.html">Comparator</a></li>
+				<li><a href="class-Peach.Util.Equator.html">Equator</a></li>
+				<li><a href="class-Peach.Util.Map.html">Map</a></li>
+				<li><a href="class-Peach.Util.MapEntry.html">MapEntry</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Util.html" title="Summary of Peach\Util"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Arrays</h1>
+
+
+	<div class="description">
+	
+<p>配列に関する操作を行うユーティリティクラスです.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Util.html">Util</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.Util.Arrays.html#30-340" title="Go to source code">Peach/Util/Arrays.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="max" id="_max">
+
+		<td class="attributes"><code>
+			 public static
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_max">#</a>
+		<code><a href="source-class-Peach.Util.Arrays.html#66-93" title="Go to source code">max</a>( <span>array <var>$arr</var></span>, <span><code><a href="class-Peach.Util.Comparator.html">Peach\Util\Comparator</a></code> <var>$c</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された配列の各要素の中で「最も大きい」値を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された配列の各要素の中で「最も大きい」値を返します.</p>
+
+<p>配列に含まれるオブジェクトが <code><a href="class-Peach.Util.Comparable.html">Peach\Util\Comparable</a></code>
+を実装している場合は そのオブジェクトの <code><a href="class-Peach.Util.Comparable.html#_compareTo">Peach\Util\Comparable::compareTo()</a></code> メソッドを使って大小の比較を行います.
+それ以外の値の場合は <a href="http://jp.php.net/manual/ja/language.operators.comparison.php">PHP の比較演算子のルール</a>
+に従って大小比較が行われます.</p>
+
+<p>大小の比較方法が型によって異なるため,
+配列内の要素の型に一貫性がない場合は,
+格納順序の違いによって
+異なる結果となる可能性があります.
+意図しない動作を防ぐためには, あらかじめ <code><a href="class-Peach.Util.Arrays.html#_pickup">Peach\Util\Arrays::pickup()</a></code>
+を使って配列に含まれる型を揃えてください.</p>
+
+<p>オプションとして第 2 引数に <code><a href="class-Peach.Util.Comparator.html">Peach\Util\Comparator</a></code>
+オブジェクトを指定することもできます. もし第 2
+引数が指定された場合は <code><a href="class-Peach.Util.Comparator.html#_compare">Peach\Util\Comparator::compare()</a></code>
+メソッドを使って大小比較を行います.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$arr</var></dt>
+					<dd></dd>
+					<dt><var>$c</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>引数 $arr の中で最も大きな値. 配列が空の場合は NULL<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="min" id="_min">
+
+		<td class="attributes"><code>
+			 public static
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_min">#</a>
+		<code><a href="source-class-Peach.Util.Arrays.html#95-122" title="Go to source code">min</a>( <span>array <var>$arr</var></span>, <span><code><a href="class-Peach.Util.Comparator.html">Peach\Util\Comparator</a></code> <var>$c</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された配列の各要素の中で「最も小さい」値を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された配列の各要素の中で「最も小さい」値を返します.</p>
+
+<p>配列に含まれるオブジェクトが <code><a href="class-Peach.Util.Comparable.html">Peach\Util\Comparable</a></code>
+を実装している場合は そのオブジェクトの <code><a href="class-Peach.Util.Comparable.html#_compareTo">Peach\Util\Comparable::compareTo()</a></code> メソッドを使って大小の比較を行います.
+それ以外の値の場合は <a href="http://jp.php.net/manual/ja/language.operators.comparison.php">PHP の比較演算子のルール</a>
+に従って大小比較が行われます.</p>
+
+<p>大小の比較方法が型によって異なるため,
+配列内の要素の型に一貫性がない場合は,
+格納順序の違いによって
+異なる結果となる可能性があります.
+意図しない動作を防ぐためには, あらかじめ <code><a href="class-Peach.Util.Arrays.html#_pickup">Peach\Util\Arrays::pickup()</a></code>
+を使って配列に含まれる型を揃えてください.</p>
+
+<p>オプションとして第 2 引数に <code><a href="class-Peach.Util.Comparator.html">Peach\Util\Comparator</a></code>
+オブジェクトを指定することもできます. もし第 2
+引数が指定された場合は <code><a href="class-Peach.Util.Comparator.html#_compare">Peach\Util\Comparator::compare()</a></code>
+メソッドを使って大小比較を行います.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$arr</var></dt>
+					<dd></dd>
+					<dt><var>$c</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>$arr の中で最も大きな値. 配列が空の場合は NULL<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="pickup" id="_pickup">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_pickup">#</a>
+		<code><a href="source-class-Peach.Util.Arrays.html#124-163" title="Go to source code">pickup</a>( <span>array <var>$arr</var></span>, <span>string <var>$type</var></span>, <span>boolean <var>$keyFlag</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>配列の中から, $type
+で指定した型の値だけを取り出します. $keyFlag に TRUE
+を指定した場合はキーと要素の関連付けを維持します. $type
+に指定できる文字列は以下のとおりです.
+(大文字・小文字は区別しません)</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>配列の中から, $type
+で指定した型の値だけを取り出します. $keyFlag に TRUE
+を指定した場合はキーと要素の関連付けを維持します. $type
+に指定できる文字列は以下のとおりです.
+(大文字・小文字は区別しません)</p>
+
+<ul>
+	<li>int</li>
+
+	<li>integer</li>
+
+	<li>numeric</li>
+
+	<li>float (※ numeric と同じです. int
+	型の値もマッチングします.)</li>
+
+	<li>string</li>
+
+	<li>bool</li>
+
+	<li>boolean</li>
+
+	<li>array</li>
+
+	<li>object</li>
+
+	<li>resource</li>
+
+	<li>null</li>
+</ul>
+
+<p>上記に挙げた以外の文字列を指定した場合は, クラス
+(インタフェース) 名として扱います.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$arr</var></dt>
+					<dd>対象の配列</dd>
+					<dt><var>$type</var></dt>
+					<dd>'int', 'integer', 'numeric', 'float', 'string', 'bool', 'object', 'resource'
+など. それ以外の文字列はクラス (インタフェース)
+名として扱う</dd>
+					<dt><var>$keyFlag</var></dt>
+					<dd>関連付けを維持する場合は TRUE (デフォルトは FALSE)</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>array<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sort" id="_sort">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sort">#</a>
+		<code><a href="source-class-Peach.Util.Arrays.html#200-222" title="Go to source code">sort</a>( <span>array <var>$arr</var></span>, <span><code><a href="class-Peach.Util.Comparator.html">Peach\Util\Comparator</a></code> <var>$c</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された配列をソートします.
+配列のキーは連番で初期化されます.
+コンパレータが指定されなかった場合は <code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code>
+が適用されます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された配列をソートします.
+配列のキーは連番で初期化されます.
+コンパレータが指定されなかった場合は <code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code>
+が適用されます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$arr</var></dt>
+					<dd>ソート対象の配列</dd>
+					<dt><var>$c</var></dt>
+					<dd>コンパレータ</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>array<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="asort" id="_asort">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_asort">#</a>
+		<code><a href="source-class-Peach.Util.Arrays.html#224-245" title="Go to source code">asort</a>( <span>array <var>$arr</var></span>, <span><code><a href="class-Peach.Util.Comparator.html">Peach\Util\Comparator</a></code> <var>$c</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>配列のキーと値のマッピングを保持しながら,
+指定された配列をソートします.
+コンパレータが指定されなかった場合は <code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code>
+が適用されます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>配列のキーと値のマッピングを保持しながら,
+指定された配列をソートします.
+コンパレータが指定されなかった場合は <code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code>
+が適用されます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$arr</var></dt>
+					<dd>ソート対象の配列</dd>
+					<dt><var>$c</var></dt>
+					<dd>コンパレータ</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>ソート後の配列<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="concat" id="_concat">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_concat">#</a>
+		<code><a href="source-class-Peach.Util.Arrays.html#247-307" title="Go to source code">concat</a>( )</code>
+
+		<div class="description short">
+			
+<p>引数の配列または値を連結して,
+一つの配列として返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>引数の配列または値を連結して,
+一つの配列として返します.</p>
+
+<p>例えば</p>
+
+<pre>
+<span class="php-var">$arr1</span>   = <span
+class="php-keyword1">array</span>(<span class="php-num">10</span>, <span
+class="php-num">20</span>, <span class="php-num">30</span>);
+<span
+class="php-var">$arr2</span>   = <span class="php-keyword1">array</span>(<span
+class="php-num">40</span>, <span class="php-num">50</span>);
+<span
+class="php-var">$concat</span> = Arrays::concat(<span
+class="php-var">$arr1</span>, <span
+class="php-quote">&quot;X&quot;</span>, <span
+class="php-var">$arr2</span>, <span
+class="php-quote">&quot;Y&quot;</span>);
+</pre>
+
+<p>の結果は</p>
+
+<pre>
+<span class="php-keyword1">array</span>(<span
+class="php-num">10</span>, <span class="php-num">20</span>, <span
+class="php-num">30</span>, <span class="php-quote">&quot;X&quot;</span>, <span
+class="php-num">40</span>, <span class="php-num">50</span>, <span
+class="php-quote">&quot;Y&quot;</span>)
+</pre>
+
+<p>に等しくなります。</p>
+
+<p>この関数は多次元配列はサポートしません.</p>
+
+<pre>
+<span class="php-var">$arr1</span> = <span
+class="php-keyword1">array</span>(<span
+class="php-quote">&quot;hoge&quot;</span>, <span
+class="php-quote">&quot;fuga&quot;</span>);
+<span
+class="php-var">$arr2</span> = <span
+class="php-keyword1">array</span>(
+    <span
+class="php-keyword1">array</span>(<span class="php-num">1</span>, <span
+class="php-num">2</span>, <span class="php-num">3</span>),
+    <span
+class="php-keyword1">array</span>(<span class="php-num">5</span>, <span
+class="php-num">7</span>)
+);
+<span
+class="php-var">$concat</span> = Arrays::concat(<span
+class="php-var">$arr1</span>, <span class="php-var">$arr2</span>);
+</pre>
+
+<p>の結果は</p>
+
+<pre>
+<span class="php-keyword1">array</span>(
+    <span
+class="php-quote">&quot;hoge&quot;</span>,
+    <span
+class="php-quote">&quot;fuga&quot;</span>,
+    <span
+class="php-keyword1">array</span>(<span class="php-num">1</span>, <span
+class="php-num">2</span>, <span class="php-num">3</span>),
+    <span
+class="php-keyword1">array</span>(<span class="php-num">5</span>, <span
+class="php-num">7</span>)
+)
+</pre>
+
+<p>となります.</p>
+
+<p>この関数は, 配列に含まれるキーをすべて無視します.
+結果の配列のキーは連番で初期化されます.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>array<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="unique" id="_unique">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_unique">#</a>
+		<code><a href="source-class-Peach.Util.Arrays.html#309-339" title="Go to source code">unique</a>( <span>array <var>$arr</var></span>, <span><code><a href="class-Peach.Util.Comparator.html">Peach\Util\Comparator</a></code> <var>$c</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された配列から,
+重複した値を取り除いた結果を返します.
+重複かどうかの判定は,
+引数に指定されたコンパレータを使って行われます.
+コンパレータが指定されなかった場合は <code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code>
+が適用されます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された配列から,
+重複した値を取り除いた結果を返します.
+重複かどうかの判定は,
+引数に指定されたコンパレータを使って行われます.
+コンパレータが指定されなかった場合は <code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code>
+が適用されます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$arr</var></dt>
+					<dd></dd>
+					<dt><var>$c</var></dt>
+					<dd>コンパレータ</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>array<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

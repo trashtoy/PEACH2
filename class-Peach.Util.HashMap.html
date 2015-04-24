@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\Util\HashMap | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Util.AbstractMapEntry.html">AbstractMapEntry</a></li>
+				<li><a href="class-Peach.Util.ArrayMap.html">ArrayMap</a></li>
+				<li><a href="class-Peach.Util.ArrayMapEntry.html">ArrayMapEntry</a></li>
+				<li><a href="class-Peach.Util.Arrays.html">Arrays</a></li>
+				<li><a href="class-Peach.Util.DefaultComparator.html">DefaultComparator</a></li>
+				<li><a href="class-Peach.Util.DefaultEquator.html">DefaultEquator</a></li>
+				<li class="active"><a href="class-Peach.Util.HashMap.html">HashMap</a></li>
+				<li><a href="class-Peach.Util.HashMapEntry.html">HashMapEntry</a></li>
+				<li><a href="class-Peach.Util.Strings.html">Strings</a></li>
+				<li><a href="class-Peach.Util.Values.html">Values</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Util.Comparable.html">Comparable</a></li>
+				<li><a href="class-Peach.Util.Comparator.html">Comparator</a></li>
+				<li><a href="class-Peach.Util.Equator.html">Equator</a></li>
+				<li><a href="class-Peach.Util.Map.html">Map</a></li>
+				<li><a href="class-Peach.Util.MapEntry.html">MapEntry</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Util.html" title="Summary of Peach\Util"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class HashMap</h1>
+
+
+	<div class="description">
+	
+<p>任意の値やオブジェクトをキーに指定することが出来る
+Map です. 格納のアルゴリズムは <a href="http://docs.oracle.com/javase/jp/7/api/java/util/HashMap.html">java.util.HashMap</a> を参考にしています.
+キーに使用するオブジェクトは, 出来る限り不変
+(イミュータブル) なものを使用してください.
+キーに設定したオブジェクトに対して外部から変更が加わった場合,
+このオブジェクトの動作は保障されません.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Peach\Util\HashMap</span></b>			
+			 implements 
+				<a href="class-Peach.Util.Map.html"><span>Peach\Util\Map</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Util.html">Util</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.Util.HashMap.html#30-358" title="Go to source code">Peach/Util/HashMap.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#94-113" title="Go to source code">__construct</a>( <span><code><a href="class-Peach.Util.Map.html">Peach\Util\Map</a></code>|array <var>$map</var> = <span class="php-keyword1">null</span></span>, <span><code><a href="class-Peach.Util.Equator.html">Peach\Util\Equator</a></code> <var>$e</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$capacity</var> = <span class="php-num">16</span></span> )</code>
+
+		<div class="description short">
+			
+<p>新しい HashMap を構築します. 引数で設定された容量は,
+オブジェクト構築後に変更することは出来ません.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>新しい HashMap を構築します. 引数で設定された容量は,
+オブジェクト構築後に変更することは出来ません.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$map</var></dt>
+					<dd>デフォルトのマッピング (オプション)</dd>
+					<dt><var>$e</var></dt>
+					<dd>オブジェクトの等価性を判断するための Equator (NULL
+の場合は &lt;code&gt;&lt;a href="class-Peach.Util.DefaultEquator.html"&gt;Peach\Util\DefaultEquator&lt;/a&gt;&lt;/code&gt; が適用されます)</dd>
+					<dt><var>$capacity</var></dt>
+					<dd>容量 (デフォルトは 16, 最小で 2)</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="put" id="_put">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_put">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#158-178" title="Go to source code">put</a>( <span>mixed <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたキーと値をこの Map に関連づけます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたキーと値をこの Map に関連づけます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>キー</dd>
+					<dt><var>$value</var></dt>
+					<dd>値</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_put">Peach\Util\Map::put()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="putAll" id="_putAll">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_putAll">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#180-194" title="Go to source code">putAll</a>( <span><code><a href="class-Peach.Util.Map.html">Peach\Util\Map</a></code> <var>$map</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された Map の中身をすべて追加します。
+もしも引数の Map とこの Map に同じキーが存在していた場合,
+引数のマッピングで上書きされます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された Map の中身をすべて追加します。
+もしも引数の Map とこの Map に同じキーが存在していた場合,
+引数のマッピングで上書きされます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$map</var></dt>
+					<dd>格納される Map</dd>
+				</dl></div>
+
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Peach.Util.Map.html#_putAll">Peach\Util\Map::putAll()</a></code></code><br>
+				</div>
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_putAll">Peach\Util\Map::putAll()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get" id="_get">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#196-218" title="Go to source code">get</a>( <span>mixed <var>$key</var></span>, <span>mixed <var>$defaultValue</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたキーにマッピングされている値を返します.
+マッピングが存在しない場合は代替値 (デフォルトは NULL)
+を返します. このメソッドの返り値が NULL
+(または指定した代替値) の場合,
+必ずしもマッピングが存在しないとは限りません.
+マッピングの存在を確認する場合は <code><a href="class-Peach.Util.HashMap.html#_containsKey">Peach\Util\HashMap::containsKey()</a></code>
+を使用してください.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたキーにマッピングされている値を返します.
+マッピングが存在しない場合は代替値 (デフォルトは NULL)
+を返します. このメソッドの返り値が NULL
+(または指定した代替値) の場合,
+必ずしもマッピングが存在しないとは限りません.
+マッピングの存在を確認する場合は <code><a href="class-Peach.Util.HashMap.html#_containsKey">Peach\Util\HashMap::containsKey()</a></code>
+を使用してください.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>マッピングのキー</dd>
+					<dt><var>$defaultValue</var></dt>
+					<dd>マッピングが存在しない場合に返される代替値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>mixed<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_get">Peach\Util\Map::get()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clear" id="_clear">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clear">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#220-227" title="Go to source code">clear</a>( )</code>
+
+		<div class="description short">
+			
+<p>マッピングを空にします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>マッピングを空にします.</p>
+
+
+
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_clear">Peach\Util\Map::clear()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="size" id="_size">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_size">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#229-241" title="Go to source code">size</a>( )</code>
+
+		<div class="description short">
+			
+<p>この Map が持つマッピングの個数を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この Map が持つマッピングの個数を返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>int<br>
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<code><code><a href="class-Peach.Util.Map.html#_size">Peach\Util\Map::size()</a></code></code><br>
+				</div>
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_size">Peach\Util\Map::size()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="keys" id="_keys">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_keys">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#243-256" title="Go to source code">keys</a>( )</code>
+
+		<div class="description short">
+			
+<p>この HashMap に含まれるキーの一覧を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この HashMap に含まれるキーの一覧を返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>この HashMap に含まれるキーの配列<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_keys">Peach\Util\Map::keys()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="containsKey" id="_containsKey">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_containsKey">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#258-277" title="Go to source code">containsKey</a>( <span>mixed <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたキーによるマッピングが存在するかどうかを調べます.
+マッピングが存在する場合に TRUE を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたキーによるマッピングが存在するかどうかを調べます.
+マッピングが存在する場合に TRUE を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>キー</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>マッピングが存在する場合に TRUE<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_containsKey">Peach\Util\Map::containsKey()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="remove" id="_remove">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_remove">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#279-297" title="Go to source code">remove</a>( <span>mixed <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたキーのマッピングを削除します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたキーのマッピングを削除します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>キー</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_remove">Peach\Util\Map::remove()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="values" id="_values">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_values">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#299-313" title="Go to source code">values</a>( )</code>
+
+		<div class="description short">
+			
+<p>このマップに登録されているすべての値を配列で返します.
+返される配列に対する操作はこのマップには反映されません.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このマップに登録されているすべての値を配列で返します.
+返される配列に対する操作はこのマップには反映されません.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>array<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_values">Peach\Util\Map::values()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="entryList" id="_entryList">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_entryList">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#315-332" title="Go to source code">entryList</a>( )</code>
+
+		<div class="description short">
+			
+<p>この HashMap
+に登録されているすべてのエントリーを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この HashMap
+に登録されているすべてのエントリーを返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br><code><a href="class-Peach.Util.HashMapEntry.html">Peach\Util\HashMapEntry</a></code> の配列<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Util.Map.html#_entryList">Peach\Util\Map::entryList()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createEntry" id="_createEntry">
+
+		<td class="attributes"><code>
+			 protected 
+			<code><a href="class-Peach.Util.HashMapEntry.html">Peach\Util\HashMapEntry</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createEntry">#</a>
+		<code><a href="source-class-Peach.Util.HashMap.html#334-346" title="Go to source code">createEntry</a>( <span>mixed <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたキーと値をマッピングする, 新しい <code><a href="class-Peach.Util.HashMapEntry.html">Peach\Util\HashMapEntry</a></code> を構築します. ユーザーは,
+必要に応じてこのメソッドをオーバーライドし,
+機能拡張した HashMapEntry
+を返すようにすることもできます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたキーと値をマッピングする, 新しい <code><a href="class-Peach.Util.HashMapEntry.html">Peach\Util\HashMapEntry</a></code> を構築します. ユーザーは,
+必要に応じてこのメソッドをオーバーライドし,
+機能拡張した HashMapEntry
+を返すようにすることもできます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>マッピングのキー</dd>
+					<dt><var>$value</var></dt>
+					<dd>マッピングの値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.Util.HashMapEntry.html">Peach\Util\HashMapEntry</a></code></code><br>引数の $key と $value をマッピングした HashMapEntry<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\Util\Values | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Util.AbstractMapEntry.html">AbstractMapEntry</a></li>
+				<li><a href="class-Peach.Util.ArrayMap.html">ArrayMap</a></li>
+				<li><a href="class-Peach.Util.ArrayMapEntry.html">ArrayMapEntry</a></li>
+				<li><a href="class-Peach.Util.Arrays.html">Arrays</a></li>
+				<li><a href="class-Peach.Util.DefaultComparator.html">DefaultComparator</a></li>
+				<li><a href="class-Peach.Util.DefaultEquator.html">DefaultEquator</a></li>
+				<li><a href="class-Peach.Util.HashMap.html">HashMap</a></li>
+				<li><a href="class-Peach.Util.HashMapEntry.html">HashMapEntry</a></li>
+				<li><a href="class-Peach.Util.Strings.html">Strings</a></li>
+				<li class="active"><a href="class-Peach.Util.Values.html">Values</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Util.Comparable.html">Comparable</a></li>
+				<li><a href="class-Peach.Util.Comparator.html">Comparator</a></li>
+				<li><a href="class-Peach.Util.Equator.html">Equator</a></li>
+				<li><a href="class-Peach.Util.Map.html">Map</a></li>
+				<li><a href="class-Peach.Util.MapEntry.html">MapEntry</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Util.html" title="Summary of Peach\Util"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Values</h1>
+
+
+	<div class="description">
+	
+<p>値の各種変換を行うユーティリティクラスです.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Util.html">Util</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.Util.Values.html#30-222" title="Go to source code">Peach/Util/Values.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="intValue" id="_intValue">
+
+		<td class="attributes"><code>
+			 public static
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_intValue">#</a>
+		<code><a href="source-class-Peach.Util.Values.html#40-80" title="Go to source code">intValue</a>( <span>mixed <var>$value</var></span>, <span>integer <var>$min</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$max</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された値を整数に変換します. この関数は変換処理に
+<a href="http://jp1.php.net/manual/ja/function.intval.php">intval()</a> を利用します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された値を整数に変換します. この関数は変換処理に
+<a href="http://jp1.php.net/manual/ja/function.intval.php">intval()</a> を利用します.</p>
+
+<p>最小値が指定されている場合,
+変換後の値が最小値より小さければ最小値を返します.</p>
+
+<p>最小値と最大値の両方が指定されている場合,
+変換後の値が最大値より大きければ最大値を返します.</p>
+
+<p>最小値が最大値より大きい場合,
+最大値の指定は無視されます.
+最大値のみ指定したい場合は, 最小値を NULL
+にしてください.</p>
+
+<p>引数にオブジェクトが指定された場合は 1
+として扱います.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd>変換元の値</dd>
+					<dt><var>$min</var></dt>
+					<dd>最小値 (省略可). 変換後の値がこの値よりも小さい場合は,
+この値を返す.</dd>
+					<dt><var>$max</var></dt>
+					<dd>最大値 (省略可). 変換後の値がこの値よりも大きい場合は,
+この値を返す.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>引数を整数に変換した値<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="stringValue" id="_stringValue">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_stringValue">#</a>
+		<code><a href="source-class-Peach.Util.Values.html#82-106" title="Go to source code">stringValue</a>( <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された値を文字列型に変換します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された値を文字列型に変換します.</p>
+
+<p>__toString() が定義されているオブジェクトの場合は
+__toString() の結果,
+それ以外のオブジェクトはクラス名を返します.
+リソース型の場合は <a href="http://jp1.php.net/manual/ja/function.get-resource-type.php">get_resource_type()</a> にリソース ID を付け足した結果を返します.
+それ以外は string 型にキャストした結果を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd>変換対象の値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>変換後の文字列<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="arrayValue" id="_arrayValue">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_arrayValue">#</a>
+		<code><a href="source-class-Peach.Util.Values.html#108-129" title="Go to source code">arrayValue</a>( <span>mixed <var>$value</var></span>, <span>boolean <var>$wrap</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された値を配列に変換します.
+引数が配列の場合は引数をそのまま返します.
+配列以外の値の場合は,
+第二引数によって結果が変わります.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された値を配列に変換します.
+引数が配列の場合は引数をそのまま返します.
+配列以外の値の場合は,
+第二引数によって結果が変わります.</p>
+
+<ul>
+	<li>$wrap = TRUE の場合, 引数を長さ 1 の配列として返す.</li>
+
+	<li>$wrap = FALSE の場合, 空の配列を返す.</li>
+</ul>
+
+<p>デフォルトでは $wrap = FALSE となります.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd>変換元の値.</dd>
+					<dt><var>$wrap</var></dt>
+					<dd>配列以外の値の場合に, 長さ 1 の配列に変換する場合は TRUE</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>変換後の配列<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="boolValue" id="_boolValue">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_boolValue">#</a>
+		<code><a href="source-class-Peach.Util.Values.html#131-169" title="Go to source code">boolValue</a>( <span>mixed <var>$value</var></span>, <span>boolean <var>$defaultValue</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された値を bool 型に変換します. この関数は "Yes",
+"No", "True", "False", "OK", "NG" などの文字列を bool
+に変換する用途を想定したものです.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された値を bool 型に変換します. この関数は "Yes",
+"No", "True", "False", "OK", "NG" などの文字列を bool
+に変換する用途を想定したものです.</p>
+
+<p>引数が bool 型の場合は引数をそのまま返します.</p>
+
+<p>引数が文字列型の場合, 先頭の 1 バイトが T, Y, O
+のいずれかの場合は TRUE, 先頭の 1 バイトが F, N
+のいずれかの場合は FALSE, それ以外は文字列を bool
+にキャストした結果を返します.
+(大文字・小文字は区別しません)</p>
+
+<p>引数が数値型の場合, bool にキャストした結果を返します.
+すなわち 0 以外の値は TRUE, 0 の場合は FALSE を返します.</p>
+
+<p>以上の条件にあてはまらない値の場合, $defaultValue が NULL
+または未指定の場合は第 1 引数を bool
+にキャストした結果を返します. $defaultValue
+が指定されている場合はその bool 値を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd>変換対象の値</dd>
+					<dt><var>$defaultValue</var></dt>
+					<dd>デフォルトの返り値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>変換後の bool 値<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getType" id="_getType">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getType">#</a>
+		<code><a href="source-class-Peach.Util.Values.html#210-221" title="Go to source code">getType</a>( <span>mixed <var>$var</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された値の型を返します. 内部関数の <a href="http://jp1.php.net/manual/ja/function.gettype.php">gettype()</a> とほぼ同じ動作をしますが,
+引数にオブジェクトを指定した場合に文字列 "object"
+ではなくその値のクラス名を返すところが異なります.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された値の型を返します. 内部関数の <a href="http://jp1.php.net/manual/ja/function.gettype.php">gettype()</a> とほぼ同じ動作をしますが,
+引数にオブジェクトを指定した場合に文字列 "object"
+ではなくその値のクラス名を返すところが異なります.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd>検査対象の値</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?756049109"></script>
+</body>
+</html>
