@@ -47,7 +47,7 @@ or set up autoload manually.
 Documentation
 -------------
 
-Under construction.
+[Online documentation](http://trashtoy.github.io/PEACH2/) is available.
 
 Roadmap
 -------
