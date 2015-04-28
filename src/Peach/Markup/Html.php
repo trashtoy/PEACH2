@@ -358,7 +358,7 @@ class Html
     {
         static $validNames = array("tag", "comment", "conditionalComment", "select");
         foreach ($options as $methodName => $funcName) {
-            if (!in_array($methodName, $validNames)) {
+            if (!in_array($methodName, $validNames, true)) {
                 throw new \InvalidArgumentException("Method '{$methodName}' is not found.");
             }
             if (function_exists($funcName)) {
