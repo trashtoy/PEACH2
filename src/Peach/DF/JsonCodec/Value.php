@@ -29,6 +29,9 @@
 namespace Peach\DF\JsonCodec;
 
 /**
+ * JSON の BNF ルール value をあらわす Expression です.
+ * RFC 7159 で定義されている以下のフォーマットを解釈します.
+ * 
  * <pre>
  * value = false / null / true / object / array / number / string
  * </pre>
@@ -58,6 +61,11 @@ class Value implements Expression
                 break;
             case "t":
                 $this->decodeLiteral($context, "true", true);
+                break;
+            case '"':
+                $string = new StringExpr();
+                $string->handle($context);
+                $this->result = $string->getResult();
                 break;
             default:
                 $context->throwException("Invalid value format");

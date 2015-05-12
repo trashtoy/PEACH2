@@ -55,6 +55,22 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 文字列を該当する値に変換することを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::decode
+     * @covers Peach\DF\JsonCodec\Root::__construct
+     * @covers Peach\DF\JsonCodec\Root::handle
+     * @covers Peach\DF\JsonCodec\Root::getResult
+     */
+    public function testDecodeString()
+    {
+        $codec    = $this->object;
+        $test     = '    "This\\ris\\na pen"    ';
+        $expected = "This\ris\na pen";
+        $this->assertSame($expected, $codec->decode($test));
+    }
+    
+    /**
      * リテラルの decode に失敗した際に InvalidArgumentException
      * をスローすることを確認します.
      * 

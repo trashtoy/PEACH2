@@ -94,6 +94,21 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 文字列の解析テストです. 以下を確認します.
+     * 
+     * - 二重引用符で囲まれた文字列が結果として返されること
+     * - 引数の Context の index が文字列長 + 2 だけ進むこと
+     */
+    public function testHandleString()
+    {
+        $value   = $this->object;
+        $context = new Context('"Test",');
+        $value->handle($context);
+        $this->assertSame("Test", $value->getResult());
+        $this->assertSame(",", $context->current());
+    }
+    
+    /**
      * 不正な文字列を検知した場合に DecodeException をスローすることを確認します.
      * 
      * @covers Peach\DF\JsonCodec\Value::handle
