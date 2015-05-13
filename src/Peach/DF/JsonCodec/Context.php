@@ -139,6 +139,14 @@ class Context
     }
     
     /**
+     * @return int 現在の文字の Unicode 符号点. もしも現在の文字が存在しない場合は null
+     */
+    public function currentCodePoint()
+    {
+        return $this->hasNext() ? $this->unicodeList[$this->index] : null;
+    }
+    
+    /**
      * 
      * @param string $message
      * @throws DecodeException

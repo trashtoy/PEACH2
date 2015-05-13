@@ -74,6 +74,23 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * @covers Peach\DF\JsonCodec\Context::currentCodePoint
+     */
+    public function testCurrentCodePoint()
+    {
+        $context = new Context("Test");
+        $this->assertSame(0x54, $context->currentCodePoint());
+        $context->next();
+        $this->assertSame(0x65, $context->currentCodePoint());
+        $context->next();
+        $this->assertSame(0x73, $context->currentCodePoint());
+        $context->next();
+        $this->assertSame(0x74, $context->currentCodePoint());
+        $context->next();
+        $this->assertNull($context->currentCodePoint());
+    }
+    
+    /**
      * @covers Peach\DF\JsonCodec\Context::current
      * @covers Peach\DF\JsonCodec\Context::computeCurrent
      * @covers Peach\DF\JsonCodec\Context::next
@@ -107,7 +124,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
             $this->assertSame("Test at line 3, column 3", $e->getMessage());
         }
     }
-
+    
     /**
      * @covers Peach\DF\JsonCodec\Context::next
      * @expectedException Peach\DF\JsonCodec\DecodeException
