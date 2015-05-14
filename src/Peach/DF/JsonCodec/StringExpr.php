@@ -90,6 +90,7 @@ class StringExpr implements Expression
                 continue;
             }
             
+            $this->validateCodePoint($context);
             $current = $context->current();
             $context->next();
             switch ($current) {
@@ -106,6 +107,25 @@ class StringExpr implements Expression
         }
         
         $context->throwException("End of quotation mark not found");
+    }
+    
+    /**
+     * 現在の文字が Unicode 符号点 %x20 以上であるかどうか検査します.
+     * 不正な文字の場合は DecodeException をスローします.
+     * 
+     * @param Context $context 解析対象の Context
+     * @throws DecodeException 現在の文字が %x00-1F の範囲にある場合
+     */
+    private function validateCodePoint(Context $context)
+    {
+        $codePoint = $context->currentCodePoint();
+        if (0x20 <= $codePoint) {
+            return;
+        }
+        
+        $hex = dechex($codePoint);
+        $num = (0x10 <= $codePoint) ? $hex : "0" . $hex;
+        $context->throwException("Unicode code point %x{$num} is not allowed for string");
     }
     
     /**

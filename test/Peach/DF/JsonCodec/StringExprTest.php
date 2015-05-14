@@ -56,6 +56,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
      * エスケープシーケンスを含んだ文字列が, エスケープ解除された状態で decode されることを確認します.
      * 
      * @covers Peach\DF\JsonCodec\StringExpr::handle
+     * @covers Peach\DF\JsonCodec\StringExpr::validateCodePoint
      * @covers Peach\DF\JsonCodec\StringExpr::decodeEscapedChar
      * @covers Peach\DF\JsonCodec\StringExpr::getResult
      */
@@ -128,6 +129,21 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
     public function testHandleUnfinishedStringFail()
     {
         $context = new Context('"Unfinished');
+        $expr    = $this->object;
+        $expr->handle($context);
+    }
+    
+    /**
+     * 文字列中に %x00-%x1F の範囲にあたる文字が含まれていた場合にエラーとなることを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec\StringExpr::handle
+     * @covers Peach\DF\JsonCodec\StringExpr::validateCodePoint
+     * @expectedException Peach\DF\JsonCodec\DecodeException
+     * @expectedExceptionMessage "Unicode code point %x0a is not allowed for string at line 1, column 6"
+     */
+    public function testHandleInvalidAsciiFail()
+    {
+        $context = new Context("\"This\nis test\"");
         $expr    = $this->object;
         $expr->handle($context);
     }
