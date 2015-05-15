@@ -71,6 +71,18 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 数値表現を該当する値に変換することを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::decode
+     */
+    public function testDecodeNumber()
+    {
+        $codec    = $this->object;
+        $test     = "    \n3.14e+16\n    ";
+        $this->assertSame(3.14e+16, $codec->decode($test));
+    }
+    
+    /**
      * リテラルの decode に失敗した際に InvalidArgumentException
      * をスローすることを確認します.
      * 

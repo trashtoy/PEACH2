@@ -52,6 +52,12 @@ class Value implements Expression
     public function handle(Context $context)
     {
         $current = $context->current();
+        if ($current === "-" || Number::checkDigit($context)) {
+            $number = new Number();
+            $number->handle($context);
+            $this->result = $number->getResult();
+            return;
+        }
         switch ($current) {
             case "f":
                 $this->decodeLiteral($context, "false", false);

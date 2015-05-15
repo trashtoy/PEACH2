@@ -109,6 +109,21 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 数値の解析テストです. 以下を確認します.
+     * 
+     * - その数値文字列が表現する値に等しい結果を返すこと
+     * - 引数の Context の index が文字列長だけ進むこと
+     */
+    public function testHandleNumber()
+    {
+        $value   = $this->object;
+        $context = new Context("3e+5,");
+        $value->handle($context);
+        $this->assertSame(300000.0, $value->getResult());
+        $this->assertSame(",", $context->current());
+    }
+    
+    /**
      * 不正な文字列を検知した場合に DecodeException をスローすることを確認します.
      * 
      * @covers Peach\DF\JsonCodec\Value::handle
