@@ -68,6 +68,11 @@ class Value implements Expression
             case "t":
                 $this->decodeLiteral($context, "true", true);
                 break;
+            case "[":
+                $array  = new ArrayExpr();
+                $array->handle($context);
+                $this->result = $array->getResult();
+                break;
             case '"':
                 $string = new StringExpr();
                 $string->handle($context);
