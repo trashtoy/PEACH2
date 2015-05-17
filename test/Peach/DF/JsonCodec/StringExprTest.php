@@ -139,7 +139,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
      * @covers Peach\DF\JsonCodec\StringExpr::handle
      * @covers Peach\DF\JsonCodec\StringExpr::validateCodePoint
      * @expectedException Peach\DF\JsonCodec\DecodeException
-     * @expectedExceptionMessage "Unicode code point %x0a is not allowed for string at line 1, column 6"
+     * @expectedExceptionMessage Unicode code point %x0a is not allowed for string at line 1, column 6
      */
     public function testHandleInvalidAsciiFail()
     {

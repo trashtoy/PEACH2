@@ -47,7 +47,7 @@ class StructuralCharTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Peach\DF\JsonCodec\StructuralChar::handle
      * @expectedException Peach\DF\JsonCodec\DecodeException
-     * @expectedExceptionMessage "Unexpected end of JSON at line 3, column 1"
+     * @expectedExceptionMessage Unexpected end of JSON at line 3, column 1
      */
     public function testHandleFailByEndOfJson()
     {
