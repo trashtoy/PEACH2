@@ -33,14 +33,16 @@ namespace Peach\DF\JsonCodec;
  * RFC 7159 で定義されている以下のフォーマットを解釈します.
  * 
  * <pre>
- * value = false / null / true / object / array / number / string
+ * object = begin-object [ member *( value-separator member ) ] end-object
  * </pre>
+ * 
+ * @ignore
  */
-class Value implements Expression
+class ObjectExpr implements \Peach\DF\JsonCodec\Expression
 {
     /**
      *
-     * @var mixed
+     * @var array
      */
     private $result;
     
@@ -49,42 +51,34 @@ class Value implements Expression
         $this->result = null;
     }
     
+    /**
+     * 
+     * Context $context
+     */
     public function handle(Context $context)
     {
-        $current = $context->current();
-        if ($current === "-" || Number::checkDigit($context)) {
-            $number = new Number();
-            $number->handle($context);
-            $this->result = $number->getResult();
+        $beginObject = new StructuralChar(array("{"));
+        $beginObject->handle($context);
+        
+        if ($context->current() === "}") {
+            $endObject = new StructuralChar(array("}"));
+            $endObject->handle($context);
+            $this->result = array();
             return;
         }
-        switch ($current) {
-            case "f":
-                $this->decodeLiteral($context, "false", false);
+        
+        $result = array();
+        while (true) {
+            $member = new Member();
+            $member->handle($context);
+            $result[$member->getKey()] = $member->getValue();
+            
+            $struct = new StructuralChar(array(",", "}"));
+            $struct->handle($context);
+            if ($struct->getResult() === "}") {
+                $this->result = $result;
                 break;
-            case "n":
-                $this->decodeLiteral($context, "null", null);
-                break;
-            case "t":
-                $this->decodeLiteral($context, "true", true);
-                break;
-            case "[":
-                $array  = new ArrayExpr();
-                $array->handle($context);
-                $this->result = $array->getResult();
-                break;
-            case "{":
-                $object = new ObjectExpr();
-                $object->handle($context);
-                $this->result = $object->getResult();
-                break;
-            case '"':
-                $string = new StringExpr();
-                $string->handle($context);
-                $this->result = $string->getResult();
-                break;
-            default:
-                $context->throwException("Invalid value format");
+            }
         }
     }
     
@@ -95,22 +89,5 @@ class Value implements Expression
     public function getResult()
     {
         return $this->result;
-    }
-    
-    /**
-     * 
-     * @param Context $context
-     * @param string  $literal
-     * @param mixed   $value
-     */
-    private function decodeLiteral(Context $context, $literal, $value)
-    {
-        $count = strlen($literal);
-        if ($context->getSequence($count) !== $literal) {
-            $current = $context->current();
-            $context->throwException("Unexpected character found ('{$current}')");
-        }
-        $this->result = $value;
-        $context->skip($count);
     }
 }

@@ -140,6 +140,30 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Object の解析テストです. 以下を確認します.
+     * 
+     * - その object 形式の文字列が表現する値に等しい結果を返すこと
+     * - 引数の Context の index が文字列長だけ進むこと
+     */
+    public function testHandleObject()
+    {
+        $value    = $this->object;
+        $context  = new Context('{ "a" : true, "b" : [ -123, 3.5E+7, 0 ], "c" : { "x" : "asdf", "y" : "hoge" }, "d" : null} , ');
+        $expected = array(
+            "a" => true,
+            "b" => array(-123, 3.5e+7, 0),
+            "c" => array(
+                "x" => "asdf",
+                "y" => "hoge",
+            ),
+            "d" => null,
+        );
+        $value->handle($context);
+        $this->assertSame($expected, $value->getResult());
+        $this->assertSame(",", $context->current());
+    }
+    
+    /**
      * 不正な文字列を検知した場合に DecodeException をスローすることを確認します.
      * 
      * @covers Peach\DF\JsonCodec\Value::handle
