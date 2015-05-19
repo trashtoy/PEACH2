@@ -87,6 +87,7 @@ class ObjectExprTest extends \PHPUnit_Framework_TestCase
      * 
      * @covers Peach\DF\JsonCodec\ObjectExpr::handle
      * @expectedException Peach\DF\JsonCodec\DecodeException
+     * @expectedExceptionMessage Closing bracket after comma is not permitted at line 1, column 33
      */
     public function testHandleFailByCommaEnding()
     {

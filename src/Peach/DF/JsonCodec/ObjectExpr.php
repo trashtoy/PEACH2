@@ -69,6 +69,9 @@ class ObjectExpr implements \Peach\DF\JsonCodec\Expression
         
         $result = array();
         while (true) {
+            if ($context->current() === "}") {
+                $context->throwException("Closing bracket after comma is not permitted");
+            }
             $member = new Member();
             $member->handle($context);
             $result[$member->getKey()] = $member->getValue();
