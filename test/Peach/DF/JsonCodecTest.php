@@ -26,15 +26,46 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 複雑な構造の JSON 文字列を該当する値に変換することを確認します.
+     * 
      * @covers Peach\DF\JsonCodec::decode
-     * @todo   Implement testDecode().
      */
     public function testDecode()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+        $codec    = $this->object;
+        $text     = file_get_contents(__DIR__ . "/JsonCodec/decode-ok.txt");
+        $expected = array(
+            "first" => array(
+                "test01" => 0,
+                "test02" => 100,
+                "test03" => -50,
+            ),
+            "second" => array(1.0, -1.5, 12.5e-7),
+            "third" => "hogehoge",
+            "fourth" => array(
+                "test04" => array(
+                    "true" => true,
+                    "false" => false,
+                    "null" => null,
+                ),
+            ),
         );
+        $this->assertSame($expected, $codec->decode($text));
+    }
+    
+    /**
+     * 不正な JSON 文字列を decode した際に適切なエラーメッセージを持つ
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::decode
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Closing bracket after comma is not permitted at line 6, column 5
+     */
+    public function testDecodeFail()
+    {
+        $codec    = $this->object;
+        $text     = file_get_contents(__DIR__ . "/JsonCodec/decode-ng.txt");
+        $codec->decode($text);
     }
     
     /**
