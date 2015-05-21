@@ -65,11 +65,32 @@ class JsonCodec implements Codec
     }
     
     /**
+     * 指定された値を JSON 文字列に変換します.
      * 
-     * @param mixed $var
+     * @param  mixed  $var 変換対象の値
+     * @return string      JSON 文字列
      */
     public function encode($var)
     {
-        
+        return $this->encodeValue($var);
+    }
+    
+    /**
+     * encode の本体の処理です.
+     * 
+     * @param  mixed  $var 変換対象の値
+     * @return string      JSON 文字列
+     */
+    private function encodeValue($var)
+    {
+        if ($var === null) {
+            return "null";
+        }
+        if ($var === true) {
+            return "true";
+        }
+        if ($var === false) {
+            return "false";
+        }
     }
 }

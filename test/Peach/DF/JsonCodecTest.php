@@ -164,4 +164,18 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
             'This test has not been implemented yet.'
         );
     }
+    
+    /**
+     * リテラル (null, true, false) を対応する文字列に変換することを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     */
+    public function testEncodeLiteral()
+    {
+        $codec = $this->object;
+        $this->assertSame("null",  $codec->encode(null));
+        $this->assertSame("true",  $codec->encode(true));
+        $this->assertSame("false", $codec->encode(false));
+    }
 }
