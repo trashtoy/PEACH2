@@ -92,5 +92,8 @@ class JsonCodec implements Codec
         if ($var === false) {
             return "false";
         }
+        if (is_integer($var) || is_float($var)) {
+            return strval($var);
+        }
     }
 }

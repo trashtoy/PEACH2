@@ -178,4 +178,20 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("true",  $codec->encode(true));
         $this->assertSame("false", $codec->encode(false));
     }
+    
+    /**
+     * 数値を対応する文字列に変換することを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     */
+    public function testEncodeNumber()
+    {
+        $codec = $this->object;
+        $this->assertSame("10", $codec->encode(10));
+        $this->assertSame("-5", $codec->encode(-5));
+        $this->assertSame("1.75", $codec->encode(1.75));
+        $this->assertSame("1.125E-9", $codec->encode(1.125e-9));
+        $this->assertSame("-5.15625E+16", $codec->encode(-5.15625e16));
+    }
 }
