@@ -194,4 +194,34 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("1.125E-9", $codec->encode(1.125e-9));
         $this->assertSame("-5.15625E+16", $codec->encode(-5.15625e16));
     }
+    
+    /**
+     * 文字列の encode のテストです.
+     * json_encode をオプションなしで実行した結果と同じ内容となることを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeString
+     * @covers Peach\DF\JsonCodec::encodeCodePoint
+     */
+    public function testEncodeString()
+    {
+        $codec = $this->object;
+        
+        $test1 = "";
+        for ($i = 0; $i < 127; $i++) {
+            $test1 .= chr($i);
+        }
+        $expected1 =
+                '"\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f' .
+                '\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f' .
+                ' !\"#$%&' . "'" . '()*+,-.\/0123456789:;<=>?' .
+                '@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"';
+        $this->assertSame($expected1, $codec->encode($test1));
+        
+        $test2     = implode("", array_map("chr", array(0xE3, 0x83, 0x86, 0xE3, 0x82, 0xB9, 0xE3, 0x83, 0x88))); // "テスト"
+        $expected2 = '"\u30c6\u30b9\u30c8"';
+        $this->assertSame($expected2, $codec->encode($test2));
+    }
 }

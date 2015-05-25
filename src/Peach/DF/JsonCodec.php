@@ -46,6 +46,21 @@ use Peach\Util\Strings;
 class JsonCodec implements Codec
 {
     /**
+     * 文字列を encode する際に使用する Utf8Codec です.
+     * 
+     * @var Utf8Codec
+     */
+    private $utf8Codec;
+    
+    /**
+     * 新しい JsonCodec を構築します.
+     */
+    public function __construct()
+    {
+        $this->utf8Codec = new Utf8Codec();
+    }
+    
+    /**
      * 
      * @param string $text
      */
@@ -95,5 +110,58 @@ class JsonCodec implements Codec
         if (is_integer($var) || is_float($var)) {
             return strval($var);
         }
+        if (is_string($var)) {
+            return $this->encodeString($var);
+        }
+    }
+    
+    /**
+     * 文字列を JSON 文字列に変換します.
+     * 
+     * @param string $str 変換対象の文字列
+     */
+    private function encodeString($str)
+    {
+        // @codeCoverageIgnoreStart
+        static $callback = null;
+        if ($callback === null) {
+            $callback = function ($num) {
+                return $this->encodeCodePoint($num);
+            };
+        }
+        // @codeCoverageIgnoreEnd
+        
+        $unicodeList = $this->utf8Codec->decode($str);
+        return '"' . implode("", array_map($callback, $unicodeList)) . '"';
+    }
+    
+    /**
+     * 指定された Unicode 符号点を JSON 文字に変換します.
+     * 
+     * @param  int $num Unicode 符号点
+     * @return string   指定された Unicode 符号点に対応する文字列
+     */
+    private function encodeCodePoint($num)
+    {
+        // @codeCoverageIgnoreStart
+        static $encodeList = array(
+            0x22 => "\\\"",
+            0x5C => "\\\\",
+            0x2F => "\\/",
+            0x08 => "\\b",
+            0x0C => "\\f",
+            0x0A => "\\n",
+            0x0D => "\\r",
+            0x09 => "\\t",
+        );
+        // @codeCoverageIgnoreEnd
+        
+        if (array_key_exists($num, $encodeList)) {
+            return $encodeList[$num];
+        }
+        if (0x20 <= $num && $num < 0x80) {
+            return chr($num);
+        }
+        return "\\u" . str_pad(dechex($num), 4, "0", STR_PAD_LEFT);
     }
 }
