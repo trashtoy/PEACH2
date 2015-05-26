@@ -61,8 +61,12 @@ class JsonCodec implements Codec
     }
     
     /**
+     * 指定された JSON 文字列を値に変換します.
      * 
-     * @param string $text
+     * 引数が空白文字列 (または null, false) の場合は null を返します.
+     * 
+     * @param  string $text 変換対象の JSON 文字列
+     * @return mixed        変換結果
      */
     public function decode($text)
     {
