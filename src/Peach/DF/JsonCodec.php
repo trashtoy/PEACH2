@@ -117,6 +117,9 @@ class JsonCodec implements Codec
         if (is_string($var)) {
             return $this->encodeString($var);
         }
+        if (is_array($var)) {
+            return $this->encodeArray($var);
+        }
     }
     
     /**
@@ -167,5 +170,26 @@ class JsonCodec implements Codec
             return chr($num);
         }
         return "\\u" . str_pad(dechex($num), 4, "0", STR_PAD_LEFT);
+    }
+    
+    /**
+     * 指定された配列を JSON の object 表記に変換します.
+     * 
+     * @param array $arr 変換対象
+     * @return           JSON 文字列
+     */
+    private function encodeArray(array $arr)
+    {
+        // @codeCoverageIgnoreStart
+        static $callback = null;
+        if ($callback === null) {
+            $self     = $this;
+            $callback = function ($key, $value) use ($self) {
+                return $this->encodeString($key) . ":" . $self->encodeValue($value); 
+            };
+        }
+        // @codeCoverageIgnoreEnd
+        
+        return "{" . implode(",", array_map($callback, array_keys($arr), array_values($arr))) . "}";
     }
 }

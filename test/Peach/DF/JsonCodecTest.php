@@ -224,4 +224,20 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         $expected2 = '"\u30c6\u30b9\u30c8"';
         $this->assertSame($expected2, $codec->encode($test2));
     }
+    
+    /**
+     * 配列の encode のテストです.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeArray
+     */
+    public function testEncodeArray()
+    {
+        $codec    = $this->object;
+        $test1    = array("foo" => 123, "bar" => true, "baz" => "asdf");
+        $expected = '{"foo":123,"bar":true,"baz":"asdf"}';
+        $this->assertSame($expected, $codec->encode($test1));
+    }
 }
