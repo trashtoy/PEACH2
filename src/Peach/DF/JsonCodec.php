@@ -118,8 +118,26 @@ class JsonCodec implements Codec
             return $this->encodeString($var);
         }
         if (is_array($var)) {
-            return $this->encodeArray($var);
+            return $this->checkKeySequence($var) ? $this->encodeArray($var) : $this->encodeObject($var);
         }
+    }
+    
+    /**
+     * 配列のキーが 0, 1, 2 ... という具合に 0 から始まる整数の連続になっていた場合のみ true,
+     * それ以外は false を返します.
+     * 
+     * @param  array $arr 変換対象の配列
+     * @return bool       配列のキーが整数の連続になっていた場合のみ true
+     */
+    private function checkKeySequence(array $arr) {
+        $i = 0;
+        foreach (array_keys($arr) as $key) {
+            if ($i !== $key) {
+                return false;
+            }
+            $i++;
+        }
+        return true;
     }
     
     /**
@@ -173,12 +191,33 @@ class JsonCodec implements Codec
     }
     
     /**
-     * 指定された配列を JSON の object 表記に変換します.
+     * 指定された配列を JSON の array 表記に変換します.
      * 
-     * @param array $arr 変換対象
-     * @return           JSON 文字列
+     * @param  array  $arr 変換対象
+     * @return string      JSON 文字列
      */
     private function encodeArray(array $arr)
+    {
+        // @codeCoverageIgnoreStart
+        static $callback = null;
+        if ($callback === null) {
+            $self     = $this;
+            $callback = function ($value) use ($self) {
+                return $self->encodeValue($value);
+            };
+        }
+        // @codeCoverageIgnoreEnd
+        
+        return "[" . implode(",", array_map($callback, $arr)) . "]";
+    }
+    
+    /**
+     * 指定された配列を JSON の object 表記に変換します.
+     * 
+     * @param  array  $arr 変換対象
+     * @return string      JSON 文字列
+     */
+    private function encodeObject(array $arr)
     {
         // @codeCoverageIgnoreStart
         static $callback = null;

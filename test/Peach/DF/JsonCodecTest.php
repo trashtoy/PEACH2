@@ -227,17 +227,34 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     
     /**
      * 配列の encode のテストです.
+     * 配列のキーの内容に応じて以下のような結果となることを確認します.
+     * 
+     * - キーが 0, 1, 2, 3... という具合に 0 から始まる整数の連続になっていた場合は配列
+     * - それ以外はオブジェクト
      * 
      * @covers Peach\DF\JsonCodec::__construct
      * @covers Peach\DF\JsonCodec::encode
      * @covers Peach\DF\JsonCodec::encodeValue
      * @covers Peach\DF\JsonCodec::encodeArray
+     * @covers Peach\DF\JsonCodec::encodeObject
      */
     public function testEncodeArray()
     {
-        $codec    = $this->object;
-        $test1    = array("foo" => 123, "bar" => true, "baz" => "asdf");
-        $expected = '{"foo":123,"bar":true,"baz":"asdf"}';
-        $this->assertSame($expected, $codec->encode($test1));
+        $codec     = $this->object;
+        $test1     = array("foo" => 123, "bar" => true, "baz" => "asdf");
+        $expected1 = '{"foo":123,"bar":true,"baz":"asdf"}';
+        $this->assertSame($expected1, $codec->encode($test1));
+        
+        $test2     = array(0 => "aaaa", 1 => "bbbb", 2 => "cccc", 3 => "dddd");
+        $expected2 = '["aaaa","bbbb","cccc","dddd"]';
+        $this->assertSame($expected2, $codec->encode($test2));
+        
+        $test3     = array(0 => "aaaa", 1 => "bbbb", 3 => "cccc", 2 => "dddd");
+        $expected3 = '{"0":"aaaa","1":"bbbb","3":"cccc","2":"dddd"}';
+        $this->assertSame($expected3, $codec->encode($test3));
+        
+        $test4     = array(0 => "aaaa", 1 => "bbbb", 2 => "cccc", 4 => "dddd");
+        $expected4 = '{"0":"aaaa","1":"bbbb","2":"cccc","4":"dddd"}';
+        $this->assertSame($expected4, $codec->encode($test4));
     }
 }
