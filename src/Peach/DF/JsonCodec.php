@@ -99,8 +99,9 @@ class JsonCodec implements Codec
      * 
      * @param  mixed  $var 変換対象の値
      * @return string      JSON 文字列
+     * @ignore
      */
-    private function encodeValue($var)
+    public function encodeValue($var)
     {
         if ($var === null) {
             return "null";
@@ -143,19 +144,16 @@ class JsonCodec implements Codec
     /**
      * 文字列を JSON 文字列に変換します.
      * 
-     * @param string $str 変換対象の文字列
+     * @param  string $str 変換対象の文字列
+     * @return string      JSON 文字列
+     * @ignore
      */
-    private function encodeString($str)
+    public function encodeString($str)
     {
-        // @codeCoverageIgnoreStart
-        static $callback = null;
-        if ($callback === null) {
-            $callback = function ($num) {
-                return $this->encodeCodePoint($num);
-            };
-        }
-        // @codeCoverageIgnoreEnd
-        
+        $self        = $this;
+        $callback    = function ($num) use ($self) {
+            return $self->encodeCodePoint($num);
+        };
         $unicodeList = $this->utf8Codec->decode($str);
         return '"' . implode("", array_map($callback, $unicodeList)) . '"';
     }
@@ -165,8 +163,9 @@ class JsonCodec implements Codec
      * 
      * @param  int $num Unicode 符号点
      * @return string   指定された Unicode 符号点に対応する文字列
+     * @ignore
      */
-    private function encodeCodePoint($num)
+    public function encodeCodePoint($num)
     {
         // @codeCoverageIgnoreStart
         static $encodeList = array(
@@ -198,16 +197,10 @@ class JsonCodec implements Codec
      */
     private function encodeArray(array $arr)
     {
-        // @codeCoverageIgnoreStart
-        static $callback = null;
-        if ($callback === null) {
-            $self     = $this;
-            $callback = function ($value) use ($self) {
-                return $self->encodeValue($value);
-            };
-        }
-        // @codeCoverageIgnoreEnd
-        
+        $self     = $this;
+        $callback = function ($value) use ($self) {
+            return $self->encodeValue($value);
+        };
         return "[" . implode(",", array_map($callback, $arr)) . "]";
     }
     
@@ -219,16 +212,10 @@ class JsonCodec implements Codec
      */
     private function encodeObject(array $arr)
     {
-        // @codeCoverageIgnoreStart
-        static $callback = null;
-        if ($callback === null) {
-            $self     = $this;
-            $callback = function ($key, $value) use ($self) {
-                return $this->encodeString($key) . ":" . $self->encodeValue($value); 
-            };
-        }
-        // @codeCoverageIgnoreEnd
-        
+        $self     = $this;
+        $callback = function ($key, $value) use ($self) {
+            return $self->encodeString($key) . ":" . $self->encodeValue($value);
+        };
         return "{" . implode(",", array_map($callback, array_keys($arr), array_values($arr))) . "}";
     }
 }
