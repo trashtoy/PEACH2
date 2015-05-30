@@ -237,6 +237,7 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
      * @covers Peach\DF\JsonCodec::encodeValue
      * @covers Peach\DF\JsonCodec::encodeArray
      * @covers Peach\DF\JsonCodec::encodeObject
+     * @covers Peach\DF\JsonCodec::checkKeySequence
      */
     public function testEncodeArray()
     {
