@@ -258,4 +258,29 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         $expected4 = '{"0":"aaaa","1":"bbbb","2":"cccc","4":"dddd"}';
         $this->assertSame($expected4, $codec->encode($test4));
     }
+    
+    /**
+     * オブジェクトの encode のテストです.
+     * 指定されたオブジェクトの public メンバ変数が,
+     * 対応するキーおよび値に変換されることを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeObject
+     */
+    public function testEncodeObject()
+    {
+        $codec = $this->object;
+        $test1 = new \stdClass();
+        $test2 = new \stdClass();
+        $test2->first  = "hoge";
+        $test2->second = "fuga";
+        $test2->third  = "piyo";
+        $test1->obj    = $test2;
+        $test1->val    = 150;
+        
+        $expected = '{"obj":{"first":"hoge","second":"fuga","third":"piyo"},"val":150}';
+        $this->assertSame($expected, $codec->encode($test1));
+    }
 }

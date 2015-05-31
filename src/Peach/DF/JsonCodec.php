@@ -121,6 +121,10 @@ class JsonCodec implements Codec
         if (is_array($var)) {
             return $this->checkKeySequence($var) ? $this->encodeArray($var) : $this->encodeObject($var);
         }
+        if (is_object($var)) {
+            $arr = (array) $var;
+            return $this->encodeValue($arr);
+        }
     }
     
     /**
