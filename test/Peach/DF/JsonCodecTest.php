@@ -283,4 +283,20 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         $expected = '{"obj":{"first":"hoge","second":"fuga","third":"piyo"},"val":150}';
         $this->assertSame($expected, $codec->encode($test1));
     }
+    
+    /**
+     * リソース型の encode のテストです.
+     * 指定されたリソースを文字列にキャストした結果を encode します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     */
+    public function testEncodeResource()
+    {
+        $codec    = $this->object;
+        $resource = fopen(__FILE__, "rb");
+        $expected = '"stream #';
+        $this->assertStringStartsWith($expected, $codec->encode($resource));
+    }
 }

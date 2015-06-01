@@ -32,6 +32,7 @@ use Peach\DF\JsonCodec\Context;
 use Peach\DF\JsonCodec\DecodeException;
 use Peach\DF\JsonCodec\Root;
 use Peach\Util\Strings;
+use Peach\Util\Values;
 
 /**
  * JSON 形式の文字列を扱う Codec です.
@@ -96,6 +97,8 @@ class JsonCodec implements Codec
     
     /**
      * encode の本体の処理です.
+     * 指定された値がスカラー型 (null, 真偽値, 数値, 文字列), 配列, オブジェクトのいずれかにも該当しない場合,
+     * 文字列にキャストした結果を encode します.
      * 
      * @param  mixed  $var 変換対象の値
      * @return string      JSON 文字列
@@ -125,6 +128,8 @@ class JsonCodec implements Codec
             $arr = (array) $var;
             return $this->encodeValue($arr);
         }
+        
+        return $this->encodeValue(Values::stringValue($var));
     }
     
     /**
