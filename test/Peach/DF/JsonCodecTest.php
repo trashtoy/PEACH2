@@ -26,6 +26,29 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * getOption() のテストです.
+     * 引数に指定した配列に応じた結果を返すことを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::initOptions
+     * @covers Peach\DF\JsonCodec::getOption
+     */
+    public function testGetOption()
+    {
+        $c1  = new JsonCodec();
+        $this->assertFalse($c1->getOption(JsonCodec::UNESCAPED_SLASHES));
+        $this->assertFalse($c1->getOption(JsonCodec::UNESCAPED_UNICODE));
+        
+        $opt = array(
+            JsonCodec::UNESCAPED_SLASHES => true,
+            JsonCodec::UNESCAPED_UNICODE => true,
+        );
+        $c2  = new JsonCodec($opt);
+        $this->assertTrue($c2->getOption(JsonCodec::UNESCAPED_SLASHES));
+        $this->assertTrue($c2->getOption(JsonCodec::UNESCAPED_UNICODE));
+    }
+    
+    /**
      * 複雑な構造の JSON 文字列を該当する値に変換することを確認します.
      * 
      * @covers Peach\DF\JsonCodec::decode

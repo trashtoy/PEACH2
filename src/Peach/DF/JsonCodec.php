@@ -31,6 +31,7 @@ use InvalidArgumentException;
 use Peach\DF\JsonCodec\Context;
 use Peach\DF\JsonCodec\DecodeException;
 use Peach\DF\JsonCodec\Root;
+use Peach\Util\ArrayMap;
 use Peach\Util\Strings;
 use Peach\Util\Values;
 
@@ -47,6 +48,29 @@ use Peach\Util\Values;
 class JsonCodec implements Codec
 {
     /**
+     * 定数 JSON_UNESCAPED_SLASHES に相当するオプションです.
+     * encode の際に "/" をエスケープしないようにします.
+     * 
+     * @var int
+     */
+    const UNESCAPED_SLASHES = 64;
+    
+    /**
+     * 定数 JSON_UNESCAPED_UNICODE に相当するオプションです.
+     * encode の際にマルチバイト文字を UTF-8 文字として表現します.
+     * 
+     * @var int
+     */
+    const UNESCAPED_UNICODE = 256;
+    
+    /**
+     * encode, decode の出力内容をカスタマイズするオプションです.
+     * 
+     * @var ArrayMap
+     */
+    private $options;
+    
+    /**
      * 文字列を encode する際に使用する Utf8Codec です.
      * 
      * @var Utf8Codec
@@ -55,10 +79,43 @@ class JsonCodec implements Codec
     
     /**
      * 新しい JsonCodec を構築します.
+     * 引数に出力のカスタマイズオプションを指定することが出来ます.
+     * キーにオプション定数, 値に true または false を指定してください.
+     * 
+     * @var array $options 出力のカスタマイズオプション
      */
-    public function __construct()
+    public function __construct($options = null)
     {
+        $this->options   = $this->initOptions($options);
         $this->utf8Codec = new Utf8Codec();
+    }
+    
+    /**
+     * 
+     * @param array $options
+     */
+    private function initOptions($options)
+    {
+        $result = new ArrayMap();
+        if (!is_array($options)) {
+            return $result;
+        }
+        
+        foreach ($options as $key => $value) {
+            $result->put($key, \Peach\Util\Values::boolValue($value));
+        }
+        return $result;
+    }
+    
+    /**
+     * 指定されたオプションが ON かどうかを調べます.
+     * 
+     * @param  int $code オプション (定義されている定数)
+     * @return bool      指定されたオプションが ON の場合は true, それ以外は false
+     */
+    public function getOption($code)
+    {
+        return $this->options->get($code, false);
     }
     
     /**
