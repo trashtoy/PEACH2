@@ -249,6 +249,22 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * オプション UNESCAPED_SLASHES を付与した場合, "/" がエスケープされずに encode されることを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeString
+     */
+    public function testEncodeStringWithUnescapedSlashes()
+    {
+        $obj1 = $this->object;
+        $obj2 = new JsonCodec(array(JsonCodec::UNESCAPED_SLASHES => true));
+        $this->assertSame("\"\\/foo\\/bar\\/baz\"", $obj1->encode("/foo/bar/baz"));
+        $this->assertSame("\"/foo/bar/baz\"", $obj2->encode("/foo/bar/baz"));
+    }
+    
+    /**
      * 配列の encode のテストです.
      * 配列のキーの内容に応じて以下のような結果となることを確認します.
      * 

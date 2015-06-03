@@ -237,7 +237,6 @@ class JsonCodec implements Codec
         static $encodeList = array(
             0x22 => "\\\"",
             0x5C => "\\\\",
-            0x2F => "\\/",
             0x08 => "\\b",
             0x0C => "\\f",
             0x0A => "\\n",
@@ -248,6 +247,9 @@ class JsonCodec implements Codec
         
         if (array_key_exists($num, $encodeList)) {
             return $encodeList[$num];
+        }
+        if ($num === 0x2F) {
+            return $this->getOption(self::UNESCAPED_SLASHES) ? "/" : "\\/";
         }
         if (0x20 <= $num && $num < 0x80) {
             return chr($num);
