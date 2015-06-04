@@ -265,6 +265,19 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * オプション UNESCAPED_UNICODE を付与した場合, マルチバイト文字がエスケープされずに
+     * UTF-8 文字で符号化された状態で encode されることを確認します.
+     */
+    public function testEncodeStringWithUnescapedUnicode()
+    {
+        $obj1 = $this->object;
+        $obj2 = new JsonCodec(array(JsonCodec::UNESCAPED_UNICODE => true));
+        $test = implode("", array_map("chr", array(0xE3, 0x83, 0x86, 0xE3, 0x82, 0xB9, 0xE3, 0x83, 0x88))); // "テスト"
+        $this->assertSame('"\u30c6\u30b9\u30c8"', $obj1->encode($test));
+        $this->assertSame("\"{$test}\"", $obj2->encode($test));
+    }
+    
+    /**
      * 配列の encode のテストです.
      * 配列のキーの内容に応じて以下のような結果となることを確認します.
      * 

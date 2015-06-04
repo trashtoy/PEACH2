@@ -254,6 +254,9 @@ class JsonCodec implements Codec
         if (0x20 <= $num && $num < 0x80) {
             return chr($num);
         }
+        if (0x80 <= $num && $this->getOption(self::UNESCAPED_UNICODE)) {
+            return $this->utf8Codec->encode($num);
+        }
         return "\\u" . str_pad(dechex($num), 4, "0", STR_PAD_LEFT);
     }
     
