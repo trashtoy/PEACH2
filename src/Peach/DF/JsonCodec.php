@@ -64,6 +64,14 @@ class JsonCodec implements Codec
     const UNESCAPED_UNICODE = 256;
     
     /**
+     * 定数 JSON_PRESERVE_ZERO_FRACTION に相当するオプションです.
+     * float 型の値を常に float 値としてエンコードします.
+     * このオプションが OFF の場合, 小数部が 0 の数値 (2.0 など) は
+     * 整数としてエンコードされます.
+     */
+    const PRESERVE_ZERO_FRACTION = 1024;
+    
+    /**
      * encode, decode の出力内容をカスタマイズするオプションです.
      * 
      * @var ArrayMap
@@ -172,7 +180,10 @@ class JsonCodec implements Codec
         if ($var === false) {
             return "false";
         }
-        if (is_integer($var) || is_float($var)) {
+        if (is_float($var)) {
+            return $this->encodeFloat($var);
+        }
+        if (is_integer($var)) {
             return strval($var);
         }
         if (is_string($var)) {
@@ -187,6 +198,24 @@ class JsonCodec implements Codec
         }
         
         return $this->encodeValue(Values::stringValue($var));
+    }
+    
+    /**
+     * float 値を文字列に変換します.
+     * 
+     * @param  float $var 変換対象の float 値
+     * @return string     変換結果
+     */
+    private function encodeFloat($var)
+    {
+        $str = strval($var);
+        if (!$this->getOption(self::PRESERVE_ZERO_FRACTION)) {
+            return $str;
+        }
+        if (false !== strpos($str, "E")) {
+            return $str;
+        }
+        return (floor($var) === $var) ? "{$str}.0" : $str;
     }
     
     /**

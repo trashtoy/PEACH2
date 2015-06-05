@@ -207,6 +207,7 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
      * 
      * @covers Peach\DF\JsonCodec::encode
      * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeFloat
      */
     public function testEncodeNumber()
     {
@@ -216,6 +217,25 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("1.75", $codec->encode(1.75));
         $this->assertSame("1.125E-9", $codec->encode(1.125e-9));
         $this->assertSame("-5.15625E+16", $codec->encode(-5.15625e16));
+    }
+    
+    /**
+     * 定数 PRESERVE_ZERO_FRACTION を付与した場合の encode のテストです. 以下を確認します.
+     * 
+     * - 付与した場合は 2.0 のような float 型の値をそのまま float 値としてエンコードすること
+     * - 付与していない場合は 2.0 のような float 型の値を整数としてエンコードすること
+     * 
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeFloat
+     */
+    public function testEncodeNumberWithPreserveZeroFraction()
+    {
+        $obj1 = $this->object;
+        $obj2 = new JsonCodec(array(JsonCodec::PRESERVE_ZERO_FRACTION => true));
+        $this->assertSame("2", $obj1->encode(2.0));
+        $this->assertSame("2.0", $obj2->encode(2.0));
+        $this->assertSame("1.25E+18", $obj2->encode(1.25e18));
     }
     
     /**
