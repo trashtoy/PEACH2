@@ -285,6 +285,33 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * オプション HEX_TAG, HEX_AMP, HEX_APOS, HEX_QUOT のテストです.
+     * 対応する文字をエスケープしてエンコードすることを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeString
+     * @covers Peach\DF\JsonCodec::encodeCodePoint
+     */
+    public function testEncodeStringWithHexOptions()
+    {
+        $options = array(
+            JsonCodec::HEX_TAG  => true,
+            JsonCodec::HEX_AMP  => true,
+            JsonCodec::HEX_APOS => true,
+            JsonCodec::HEX_QUOT => true,
+        );
+        $obj1      = $this->object;
+        $obj2      = new JsonCodec($options);
+        $test      = "<a href=\"/\">It's a test&heart;</a>";
+        $expected1 = '"<a href=\"\/\">It\'s a test&heart;<\/a>"';
+        $expected2 = '"\u003Ca href=\u0022\/\u0022\u003EIt\u0027s a test\u0026heart;\u003C\/a\u003E"';
+        $this->assertSame($expected1, $obj1->encode($test));
+        $this->assertSame($expected2, $obj2->encode($test));
+    }
+    
+    /**
      * オプション UNESCAPED_UNICODE を付与した場合, マルチバイト文字がエスケープされずに
      * UTF-8 文字で符号化された状態で encode されることを確認します.
      */

@@ -48,6 +48,39 @@ use Peach\Util\Values;
 class JsonCodec implements Codec
 {
     /**
+     * 定数 JSON_HEX_TAG に相当するオプションです.
+     * 文字 %x3c (LESS-THAN SIGN) および %x3e (GREATER-THAN SIGN)
+     * をそれぞれ "\u003C" および "\u003E" にエンコードします
+     * 
+     * @var int
+     */
+    const HEX_TAG  = 1;
+    
+    /**
+     * 定数 JSON_HEX_AMP に相当するオプションです.
+     * 文字 "&" を "\u0026" にエンコードします.
+     * 
+     * @var int
+     */
+    const HEX_AMP  = 2;
+    
+    /**
+     * 定数 JSON_HEX_APOS に相当するオプションです.
+     * 文字 "'" を "\u0027" にエンコードします.
+     * 
+     * @var int
+     */
+    const HEX_APOS = 4;
+    
+    /**
+     * 定数 JSON_HEX_QUOT に相当するオプションです.
+     * 文字 '"' を "\u0022" にエンコードします.
+     * 
+     * @var int
+     */
+    const HEX_QUOT = 8;
+    
+    /**
      * 定数 JSON_UNESCAPED_SLASHES に相当するオプションです.
      * encode の際に "/" をエスケープしないようにします.
      * 
@@ -263,6 +296,13 @@ class JsonCodec implements Codec
     public function encodeCodePoint($num)
     {
         // @codeCoverageIgnoreStart
+        static $hexList = array(
+            0x3C => self::HEX_TAG,
+            0x3E => self::HEX_TAG,
+            0x26 => self::HEX_AMP,
+            0x27 => self::HEX_APOS,
+            0x22 => self::HEX_QUOT,
+        );
         static $encodeList = array(
             0x22 => "\\\"",
             0x5C => "\\\\",
@@ -274,6 +314,9 @@ class JsonCodec implements Codec
         );
         // @codeCoverageIgnoreEnd
         
+        if (array_key_exists($num, $hexList) && $this->getOption($hexList[$num])) {
+            return "\\u00" . strtoupper(dechex($num));
+        }
         if (array_key_exists($num, $encodeList)) {
             return $encodeList[$num];
         }
