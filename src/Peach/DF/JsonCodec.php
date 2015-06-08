@@ -81,6 +81,12 @@ class JsonCodec implements Codec
     const HEX_QUOT = 8;
     
     /**
+     * 定数 JSON_NUMERIC_CHECK に相当するオプションです.
+     * 数値表現の文字列を数値としてエンコードします.
+     */
+    const NUMERIC_CHECK = 32;
+    
+    /**
      * 定数 JSON_UNESCAPED_SLASHES に相当するオプションです.
      * encode の際に "/" をエスケープしないようにします.
      * 
@@ -220,7 +226,7 @@ class JsonCodec implements Codec
             return strval($var);
         }
         if (is_string($var)) {
-            return $this->encodeString($var);
+            return is_numeric($var) ? $this->encodeNumeric($var) : $this->encodeString($var);
         }
         if (is_array($var)) {
             return $this->checkKeySequence($var) ? $this->encodeArray($var) : $this->encodeObject($var);
@@ -231,6 +237,21 @@ class JsonCodec implements Codec
         }
         
         return $this->encodeValue(Values::stringValue($var));
+    }
+    
+    /**
+     * 数値形式の文字列を数値としてエンコードします.
+     * 
+     * @param string $var
+     */
+    private function encodeNumeric($var)
+    {
+        if (!$this->getOption(self::NUMERIC_CHECK)) {
+            return $this->encodeString($var);
+        }
+        
+        $num = preg_match("/^-?[0-9]+$/", $var) ? intval($var) : floatval($var);
+        return $this->encodeValue($num);
     }
     
     /**

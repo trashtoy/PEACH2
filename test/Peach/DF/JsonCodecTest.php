@@ -220,6 +220,26 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 定数 NUMERIC_CHECK を付与した場合の encode のテストです. 以下を確認します.
+     * 
+     * - 付与した場合は数値表現の文字列の場合を数値としてエンコードすること
+     * - 付与していない場合は数値表現の文字列をそのまま文字列としてエンコードすること
+     * 
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeNumeric
+     */
+    public function testEncodeNumberWithNumericCheck()
+    {
+        $obj1 = $this->object;
+        $obj2 = new JsonCodec(array(JsonCodec::NUMERIC_CHECK => true));
+        $this->assertSame('"-123"', $obj1->encode('-123'));
+        $this->assertSame('-123', $obj2->encode('-123'));
+        $this->assertSame('"1.25E+20"', $obj1->encode('1.25E+20'));
+        $this->assertSame('1.25E+20', $obj2->encode('1.25E+20'));
+    }
+    
+    /**
      * 定数 PRESERVE_ZERO_FRACTION を付与した場合の encode のテストです. 以下を確認します.
      * 
      * - 付与した場合は 2.0 のような float 型の値をそのまま float 値としてエンコードすること
