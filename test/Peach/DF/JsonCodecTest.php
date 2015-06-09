@@ -1,5 +1,6 @@
 <?php
 namespace Peach\DF;
+use Peach\Util\Strings;
 
 class JsonCodecTest extends \PHPUnit_Framework_TestCase
 {
@@ -401,6 +402,50 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         
         $expected = '{"obj":{"first":"hoge","second":"fuga","third":"piyo"},"val":150}';
         $this->assertSame($expected, $codec->encode($test1));
+    }
+    
+    /**
+     * オプション PRETTY_PRINT のテストです.
+     * 指定された場合, object および array 形式の値を半角スペース
+     * 4 個と改行文字で整形した状態で出力することを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::encode
+     * @covers Peach\DF\JsonCodec::encodeValue
+     * @covers Peach\DF\JsonCodec::encodeArray
+     * @covers Peach\DF\JsonCodec::encodeObject
+     */
+    public function testEncodeWithPrettyPrint()
+    {
+        $obj1 = $this->object;
+        $obj2 = new JsonCodec(array(JsonCodec::PRETTY_PRINT => true));
+        $test = array(
+            "first" => array(
+                "test01" => 0,
+                "test02" => 100,
+                "test03" => -50,
+            ),
+            "second" => array(
+                1.5,
+                -1.5,
+                1.25E-16
+            ),
+            "third" => "hogehoge",
+            "fourth" => array(
+                "test04" => array(
+                    "true" => true,
+                    "false" => false,
+                    "null" => null,
+                ),
+            ),
+        );
+        $result1   = $obj1->encode($test);
+        $expected1 = file_get_contents(__DIR__ . "/JsonCodec/encode-default.txt");
+        $this->assertSame($expected1, $result1);
+        
+        $result2   = $obj2->encode($test);
+        $expected2 = file_get_contents(__DIR__ . "/JsonCodec/encode-pretty_print.txt");
+        $this->assertSame(Strings::getLines($expected2), Strings::getLines($result2));
     }
     
     /**

@@ -95,6 +95,15 @@ class JsonCodec implements Codec
     const UNESCAPED_SLASHES = 64;
     
     /**
+     * 定数 JSON_PRETTY_PRINT に相当するオプションです.
+     * object, array 形式の書式でエンコードする際に,
+     * 半角スペース 4 個でインデントして整形します.
+     * 
+     * @var int
+     */
+    const PRETTY_PRINT = 128;
+    
+    /**
      * 定数 JSON_UNESCAPED_UNICODE に相当するオプションです.
      * encode の際にマルチバイト文字を UTF-8 文字として表現します.
      * 
@@ -355,31 +364,49 @@ class JsonCodec implements Codec
     
     /**
      * 指定された配列を JSON の array 表記に変換します.
+     * オプション PRETTY_PRINT が有効化されている場合,
+     * json_encode の JSON_PRETTY_PRINT と同様に半角スペース 4 個と改行文字で整形します.
      * 
      * @param  array  $arr 変換対象
      * @return string      JSON 文字列
      */
     private function encodeArray(array $arr)
     {
+        $prettyPrintEnabled = $this->getOption(self::PRETTY_PRINT);
+        
+        $indent   = $prettyPrintEnabled ? PHP_EOL . "    " : "";
+        $start    = "[" . $indent;
+        $end      = $prettyPrintEnabled ? PHP_EOL . "]" : "]";
         $self     = $this;
-        $callback = function ($value) use ($self) {
-            return $self->encodeValue($value);
+        $callback = function ($value) use ($self, $prettyPrintEnabled, $indent) {
+            $valueResult = $self->encodeValue($value);
+            return $prettyPrintEnabled ? str_replace(PHP_EOL, $indent, $valueResult) : $valueResult;
         };
-        return "[" . implode(",", array_map($callback, $arr)) . "]";
+        return $start . implode("," . $indent, array_map($callback, $arr)) . $end;
     }
     
     /**
      * 指定された配列を JSON の object 表記に変換します.
+     * オプション PRETTY_PRINT が有効化されている場合,
+     * json_encode の JSON_PRETTY_PRINT と同様に半角スペース 4 個と改行文字で整形します.
      * 
      * @param  array  $arr 変換対象
      * @return string      JSON 文字列
      */
     private function encodeObject(array $arr)
     {
+        $prettyPrintEnabled = $this->getOption(self::PRETTY_PRINT);
+        
+        $indent   = $prettyPrintEnabled ? PHP_EOL . "    " : "";
+        $start    = "{" . $indent;
+        $end      = $prettyPrintEnabled ? PHP_EOL . "}" : "}";
         $self     = $this;
-        $callback = function ($key, $value) use ($self) {
-            return $self->encodeString($key) . ":" . $self->encodeValue($value);
+        $callback = function ($key, $value) use ($self, $prettyPrintEnabled, $indent) {
+            $coron       = $prettyPrintEnabled ? ": " : ":";
+            $valueResult = $self->encodeValue($value);
+            $valueJson   = $prettyPrintEnabled ? str_replace(PHP_EOL, $indent, $valueResult) : $valueResult;
+            return $self->encodeString($key) . $coron . $valueJson;
         };
-        return "{" . implode(",", array_map($callback, array_keys($arr), array_values($arr))) . "}";
+        return $start . implode("," . $indent, array_map($callback, array_keys($arr), array_values($arr))) . $end;
     }
 }
