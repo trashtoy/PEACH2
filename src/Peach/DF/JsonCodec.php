@@ -88,7 +88,7 @@ class JsonCodec implements Codec
     
     /**
      * 定数 JSON_UNESCAPED_SLASHES に相当するオプションです.
-     * encode の際に "/" をエスケープしないようにします.
+     * エンコードの際に "/" をエスケープしないようにします.
      * 
      * @var int
      */
@@ -105,7 +105,7 @@ class JsonCodec implements Codec
     
     /**
      * 定数 JSON_UNESCAPED_UNICODE に相当するオプションです.
-     * encode の際にマルチバイト文字を UTF-8 文字として表現します.
+     * エンコードの際にマルチバイト文字を UTF-8 文字として表現します.
      * 
      * @var int
      */
@@ -116,6 +116,8 @@ class JsonCodec implements Codec
      * float 型の値を常に float 値としてエンコードします.
      * このオプションが OFF の場合, 小数部が 0 の数値 (2.0 など) は
      * 整数としてエンコードされます.
+     * 
+     * @var int
      */
     const PRESERVE_ZERO_FRACTION = 1024;
     

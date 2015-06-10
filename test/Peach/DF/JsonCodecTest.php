@@ -221,10 +221,10 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * 定数 NUMERIC_CHECK を付与した場合の encode のテストです. 以下を確認します.
+     * オプション NUMERIC_CHECK を指定した場合の encode のテストです. 以下を確認します.
      * 
-     * - 付与した場合は数値表現の文字列の場合を数値としてエンコードすること
-     * - 付与していない場合は数値表現の文字列をそのまま文字列としてエンコードすること
+     * - オプションが有効な場合は数値表現の文字列の場合を数値としてエンコードすること
+     * - 有効でない場合は数値表現の文字列をそのまま文字列としてエンコードすること
      * 
      * @covers Peach\DF\JsonCodec::encode
      * @covers Peach\DF\JsonCodec::encodeValue
@@ -241,10 +241,10 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * 定数 PRESERVE_ZERO_FRACTION を付与した場合の encode のテストです. 以下を確認します.
+     * オプション PRESERVE_ZERO_FRACTION を指定した場合の encode のテストです. 以下を確認します.
      * 
-     * - 付与した場合は 2.0 のような float 型の値をそのまま float 値としてエンコードすること
-     * - 付与していない場合は 2.0 のような float 型の値を整数としてエンコードすること
+     * - オプションが有効な場合は 2.0 のような float 型の値をそのまま float 値としてエンコードすること
+     * - 有効でない場合は 2.0 のような float 型の値を整数としてエンコードすること
      * 
      * @covers Peach\DF\JsonCodec::encode
      * @covers Peach\DF\JsonCodec::encodeValue
@@ -290,7 +290,7 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * オプション UNESCAPED_SLASHES を付与した場合, "/" がエスケープされずに encode されることを確認します.
+     * オプション UNESCAPED_SLASHES を指定した場合, "/" がエスケープされずに encode されることを確認します.
      * 
      * @covers Peach\DF\JsonCodec::__construct
      * @covers Peach\DF\JsonCodec::encode
@@ -333,7 +333,7 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * オプション UNESCAPED_UNICODE を付与した場合, マルチバイト文字がエスケープされずに
+     * オプション UNESCAPED_UNICODE を指定した場合, マルチバイト文字がエスケープされずに
      * UTF-8 文字で符号化された状態で encode されることを確認します.
      */
     public function testEncodeStringWithUnescapedUnicode()
@@ -405,9 +405,8 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * オプション PRETTY_PRINT のテストです.
-     * 指定された場合, object および array 形式の値を半角スペース
-     * 4 個と改行文字で整形した状態で出力することを確認します.
+     * オプション PRETTY_PRINT を指定した場合,
+     * object および array 形式の値を半角スペース 4 個と改行文字で整形して出力することを確認します.
      * 
      * @covers Peach\DF\JsonCodec::__construct
      * @covers Peach\DF\JsonCodec::encode
