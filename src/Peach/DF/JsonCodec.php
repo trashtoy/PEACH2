@@ -138,7 +138,10 @@ class JsonCodec implements Codec
     /**
      * 新しい JsonCodec を構築します.
      * 引数に出力のカスタマイズオプションを指定することが出来ます.
-     * キーにオプション定数, 値に true または false を指定してください.
+     * 引数は配列または整数を指定することが出来ます.
+     * 
+     * - 配列の場合: キーにオプション定数, 値に true または false を指定してください.
+     * - 整数の場合: 各オプションのビットマスクを指定してください. 例えば JsonCodec::HEX_TAG | JsonCodec::HEX_AMP のような形式となります.
      * 
      * @var array $options 出力のカスタマイズオプション
      */
@@ -149,18 +152,39 @@ class JsonCodec implements Codec
     }
     
     /**
-     * 
-     * @param array $options
+     * @param  array    $options
+     * @return ArrayMap
      */
     private function initOptions($options)
     {
         $result = new ArrayMap();
+        if (is_int($options)) {
+            return $this->initOptionsByBitMask($options);
+        }
         if (!is_array($options)) {
             return $result;
         }
         
         foreach ($options as $key => $value) {
             $result->put($key, \Peach\Util\Values::boolValue($value));
+        }
+        return $result;
+    }
+    
+    /**
+     * ビットマスクを配列に変換します.
+     * 
+     * @param  int      $options オプションをあらわす整数
+     * @return ArrayMap          変換後のオプション
+     */
+    private function initOptionsByBitMask($options)
+    {
+        $opt    = 1;
+        $result = new ArrayMap();
+        while ($options) {
+            $result->put($opt, boolval($options % 2));
+            $options >>= 1;
+            $opt     <<= 1;
         }
         return $result;
     }

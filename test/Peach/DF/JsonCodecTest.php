@@ -50,6 +50,33 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * コンストラクタに指定するオプションにビットマスクによる整数を指定した場合,
+     * 配列で指定した場合と同じオプション設定となることを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::initOptions
+     * @covers Peach\DF\JsonCodec::initOptionsByBitMask
+     * @covers Peach\DF\JsonCodec::getOption
+     */
+    public function test__constructByBitMask()
+    {
+        $this->assertEquals(new JsonCodec(), new JsonCodec(0));
+        $opt1 = array(
+            JsonCodec::PRESERVE_ZERO_FRACTION => false,
+            JsonCodec::HEX_TAG => true,
+            JsonCodec::HEX_QUOT => false,
+            JsonCodec::NUMERIC_CHECK => true,
+            JsonCodec::UNESCAPED_UNICODE => true,
+        );
+        $opt2 = JsonCodec::HEX_TAG | JsonCodec::NUMERIC_CHECK | JsonCodec::UNESCAPED_UNICODE;
+        $obj1 = new JsonCodec($opt1);
+        $obj2 = new JsonCodec($opt2);
+        for ($i = 1; $i <= 1024; $i <<= 1) {
+            $this->assertSame($obj1->getOption($i), $obj2->getOption($i));
+        }
+    }
+    
+    /**
      * 複雑な構造の JSON 文字列を該当する値に変換することを確認します.
      * 
      * @covers Peach\DF\JsonCodec::decode
