@@ -122,11 +122,11 @@ class JsonCodec implements Codec
     const PRESERVE_ZERO_FRACTION = 1024;
     
     /**
-     * encode, decode の出力内容をカスタマイズするオプションです.
+     * encode の出力内容をカスタマイズするオプションです.
      * 
      * @var ArrayMap
      */
-    private $options;
+    private $encodeOptions;
     
     /**
      * 文字列を encode する際に使用する Utf8Codec です.
@@ -147,8 +147,8 @@ class JsonCodec implements Codec
      */
     public function __construct($options = null)
     {
-        $this->options   = $this->initOptions($options);
-        $this->utf8Codec = new Utf8Codec();
+        $this->encodeOptions = $this->initOptions($options);
+        $this->utf8Codec     = new Utf8Codec();
     }
     
     /**
@@ -195,9 +195,9 @@ class JsonCodec implements Codec
      * @param  int $code オプション (定義されている定数)
      * @return bool      指定されたオプションが ON の場合は true, それ以外は false
      */
-    public function getOption($code)
+    public function getEncodeOption($code)
     {
-        return $this->options->get($code, false);
+        return $this->encodeOptions->get($code, false);
     }
     
     /**
@@ -281,7 +281,7 @@ class JsonCodec implements Codec
      */
     private function encodeNumeric($var)
     {
-        if (!$this->getOption(self::NUMERIC_CHECK)) {
+        if (!$this->getEncodeOption(self::NUMERIC_CHECK)) {
             return $this->encodeString($var);
         }
         
@@ -298,7 +298,7 @@ class JsonCodec implements Codec
     private function encodeFloat($var)
     {
         $str = strval($var);
-        if (!$this->getOption(self::PRESERVE_ZERO_FRACTION)) {
+        if (!$this->getEncodeOption(self::PRESERVE_ZERO_FRACTION)) {
             return $str;
         }
         if (false !== strpos($str, "E")) {
@@ -370,19 +370,19 @@ class JsonCodec implements Codec
         );
         // @codeCoverageIgnoreEnd
         
-        if (array_key_exists($num, $hexList) && $this->getOption($hexList[$num])) {
+        if (array_key_exists($num, $hexList) && $this->getEncodeOption($hexList[$num])) {
             return "\\u00" . strtoupper(dechex($num));
         }
         if (array_key_exists($num, $encodeList)) {
             return $encodeList[$num];
         }
         if ($num === 0x2F) {
-            return $this->getOption(self::UNESCAPED_SLASHES) ? "/" : "\\/";
+            return $this->getEncodeOption(self::UNESCAPED_SLASHES) ? "/" : "\\/";
         }
         if (0x20 <= $num && $num < 0x80) {
             return chr($num);
         }
-        if (0x80 <= $num && $this->getOption(self::UNESCAPED_UNICODE)) {
+        if (0x80 <= $num && $this->getEncodeOption(self::UNESCAPED_UNICODE)) {
             return $this->utf8Codec->encode($num);
         }
         return "\\u" . str_pad(dechex($num), 4, "0", STR_PAD_LEFT);
@@ -398,7 +398,7 @@ class JsonCodec implements Codec
      */
     private function encodeArray(array $arr)
     {
-        $prettyPrintEnabled = $this->getOption(self::PRETTY_PRINT);
+        $prettyPrintEnabled = $this->getEncodeOption(self::PRETTY_PRINT);
         
         $indent   = $prettyPrintEnabled ? PHP_EOL . "    " : "";
         $start    = "[" . $indent;
@@ -421,7 +421,7 @@ class JsonCodec implements Codec
      */
     private function encodeObject(array $arr)
     {
-        $prettyPrintEnabled = $this->getOption(self::PRETTY_PRINT);
+        $prettyPrintEnabled = $this->getEncodeOption(self::PRETTY_PRINT);
         
         $indent   = $prettyPrintEnabled ? PHP_EOL . "    " : "";
         $start    = "{" . $indent;

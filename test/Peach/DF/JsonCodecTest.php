@@ -27,26 +27,26 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * getOption() のテストです.
+     * getEncodeOption() のテストです.
      * 引数に指定した配列に応じた結果を返すことを確認します.
      * 
      * @covers Peach\DF\JsonCodec::__construct
      * @covers Peach\DF\JsonCodec::initOptions
-     * @covers Peach\DF\JsonCodec::getOption
+     * @covers Peach\DF\JsonCodec::getEncodeOption
      */
     public function testGetOption()
     {
         $c1  = new JsonCodec();
-        $this->assertFalse($c1->getOption(JsonCodec::UNESCAPED_SLASHES));
-        $this->assertFalse($c1->getOption(JsonCodec::UNESCAPED_UNICODE));
+        $this->assertFalse($c1->getEncodeOption(JsonCodec::UNESCAPED_SLASHES));
+        $this->assertFalse($c1->getEncodeOption(JsonCodec::UNESCAPED_UNICODE));
         
         $opt = array(
             JsonCodec::UNESCAPED_SLASHES => true,
             JsonCodec::UNESCAPED_UNICODE => true,
         );
         $c2  = new JsonCodec($opt);
-        $this->assertTrue($c2->getOption(JsonCodec::UNESCAPED_SLASHES));
-        $this->assertTrue($c2->getOption(JsonCodec::UNESCAPED_UNICODE));
+        $this->assertTrue($c2->getEncodeOption(JsonCodec::UNESCAPED_SLASHES));
+        $this->assertTrue($c2->getEncodeOption(JsonCodec::UNESCAPED_UNICODE));
     }
     
     /**
@@ -56,7 +56,7 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
      * @covers Peach\DF\JsonCodec::__construct
      * @covers Peach\DF\JsonCodec::initOptions
      * @covers Peach\DF\JsonCodec::initOptionsByBitMask
-     * @covers Peach\DF\JsonCodec::getOption
+     * @covers Peach\DF\JsonCodec::getEncodeOption
      */
     public function test__constructByBitMask()
     {
@@ -72,7 +72,7 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         $obj1 = new JsonCodec($opt1);
         $obj2 = new JsonCodec($opt2);
         for ($i = 1; $i <= 1024; $i <<= 1) {
-            $this->assertSame($obj1->getOption($i), $obj2->getOption($i));
+            $this->assertSame($obj1->getEncodeOption($i), $obj2->getEncodeOption($i));
         }
     }
     
