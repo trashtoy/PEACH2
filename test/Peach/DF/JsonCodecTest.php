@@ -34,7 +34,7 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
      * @covers Peach\DF\JsonCodec::initOptions
      * @covers Peach\DF\JsonCodec::getEncodeOption
      */
-    public function testGetOption()
+    public function testGetEncodeOption()
     {
         $c1  = new JsonCodec();
         $this->assertFalse($c1->getEncodeOption(JsonCodec::UNESCAPED_SLASHES));
@@ -47,6 +47,29 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
         $c2  = new JsonCodec($opt);
         $this->assertTrue($c2->getEncodeOption(JsonCodec::UNESCAPED_SLASHES));
         $this->assertTrue($c2->getEncodeOption(JsonCodec::UNESCAPED_UNICODE));
+    }
+    
+    /**
+     * getDecodeOption() のテストです.
+     * 引数に指定した配列に応じた結果を返すことを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::initOptions
+     * @covers Peach\DF\JsonCodec::getDecodeOption
+     */
+    public function testGetDecodeOption()
+    {
+        $c1  = new JsonCodec();
+        $this->assertFalse($c1->getDecodeOption(JsonCodec::OBJECT_AS_ARRAY));
+        $this->assertFalse($c1->getDecodeOption(JsonCodec::BIGINT_AS_STRING));
+        
+        $opt = array(
+            JsonCodec::OBJECT_AS_ARRAY  => true,
+            JsonCodec::BIGINT_AS_STRING => true,
+        );
+        $c2  = new JsonCodec(null, $opt);
+        $this->assertTrue($c2->getDecodeOption(JsonCodec::OBJECT_AS_ARRAY));
+        $this->assertTrue($c2->getDecodeOption(JsonCodec::BIGINT_AS_STRING));
     }
     
     /**

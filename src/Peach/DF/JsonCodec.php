@@ -122,11 +122,37 @@ class JsonCodec implements Codec
     const PRESERVE_ZERO_FRACTION = 1024;
     
     /**
+     * {@link http://php.net/manual/function.json-decode.php json_decode()}
+     * の第 2 引数に相当する, このクラス独自のオプションです.
+     * このオプションが ON の場合, object 形式の値をデコードする際に配列に変換します.
+     * (デフォルトでは stdClass オブジェクトとなります)
+     * 
+     * @var int
+     */
+    const OBJECT_AS_ARRAY = 1;
+    
+    /**
+     * 定数 JSON_BIGINT_AS_STRING に相当するオプションです.
+     * 巨大整数をデコードする際に, int の範囲に収まらない値を文字列に変換します.
+     * (デフォルトでは float 型となります)
+     * 
+     * @var int
+     */
+    const BIGINT_AS_STRING = 2;
+    
+    /**
      * encode の出力内容をカスタマイズするオプションです.
      * 
      * @var ArrayMap
      */
     private $encodeOptions;
+    
+    /**
+     * decode の出力内容をカスタマイズするオプションです.
+     * 
+     * @var ArrayMap
+     */
+    private $decodeOptions;
     
     /**
      * 文字列を encode する際に使用する Utf8Codec です.
@@ -137,7 +163,7 @@ class JsonCodec implements Codec
     
     /**
      * 新しい JsonCodec を構築します.
-     * 引数に出力のカスタマイズオプションを指定することが出来ます.
+     * 引数にencode および decode の出力のカスタマイズオプションを指定することが出来ます.
      * 引数は配列または整数を指定することが出来ます.
      * 
      * - 配列の場合: キーにオプション定数, 値に true または false を指定してください.
@@ -145,9 +171,10 @@ class JsonCodec implements Codec
      * 
      * @var array $options 出力のカスタマイズオプション
      */
-    public function __construct($options = null)
+    public function __construct($encodeOptions = null, $decodeOptions = null)
     {
-        $this->encodeOptions = $this->initOptions($options);
+        $this->encodeOptions = $this->initOptions($encodeOptions);
+        $this->decodeOptions = $this->initOptions($decodeOptions);
         $this->utf8Codec     = new Utf8Codec();
     }
     
@@ -190,7 +217,7 @@ class JsonCodec implements Codec
     }
     
     /**
-     * 指定されたオプションが ON かどうかを調べます.
+     * 指定されたエンコード用オプションが ON かどうかを調べます.
      * 
      * @param  int $code オプション (定義されている定数)
      * @return bool      指定されたオプションが ON の場合は true, それ以外は false
@@ -198,6 +225,17 @@ class JsonCodec implements Codec
     public function getEncodeOption($code)
     {
         return $this->encodeOptions->get($code, false);
+    }
+    
+    /**
+     * 指定されたデコード用オプションが ON かどうかを調べます.
+     * 
+     * @param  int $code オプション (定義されている定数)
+     * @return bool      指定されたオプションが ON の場合は true, それ以外は false
+     */
+    public function getDecodeOption($code)
+    {
+        return $this->decodeOptions->get($code, false);
     }
     
     /**
