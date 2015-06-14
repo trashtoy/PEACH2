@@ -1,6 +1,8 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
+
 class NumberTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -123,7 +125,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     public function testHandleZeroStartingNumberFail()
     {
         $expr    = $this->object;
-        $context = new Context("0123");
+        $context = new Context("0123", new ArrayMap());
         $expr->handle($context);
     }
     
@@ -138,7 +140,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     public function testHandleNoFracFail()
     {
         $expr    = $this->object;
-        $context = new Context("3.xyz");
+        $context = new Context("3.xyz", new ArrayMap());
         $expr->handle($context);
     }
     
@@ -153,7 +155,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     public function testHandleNoExponentNumberFail()
     {
         $expr    = $this->object;
-        $context = new Context("1.0exyz");
+        $context = new Context("1.0exyz", new ArrayMap());
         $expr->handle($context);
     }
     
@@ -169,7 +171,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     private function checkHandleByString($str, $expected)
     {
         $expr    = $this->object;
-        $context = new Context("{$str},");
+        $context = new Context("{$str},", new ArrayMap());
         $expr->handle($context);
         $this->assertSame($expected, $expr->getResult());
         $this->assertSame(",", $context->current());

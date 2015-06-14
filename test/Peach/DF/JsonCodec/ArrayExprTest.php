@@ -1,6 +1,8 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
+
 class ArrayExprTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -43,7 +45,7 @@ class ArrayExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleAndGetResult()
     {
-        $context  = new Context('  [ 3.14 , true,  "test" ,null  ]   }  ');
+        $context  = new Context('  [ 3.14 , true,  "test" ,null  ]   }  ', new ArrayMap());
         $expected = array(3.14, true, "test", null);
         $expr     = $this->object;
         $expr->handle($context);
@@ -57,7 +59,7 @@ class ArrayExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleEmpty()
     {
-        $context = new Context('  [     ]   ,  ');
+        $context = new Context('  [     ]   ,  ', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
         $this->assertSame(array(), $expr->getResult());
@@ -72,7 +74,7 @@ class ArrayExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByLastComma()
     {
-        $context = new Context(" [ 1, 3, 5, ]");
+        $context = new Context(" [ 1, 3, 5, ]", new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }
@@ -85,7 +87,7 @@ class ArrayExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByNoValue()
     {
-        $context = new Context(" [ 1, 3, 5, ");
+        $context = new Context(" [ 1, 3, 5, ", new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }
@@ -98,7 +100,7 @@ class ArrayExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByNoStructuralChar()
     {
-        $context = new Context(" [ 1, 3, 5 ");
+        $context = new Context(" [ 1, 3, 5 ", new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }

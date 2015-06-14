@@ -1,6 +1,8 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
+
 class MemberTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -46,7 +48,7 @@ class MemberTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandle()
     {
-        $context = new Context('"hoge" : 135');
+        $context = new Context('"hoge" : 135', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
         $this->assertSame("hoge", $expr->getKey());
@@ -59,7 +61,7 @@ class MemberTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByNoSeparator()
     {
-        $context = new Context('"hoge"  ');
+        $context = new Context('"hoge"  ', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }
@@ -70,7 +72,7 @@ class MemberTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByNoValue()
     {
-        $context = new Context('"hoge":   ');
+        $context = new Context('"hoge":   ', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }
@@ -81,7 +83,7 @@ class MemberTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByNoString()
     {
-        $context = new Context('hoge : 135 ');
+        $context = new Context('hoge : 135 ', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }

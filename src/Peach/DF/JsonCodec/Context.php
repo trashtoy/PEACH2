@@ -28,6 +28,7 @@
  */
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
 use Peach\DF\Utf8Codec;
 
 /**
@@ -40,6 +41,12 @@ class Context
      * @var Utf8Codec;
      */
     private $utf8Codec;
+    
+    /**
+     * 出力方法をカスタマイズするためのオプションです.
+     * @var ArrayMap
+     */
+    private $options;
     
     /**
      * decode 対象の Unicode 文字列 (Unicode 符号点の配列) です.
@@ -81,10 +88,11 @@ class Context
      * 
      * @param string $text
      */
-    public function __construct($text)
+    public function __construct($text, ArrayMap $options)
     {
         $this->utf8Codec   = new Utf8Codec();
         $this->unicodeList = $this->utf8Codec->decode($text);
+        $this->options     = $options;
         $this->count       = count($this->unicodeList);
         $this->index       = 0;
         $this->row         = 1;

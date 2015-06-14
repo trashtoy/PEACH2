@@ -1,6 +1,8 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
+
 class StructuralCharTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -38,7 +40,7 @@ class StructuralCharTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleAndGetResult()
     {
-        $context = new Context("    }    ");
+        $context = new Context("    }    ", new ArrayMap());
         $expr    = new StructuralChar(array(",", "}"));
         $expr->handle($context);
         $this->assertSame("}", $expr->getResult());
@@ -51,7 +53,7 @@ class StructuralCharTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByEndOfJson()
     {
-        $context = new Context("    \r\n    \n");
+        $context = new Context("    \r\n    \n", new ArrayMap());
         $expr    = new StructuralChar(array(",", "}"));
         $expr->handle($context);
     }
@@ -64,7 +66,7 @@ class StructuralCharTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByInvalidChar()
     {
-        $context = new Context("    \n        \r   x   \r\n    ");
+        $context = new Context("    \n        \r   x   \r\n    ", new ArrayMap());
         $expr    = new StructuralChar(array(",", "}"));
         $expr->handle($context);
     }

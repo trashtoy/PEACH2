@@ -1,6 +1,8 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
+
 class ObjectExprTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -43,7 +45,7 @@ class ObjectExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleAndGetResult()
     {
-        $context  = new Context('{ "a" : -3.14, "b": [true, false, true],"c" : "xxxx", "d": null  }   ,');
+        $context  = new Context('{ "a" : -3.14, "b": [true, false, true],"c" : "xxxx", "d": null  }   ,', new ArrayMap());
         $expr     = $this->object;
         $expected = array(
             "a" => -3.14,
@@ -62,7 +64,7 @@ class ObjectExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleEmpty()
     {
-        $context  = new Context("    {\r\n    }   ,   ");
+        $context  = new Context("    {\r\n    }   ,   ", new ArrayMap());
         $expr     = $this->object;
         $expr->handle($context);
         $this->assertSame(array(), $expr->getResult());
@@ -77,7 +79,7 @@ class ObjectExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByNotStringKey()
     {
-        $context  = new Context('{ test : "invalid" }');
+        $context  = new Context('{ test : "invalid" }', new ArrayMap());
         $expr     = $this->object;
         $expr->handle($context);
     }
@@ -91,7 +93,7 @@ class ObjectExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleFailByCommaEnding()
     {
-        $context  = new Context('{ "a" : 1 , "b" : 2 , "c" : 3 , }');
+        $context  = new Context('{ "a" : 1 , "b" : 2 , "c" : 3 , }', new ArrayMap());
         $expr     = $this->object;
         $expr->handle($context);
     }

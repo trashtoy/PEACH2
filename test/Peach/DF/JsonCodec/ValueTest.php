@@ -1,6 +1,8 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
+
 class ValueTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -49,7 +51,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testHandleTrue()
     {
         $value   = $this->object;
-        $context = new Context("true}");
+        $context = new Context("true}", new ArrayMap());
         $value->handle($context);
         $this->assertSame(true, $value->getResult());
         $this->assertSame("}", $context->current());
@@ -68,7 +70,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testHandleFalse()
     {
         $value   = $this->object;
-        $context = new Context("false,");
+        $context = new Context("false,", new ArrayMap());
         $value->handle($context);
         $this->assertSame(false, $value->getResult());
         $this->assertSame(",", $context->current());
@@ -87,7 +89,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testHandleNull()
     {
         $value   = $this->object;
-        $context = new Context("null{");
+        $context = new Context("null{", new ArrayMap());
         $value->handle($context);
         $this->assertNull($value->getResult());
         $this->assertSame("{", $context->current());
@@ -102,7 +104,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testHandleString()
     {
         $value   = $this->object;
-        $context = new Context('"Test",');
+        $context = new Context('"Test",', new ArrayMap());
         $value->handle($context);
         $this->assertSame("Test", $value->getResult());
         $this->assertSame(",", $context->current());
@@ -117,7 +119,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testHandleNumber()
     {
         $value   = $this->object;
-        $context = new Context("3e+5,");
+        $context = new Context("3e+5,", new ArrayMap());
         $value->handle($context);
         $this->assertSame(300000.0, $value->getResult());
         $this->assertSame(",", $context->current());
@@ -132,7 +134,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testHandleArray()
     {
         $value    = $this->object;
-        $context  = new Context("[1, 2, 3, [4, 5], 6, 7, [8]] }");
+        $context  = new Context("[1, 2, 3, [4, 5], 6, 7, [8]] }", new ArrayMap());
         $expected = array(1, 2, 3, array(4, 5), 6, 7, array(8));
         $value->handle($context);
         $this->assertSame($expected, $value->getResult());
@@ -148,7 +150,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testHandleObject()
     {
         $value    = $this->object;
-        $context  = new Context('{ "a" : true, "b" : [ -123, 3.5E+7, 0 ], "c" : { "x" : "asdf", "y" : "hoge" }, "d" : null} , ');
+        $context  = new Context('{ "a" : true, "b" : [ -123, 3.5E+7, 0 ], "c" : { "x" : "asdf", "y" : "hoge" }, "d" : null} , ', new ArrayMap());
         $expected = array(
             "a" => true,
             "b" => array(-123, 3.5e+7, 0),
@@ -172,7 +174,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testHandleFail()
     {
         $value   = $this->object;
-        $context = new Context("asdf");
+        $context = new Context("asdf", new ArrayMap());
         $value->handle($context);
     }
     
@@ -186,7 +188,7 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     public function testDecodeLiteralFail()
     {
         $value   = $this->object;
-        $context = new Context("trap");
+        $context = new Context("trap", new ArrayMap());
         $value->handle($context);
     }
 }

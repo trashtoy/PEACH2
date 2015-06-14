@@ -1,6 +1,8 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
+
 class StringExprTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -46,7 +48,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
     public function testHandleEmptyString()
     {
         $expr    = $this->object;
-        $context = new Context('"":');
+        $context = new Context('"":', new ArrayMap());
         $expr->handle($context);
         $this->assertSame("", $expr->getResult());
         $this->assertSame(":", $context->current());
@@ -72,7 +74,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
         $t  = chr(0x9);  // TAB
         $a  = chr(227) . chr(129) . chr(130); // "あ" (U+3042)
         
-        $context = new Context('"Test\\"\\\\\\/\\b\\f\\n\\r\\t\\u3042End",');
+        $context = new Context('"Test\\"\\\\\\/\\b\\f\\n\\r\\t\\u3042End",', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
         $this->assertSame("Test{$q}{$rs}{$sl}{$b}{$f}{$n}{$r}{$t}{$a}End", $expr->getResult());
@@ -88,7 +90,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testDecodeEscapedCharFail()
     {
-        $context = new Context('"Test\\n\\xEnd"');
+        $context = new Context('"Test\\n\\xEnd"', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }
@@ -102,7 +104,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleHexadecimalSequenceFail()
     {
-        $context = new Context('"Test\\uasdfEnd"');
+        $context = new Context('"Test\\uasdfEnd"', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }
@@ -115,7 +117,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleInvalidStartingFail()
     {
-        $context = new Context("Invalid");
+        $context = new Context("Invalid", new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }
@@ -128,7 +130,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleUnfinishedStringFail()
     {
-        $context = new Context('"Unfinished');
+        $context = new Context('"Unfinished', new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }
@@ -143,7 +145,7 @@ class StringExprTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleInvalidAsciiFail()
     {
-        $context = new Context("\"This\nis test\"");
+        $context = new Context("\"This\nis test\"", new ArrayMap());
         $expr    = $this->object;
         $expr->handle($context);
     }

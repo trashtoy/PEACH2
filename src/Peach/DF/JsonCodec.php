@@ -254,7 +254,7 @@ class JsonCodec implements Codec
         
         try {
             $root = new Root();
-            $root->handle(new Context($text));
+            $root->handle(new Context($text, $this->decodeOptions));
             return $root->getResult();
         } catch (DecodeException $e) {
             throw new InvalidArgumentException($e->getMessage());

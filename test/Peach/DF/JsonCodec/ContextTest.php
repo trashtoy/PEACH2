@@ -1,6 +1,8 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use Peach\Util\ArrayMap;
+
 class ContextTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -25,7 +27,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testHasNext()
     {
-        $context = new Context("This is a pen.");
+        $context = new Context("This is a pen.", new ArrayMap());
         
         // read "This "
         for ($i = 0; $i < 5; $i++) {
@@ -45,7 +47,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testEncodeCodepoint()
     {
-        $context  = new Context("");
+        $context  = new Context("", new ArrayMap());
         $chr      = chr(227) . chr(129) . chr(130); // "あ";
         $this->assertSame($chr, $context->encodeCodepoint(0x3042));
     }
@@ -58,7 +60,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testCurrentAndNext()
     {
-        $context = new Context("This is a pen.");
+        $context = new Context("This is a pen.", new ArrayMap());
         
         // read "This "
         for ($i = 0; $i < 5; $i++) {
@@ -78,7 +80,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testCurrentCodePoint()
     {
-        $context = new Context("Test");
+        $context = new Context("Test", new ArrayMap());
         $this->assertSame(0x54, $context->currentCodePoint());
         $context->next();
         $this->assertSame(0x65, $context->currentCodePoint());
@@ -97,7 +99,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testCurrentWithBreakcode()
     {
-        $context = new Context("\n\n\r\r\r\n\r\n");
+        $context = new Context("\n\n\r\r\r\n\r\n", new ArrayMap());
         $this->assertSame("\n", $context->current());
         $this->assertSame("\n", $context->next());
         $this->assertSame("\r", $context->next());
@@ -111,7 +113,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testThrowException()
     {
-        $context = new Context("This\nis\r\na pen.");
+        $context = new Context("This\nis\r\na pen.", new ArrayMap());
         
         // read "This is a "
         for ($i = 0; $i < 10; $i++) {
@@ -131,7 +133,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testNextFail()
     {
-        $context = new Context("This is a pen.");
+        $context = new Context("This is a pen.", new ArrayMap());
         for ($i = 0; $i < 14; $i++) {
             $context->next();
         }
@@ -145,7 +147,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSequence()
     {
-        $context = new Context("This is a pen.");
+        $context = new Context("This is a pen.", new ArrayMap());
         
         // read "this "
         $context->skip(5);
@@ -161,7 +163,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testSkip()
     {
-        $context = new Context("This is a pen.");
+        $context = new Context("This is a pen.", new ArrayMap());
         
         // read "This "
         $context->skip(5);
@@ -174,7 +176,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     public function testSkipFail()
     {
-        $context = new Context("This is a pen.");
+        $context = new Context("This is a pen.", new ArrayMap());
         
         // read "This is a "
         $context->skip(10);
