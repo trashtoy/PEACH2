@@ -209,7 +209,7 @@ class JsonCodec implements Codec
         $opt    = 1;
         $result = new ArrayMap();
         while ($options) {
-            $result->put($opt, boolval($options % 2));
+            $result->put($opt, (bool) ($options % 2));
             $options >>= 1;
             $opt     <<= 1;
         }
