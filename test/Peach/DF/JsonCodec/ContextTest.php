@@ -2,6 +2,7 @@
 namespace Peach\DF\JsonCodec;
 
 use Peach\Util\ArrayMap;
+use Peach\DF\JsonCodec;
 
 class ContextTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,6 +20,19 @@ class ContextTest extends \PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
+    }
+    
+    /**
+     * @covers Peach\DF\JsonCodec\Context::__construct
+     * @covers Peach\DF\JsonCodec\Context::getOption
+     */
+    public function testGetOption()
+    {
+        $options = new ArrayMap();
+        $options->put(JsonCodec::BIGINT_AS_STRING, true);
+        $context = new Context("This is a pen.", $options);
+        $this->assertFalse($context->getOption(JsonCodec::OBJECT_AS_ARRAY));
+        $this->assertTrue($context->getOption(JsonCodec::BIGINT_AS_STRING));
     }
     
     /**

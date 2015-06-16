@@ -101,6 +101,17 @@ class Context
     }
     
     /**
+     * 指定されたオプションが ON かどうかを調べます.
+     * 
+     * @param  int $code オプション (JsonCodec で定義されている定数)
+     * @return bool      指定されたオプションが ON の場合は true, それ以外は false
+     */
+    public function getOption($code)
+    {
+        return $this->options->get($code, false);
+    }
+    
+    /**
      * 
      * @return bool
      */
