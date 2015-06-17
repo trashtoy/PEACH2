@@ -2,6 +2,7 @@
 namespace Peach\DF\JsonCodec;
 
 use Peach\Util\ArrayMap;
+use Peach\DF\JsonCodec;
 
 class NumberTest extends \PHPUnit_Framework_TestCase
 {
@@ -160,6 +161,32 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * オプション BIGINT_AS_STRING のテストです. 以下を確認します.
+     * 
+     * - マイナス 2 の 32 乗以上 2 の 32 乗未満の整数は常に整数型に変換すること
+     * - オプションが ON の場合, 巨大整数を整数として変換すること
+     * - オプションが OFF の場合, 巨大整数を float として変換すること
+     * 
+     * @covers Peach\DF\JsonCodec\Number::handle
+     */
+    public function testHandleNumberByBigInt()
+    {
+        $posSmall = "54321";
+        $negSmall = "-54321";
+        $posBig   = "1234567890123456";
+        $negBig   = "-1234567890123456";
+        
+        $this->checkHandleByString($posSmall, 54321, false);
+        $this->checkHandleByString($posSmall, 54321, true);
+        $this->checkHandleByString($negSmall, -54321, false);
+        $this->checkHandleByString($negSmall, -54321, true);
+        $this->checkHandleByString($posBig, 1234567890123456, false);
+        $this->checkHandleByString($posBig, "1234567890123456", true);
+        $this->checkHandleByString($negBig, -1234567890123456, false);
+        $this->checkHandleByString($negBig, "-1234567890123456", true);
+    }
+    
+    /**
      * handle のテストです. 以下を確認します.
      * 
      * - 第 1 引数の文字列を持つ Context を handle した結果, 第 2 引数の値が得られること
@@ -167,11 +194,17 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      * 
      * @param string $str      Context が持つ文字列
      * @param int    $expected 得られるはずの値
+     * @param bool   $bigInt   オプション BIGINT_AS_STRING を ON にする場合は true
      */
-    private function checkHandleByString($str, $expected)
+    private function checkHandleByString($str, $expected, $bigInt = false)
     {
-        $expr    = $this->object;
-        $context = new Context("{$str},", new ArrayMap());
+        $opt = new ArrayMap();
+        if ($bigInt) {
+            $opt->put(JsonCodec::BIGINT_AS_STRING, true);
+        }
+        
+        $expr    = new Number();
+        $context = new Context("{$str},", $opt);
         $expr->handle($context);
         $this->assertSame($expected, $expr->getResult());
         $this->assertSame(",", $context->current());

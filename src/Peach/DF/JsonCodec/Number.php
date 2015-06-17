@@ -28,6 +28,7 @@
  */
 namespace Peach\DF\JsonCodec;
 use Peach\DF\JsonCodec\Expression;
+use Peach\DF\JsonCodec;
 
 /**
  * JSON の BNF ルール number をあらわす Expression です.
@@ -71,10 +72,17 @@ class Number implements Expression
      */
     private $isFloat;
     
+    /**
+     *
+     * @var bool
+     */
+    private $bigNumAsString;
+    
     public function __construct()
     {
-        $this->result  = "";
-        $this->isFloat = false;
+        $this->result         = "";
+        $this->isFloat        = false;
+        $this->bigNumAsString = false;
     }
     
     /**
@@ -84,6 +92,7 @@ class Number implements Expression
      */
     public function handle(Context $context)
     {
+        $this->bigNumAsString = $context->getOption(JsonCodec::BIGINT_AS_STRING);
         $this->handleMinus($context);
         $this->handleIntegralPart($context);
         $this->handleFractionPart($context);
@@ -218,6 +227,16 @@ class Number implements Expression
      */
     public function getResult()
     {
-        return $this->isFloat ? floatval($this->result) : intval($this->result);
+        $num = floatval($this->result);
+        if ($this->isFloat) {
+            return $num;
+        }
+        
+        $border = pow(2, 32);
+        if (-$border <= $num && $num < $border) {
+            return intval($num);
+        } else {
+            return $this->bigNumAsString ? $this->result : $num;
+        }
     }
 }
