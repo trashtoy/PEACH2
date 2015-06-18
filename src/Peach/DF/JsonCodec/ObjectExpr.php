@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2015 @trashtoy
  * https://github.com/trashtoy/
@@ -28,6 +29,9 @@
  */
 namespace Peach\DF\JsonCodec;
 
+use stdClass;
+use Peach\DF\JsonCodec;
+
 /**
  * JSON の BNF ルール value をあらわす Expression です.
  * RFC 7159 で定義されている以下のフォーマットを解釈します.
@@ -38,11 +42,10 @@ namespace Peach\DF\JsonCodec;
  * 
  * @ignore
  */
-class ObjectExpr implements \Peach\DF\JsonCodec\Expression
+class ObjectExpr implements Expression
 {
     /**
-     *
-     * @var array
+     * @var mixed
      */
     private $result;
     
@@ -60,26 +63,26 @@ class ObjectExpr implements \Peach\DF\JsonCodec\Expression
         $beginObject = new StructuralChar(array("{"));
         $beginObject->handle($context);
         
+        $container = $this->getContainer($context);
         if ($context->current() === "}") {
             $endObject = new StructuralChar(array("}"));
             $endObject->handle($context);
-            $this->result = array();
+            $this->result = $container->getResult();
             return;
         }
         
-        $result = array();
         while (true) {
             if ($context->current() === "}") {
                 $context->throwException("Closing bracket after comma is not permitted");
             }
             $member = new Member();
             $member->handle($context);
-            $result[$member->getKey()] = $member->getValue();
+            $container->setMember($member);
             
             $struct = new StructuralChar(array(",", "}"));
             $struct->handle($context);
             if ($struct->getResult() === "}") {
-                $this->result = $result;
+                $this->result = $container->getResult();
                 break;
             }
         }
@@ -87,10 +90,96 @@ class ObjectExpr implements \Peach\DF\JsonCodec\Expression
     
     /**
      * 
-     * @return mixed
+     * @return mixed OBJECT_AS_ARRAY オプションが ON の場合は配列, OFF の場合は stdClass オブジェクト
      */
     public function getResult()
     {
         return $this->result;
+    }
+    
+    /**
+     * 
+     * @param  Context $context
+     * @return ObjectExpr_Container
+     */
+    private function getContainer(Context $context)
+    {
+        $asArray = $context->getOption(JsonCodec::OBJECT_AS_ARRAY);
+        return $asArray ? new ObjectExpr_ArrayContainer() : new ObjectExpr_StdClassContainer();
+    }
+}
+
+interface ObjectExpr_Container
+{
+    /**
+     * 
+     * @return mixed 解析結果
+     */
+    public function getResult();
+
+    /**
+     * @param Member $member
+     */
+    public function setMember(Member $member);
+}
+
+class ObjectExpr_ArrayContainer implements ObjectExpr_Container
+{
+    private $result;
+    
+    public function __construct()
+    {
+        $this->result = array();
+    }
+    
+    /**
+     * @return array
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+    
+    /**
+     * 
+     * @param Member $member
+     */
+    public function setMember(Member $member)
+    {
+        $key = $member->getKey();
+        $this->result[$key] = $member->getValue();
+    }
+}
+
+class ObjectExpr_StdClassContainer implements ObjectExpr_Container
+{
+    /**
+     *
+     * @var stdClass
+     */
+    private $result;
+    
+    public function __construct()
+    {
+        $this->result = new stdClass();
+    }
+    
+    /**
+     * 
+     * @return stdClass
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+    
+    /**
+     * 
+     * @param Member $member
+     */
+    public function setMember(Member $member)
+    {
+        $key = $member->getKey();
+        $this->result->$key = $member->getValue();
     }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use stdClass;
 use Peach\Util\ArrayMap;
 
 class ObjectExprTest extends \PHPUnit_Framework_TestCase
@@ -47,14 +48,14 @@ class ObjectExprTest extends \PHPUnit_Framework_TestCase
     {
         $context  = new Context('{ "a" : -3.14, "b": [true, false, true],"c" : "xxxx", "d": null  }   ,', new ArrayMap());
         $expr     = $this->object;
-        $expected = array(
-            "a" => -3.14,
-            "b" => array(true, false, true),
-            "c" => "xxxx",
-            "d" => null,
-        );
+        $expected = new stdClass();
+        $expected->a = -3.14;
+        $expected->b = array(true, false, true);
+        $expected->c = "xxxx";
+        $expected->d = null;
+        
         $expr->handle($context);
-        $this->assertSame($expected, $expr->getResult());
+        $this->assertEquals($expected, $expr->getResult());
         $this->assertSame(",", $context->current());
     }
     
@@ -67,7 +68,7 @@ class ObjectExprTest extends \PHPUnit_Framework_TestCase
         $context  = new Context("    {\r\n    }   ,   ", new ArrayMap());
         $expr     = $this->object;
         $expr->handle($context);
-        $this->assertSame(array(), $expr->getResult());
+        $this->assertEquals(new stdClass(), $expr->getResult());
         $this->assertSame(",", $context->current());
     }
     

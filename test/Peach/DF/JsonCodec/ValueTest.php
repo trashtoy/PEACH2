@@ -1,6 +1,7 @@
 <?php
 namespace Peach\DF\JsonCodec;
 
+use stdClass;
 use Peach\Util\ArrayMap;
 
 class ValueTest extends \PHPUnit_Framework_TestCase
@@ -151,17 +152,17 @@ class ValueTest extends \PHPUnit_Framework_TestCase
     {
         $value    = $this->object;
         $context  = new Context('{ "a" : true, "b" : [ -123, 3.5E+7, 0 ], "c" : { "x" : "asdf", "y" : "hoge" }, "d" : null} , ', new ArrayMap());
-        $expected = array(
-            "a" => true,
-            "b" => array(-123, 3.5e+7, 0),
-            "c" => array(
-                "x" => "asdf",
-                "y" => "hoge",
-            ),
-            "d" => null,
-        );
+        
+        $expected = new stdClass();
+        $expected->a = true;
+        $expected->b = array(-123, 3.5e+7, 0);
+        $expected->c = new stdClass();
+        $expected->c->x = "asdf";
+        $expected->c->y = "hoge";
+        $expected->d = null;
+        
         $value->handle($context);
-        $this->assertSame($expected, $value->getResult());
+        $this->assertEquals($expected, $value->getResult());
         $this->assertSame(",", $context->current());
     }
     

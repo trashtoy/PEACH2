@@ -1,5 +1,6 @@
 <?php
 namespace Peach\DF;
+use stdClass;
 use Peach\Util\Strings;
 
 class JsonCodecTest extends \PHPUnit_Framework_TestCase
@@ -100,13 +101,40 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * 複雑な構造の JSON 文字列を該当する値に変換することを確認します.
+     * オプション OBJECT_AS_ARRAY が指定されていない場合の decode() のテストです.
+     * 複雑な構造の JSON 文字列を該当する stdClass オブジェクトに変換することを確認します.
      * 
      * @covers Peach\DF\JsonCodec::decode
      */
-    public function testDecode()
+    public function testDecodeWithoutObjectAsArray()
     {
-        $codec    = $this->object;
+        $codec    = new JsonCodec();
+        $text     = file_get_contents(__DIR__ . "/JsonCodec/decode-ok.txt");
+        $expected = new stdClass();
+        $expected->first = new stdClass();
+        $expected->first->test01 = 0;
+        $expected->first->test02 = 100;
+        $expected->first->test03 = -50;
+        $expected->second = array(1.0, -1.5, 12.5e-7);
+        $expected->third  = "hogehoge";
+        $expected->fourth = new stdClass();
+        $expected->fourth->test04 = new stdClass();
+        $expected->fourth->test04->true  = true;
+        $expected->fourth->test04->false = false;
+        $expected->fourth->test04->null  = null;
+        
+        $this->assertEquals($expected, $codec->decode($text));
+    }
+    
+    /**
+     * オプション OBJECT_AS_ARRAY を指定した場合の decode() のテストです.
+     * 複雑な構造の JSON 文字列を該当する配列に変換することを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec::decode
+     */
+    public function testDecodeWithObjectAsArray()
+    {
+        $codec    = new JsonCodec(null, JsonCodec::OBJECT_AS_ARRAY);
         $text     = file_get_contents(__DIR__ . "/JsonCodec/decode-ok.txt");
         $expected = array(
             "first" => array(
