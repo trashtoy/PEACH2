@@ -81,6 +81,18 @@ class JsonCodec implements Codec
     const HEX_QUOT = 8;
     
     /**
+     * 定数 JSON_FORCE_OBJECT に相当するオプションです.
+     * 通常は array 形式でエンコードされる配列を object 形式でエンコードします.
+     * 具体的には以下の配列の出力に影響します.
+     * 
+     * - 空の配列
+     * - 添字が 0 から始まる整数の連続 (0, 1, 2, ...) となっている配列
+     * 
+     * @var int
+     */
+    const FORCE_OBJECT = 16;
+    
+    /**
      * 定数 JSON_NUMERIC_CHECK に相当するオプションです.
      * 数値表現の文字列を数値としてエンコードします.
      */
@@ -348,11 +360,16 @@ class JsonCodec implements Codec
     /**
      * 配列のキーが 0, 1, 2 ... という具合に 0 から始まる整数の連続になっていた場合のみ true,
      * それ以外は false を返します.
+     * ただし, オプション FORCE_OBJECT が ON の場合は常に false を返します.
      * 
      * @param  array $arr 変換対象の配列
      * @return bool       配列のキーが整数の連続になっていた場合のみ true
      */
     private function checkKeySequence(array $arr) {
+        if ($this->getEncodeOption(self::FORCE_OBJECT)) {
+            return false;
+        }
+        
         $i = 0;
         foreach (array_keys($arr) as $key) {
             if ($i !== $key) {

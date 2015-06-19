@@ -483,6 +483,26 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * オプション FORCE_OBJECT を指定した場合,
+     * array 形式でエンコードされる配列についても object 形式でエンコードされることを確認します.
+     */
+    public function testEncodeWithForceObject()
+    {
+        $obj1 = $this->object;
+        $obj2 = new JsonCodec(array(JsonCodec::FORCE_OBJECT => true));
+        $test = array(
+            "hoge" => array(),
+            "fuga" => array("aaa", "bbb", "ccc"),
+            "piyo" => array("x" => 1, "y" => 2, "z" => 3),
+        );
+        
+        $expected1 = '{"hoge":[],"fuga":["aaa","bbb","ccc"],"piyo":{"x":1,"y":2,"z":3}}';
+        $expected2 = '{"hoge":{},"fuga":{"0":"aaa","1":"bbb","2":"ccc"},"piyo":{"x":1,"y":2,"z":3}}';
+        $this->assertSame($expected1, $obj1->encode($test));
+        $this->assertSame($expected2, $obj2->encode($test));
+    }
+    
+    /**
      * オプション PRETTY_PRINT を指定した場合,
      * object および array 形式の値を半角スペース 4 個と改行文字で整形して出力することを確認します.
      * 
