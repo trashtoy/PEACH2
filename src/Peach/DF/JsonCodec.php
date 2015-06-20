@@ -197,8 +197,8 @@ class JsonCodec implements Codec
     private function initOptions($options)
     {
         $result = new ArrayMap();
-        if (is_int($options)) {
-            return $this->initOptionsByBitMask($options);
+        if (is_scalar($options)) {
+            return $this->initOptionsByBitMask(Values::intValue($options, 0));
         }
         if (!is_array($options)) {
             return $result;

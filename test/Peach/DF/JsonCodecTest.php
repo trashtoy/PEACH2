@@ -51,6 +51,27 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 自然数以外のスカラー値をコンストラクタに指定した場合のテストです.
+     * 以下を確認します.
+     * 
+     * - 負の数が指定された場合は 0 として扱われること
+     * - 整数以外の値が指定された場合は整数に変換されること
+     * 
+     * @covers Peach\DF\JsonCodec::__construct
+     * @covers Peach\DF\JsonCodec::initOptions
+     */
+    public function test__constructByScalarOptions()
+    {
+        $c1 = new JsonCodec(-7, 0);
+        $c2 = new JsonCodec(0, 0);
+        $this->assertEquals($c2, $c1);
+        
+        $c3 = new JsonCodec(0, true);
+        $c4 = new JsonCodec(0, 1);
+        $this->assertEquals($c4, $c3);
+    }
+    
+    /**
      * getDecodeOption() のテストです.
      * 引数に指定した配列に応じた結果を返すことを確認します.
      * 
