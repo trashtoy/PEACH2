@@ -38,12 +38,12 @@ use Peach\Util\Values;
 /**
  * JSON 形式の文字列を扱う Codec です.
  * このクラスは {@link http://tools.ietf.org/html/rfc7159 RFC 7159}
- * の仕様に基いて JSON の decode (値への変換) と encode (値の JSON への変換)
+ * の仕様に基いて JSON のデコード (JSON を値に変換) とエンコード (値を JSON に変換)
  * を行います.
  * 
  * RFC 7159 によると JSON 文字列のエンコーディングは UTF-8, UTF-16, UTF-32
  * のいずれかであると定義されていますが, この実装は UTF-8 でエンコーディングされていることを前提とします.
- * UTF-8 以外の文字列を decode した場合はエラーとなります.
+ * UTF-8 以外の文字列をデコードした場合はエラーとなります.
  */
 class JsonCodec implements Codec
 {
@@ -153,21 +153,21 @@ class JsonCodec implements Codec
     const BIGINT_AS_STRING = 2;
     
     /**
-     * encode の出力内容をカスタマイズするオプションです.
+     * encode() の出力内容をカスタマイズするオプションです.
      * 
      * @var ArrayMap
      */
     private $encodeOptions;
     
     /**
-     * decode の出力内容をカスタマイズするオプションです.
+     * decode() の出力内容をカスタマイズするオプションです.
      * 
      * @var ArrayMap
      */
     private $decodeOptions;
     
     /**
-     * 文字列を encode する際に使用する Utf8Codec です.
+     * 文字列をエンコードする際に使用する Utf8Codec です.
      * 
      * @var Utf8Codec
      */
@@ -175,13 +175,14 @@ class JsonCodec implements Codec
     
     /**
      * 新しい JsonCodec を構築します.
-     * 引数にencode および decode の出力のカスタマイズオプションを指定することが出来ます.
+     * 引数に encode() および decode() の出力のカスタマイズオプションを指定することが出来ます.
      * 引数は配列または整数を指定することが出来ます.
      * 
      * - 配列の場合: キーにオプション定数, 値に true または false を指定してください.
      * - 整数の場合: 各オプションのビットマスクを指定してください. 例えば JsonCodec::HEX_TAG | JsonCodec::HEX_AMP のような形式となります.
      * 
-     * @var array $options 出力のカスタマイズオプション
+     * @param array|int $encodeOptions encode() のカスタマイズオプション
+     * @param array|int $decodeOptions decode() のカスタマイズオプション
      */
     public function __construct($encodeOptions = null, $decodeOptions = null)
     {
@@ -191,8 +192,11 @@ class JsonCodec implements Codec
     }
     
     /**
-     * @param  array    $options
-     * @return ArrayMap
+     * コンストラクタに指定された $encodeOptions および $decodeOptions
+     * を初期化します.
+     * 
+     * @param  array|int $options コンストラクタに指定されたオプション
+     * @return ArrayMap           各オプションの ON/OFF をあらわす ArrayMap
      */
     private function initOptions($options)
     {
@@ -285,9 +289,9 @@ class JsonCodec implements Codec
     }
     
     /**
-     * encode の本体の処理です.
+     * encode() の本体の処理です.
      * 指定された値がスカラー型 (null, 真偽値, 数値, 文字列), 配列, オブジェクトのいずれかにも該当しない場合,
-     * 文字列にキャストした結果を encode します.
+     * 文字列にキャストした結果をエンコードします.
      * 
      * @param  mixed  $var 変換対象の値
      * @return string      JSON 文字列
@@ -358,7 +362,7 @@ class JsonCodec implements Codec
     }
     
     /**
-     * 配列のキーが 0, 1, 2 ... という具合に 0 から始まる整数の連続になっていた場合のみ true,
+     * 配列のキーが 0, 1, 2, ……という具合に 0 から始まる整数の連続になっていた場合のみ true,
      * それ以外は false を返します.
      * ただし, オプション FORCE_OBJECT が ON の場合は常に false を返します.
      * 
