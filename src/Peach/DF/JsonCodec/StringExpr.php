@@ -57,6 +57,7 @@ namespace Peach\DF\JsonCodec;
 class StringExpr implements Expression
 {
     /**
+     * 変換結果の文字列です.
      *
      * @var string
      */
@@ -71,8 +72,9 @@ class StringExpr implements Expression
     }
     
     /**
+     * 二重引用符で囲まれた JSON 文字列を解析し, 対応する文字列に変換します.
+     * 
      * @param Context $context 処理対象の Context オブジェクト
-     * @todo  %x00-1F の範囲の文字を invalid とみなすようにすること
      */
     public function handle(Context $context)
     {
@@ -113,8 +115,8 @@ class StringExpr implements Expression
      * 現在の文字が Unicode 符号点 %x20 以上であるかどうか検査します.
      * 不正な文字の場合は DecodeException をスローします.
      * 
-     * @param Context $context 解析対象の Context
-     * @throws DecodeException 現在の文字が %x00-1F の範囲にある場合
+     * @param  Context $context 解析対象の Context
+     * @throws DecodeException  現在の文字が %x00-1F の範囲にある場合
      */
     private function validateCodePoint(Context $context)
     {
@@ -139,8 +141,9 @@ class StringExpr implements Expression
     }
     
     /**
+     * "\" で始まる文字列を対応する文字に変換します.
      * 
-     * @param Context $context
+     * @param  Context $context
      * @return string
      */
     private function decodeEscapedChar(Context $context)
