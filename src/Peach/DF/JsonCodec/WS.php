@@ -40,9 +40,14 @@ namespace Peach\DF\JsonCodec;
  */
 class WS implements Expression
 {
+    /**
+     * このクラスはシングルトンです.
+     */
     private function __construct() {}
     
     /**
+     * このクラスの唯一のインスタンスを返します.
+     * 
      * @return WS
      * @codeCoverageIgnore
      */
@@ -55,6 +60,11 @@ class WS implements Expression
         return $instance;
     }
     
+    /**
+     * 文字 %x20, %x09, %x0A, %x0D を読み飛ばします.
+     * 
+     * @param Context $context
+     */
     public function handle(Context $context)
     {
         static $wsList = array("\r", "\n", "\r\n", "\t", " ");
