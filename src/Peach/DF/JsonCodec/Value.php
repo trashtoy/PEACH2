@@ -39,16 +39,29 @@ namespace Peach\DF\JsonCodec;
 class Value implements Expression
 {
     /**
+     * デコードした結果の値です.
      *
      * @var mixed
      */
     private $result;
     
+    /**
+     * 新しい Value インスタンスを構築します.
+     */
     public function __construct()
     {
         $this->result = null;
     }
     
+    /**
+     * value の内容を解釈してその結果を $result に格納します.
+     * 
+     * <pre>
+     * value = false / null / true / object / array / number / string
+     * </pre>
+     * 
+     * @param  Context $context
+     */
     public function handle(Context $context)
     {
         $current = $context->current();
@@ -89,6 +102,7 @@ class Value implements Expression
     }
     
     /**
+     * 解析結果を返します.
      * 
      * @return mixed
      */
@@ -98,6 +112,7 @@ class Value implements Expression
     }
     
     /**
+     * リテラル null, true, false をデコードします.
      * 
      * @param Context $context
      * @param string  $literal
