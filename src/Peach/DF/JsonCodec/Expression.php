@@ -24,10 +24,21 @@
  * PHP class file.
  * @auhtor trashtoy
  * @since  2.0.2
+ * @ignore
  */
 namespace Peach\DF\JsonCodec;
 
+/**
+ * RFC 7159 で定義されている各種 BNF ルールを表現するインタフェースです.
+ * 
+ * @ignore
+ */
 interface Expression
 {
+    /**
+     * 引数の Context を解釈します.
+     * 
+     * @param Context $context
+     */
     public function handle(Context $context);
 }
