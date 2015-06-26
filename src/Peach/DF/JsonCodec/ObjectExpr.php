@@ -109,6 +109,9 @@ class ObjectExpr implements Expression
     }
 }
 
+/**
+ * @ignore
+ */
 interface ObjectExpr_Container
 {
     /**
@@ -123,6 +126,9 @@ interface ObjectExpr_Container
     public function setMember(Member $member);
 }
 
+/**
+ * @ignore
+ */
 class ObjectExpr_ArrayContainer implements ObjectExpr_Container
 {
     private $result;
@@ -151,6 +157,9 @@ class ObjectExpr_ArrayContainer implements ObjectExpr_Container
     }
 }
 
+/**
+ * @ignore
+ */
 class ObjectExpr_StdClassContainer implements ObjectExpr_Container
 {
     /**

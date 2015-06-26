@@ -24,9 +24,13 @@
  * PHP class file.
  * @auhtor trashtoy
  * @since  2.0.2
+ * @ignore
  */
 namespace Peach\DF\JsonCodec;
 
+/**
+ * @ignore
+ */
 class DecodeException extends \Exception
 {
 }

@@ -53,6 +53,8 @@ namespace Peach\DF\JsonCodec;
  * 
  *       unescaped = %x20-21 / %x23-5B / %x5D-10FFFF
  * </pre>
+ * 
+ * @ignore
  */
 class StringExpr implements Expression
 {

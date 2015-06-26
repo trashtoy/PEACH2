@@ -24,6 +24,7 @@
  * PHP class file.
  * @auhtor trashtoy
  * @since  2.0.2
+ * @ignore
  */
 namespace Peach\DF\JsonCodec;
 
@@ -37,6 +38,8 @@ namespace Peach\DF\JsonCodec;
  *         %x0A /              ; Line feed or New line
  *         %x0D )              ; Carriage return
  * </pre>
+ * 
+ * @ignore
  */
 class WS implements Expression
 {

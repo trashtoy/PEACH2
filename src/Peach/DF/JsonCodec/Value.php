@@ -35,6 +35,8 @@ namespace Peach\DF\JsonCodec;
  * <pre>
  * value = false / null / true / object / array / number / string
  * </pre>
+ * 
+ * @ignore
  */
 class Value implements Expression
 {
