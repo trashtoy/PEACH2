@@ -14,7 +14,7 @@ class Base64CodecTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Base64Codec();
+        $this->object = Base64Codec::getInstance();
     }
     
     /**
@@ -23,6 +23,22 @@ class Base64CodecTest extends \PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
+    }
+    
+    /**
+     * getInstance() のテストです. 以下を確認します.
+     * 
+     * - Base64Codec クラスのインスタンスを返すことを確認します.
+     * - 常に同一のオブジェクトを返すことを確認します.
+     * 
+     * @covers Peach\DF\Base64Codec::getInstance
+     */
+    public function testGetInstance()
+    {
+        $obj1 = Base64Codec::getInstance();
+        $obj2 = Base64Codec::getInstance();
+        $this->assertSame("Peach\\DF\\Base64Codec", get_class($obj1));
+        $this->assertSame($obj1, $obj2);
     }
     
     /**

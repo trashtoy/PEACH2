@@ -38,6 +38,28 @@ namespace Peach\DF;
 class Base64Codec implements Codec
 {
     /**
+     * このクラスはシングルトンです. 直接インスタンス化することは出来ません.
+     */
+    private function __construct() {}
+    
+    /**
+     * このクラスのインスタンスを返します.
+     * 
+     * @return Base64Codec
+     */
+    public static function getInstance()
+    {
+        // @codeCoverageIgnoreStart
+        static $instance = null;
+        if ($instance === null) {
+            $instance = new self();
+        }
+        // @codeCoverageIgnoreEnd
+        
+        return $instance;
+    }
+    
+    /**
      * 指定された base64 形式の文字列をデコードします.
      * 
      * @param  string $text base64 でエンコードされた文字列
