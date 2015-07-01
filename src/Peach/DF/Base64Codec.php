@@ -38,25 +38,42 @@ namespace Peach\DF;
 class Base64Codec implements Codec
 {
     /**
-     * このクラスはシングルトンです. 直接インスタンス化することは出来ません.
+     * もしもこの変数が true の場合,
+     * decode() の引数に base64 アルファベット以外の文字が含まれていた際に
+     * false を返します.
+     * 
+     * @var bool
      */
-    private function __construct() {}
+    private $strict;
+    
+    /**
+     * このクラスはシングルトンです. 直接インスタンス化することは出来ません.
+     * 
+     * @param bool $strict base64_decode() の第 2 引数に相当する bool 値
+     */
+    private function __construct($strict)
+    {
+        $this->strict = $strict;
+    }
     
     /**
      * このクラスのインスタンスを返します.
      * 
+     * @param  bool $strict base64_decode() の第 2 引数に相当する bool 値
      * @return Base64Codec
      */
-    public static function getInstance()
+    public static function getInstance($strict = false)
     {
         // @codeCoverageIgnoreStart
-        static $instance = null;
-        if ($instance === null) {
-            $instance = new self();
+        static $instance = array();
+        if (!count($instance)) {
+            $instance[0] = new self(false);
+            $instance[1] = new self(true);
         }
         // @codeCoverageIgnoreEnd
         
-        return $instance;
+        $key = $strict ? 1 : 0;
+        return $instance[$key];
     }
     
     /**
@@ -67,7 +84,7 @@ class Base64Codec implements Codec
      */
     public function decode($text)
     {
-        return base64_decode($text);
+        return base64_decode($text, $this->strict);
     }
     
     /**

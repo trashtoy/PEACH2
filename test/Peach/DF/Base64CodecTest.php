@@ -28,17 +28,26 @@ class Base64CodecTest extends \PHPUnit_Framework_TestCase
     /**
      * getInstance() のテストです. 以下を確認します.
      * 
-     * - Base64Codec クラスのインスタンスを返すことを確認します.
-     * - 常に同一のオブジェクトを返すことを確認します.
+     * - Base64Codec クラスのインスタンスを返す
+     * - 同じ引数で実行した場合, 常に同一のオブジェクトを返す
+     * - 引数を省略した場合は false を指定した場合と同じように扱われる
      * 
+     * @covers Peach\DF\Base64Codec::__construct
      * @covers Peach\DF\Base64Codec::getInstance
      */
     public function testGetInstance()
     {
-        $obj1 = Base64Codec::getInstance();
-        $obj2 = Base64Codec::getInstance();
+        $obj1 = Base64Codec::getInstance(false);
+        $obj2 = Base64Codec::getInstance(false);
+        $obj3 = Base64Codec::getInstance(true);
+        $obj4 = Base64Codec::getInstance(true);
+        $obj5 = Base64Codec::getInstance();
+        
         $this->assertSame("Peach\\DF\\Base64Codec", get_class($obj1));
         $this->assertSame($obj1, $obj2);
+        $this->assertSame($obj3, $obj4);
+        $this->assertNotEquals($obj1, $obj3);
+        $this->assertSame($obj1, $obj5);
     }
     
     /**
@@ -52,6 +61,21 @@ class Base64CodecTest extends \PHPUnit_Framework_TestCase
         $test     = "VGhlIFF1aWNrIEJyb3duIEZveCBKdW1wcyBPdmVyIFRoZSBMYXp5IERvZ3Mu";
         $expected = "The Quick Brown Fox Jumps Over The Lazy Dogs.";
         $this->assertSame($expected, $obj->decode($test));
+    }
+    
+    /**
+     * strict モードが ON の場合, 不正な文字を含む base64 文字列のデコード結果が
+     * false になることを確認します.
+     * 
+     * @covers Peach\DF\Base64Codec::decode
+     */
+    public function testDecodeWithStrict()
+    {
+        $obj1 = Base64Codec::getInstance(false);
+        $obj2 = Base64Codec::getInstance(true);
+        $test = "SGVs,bG8g,V29y,bGQh";
+        $this->assertSame("Hello World!", $obj1->decode($test));
+        $this->assertFalse($obj2->decode($test));
     }
     
     /**
