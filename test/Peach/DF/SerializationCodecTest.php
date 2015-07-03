@@ -15,7 +15,7 @@ class SerializationCodecTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new SerializationCodec();
+        $this->object = SerializationCodec::getInstance();
     }
     
     /**
@@ -25,6 +25,22 @@ class SerializationCodecTest extends \PHPUnit_Framework_TestCase
     protected function tearDown()
     {
         
+    }
+    
+    /**
+     * getInstance() のテストです. 以下を確認します.
+     * 
+     * - SerializationCodec オブジェクトを返す
+     * - 複数回実行した際に同一のオブジェクトを返す
+     * 
+     * @covers Peach\DF\SerializationCodec::getInstance
+     */
+    public function testGetInstance()
+    {
+        $obj1 = SerializationCodec::getInstance();
+        $obj2 = SerializationCodec::getInstance();
+        $this->assertInstanceOf('Peach\DF\SerializationCodec', $obj1);
+        $this->assertSame($obj1, $obj2);
     }
     
     /**

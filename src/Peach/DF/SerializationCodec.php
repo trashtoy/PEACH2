@@ -36,6 +36,25 @@ namespace Peach\DF;
 class SerializationCodec implements Codec
 {
     /**
+     * このクラスはシングルトンです. 直接インスタンス化することは出来ません.
+     */
+    private function __construct() {}
+    
+    /**
+     * このクラスのインスタンスを取得します.
+     * @return SerializationCodec
+     * @codeCoverageIgnore
+     */
+    public static function getInstance()
+    {
+        static $instance = null;
+        if (!isset($instance)) {
+            $instance = new self();
+        }
+        return $instance;
+    }
+    
+    /**
      * serialize された値から元の値を復元します.
      * 
      * @param  string $text serialize された文字列
