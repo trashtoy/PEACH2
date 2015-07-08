@@ -53,13 +53,23 @@ class CodecChain implements Codec
     /**
      * 指定された Codec を使用して変換を行う CodecChain インスタンスを生成します.
      * 
+     * もしも第 1 Codec が CodecChain インスタンスだった場合は以下のアルゴリズムに従ってチェーンの再構成を行います.
+     * 
+     * - 引数の CodecChain の第 1 Codec を新しいインスタンスの第 1 Codec として適用します
+     * - 引数の CodecChain の第 2 Codec とコンストラクタ引数の第 2 Codec で新しい CodecChain を生成し, それを新しいインスタンスの第 2 Codec として適用します
+     * 
      * @param Codec $first  1 番目の Codec
      * @param Codec $second 2 番目の Codec
      */
     public function __construct(Codec $first, Codec $second)
     {
-        $this->first  = $first;
-        $this->second = $second;
+        if ($first instanceof CodecChain) {
+            $this->first  = $first->first;
+            $this->second = new self($first->second, $second);
+        } else {
+            $this->first  = $first;
+            $this->second = $second;
+        }
     }
     
     /**

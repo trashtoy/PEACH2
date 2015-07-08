@@ -28,6 +28,33 @@ class CodecChainTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 引数に CodecChain を指定して 3 種類以上の Codec を連結させた場合に,
+     * どのような順番で連結させても等価なオブジェクトが生成されることを確認します.
+     * 
+     * @covers Peach\DF\CodecChain::__construct
+     */
+    public function test__construct()
+    {
+        $j1   = new JsonCodec(1);
+        $j2   = new JsonCodec(2);
+        $j3   = new JsonCodec(3);
+        $j4   = new JsonCodec(4);
+        $j5   = new JsonCodec(5);
+        
+        $o1 = new CodecChain($j4, $j5);
+        $o2 = new CodecChain($j3, $o1);
+        $o3 = new CodecChain($j2, $o2);
+        $o4 = new CodecChain($j1, $o3);
+        
+        $o5 = new CodecChain($j1, $j2);
+        $o6 = new CodecChain($o5, $j3);
+        $o7 = new CodecChain($o6, $j4);
+        $o8 = new CodecChain($o7, $j5);
+        
+        $this->assertEquals($o4, $o8);
+    }
+    
+    /**
      * 2 番目, 1 番目の順で Codec のデコードが行われることを確認します.
      * 
      * @covers Peach\DF\CodecChain::decode
