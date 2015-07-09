@@ -87,4 +87,38 @@ class CodecChainTest extends \PHPUnit_Framework_TestCase
         $expected = "eyJmb28iOjEsImJhciI6MiwiYmF6IjozfQ==";
         $this->assertSame($expected, $obj->encode($test));
     }
+    
+    /**
+     * 元のチェーンの末尾に他の Codec を連結した新しい CodecChain
+     * が生成されることを確認します.
+     * 
+     * @covers Peach\DF\CodecChain::append
+     */
+    public function testAppend()
+    {
+        $j1   = new JsonCodec(1);
+        $j2   = new JsonCodec(2);
+        $j3   = new JsonCodec(3);
+        
+        $test     = new CodecChain($j1, $j2);
+        $expected = new CodecChain($j1, new CodecChain($j2, $j3));
+        $this->assertEquals($expected, $test->append($j3));
+    }
+    
+    /**
+     * 元のチェーンの先頭に他の Codec を連結させた新しい CodecChain
+     * が生成されることを確認します.
+     * 
+     * @covers Peach\DF\CodecChain::prepend
+     */
+    public function testPrepend()
+    {
+        $j1   = new JsonCodec(1);
+        $j2   = new JsonCodec(2);
+        $j3   = new JsonCodec(3);
+        
+        $test     = new CodecChain($j2, $j3);
+        $expected = new CodecChain($j1, $test);
+        $this->assertEquals($expected, $test->prepend($j1));
+    }
 }

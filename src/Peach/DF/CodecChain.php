@@ -73,6 +73,28 @@ class CodecChain implements Codec
     }
     
     /**
+     * チェーンの末尾に新しい Codec を連結させた, 新しい CodecChain インスタンスを返します.
+     * 
+     * @param  Codec $c
+     * @return CodecChain
+     */
+    public function append(Codec $c)
+    {
+        return new CodecChain($this->first, new CodecChain($this->second, $c));
+    }
+    
+    /**
+     * チェーンの先頭に新しい Codec を連結させた, 新しい CodecChain インスタンスを返します.
+     * 
+     * @param  Codec $c
+     * @return CodecChain
+     */
+    public function prepend(Codec $c)
+    {
+        return new CodecChain($c, $this);
+    }
+    
+    /**
      * このオブジェクトに指定された Codec を使って指定された値をデコードします.
      * 
      * @param  mixed $text デコード対象の値
