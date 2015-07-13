@@ -277,18 +277,6 @@ class JsonCodecTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers Peach\DF\JsonCodec::encode
-     * @todo   Implement testEncode().
-     */
-    public function testEncode()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-    
-    /**
      * リテラル (null, true, false) を対応する文字列に変換することを確認します.
      * 
      * @covers Peach\DF\JsonCodec::encode
