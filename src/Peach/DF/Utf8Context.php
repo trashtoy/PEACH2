@@ -23,7 +23,7 @@
 /**
  * PHP class file.
  * @auhtor trashtoy
- * @since  2.0.2
+ * @since  2.1.0
  */
 namespace Peach\DF;
 use Exception;
