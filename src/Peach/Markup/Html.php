@@ -454,13 +454,13 @@ class Html
     {
         switch ($name) {
             case "tag":
-                return function ($n = null, $a = array()) { return self::tag($n, $a); };
+                return function ($n = null, $a = array()) { return Html::tag($n, $a); };
             case "comment":
-                return function ($c, $p = "", $s = "") { return self::comment($c, $p, $s); };
+                return function ($c, $p = "", $s = "") { return Html::comment($c, $p, $s); };
             case "conditionalComment":
-                return function ($c1, $c2) { return self::conditionalComment($c1, $c2); };
+                return function ($c1, $c2) { return Html::conditionalComment($c1, $c2); };
             case "select":
-                return function ($c1, $c2, $a = array()) { return self::select($c1, $c2, $a); };
+                return function ($c1, $c2, $a = array()) { return Html::select($c1, $c2, $a); };
         }
         
         // @codeCoverageIgnoreStart
