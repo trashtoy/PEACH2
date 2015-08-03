@@ -59,7 +59,22 @@ class NameValidator
         if (self::validateFast($name)) {
             return true;
         }
-        return false;
+        
+        $utf8Codec  = new \Peach\DF\Utf8Codec();
+        $codepoints = $utf8Codec->decode($name);
+        if (!count($codepoints)) {
+            return false;
+        }
+        $start = array_shift($codepoints);
+        if (!self::validateNameStartChar($start)) {
+            return false;
+        }
+        foreach ($codepoints as $c) {
+            if (!self::validateNameChar($c)) {
+                return false;
+            }
+        }
+        return true;
     }
     
     /**
@@ -75,5 +90,118 @@ class NameValidator
         $nameCharClass      = "[a-zA-Z0-9_:\\.\\-]";
         $pattern            = "/\\A{$firstNameCharClass}{$nameCharClass}*\\z/";
         return (0 < preg_match($pattern, $name));
+    }
+    
+    /**
+     * 指定された Unicode 符号点が NameStartChar の範囲に適合するかどうかを調べます.
+     * 
+     * @param  int $codepoint Unicode 符号点
+     * @return bool           引数が NameStartChar である場合のみ true
+     */
+    private static function validateNameStartChar($codepoint)
+    {
+        // @codeCoverageIgnoreStart
+        static $range = null;
+        if ($range === null) {
+            $first = new NameValidator_Range(0x61, 0x7A); // a-z
+            $range = $first
+                    ->add(0x41, 0x5A)->add(0x3A)->add(0x5F) // A-Z, ":", "_"
+                    ->add(0xC0, 0xD6)->add(0xD8, 0xF6)->add(0xF8, 0x2FF)
+                    ->add(0x370, 0x37D)->add(0x37F, 0x1FFF)->add(0x200C, 0x200D)
+                    ->add(0x2070, 0x218F)->add(0x2C00, 0x2FEF)->add(0x3001, 0xD7FF)
+                    ->add(0xF900, 0xFDCF)->add(0xFDF0, 0xFFFD)->add(0x10000, 0xEFFFF);
+        }
+        // @codeCoverageIgnoreEnd
+        
+        return $range->validate($codepoint);
+    }
+    
+    /**
+     * 指定された Unicode 符号点が NameChar の範囲に適合するかどうかを調べます.
+     * 
+     * @param  int $codepoint Unicode 符号点
+     * @return bool           引数が NameChar である場合のみ true
+     */
+    private static function validateNameChar($codepoint)
+    {
+        // @codeCoverageIgnoreStart
+        static $range = null;
+        if ($range === null) {
+            $first = new NameValidator_Range(0x30, 0x39); // 0-9
+            $range = $first
+                    ->add(0x2D, 0x2E)->add(0xB7) // "-", ".", MIDDLE DOT
+                    ->add(0x0300, 0x036F)->add(0x203F, 0x2040);
+        }
+        // @codeCoverageIgnoreEnd
+        
+        return self::validateNameStartChar($codepoint) || $range->validate($codepoint);
+    }
+}
+
+/**
+ * 指定された Unicode 符号点が, 特定の範囲内に存在するかどうかを確認します.
+ * @ignore
+ */
+class NameValidator_Range
+{
+    /**
+     * 範囲の最小値です.
+     * @var int
+     */
+    private $min;
+    
+    /**
+     * 範囲の最大値です.
+     * @var int
+     */
+    private $max;
+    
+    /**
+     * 検査対象の Unicode 符号点がこのオブジェクトの
+     * $min と $max の範囲内になかった場合に使用される次の Range オブジェクトです.
+     * 
+     * @var NameValidator_Range
+     */
+    private $next;
+    
+    /**
+     * 
+     * @param int $min 範囲の最小値
+     * @param int $max 範囲の最大値
+     * @param NameValidator_Range $next 次の Range オブジェクト (add が使用します)
+     * @codeCoverageIgnore
+     */
+    public function __construct($min, $max, NameValidator_Range $next = null)
+    {
+        $this->min  = $min;
+        $this->max  = ($max === null) ? $min : $max;
+        $this->next = $next;
+    }
+    
+    /**
+     * このオブジェクトを次の Range オブジェクトとして設定した新しい Range オブジェクトを返します.
+     * 
+     * @param  int $min 範囲の最小値
+     * @param  int $max 範囲の最大値 (単一の値を指定する場合は省略可)
+     * @return NameValidator_Range
+     * @codeCoverageIgnore
+     */
+    public function add($min, $max = null)
+    {
+        return new self($min, $max, $this);
+    }
+    
+    /**
+     * 指定された Unicode 符号点がこのオブジェクトが示す範囲内に存在するかどうか調べます.
+     * 次の Range オブジェクトが設定されている場合, 再帰的に validate() を実行した結果を返します.
+     * 
+     * @param  int  $codepoint Unicode 符号点
+     * @return bool            引数が範囲内に存在する場合のみ true
+     */
+    public function validate($codepoint)
+    {
+        return
+            ($this->min <= $codepoint && $codepoint <= $this->max) ||
+            ($this->next !== null && $this->next->validate($codepoint));
     }
 }
