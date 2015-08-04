@@ -26,8 +26,9 @@
  * @since  2.0.0
  */
 namespace Peach\Markup;
-use Peach\Util\Map;
+use InvalidArgumentException;
 use Peach\Util\ArrayMap;
+use Peach\Util\Map;
 use Peach\Util\Values;
 
 /**
@@ -61,15 +62,15 @@ abstract class Element implements Node
     }
     
     /**
-     * 要素名が適切かどうかを判断します.
+     * 要素名または属性名が適切かどうかを判断します.
      * @param  string $name 要素名
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @todo   バリデーションを厳格化
      */
     private static function validateName($name)
     {
         if (!strlen($name)) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
     }
     
@@ -139,7 +140,7 @@ abstract class Element implements Node
             return;
         }
         if (!is_array($attr)) {
-            throw new \InvalidArgumentException("Array required.");
+            throw new InvalidArgumentException("Array required.");
         }
         foreach ($attr as $key => $value) {
             if (is_numeric($key)) {
