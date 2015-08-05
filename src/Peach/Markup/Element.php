@@ -30,6 +30,7 @@ use InvalidArgumentException;
 use Peach\Util\ArrayMap;
 use Peach\Util\Map;
 use Peach\Util\Values;
+use Peach\DF\Utf8Codec;
 
 /**
  * マークアップ言語の要素を表現するクラスです.
@@ -56,22 +57,47 @@ abstract class Element implements Node
      */
     public function __construct($name)
     {
-        self::validateName($name);
-        $this->name       = strval($name);
+        $this->name       = self::cleanNameString($name);
         $this->attributes = new ArrayMap();
     }
     
     /**
-     * 要素名または属性名が適切かどうかを判断します.
+     * 指定された文字列について, 不正な UTF-8 のバイト列をあらかじめ除去した上で,
+     * 要素名または属性名として適切かどうかを調べます.
+     * 
      * @param  string $name 要素名
-     * @throws InvalidArgumentException
-     * @todo   バリデーションを厳格化
+     * @return string       不正なシーケンスを除去した結果の文字列
+     * @throws InvalidArgumentException 引数が要素名または属性名として不適切な場合
      */
-    private static function validateName($name)
+    private static function cleanNameString($name)
     {
         if (!strlen($name)) {
-            throw new InvalidArgumentException();
+            throw new InvalidArgumentException("Empty string specified");
         }
+        $cleanName = self::cleanString($name);
+        if (!NameValidator::validate($cleanName)) {
+            throw new InvalidArgumentException("'{$cleanName}' is not a valid name");
+        }
+        return $cleanName;
+    }
+    
+    /**
+     * 引数の文字列から UTF-8 として不適切なシーケンスを除去します.
+     * 
+     * @param  string $var 文字列
+     * @return string      不正なシーケンスを除去した結果
+     */
+    private static function cleanString($var)
+    {
+        // @codeCoverageIgnoreStart
+        static $utf8Codec = null;
+        if ($utf8Codec === null) {
+            $utf8Codec = new Utf8Codec();
+        }
+        // @codeCoverageIgnoreEnd
+        
+        $str = Values::stringValue($var);
+        return $utf8Codec->encode($utf8Codec->decode($str));
     }
     
     /**
@@ -117,8 +143,9 @@ abstract class Element implements Node
      */
     public function setAttribute($name, $value = null)
     {
-        $value = isset($value) ? Values::stringValue($value) : null;
-        $this->attributes->put($name, $value);
+        $cleanName  = self::cleanNameString($name);
+        $cleanValue = isset($value) ? self::cleanString($value) : null;
+        $this->attributes->put($cleanName, $cleanValue);
     }
     
     /**

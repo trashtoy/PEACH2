@@ -32,7 +32,7 @@ class ContainerElementTest extends ElementTest
      * 要素名が空文字列だった場合に InvalidArgumentException をスローすることを確認します.
      * @expectedException \InvalidArgumentException
      * @covers Peach\Markup\ContainerElement::__construct
-     * @covers Peach\Markup\Element::validateName
+     * @covers Peach\Markup\EmptyElement::cleanNameString
      */
     public function test__constructFail()
     {
