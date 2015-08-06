@@ -33,9 +33,21 @@ class EmptyElementTest extends ElementTest
      * @covers Peach\Markup\EmptyElement::__construct
      * @covers Peach\Markup\EmptyElement::cleanNameString
      */
-    public function test__constructFail()
+    public function test__constructFailByEmptyName()
     {
         new EmptyElement("");
+    }
+    
+    /**
+     * 要素名が不正だった場合に InvalidArgumentException をスローすることを確認します.
+     * @expectedException \InvalidArgumentException
+     * @covers Peach\Markup\EmptyElement::__construct
+     * @covers Peach\Markup\EmptyElement::cleanNameString
+     * @covers Peach\Markup\EmptyElement::cleanString
+     */
+    public function test__constructFailByInvalidName()
+    {
+        new EmptyElement("hoge/hoge");
     }
     
     /**

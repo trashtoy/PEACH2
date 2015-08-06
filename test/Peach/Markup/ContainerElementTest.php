@@ -34,9 +34,21 @@ class ContainerElementTest extends ElementTest
      * @covers Peach\Markup\ContainerElement::__construct
      * @covers Peach\Markup\EmptyElement::cleanNameString
      */
-    public function test__constructFail()
+    public function test__constructFailByEmptyName()
     {
         new ContainerElement("");
+    }
+    
+    /**
+     * 要素名が不正だった場合に InvalidArgumentException をスローすることを確認します.
+     * @expectedException \InvalidArgumentException
+     * @covers Peach\Markup\ContainerElement::__construct
+     * @covers Peach\Markup\EmptyElement::cleanNameString
+     * @covers Peach\Markup\EmptyElement::cleanString
+     */
+    public function test__constructFailByInvalidName()
+    {
+        new ContainerElement("*invalid");
     }
     
     /**
