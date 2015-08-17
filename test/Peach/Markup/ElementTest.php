@@ -26,10 +26,16 @@ abstract class ElementTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * コンストラクタに空文字列を指定した場合に
+     * InvalidArgumentException をスローすることを確認します.
+     */
+    abstract public function test__constructFailByEmptyName();
+    
+    /**
      * コンストラクタに要素名として不正な値を指定した場合に
      * InvalidArgumentException をスローすることを確認します.
      */
-    abstract public function test__constructFail();
+    abstract public function test__constructFailByInvalidName();
     
     /**
      * @covers Peach\Markup\Element::getName
@@ -50,6 +56,8 @@ abstract class ElementTest extends \PHPUnit_Framework_TestCase
      * 
      * @covers Peach\Markup\Element::getAttribute
      * @covers Peach\Markup\Element::setAttribute
+     * @covers Peach\Markup\Element::cleanNameString
+     * @covers Peach\Markup\Element::cleanString
      */
     public function testAccessAttribute()
     {
@@ -109,6 +117,36 @@ abstract class ElementTest extends \PHPUnit_Framework_TestCase
         $obj->setAttributes($arr);
         $obj->setAttributes($map);
         $this->assertSame($expected, $obj->getAttributes());
+    }
+    
+    /**
+     * 空文字列を属性名として指定した場合に
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Markup\Element::setAttribute
+     * @covers Peach\Markup\Element::cleanNameString
+     * @covers Peach\Markup\Element::cleanString
+     * @expectedException \InvalidArgumentException
+     */
+    public function setAttributeFailByEmptyString()
+    {
+       $obj = $this->object;
+       $obj->setAttribute("", "hoge");
+    }
+    
+    /**
+     * 不正な属性名を指定した場合に
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Markup\Element::setAttribute
+     * @covers Peach\Markup\Element::cleanNameString
+     * @covers Peach\Markup\Element::cleanString
+     * @expectedException \InvalidArgumentException
+     */
+    public function setAttributeFailByInvalidString()
+    {
+        $obj = $this->object;
+        $obj->setAttribute("1h", "test");
     }
     
     /**
