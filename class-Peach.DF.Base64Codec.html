@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\DF\Base64Codec | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Peach.DF.html">DF</a>
+						</li>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Peach.DF.Base64Codec.html">Base64Codec</a></li>
+				<li><a href="class-Peach.DF.CodecChain.html">CodecChain</a></li>
+				<li><a href="class-Peach.DF.JsonCodec.html">JsonCodec</a></li>
+				<li><a href="class-Peach.DF.SerializationCodec.html">SerializationCodec</a></li>
+				<li><a href="class-Peach.DF.Utf8Codec.html">Utf8Codec</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.DF.Codec.html">Codec</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DF.html" title="Summary of Peach\DF"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Base64Codec</h1>
+
+
+	<div class="description">
+	
+<p>MIME base64
+方式の文字列のエンコードおよびデコードを行うクラスです.</p>
+
+<p>このクラスは <a href="http://php.net/manual/ja/function.base64-encode.php">base64_encode</a> および <a href="http://php.net/manual/ja/function.base64-decode.php">base64_decode</a> のラッパーとして機能します.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Peach\DF\Base64Codec</span></b>			
+			 implements 
+				<a href="class-Peach.DF.Codec.html"><span>Peach\DF\Codec</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DF.html">DF</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DF.Base64Codec.html#30-100" title="Go to source code">Peach/DF/Base64Codec.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="getInstance" id="_getInstance">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-Peach.DF.Base64Codec.html">Peach\DF\Base64Codec</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getInstance">#</a>
+		<code><a href="source-class-Peach.DF.Base64Codec.html#59-77" title="Go to source code">getInstance</a>( <span>boolean <var>$strict</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>このクラスのインスタンスを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このクラスのインスタンスを返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$strict</var></dt>
+					<dd>base64_decode() の第 2 引数に相当する bool 値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DF.Base64Codec.html">Peach\DF\Base64Codec</a></code></code><br>Base64Codec<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="decode" id="_decode">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_decode">#</a>
+		<code><a href="source-class-Peach.DF.Base64Codec.html#79-88" title="Go to source code">decode</a>( <span>string <var>$text</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された base64 形式の文字列をデコードします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された base64 形式の文字列をデコードします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>base64 でエンコードされた文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>変換結果<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DF.Codec.html#_decode">Peach\DF\Codec::decode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="encode" id="_encode">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_encode">#</a>
+		<code><a href="source-class-Peach.DF.Base64Codec.html#90-99" title="Go to source code">encode</a>( <span>string <var>$var</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された文字列を base64 でエンコードします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された文字列を base64 でエンコードします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd>エンコード対象の文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>base64 形式の文字列<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DF.Codec.html#_encode">Peach\DF\Codec::encode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?479437553"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\DF\CodecChain | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Peach.DF.html">DF</a>
+						</li>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.DF.Base64Codec.html">Base64Codec</a></li>
+				<li class="active"><a href="class-Peach.DF.CodecChain.html">CodecChain</a></li>
+				<li><a href="class-Peach.DF.JsonCodec.html">JsonCodec</a></li>
+				<li><a href="class-Peach.DF.SerializationCodec.html">SerializationCodec</a></li>
+				<li><a href="class-Peach.DF.Utf8Codec.html">Utf8Codec</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.DF.Codec.html">Codec</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DF.html" title="Summary of Peach\DF"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class CodecChain</h1>
+
+
+	<div class="description">
+	
+<p>複数の Codec
+のエンコード・デコード処理を連結させるための Codec
+です.</p>
+
+<p>このクラスはコンストラクタに 2 種類の Codec
+を指定してインスタンスを初期化します. エンコードは,
+コンストラクタに指定した 1 番目, 2 番目の Codec の encode()
+を順に呼び出すことで実行されます. デコードは,
+エンコードとは逆に 2 番目, 1
+番目の順番で実行されます.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Peach\DF\CodecChain</span></b>			
+			 implements 
+				<a href="class-Peach.DF.Codec.html"><span>Peach\DF\Codec</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DF.html">DF</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DF.CodecChain.html#30-118" title="Go to source code">Peach/DF/CodecChain.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.DF.CodecChain.html#53-73" title="Go to source code">__construct</a>( <span><code><a href="class-Peach.DF.Codec.html">Peach\DF\Codec</a></code> <var>$first</var></span>, <span><code><a href="class-Peach.DF.Codec.html">Peach\DF\Codec</a></code> <var>$second</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された Codec を使用して変換を行う CodecChain
+インスタンスを生成します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された Codec を使用して変換を行う CodecChain
+インスタンスを生成します.</p>
+
+<p>もしも第 1 Codec が CodecChain
+インスタンスだった場合は以下のアルゴリズムに従ってチェーンの再構成を行います.</p>
+
+<ul>
+	<li>引数の CodecChain の第 1 Codec を新しいインスタンスの第 1
+	Codec として適用します</li>
+
+	<li>引数の CodecChain の第 2 Codec とコンストラクタ引数の第 2
+	Codec で新しい CodecChain を生成し,
+	それを新しいインスタンスの第 2 Codec として適用します</li>
+</ul>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$first</var></dt>
+					<dd>1 番目の Codec</dd>
+					<dt><var>$second</var></dt>
+					<dd>2 番目の Codec</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="append" id="_append">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DF.CodecChain.html">Peach\DF\CodecChain</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_append">#</a>
+		<code><a href="source-class-Peach.DF.CodecChain.html#75-84" title="Go to source code">append</a>( <span><code><a href="class-Peach.DF.Codec.html">Peach\DF\Codec</a></code> <var>$c</var></span> )</code>
+
+		<div class="description short">
+			
+<p>チェーンの末尾に新しい Codec を連結させた, 新しい
+CodecChain インスタンスを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>チェーンの末尾に新しい Codec を連結させた, 新しい
+CodecChain インスタンスを返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$c</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DF.CodecChain.html">Peach\DF\CodecChain</a></code></code><br>CodecChain<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="prepend" id="_prepend">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DF.CodecChain.html">Peach\DF\CodecChain</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_prepend">#</a>
+		<code><a href="source-class-Peach.DF.CodecChain.html#86-95" title="Go to source code">prepend</a>( <span><code><a href="class-Peach.DF.Codec.html">Peach\DF\Codec</a></code> <var>$c</var></span> )</code>
+
+		<div class="description short">
+			
+<p>チェーンの先頭に新しい Codec を連結させた, 新しい
+CodecChain インスタンスを返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>チェーンの先頭に新しい Codec を連結させた, 新しい
+CodecChain インスタンスを返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$c</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DF.CodecChain.html">Peach\DF\CodecChain</a></code></code><br>CodecChain<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="decode" id="_decode">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_decode">#</a>
+		<code><a href="source-class-Peach.DF.CodecChain.html#97-106" title="Go to source code">decode</a>( <span>mixed <var>$text</var></span> )</code>
+
+		<div class="description short">
+			
+<p>このオブジェクトに指定された Codec
+を使って指定された値をデコードします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このオブジェクトに指定された Codec
+を使って指定された値をデコードします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>デコード対象の値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>変換結果<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DF.Codec.html#_decode">Peach\DF\Codec::decode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="encode" id="_encode">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_encode">#</a>
+		<code><a href="source-class-Peach.DF.CodecChain.html#108-117" title="Go to source code">encode</a>( <span>mixed <var>$var</var></span> )</code>
+
+		<div class="description short">
+			
+<p>このオブジェクトに指定された Codec
+を使って指定された値をエンコードします.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>このオブジェクトに指定された Codec
+を使って指定された値をエンコードします.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd>エンコード対象の値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>変換結果<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DF.Codec.html#_encode">Peach\DF\Codec::encode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?479437553"></script>
+</body>
+</html>

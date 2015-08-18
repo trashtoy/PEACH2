@@ -22,6 +22,8 @@
 			<ul>
 				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
 						<ul>
+				<li><a href="namespace-Peach.DF.html">DF</a>
+						</li>
 				<li><a href="namespace-Peach.DT.html">DT</a>
 						</li>
 				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
@@ -60,6 +62,7 @@
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
+				<li><a href="class-Peach.Markup.NameValidator.html">NameValidator</a></li>
 				<li><a href="class-Peach.Markup.NodeList.html">NodeList</a></li>
 				<li><a href="class-Peach.Markup.None.html">None</a></li>
 				<li><a href="class-Peach.Markup.SgmlRenderer.html">SgmlRenderer</a></li>
@@ -571,13 +574,13 @@
 </span><span id="454" class="l"><a class="l" href="#454">454: </a>    {
 </span><span id="455" class="l"><a class="l" href="#455">455: </a>        <span class="php-keyword1">switch</span> (<span class="php-var">$name</span>) {
 </span><span id="456" class="l"><a class="l" href="#456">456: </a>            <span class="php-keyword1">case</span> <span class="php-quote">&quot;tag&quot;</span>:
-</span><span id="457" class="l"><a class="l" href="#457">457: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-var">$n</span> = <span class="php-keyword1">null</span>, <span class="php-var">$a</span> = <span class="php-keyword1">array</span>()) { <span class="php-keyword1">return</span> self::tag(<span class="php-var">$n</span>, <span class="php-var">$a</span>); };
+</span><span id="457" class="l"><a class="l" href="#457">457: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-var">$n</span> = <span class="php-keyword1">null</span>, <span class="php-var">$a</span> = <span class="php-keyword1">array</span>()) { <span class="php-keyword1">return</span> Html::tag(<span class="php-var">$n</span>, <span class="php-var">$a</span>); };
 </span><span id="458" class="l"><a class="l" href="#458">458: </a>            <span class="php-keyword1">case</span> <span class="php-quote">&quot;comment&quot;</span>:
-</span><span id="459" class="l"><a class="l" href="#459">459: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-var">$c</span>, <span class="php-var">$p</span> = <span class="php-quote">&quot;&quot;</span>, <span class="php-var">$s</span> = <span class="php-quote">&quot;&quot;</span>) { <span class="php-keyword1">return</span> self::comment(<span class="php-var">$c</span>, <span class="php-var">$p</span>, <span class="php-var">$s</span>); };
+</span><span id="459" class="l"><a class="l" href="#459">459: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-var">$c</span>, <span class="php-var">$p</span> = <span class="php-quote">&quot;&quot;</span>, <span class="php-var">$s</span> = <span class="php-quote">&quot;&quot;</span>) { <span class="php-keyword1">return</span> Html::comment(<span class="php-var">$c</span>, <span class="php-var">$p</span>, <span class="php-var">$s</span>); };
 </span><span id="460" class="l"><a class="l" href="#460">460: </a>            <span class="php-keyword1">case</span> <span class="php-quote">&quot;conditionalComment&quot;</span>:
-</span><span id="461" class="l"><a class="l" href="#461">461: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-var">$c1</span>, <span class="php-var">$c2</span>) { <span class="php-keyword1">return</span> self::conditionalComment(<span class="php-var">$c1</span>, <span class="php-var">$c2</span>); };
+</span><span id="461" class="l"><a class="l" href="#461">461: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-var">$c1</span>, <span class="php-var">$c2</span>) { <span class="php-keyword1">return</span> Html::conditionalComment(<span class="php-var">$c1</span>, <span class="php-var">$c2</span>); };
 </span><span id="462" class="l"><a class="l" href="#462">462: </a>            <span class="php-keyword1">case</span> <span class="php-quote">&quot;select&quot;</span>:
-</span><span id="463" class="l"><a class="l" href="#463">463: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-var">$c1</span>, <span class="php-var">$c2</span>, <span class="php-var">$a</span> = <span class="php-keyword1">array</span>()) { <span class="php-keyword1">return</span> self::select(<span class="php-var">$c1</span>, <span class="php-var">$c2</span>, <span class="php-var">$a</span>); };
+</span><span id="463" class="l"><a class="l" href="#463">463: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">function</span> (<span class="php-var">$c1</span>, <span class="php-var">$c2</span>, <span class="php-var">$a</span> = <span class="php-keyword1">array</span>()) { <span class="php-keyword1">return</span> Html::select(<span class="php-var">$c1</span>, <span class="php-var">$c2</span>, <span class="php-var">$a</span>); };
 </span><span id="464" class="l"><a class="l" href="#464">464: </a>        }
 </span><span id="465" class="l"><a class="l" href="#465">465: </a>        
 </span><span id="466" class="l"><a class="l" href="#466">466: </a>        <span class="php-comment">// @codeCoverageIgnoreStart</span>
@@ -628,6 +631,6 @@
 </div>
 </div>
 <script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?756049109"></script>
+<script src="elementlist.js?479437553"></script>
 </body>
 </html>

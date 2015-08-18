@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\DF\JsonCodec | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Peach.DF.html">DF</a>
+						</li>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.DF.Base64Codec.html">Base64Codec</a></li>
+				<li><a href="class-Peach.DF.CodecChain.html">CodecChain</a></li>
+				<li class="active"><a href="class-Peach.DF.JsonCodec.html">JsonCodec</a></li>
+				<li><a href="class-Peach.DF.SerializationCodec.html">SerializationCodec</a></li>
+				<li><a href="class-Peach.DF.Utf8Codec.html">Utf8Codec</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.DF.Codec.html">Codec</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DF.html" title="Summary of Peach\DF"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class JsonCodec</h1>
+
+
+	<div class="description">
+	
+<p>JSON 形式の文字列を扱う Codec です. このクラスは <a href="http://tools.ietf.org/html/rfc7159">RFC 7159</a> の仕様に基いて JSON のデコード (JSON を値に変換)
+とエンコード (値を JSON に変換) を行います.</p>
+
+<p>RFC 7159 によると JSON 文字列のエンコーディングは UTF-8,
+UTF-16, UTF-32 のいずれかであると定義されていますが,
+この実装は UTF-8
+でエンコーディングされていることを前提とします. UTF-8
+以外の文字列をデコードした場合はエラーとなります.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Peach\DF\JsonCodec</span></b>			
+			 implements 
+				<a href="class-Peach.DF.Codec.html"><span>Peach\DF\Codec</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DF.html">DF</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DF.JsonCodec.html#38-497" title="Go to source code">Peach/DF/JsonCodec.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.DF.JsonCodec.html#176-192" title="Go to source code">__construct</a>( <span>array|integer <var>$encodeOptions</var> = <span class="php-keyword1">null</span></span>, <span>array|integer <var>$decodeOptions</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>新しい JsonCodec を構築します. 引数に encode() および decode()
+の出力のカスタマイズオプションを指定することが出来ます.
+引数は配列または整数を指定することが出来ます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>新しい JsonCodec を構築します. 引数に encode() および decode()
+の出力のカスタマイズオプションを指定することが出来ます.
+引数は配列または整数を指定することが出来ます.</p>
+
+<ul>
+	<li>配列の場合: キーにオプション定数, 値に true または false
+	を指定してください.</li>
+
+	<li>整数の場合:
+	各オプションのビットマスクを指定してください. 例えば
+	JsonCodec::HEX_TAG | JsonCodec::HEX_AMP のような形式となります.</li>
+</ul>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$encodeOptions</var></dt>
+					<dd>encode() のカスタマイズオプション</dd>
+					<dt><var>$decodeOptions</var></dt>
+					<dd>decode() のカスタマイズオプション</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getEncodeOption" id="_getEncodeOption">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getEncodeOption">#</a>
+		<code><a href="source-class-Peach.DF.JsonCodec.html#235-244" title="Go to source code">getEncodeOption</a>( <span>integer <var>$code</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたエンコード用オプションが ON
+かどうかを調べます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたエンコード用オプションが ON
+かどうかを調べます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd>オプション (定義されている定数)</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>指定されたオプションが ON の場合は true, それ以外は false<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDecodeOption" id="_getDecodeOption">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDecodeOption">#</a>
+		<code><a href="source-class-Peach.DF.JsonCodec.html#246-255" title="Go to source code">getDecodeOption</a>( <span>integer <var>$code</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定されたデコード用オプションが ON
+かどうかを調べます.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定されたデコード用オプションが ON
+かどうかを調べます.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd>オプション (定義されている定数)</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>指定されたオプションが ON の場合は true, それ以外は false<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="decode" id="_decode">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_decode">#</a>
+		<code><a href="source-class-Peach.DF.JsonCodec.html#257-278" title="Go to source code">decode</a>( <span>string <var>$text</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された JSON 文字列を値に変換します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された JSON 文字列を値に変換します.</p>
+
+<p>引数が空白文字列 (または null, false) の場合は null
+を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>変換対象の JSON 文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>変換結果<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DF.Codec.html#_decode">Peach\DF\Codec::decode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="encode" id="_encode">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_encode">#</a>
+		<code><a href="source-class-Peach.DF.JsonCodec.html#280-289" title="Go to source code">encode</a>( <span>mixed <var>$var</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された値を JSON 文字列に変換します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された値を JSON 文字列に変換します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd>変換対象の値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>JSON 文字列<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DF.Codec.html#_encode">Peach\DF\Codec::encode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="HEX_TAG" id="HEX_TAG">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#50-57" title="Go to source code"><b>HEX_TAG</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_HEX_TAG に相当するオプションです. 文字 %x3c
+(LESS-THAN SIGN) および %x3e (GREATER-THAN SIGN) をそれぞれ "\u003C"
+および "\u003E" にエンコードします</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_HEX_TAG に相当するオプションです. 文字 %x3c
+(LESS-THAN SIGN) および %x3e (GREATER-THAN SIGN) をそれぞれ "\u003C"
+および "\u003E" にエンコードします</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#HEX_TAG" class="anchor">#</a><code><span class="php-num">1</span></code></div></td>
+	</tr>
+	<tr data-order="HEX_AMP" id="HEX_AMP">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#59-65" title="Go to source code"><b>HEX_AMP</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_HEX_AMP に相当するオプションです. 文字 "&amp;" を
+"\u0026" にエンコードします.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_HEX_AMP に相当するオプションです. 文字 "&amp;" を
+"\u0026" にエンコードします.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#HEX_AMP" class="anchor">#</a><code><span class="php-num">2</span></code></div></td>
+	</tr>
+	<tr data-order="HEX_APOS" id="HEX_APOS">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#67-73" title="Go to source code"><b>HEX_APOS</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_HEX_APOS に相当するオプションです. 文字 "'" を
+"\u0027" にエンコードします.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_HEX_APOS に相当するオプションです. 文字 "'" を
+"\u0027" にエンコードします.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#HEX_APOS" class="anchor">#</a><code><span class="php-num">4</span></code></div></td>
+	</tr>
+	<tr data-order="HEX_QUOT" id="HEX_QUOT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#75-81" title="Go to source code"><b>HEX_QUOT</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_HEX_QUOT に相当するオプションです. 文字 '"' を
+"\u0022" にエンコードします.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_HEX_QUOT に相当するオプションです. 文字 '"' を
+"\u0022" にエンコードします.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#HEX_QUOT" class="anchor">#</a><code><span class="php-num">8</span></code></div></td>
+	</tr>
+	<tr data-order="FORCE_OBJECT" id="FORCE_OBJECT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#83-93" title="Go to source code"><b>FORCE_OBJECT</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_FORCE_OBJECT に相当するオプションです. 通常は
+array 形式でエンコードされる配列を object
+形式でエンコードします.
+具体的には以下の配列の出力に影響します.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_FORCE_OBJECT に相当するオプションです. 通常は
+array 形式でエンコードされる配列を object
+形式でエンコードします.
+具体的には以下の配列の出力に影響します.</p>
+
+<ul>
+	<li>空の配列</li>
+
+	<li>添字が 0 から始まる整数の連続 (0, 1, 2, ...)
+	となっている配列</li>
+</ul>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#FORCE_OBJECT" class="anchor">#</a><code><span class="php-num">16</span></code></div></td>
+	</tr>
+	<tr data-order="NUMERIC_CHECK" id="NUMERIC_CHECK">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#95-99" title="Go to source code"><b>NUMERIC_CHECK</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_NUMERIC_CHECK に相当するオプションです.
+数値表現の文字列を数値としてエンコードします.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_NUMERIC_CHECK に相当するオプションです.
+数値表現の文字列を数値としてエンコードします.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#NUMERIC_CHECK" class="anchor">#</a><code><span class="php-num">32</span></code></div></td>
+	</tr>
+	<tr data-order="UNESCAPED_SLASHES" id="UNESCAPED_SLASHES">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#101-107" title="Go to source code"><b>UNESCAPED_SLASHES</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_UNESCAPED_SLASHES に相当するオプションです.
+エンコードの際に "/" をエスケープしないようにします.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_UNESCAPED_SLASHES に相当するオプションです.
+エンコードの際に "/" をエスケープしないようにします.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#UNESCAPED_SLASHES" class="anchor">#</a><code><span class="php-num">64</span></code></div></td>
+	</tr>
+	<tr data-order="PRETTY_PRINT" id="PRETTY_PRINT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#109-116" title="Go to source code"><b>PRETTY_PRINT</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_PRETTY_PRINT に相当するオプションです. object, array
+形式の書式でエンコードする際に, 半角スペース 4
+個でインデントして整形します.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_PRETTY_PRINT に相当するオプションです. object, array
+形式の書式でエンコードする際に, 半角スペース 4
+個でインデントして整形します.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#PRETTY_PRINT" class="anchor">#</a><code><span class="php-num">128</span></code></div></td>
+	</tr>
+	<tr data-order="UNESCAPED_UNICODE" id="UNESCAPED_UNICODE">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#118-124" title="Go to source code"><b>UNESCAPED_UNICODE</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_UNESCAPED_UNICODE に相当するオプションです.
+エンコードの際にマルチバイト文字を UTF-8
+文字として表現します.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_UNESCAPED_UNICODE に相当するオプションです.
+エンコードの際にマルチバイト文字を UTF-8
+文字として表現します.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#UNESCAPED_UNICODE" class="anchor">#</a><code><span class="php-num">256</span></code></div></td>
+	</tr>
+	<tr data-order="PRESERVE_ZERO_FRACTION" id="PRESERVE_ZERO_FRACTION">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#126-134" title="Go to source code"><b>PRESERVE_ZERO_FRACTION</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_PRESERVE_ZERO_FRACTION に相当するオプションです.
+float 型の値を常に float 値としてエンコードします.
+このオプションが OFF の場合, 小数部が 0 の数値 (2.0 など)
+は 整数としてエンコードされます.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_PRESERVE_ZERO_FRACTION に相当するオプションです.
+float 型の値を常に float 値としてエンコードします.
+このオプションが OFF の場合, 小数部が 0 の数値 (2.0 など)
+は 整数としてエンコードされます.</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#PRESERVE_ZERO_FRACTION" class="anchor">#</a><code><span class="php-num">1024</span></code></div></td>
+	</tr>
+	<tr data-order="OBJECT_AS_ARRAY" id="OBJECT_AS_ARRAY">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#136-144" title="Go to source code"><b>OBJECT_AS_ARRAY</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p><a href="http://php.net/manual/function.json-decode.php">json_decode()</a> の第 2 引数に相当する,
+このクラス独自のオプションです. このオプションが ON
+の場合, object
+形式の値をデコードする際に配列に変換します.
+(デフォルトでは stdClass オブジェクトとなります)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p><a href="http://php.net/manual/function.json-decode.php">json_decode()</a> の第 2 引数に相当する,
+このクラス独自のオプションです. このオプションが ON
+の場合, object
+形式の値をデコードする際に配列に変換します.
+(デフォルトでは stdClass オブジェクトとなります)</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#OBJECT_AS_ARRAY" class="anchor">#</a><code><span class="php-num">1</span></code></div></td>
+	</tr>
+	<tr data-order="BIGINT_AS_STRING" id="BIGINT_AS_STRING">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Peach.DF.JsonCodec.html#146-153" title="Go to source code"><b>BIGINT_AS_STRING</b></a>
+			</code>
+
+			<div class="description short">
+				
+<p>定数 JSON_BIGINT_AS_STRING に相当するオプションです.
+巨大整数をデコードする際に, int
+の範囲に収まらない値を文字列に変換します.
+(デフォルトでは float 型となります)</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>定数 JSON_BIGINT_AS_STRING に相当するオプションです.
+巨大整数をデコードする際に, int
+の範囲に収まらない値を文字列に変換します.
+(デフォルトでは float 型となります)</p>
+
+
+			</div>
+		</td>
+		<td class="value"><div><a href="#BIGINT_AS_STRING" class="anchor">#</a><code><span class="php-num">2</span></code></div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?479437553"></script>
+</body>
+</html>

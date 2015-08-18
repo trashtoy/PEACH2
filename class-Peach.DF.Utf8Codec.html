@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\DF\Utf8Codec | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Peach.DF.html">DF</a>
+						</li>
+				<li><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.DF.Base64Codec.html">Base64Codec</a></li>
+				<li><a href="class-Peach.DF.CodecChain.html">CodecChain</a></li>
+				<li><a href="class-Peach.DF.JsonCodec.html">JsonCodec</a></li>
+				<li><a href="class-Peach.DF.SerializationCodec.html">SerializationCodec</a></li>
+				<li class="active"><a href="class-Peach.DF.Utf8Codec.html">Utf8Codec</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.DF.Codec.html">Codec</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DF.html" title="Summary of Peach\DF"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Utf8Codec</h1>
+
+
+	<div class="description">
+	
+<p>UTF-8 で符号化された文字列を扱う Codec です.
+このクラスの decode メソッドは, UTF-8
+の文字列を文字単位で分解し, 各文字の Unicode
+符号点をあらわす整数の配列を返します. encode メソッドは,
+整数の配列を UTF-8 の文字列に変換します.</p>
+
+<p>UTF-8 のビットパターンは以下の通りです.</p>
+
+<pre>
+0xxxxxxx                                               (00-7f)
+110xxxxx 10xxxxxx                                      (c0-df)(80-bf)
+1110xxxx 10xxxxxx 10xxxxxx                             (e0-ef)(80-bf)(80-bf)
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx                    (f0-f7)(80-bf)(80-bf)(80-bf)
+111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx           (f8-fb)(80-bf)(80-bf)(80-bf)(80-bf)
+1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx  (fc-fd)(80-bf)(80-bf)(80-bf)(80-bf)(80-bf)
+</pre>
+
+<p>RFC 3629 では 5
+バイト以上のシーケンスが無効とされましたが,
+このクラスは RFC 2279 に基づいて 5
+バイト以上のシーケンスも受理します. なお,
+このクラスはサロゲートペアを考慮しません.</p>
+
+<p>引用文献: <a href="http://ja.wikipedia.org/wiki/UTF-8">UTF-8 - Wikipedia</a></p>
+
+<p>このクラスは将来的に状態 (メンバ変数)
+を持つ可能性が高いので, 敢えて Singleton
+パターンにしていません.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Peach\DF\Utf8Codec</span></b>			
+			 implements 
+				<a href="class-Peach.DF.Codec.html"><span>Peach\DF\Codec</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DF.html">DF</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DF.Utf8Codec.html#32-186" title="Go to source code">Peach/DF/Utf8Codec.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="decode" id="_decode">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_decode">#</a>
+		<code><a href="source-class-Peach.DF.Utf8Codec.html#59-85" title="Go to source code">decode</a>( <span>string <var>$text</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された UTF-8 の文字列を Unicode
+符号点の配列に変換します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された UTF-8 の文字列を Unicode
+符号点の配列に変換します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$text</var></dt>
+					<dd>UTF-8 でエンコードされた文字列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>Unicode 符号点の配列<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DF.Codec.html#_decode">Peach\DF\Codec::decode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="encode" id="_encode">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_encode">#</a>
+		<code><a href="source-class-Peach.DF.Utf8Codec.html#87-99" title="Go to source code">encode</a>( <span>array|integer <var>$var</var></span> )</code>
+
+		<div class="description short">
+			
+<p>指定された Unicode 符号点の配列を UTF-8
+文字列に変換します. 引数には Unicode
+符号点をあらわす正の整数の配列を指定してください.
+配列以外の値を指定した場合は, その引数
+(整数でない場合はメソッド内で整数に変換されます) を
+Unicode 符号点とみなし, 1 文字分の UTF-8
+文字列を返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>指定された Unicode 符号点の配列を UTF-8
+文字列に変換します. 引数には Unicode
+符号点をあらわす正の整数の配列を指定してください.
+配列以外の値を指定した場合は, その引数
+(整数でない場合はメソッド内で整数に変換されます) を
+Unicode 符号点とみなし, 1 文字分の UTF-8
+文字列を返します.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd>Unicode 符号点の配列</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>UTF-8 文字列<br>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.DF.Codec.html#_encode">Peach\DF\Codec::encode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?479437553"></script>
+</body>
+</html>

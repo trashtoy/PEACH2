@@ -21,6 +21,8 @@
 			<ul>
 				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
 						<ul>
+				<li><a href="namespace-Peach.DF.html">DF</a>
+						</li>
 				<li><a href="namespace-Peach.DT.html">DT</a>
 						</li>
 				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
@@ -59,6 +61,7 @@
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
+				<li><a href="class-Peach.Markup.NameValidator.html">NameValidator</a></li>
 				<li><a href="class-Peach.Markup.NodeList.html">NodeList</a></li>
 				<li><a href="class-Peach.Markup.None.html">None</a></li>
 				<li><a href="class-Peach.Markup.SgmlRenderer.html">SgmlRenderer</a></li>
@@ -151,7 +154,7 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.Element.html#33-177" title="Go to source code">Peach/Markup/Element.php</a><br>
+		<b>Located at</b> <a href="source-class-Peach.Markup.Element.html#35-205" title="Go to source code">Peach/Markup/Element.php</a><br>
 	</div>
 
 
@@ -169,7 +172,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Peach.Markup.Element.html#50-61" title="Go to source code">__construct</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.Element.html#52-62" title="Go to source code">__construct</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -211,7 +214,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getName">#</a>
-		<code><a href="source-class-Peach.Markup.Element.html#76-83" title="Go to source code">getName</a>( )</code>
+		<code><a href="source-class-Peach.Markup.Element.html#103-110" title="Go to source code">getName</a>( )</code>
 
 		<div class="description short">
 			
@@ -248,7 +251,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getAttribute">#</a>
-		<code><a href="source-class-Peach.Markup.Element.html#85-98" title="Go to source code">getAttribute</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.Element.html#112-125" title="Go to source code">getAttribute</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -294,7 +297,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_hasAttribute">#</a>
-		<code><a href="source-class-Peach.Markup.Element.html#100-108" title="Go to source code">hasAttribute</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.Element.html#127-135" title="Go to source code">hasAttribute</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -336,7 +339,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setAttribute">#</a>
-		<code><a href="source-class-Peach.Markup.Element.html#110-121" title="Go to source code">setAttribute</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Peach.Markup.Element.html#137-149" title="Go to source code">setAttribute</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -380,7 +383,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setAttributes">#</a>
-		<code><a href="source-class-Peach.Markup.Element.html#123-154" title="Go to source code">setAttributes</a>( <span>array|<code><a href="class-Peach.Util.ArrayMap.html">Peach\Util\ArrayMap</a></code> <var>$attr</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.Element.html#151-182" title="Go to source code">setAttributes</a>( <span>array|<code><a href="class-Peach.Util.ArrayMap.html">Peach\Util\ArrayMap</a></code> <var>$attr</var></span> )</code>
 
 		<div class="description short">
 			
@@ -446,7 +449,7 @@ class="php-quote">&quot;bar&quot;</span>));
 
 		<td class="name"><div>
 		<a class="anchor" href="#_removeAttribute">#</a>
-		<code><a href="source-class-Peach.Markup.Element.html#156-163" title="Go to source code">removeAttribute</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.Element.html#184-191" title="Go to source code">removeAttribute</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -484,7 +487,7 @@ class="php-quote">&quot;bar&quot;</span>));
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getAttributes">#</a>
-		<code><a href="source-class-Peach.Markup.Element.html#165-176" title="Go to source code">getAttributes</a>( )</code>
+		<code><a href="source-class-Peach.Markup.Element.html#193-204" title="Go to source code">getAttributes</a>( )</code>
 
 		<div class="description short">
 			
@@ -550,6 +553,6 @@ class="php-quote">&quot;bar&quot;</span>));
 </div>
 </div>
 <script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?756049109"></script>
+<script src="elementlist.js?479437553"></script>
 </body>
 </html>
