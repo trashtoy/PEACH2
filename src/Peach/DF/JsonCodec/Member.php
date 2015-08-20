@@ -29,7 +29,7 @@
 namespace Peach\DF\JsonCodec;
 
 /**
- * JSON の BNF ルール value をあらわす Expression です.
+ * JSON の BNF ルール member をあらわす Expression です.
  * RFC 7159 で定義されている以下のフォーマットを解釈します.
  * 
  * <pre>
