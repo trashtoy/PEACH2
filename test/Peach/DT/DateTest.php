@@ -6,11 +6,18 @@ use Peach\Util\ArrayMap;
 class DateTest extends AbstractTimeTest
 {
     /**
+     * @var string
+     */
+    private $defaultTZ;
+    
+    /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
     protected function setUp()
     {
+        $this->defaultTZ = date_default_timezone_get();
+        date_default_timezone_set("Asia/Tokyo");
     }
     
     /**
@@ -19,6 +26,7 @@ class DateTest extends AbstractTimeTest
      */
     protected function tearDown()
     {
+        date_default_timezone_set($this->defaultTZ);
     }
     
     /**
@@ -34,6 +42,21 @@ class DateTest extends AbstractTimeTest
         $this->assertSame(intval(date("Y", $time)), $d->get("year"));
         $this->assertSame(intval(date("n", $time)), $d->get("month"));
         $this->assertSame(intval(date("j", $time)), $d->get("date"));
+    }
+    
+    /**
+     * 任意の Clock オブジェクトを引数に指定して now() を実行した場合,
+     * その Clock があらわす日付の Date オブジェクトを返すことを確認します.
+     * 
+     * @covers Peach\DT\Date::now
+     */
+    public function testNowByClock()
+    {
+        $clock = new FixedClock(1234567890);
+        $d     = Date::now($clock);
+        $this->assertSame(2009, $d->get("year"));
+        $this->assertSame(2,    $d->get("month"));
+        $this->assertSame(14,   $d->get("date"));
     }
     
     /**

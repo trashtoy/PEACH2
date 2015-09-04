@@ -6,11 +6,18 @@ use Peach\Util\ArrayMap;
 class TimestampTest extends AbstractTimeTest
 {
     /**
+     * @var string
+     */
+    private $defaultTZ;
+    
+    /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
     protected function setUp()
     {
+        $this->defaultTZ = date_default_timezone_get();
+        date_default_timezone_set("Asia/Tokyo");
     }
     
     /**
@@ -19,6 +26,7 @@ class TimestampTest extends AbstractTimeTest
      */
     protected function tearDown()
     {
+        date_default_timezone_set($this->defaultTZ);
     }
     
     /**
@@ -38,6 +46,24 @@ class TimestampTest extends AbstractTimeTest
         $this->assertSame(intval(date("G", $time)), $d->get("hour"));
         $this->assertSame(intval(date("i", $time)), $d->get("min"));
         $this->assertSame(intval(date("s", $time)), $d->get("sec"));
+    }
+    
+    /**
+     * 任意の Clock オブジェクトを引数に指定して now() を実行した場合,
+     * その Clock があらわす現在時刻の Timestamp オブジェクトを返すことを確認します.
+     * 
+     * @covers Peach\DT\Timestamp::now
+     */
+    public function testNowByClock()
+    {
+        $clock = new FixedClock(1234567890);
+        $d     = Timestamp::now($clock);
+        $this->assertSame(2009, $d->get("year"));
+        $this->assertSame(2,    $d->get("month"));
+        $this->assertSame(14,   $d->get("date"));
+        $this->assertSame(8,    $d->get("hour"));
+        $this->assertSame(31,   $d->get("minute"));
+        $this->assertSame(30,   $d->get("second"));
     }
     
     /**
