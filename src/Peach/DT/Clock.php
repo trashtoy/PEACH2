@@ -23,74 +23,40 @@
 /**
  * PHP class file.
  * @auhtor trashtoy
- * @since  2.1.0
- * @ignore
+ * @since  2.1.1
  */
-namespace Peach\DF\JsonCodec;
+namespace Peach\DT;
 
 /**
- * JSON の BNF ルール member をあらわす Expression です.
- * RFC 7159 で定義されている以下のフォーマットを解釈します.
+ * 現在時刻を生成するためのクラスです. このクラスのインスタンスは
+ * {@link Peach\DT\Date::now},
+ * {@link Peach\DT\Datetime::now},
+ * {@link Peach\DT\Timestamp::now}
+ * などのメソッドの引数に渡す形で使用します.
  * 
- * <pre>
- * member = string name-separator value
- * </pre>
+ * このクラスの具象クラスは以下の用途で利用されることを想定しています.
  * 
- * @ignore
+ * - 現在時刻に依存する機能の単体テスト
+ * - 現在時刻を過去または未来にセットして特定の機能をエミュレートする
  */
-class Member implements Expression
+abstract class Clock
 {
     /**
-     *
-     * @var string
-     */
-    private $key;
-    
-    /**
-     *
-     * @var mixed
-     */
-    private $value;
-    
-    public function __construct()
-    {
-        $this->key   = null;
-        $this->value = null;
-    }
-    
-    /**
+     * この Clock が指し示す時間を Unix time として返します.
      * 
-     * @param Context $context
+     * @return int Unix time
      */
-    public function handle(Context $context)
-    {
-        $string = new StringExpr();
-        $string->handle($context);
-        $this->key = $string->getResult();
-        
-        $nameSeparator = new StructuralChar(array(":"));
-        $nameSeparator->handle($context);
-        
-        $value = new Value();
-        $value->handle($context);
-        $this->value = $value->getResult();
-    }
+    abstract protected function getUnixTime();
     
     /**
+     * {@link Peach\DT\Clock::getUnixTime} で取得した値を使って
+     * Timestamp インスタンスを生成します.
      * 
-     * @return string
+     * @return Timestamp
      */
-    public function getKey()
+    public function getTimestamp()
     {
-        return $this->key;
-    }
-    
-    /**
-     * 
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
+        $ms = $this->getUnixTime();
+        return UnixTimeFormat::getInstance()->parseTimestamp($ms);
     }
 }

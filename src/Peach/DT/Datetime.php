@@ -52,17 +52,16 @@ class Datetime extends Date
     /**
      * 現在時刻の Datetime オブジェクトを返します.
      * 
-     * @return Datetime 現在時刻をあらわす Datetime
+     * @param  Clock $clock 現在時刻を取得するための Clock オブジェクト
+     * @return Datetime     現在時刻をあらわす Datetime
      */
-    public static function now()
+    public static function now(Clock $clock = null)
     {
-        $time  = time();
-        $year  = date("Y", $time);
-        $month = date("n", $time);
-        $date  = date("d", $time);
-        $hour  = date("H", $time);
-        $min   = date("i", $time);
-        return new self($year, $month, $date, $hour, $min);
+        if ($clock === null) {
+            return self::now(DefaultClock::getInstance());
+        }
+        
+        return $clock->getTimestamp()->toDatetime();
     }
     
     /**

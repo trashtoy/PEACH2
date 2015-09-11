@@ -23,74 +23,37 @@
 /**
  * PHP class file.
  * @auhtor trashtoy
- * @since  2.1.0
- * @ignore
+ * @since  2.1.1
  */
-namespace Peach\DF\JsonCodec;
+namespace Peach\DT;
 
 /**
- * JSON の BNF ルール member をあらわす Expression です.
- * RFC 7159 で定義されている以下のフォーマットを解釈します.
- * 
- * <pre>
- * member = string name-separator value
- * </pre>
- * 
- * @ignore
+ * 特定の日時を現在時刻とする Clock の実装です.
  */
-class Member implements Expression
+class FixedClock extends Clock
 {
     /**
-     *
-     * @var string
+     * 現在時刻をあらわす unix time です.
+     * @var int
      */
-    private $key;
+    private $time;
     
     /**
-     *
-     * @var mixed
+     * 指定された unix time を現在時刻とする FixedClock インスタンスを生成します.
+     * @param int $time 任意の unix time
      */
-    private $value;
-    
-    public function __construct()
+    public function __construct($time)
     {
-        $this->key   = null;
-        $this->value = null;
+        $this->time = $time;
     }
     
     /**
+     * コンストラクタの引数に指定された unix time を返します.
      * 
-     * @param Context $context
+     * @return int
      */
-    public function handle(Context $context)
+    protected function getUnixTime()
     {
-        $string = new StringExpr();
-        $string->handle($context);
-        $this->key = $string->getResult();
-        
-        $nameSeparator = new StructuralChar(array(":"));
-        $nameSeparator->handle($context);
-        
-        $value = new Value();
-        $value->handle($context);
-        $this->value = $value->getResult();
-    }
-    
-    /**
-     * 
-     * @return string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-    
-    /**
-     * 
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
+        return $this->time;
     }
 }

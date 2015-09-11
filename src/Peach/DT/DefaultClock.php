@@ -23,74 +23,42 @@
 /**
  * PHP class file.
  * @auhtor trashtoy
- * @since  2.1.0
- * @ignore
+ * @since  2.1.1
  */
-namespace Peach\DF\JsonCodec;
+namespace Peach\DT;
 
 /**
- * JSON の BNF ルール member をあらわす Expression です.
- * RFC 7159 で定義されている以下のフォーマットを解釈します.
- * 
- * <pre>
- * member = string name-separator value
- * </pre>
- * 
- * @ignore
+ * システム時刻を参照して現在時刻を生成する Clock です.
  */
-class Member implements Expression
+class DefaultClock extends Clock
 {
     /**
-     *
-     * @var string
+     * このクラスは getInstance() からインスタンス化します.
      */
-    private $key;
+    private function __construct() {}
     
     /**
-     *
-     * @var mixed
+     * このクラスのインスタンスを取得します.
+     * @return DefaultClock
+     * @codeCoverageIgnore
      */
-    private $value;
-    
-    public function __construct()
+    public static function getInstance()
     {
-        $this->key   = null;
-        $this->value = null;
+        static $instance = null;
+        if ($instance === null) {
+            $instance = new self();
+        }
+        return $instance;
     }
     
     /**
+     * システム時刻を unix time に変換して, その値を返します.
+     * このメソッドの返り値は php.ini の date.timezone 設定に依存します.
      * 
-     * @param Context $context
+     * @return int
      */
-    public function handle(Context $context)
+    protected function getUnixTime()
     {
-        $string = new StringExpr();
-        $string->handle($context);
-        $this->key = $string->getResult();
-        
-        $nameSeparator = new StructuralChar(array(":"));
-        $nameSeparator->handle($context);
-        
-        $value = new Value();
-        $value->handle($context);
-        $this->value = $value->getResult();
-    }
-    
-    /**
-     * 
-     * @return string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-    
-    /**
-     * 
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
+        return time();
     }
 }

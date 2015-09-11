@@ -32,7 +32,7 @@ This module helps you to markup HTML or XML dynamically.
 
 ### DF
 Data format encoding / decoding API.
-All the classes of this module implements interface Codec.
+All the classes of this module implement interface Codec.
 
 - Utf8Codec: dealing with the interconversion of unicode codepoints and UTF-8 string
     - example: `'süß'` (byte sequence: 73 C3 BC C3 9F) => decode => `array(0x73, 0xFC, 0xDF)` => encode => `'süß'`

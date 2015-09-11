@@ -43,18 +43,17 @@ class Timestamp extends Datetime
     
     /**
      * 実行時の Timestamp オブジェクトを返します.
-     * @return Timestamp
+     *
+     * @param Clock $clock 現在時刻を取得するための Clock オブジェクト
+     * @return Timestamp   現在時刻をあらわす Timestamp
      */
-    public static function now()
+    public static function now(Clock $clock = null)
     {
-        $time  = time();
-        $year  = date("Y", $time);
-        $month = date("n", $time);
-        $date  = date("d", $time);
-        $hour  = date("H", $time);
-        $min   = date("i", $time);
-        $sec   = date("s", $time);
-        return new self($year, $month, $date, $hour, $min, $sec);
+        if ($clock === null) {
+            return self::now(DefaultClock::getInstance());
+        }
+        
+        return $clock->getTimestamp();
     }
     
     /**

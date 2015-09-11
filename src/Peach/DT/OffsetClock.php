@@ -23,74 +23,49 @@
 /**
  * PHP class file.
  * @auhtor trashtoy
- * @since  2.1.0
- * @ignore
+ * @since  2.1.1
  */
-namespace Peach\DF\JsonCodec;
+namespace Peach\DT;
 
 /**
- * JSON の BNF ルール member をあらわす Expression です.
- * RFC 7159 で定義されている以下のフォーマットを解釈します.
- * 
- * <pre>
- * member = string name-separator value
- * </pre>
- * 
- * @ignore
+ * 指定された Clock を基準にして, 任意の秒数だけ未来または過去に移動させた現在日時を返す Clock の実装です.
  */
-class Member implements Expression
+class OffsetClock extends Clock
 {
     /**
-     *
-     * @var string
+     * ベースとなる Clock です.
+     * @var Clock
      */
-    private $key;
+    private $base;
     
     /**
-     *
-     * @var mixed
+     * 移動させる秒数です. 負の値を指定した場合は過去, 正の値を指定した場合は未来の方向に移動します.
+     * @var int
      */
-    private $value;
+    private $offset;
     
-    public function __construct()
+    /**
+     * 現在時刻を指定された秒数だけ未来または過去にずらす OffsetClock オブジェクトを生成します.
+     * 
+     * @param int   $offset 秒数
+     * @param Clock $base   ベースとなる Clock オブジェクト. 未指定の場合は DefaultClock が適用される.
+     */
+    public function __construct($offset, Clock $base = null)
     {
-        $this->key   = null;
-        $this->value = null;
+        if ($base === null) {
+            $base = DefaultClock::getInstance();
+        }
+        $this->offset = $offset;
+        $this->base   = $base;
     }
     
     /**
+     * ベースとなる Clock オブジェクトの getUnixTime() の結果を指定された秒数だけ加減した結果を返します.
      * 
-     * @param Context $context
+     * @return int unix time
      */
-    public function handle(Context $context)
+    protected function getUnixTime()
     {
-        $string = new StringExpr();
-        $string->handle($context);
-        $this->key = $string->getResult();
-        
-        $nameSeparator = new StructuralChar(array(":"));
-        $nameSeparator->handle($context);
-        
-        $value = new Value();
-        $value->handle($context);
-        $this->value = $value->getResult();
-    }
-    
-    /**
-     * 
-     * @return string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-    
-    /**
-     * 
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
+        return $this->base->getUnixTime() + $this->offset;
     }
 }

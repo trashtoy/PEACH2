@@ -58,15 +58,17 @@ class Date extends AbstractTime
     
     /**
      * 現在の日付の Date オブジェクトを返します.
-     * @return Date 現在の日付をあらわす Date オブジェクト 
+     * 
+     * @param  Clock $clock 現在時刻を取得するための Clock オブジェクト
+     * @return Date         現在の日付をあらわす Date オブジェクト
      */
-    public static function now()
+    public static function now(Clock $clock = null)
     {
-        $time  = time();
-        $year  = date("Y", $time);
-        $month = date("n", $time);
-        $date  = date("d", $time);
-        return new self($year, $month, $date);
+        if ($clock === null) {
+            return self::now(DefaultClock::getInstance());
+        }
+        
+        return $clock->getTimestamp()->toDate();
     }
     
     /**

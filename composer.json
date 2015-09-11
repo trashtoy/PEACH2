@@ -1,0 +1,24 @@
+{
+    "name": "trashtoy/peach2",
+    "description": "provides a general-purpose class library: array manipulation, datetime management, dynamically markup, data encode/decode API, etc.",
+    "keywords": ["util", "array", "datetime", "date", "time", "markup", "html", "xml"],
+    "homepage": "https://github.com/trashtoy/PEACH2",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "trashtoy",
+            "email": "trashtoy@yahoo.co.jp",
+            "homepage": "https://trashtoy.github.io/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {"Peach\\": "src/Peach"}
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
