@@ -1,9 +1,9 @@
 <?php
-namespace Peach\Http;
+namespace Peach\Http\Header;
 
 use PHPUnit_Framework_TestCase;
 
-class SimpleHeaderItemTest extends PHPUnit_Framework_TestCase
+class RawTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -22,22 +22,22 @@ class SimpleHeaderItemTest extends PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers Peach\Http\SimpleHeaderItem::__construct
-     * @covers Peach\Http\SimpleHeaderItem::format
+     * @covers Peach\Http\Header\Raw::__construct
+     * @covers Peach\Http\Header\Raw::format
      */
     public function testFormat()
     {
-        $obj = new SimpleHeaderItem("Server", "Apache");
+        $obj = new Raw("Server", "Apache");
         $this->assertSame("Apache", $obj->format());
     }
     
     /**
-     * @covers Peach\Http\SimpleHeaderItem::__construct
-     * @covers Peach\Http\SimpleHeaderItem::getName
+     * @covers Peach\Http\Header\Raw::__construct
+     * @covers Peach\Http\Header\Raw::getName
      */
     public function testGetName()
     {
-        $obj = new SimpleHeaderItem("Server", "Apache");
+        $obj = new Raw("Server", "Apache");
         $this->assertSame("Server", $obj->getName());
     }
 }

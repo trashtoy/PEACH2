@@ -25,9 +25,11 @@
  * @auhtor trashtoy
  * @since  2.2.0
  */
-namespace Peach\Http;
+namespace Peach\Http\Header;
 
-class SimpleHeaderItem implements HeaderItem
+use Peach\Http\HeaderItem;
+
+class Raw implements HeaderItem
 {
     /**
      *
