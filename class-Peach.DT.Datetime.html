@@ -42,10 +42,14 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-Peach.DT.AbstractTime.html">AbstractTime</a></li>
+				<li><a href="class-Peach.DT.Clock.html">Clock</a></li>
 				<li><a href="class-Peach.DT.Date.html">Date</a></li>
 				<li class="active"><a href="class-Peach.DT.Datetime.html">Datetime</a></li>
+				<li><a href="class-Peach.DT.DefaultClock.html">DefaultClock</a></li>
+				<li><a href="class-Peach.DT.FixedClock.html">FixedClock</a></li>
 				<li><a href="class-Peach.DT.FormatWrapper.html">FormatWrapper</a></li>
 				<li><a href="class-Peach.DT.HttpDateFormat.html">HttpDateFormat</a></li>
+				<li><a href="class-Peach.DT.OffsetClock.html">OffsetClock</a></li>
 				<li><a href="class-Peach.DT.ShiftFormat.html">ShiftFormat</a></li>
 				<li><a href="class-Peach.DT.SimpleFormat.html">SimpleFormat</a></li>
 				<li><a href="class-Peach.DT.TimeEquator.html">TimeEquator</a></li>
@@ -152,7 +156,7 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.DT.Datetime.html#32-295" title="Go to source code">Peach/DT/Datetime.php</a><br>
+		<b>Located at</b> <a href="source-class-Peach.DT.Datetime.html#32-294" title="Go to source code">Peach/DT/Datetime.php</a><br>
 	</div>
 
 
@@ -170,7 +174,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_now">#</a>
-		<code><a href="source-class-Peach.DT.Datetime.html#52-66" title="Go to source code">now</a>( )</code>
+		<code><a href="source-class-Peach.DT.Datetime.html#52-65" title="Go to source code">now</a>( <span><code><a href="class-Peach.DT.Clock.html">Peach\DT\Clock</a></code> <var>$clock</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -184,6 +188,11 @@
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$clock</var></dt>
+					<dd>現在時刻を取得するための Clock オブジェクト</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
@@ -209,7 +218,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parse">#</a>
-		<code><a href="source-class-Peach.DT.Datetime.html#68-85" title="Go to source code">parse</a>( <span>string <var>$text</var></span>, <span><code><a href="class-Peach.DT.Format.html">Peach\DT\Format</a></code> <var>$format</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Peach.DT.Datetime.html#67-84" title="Go to source code">parse</a>( <span>string <var>$text</var></span>, <span><code><a href="class-Peach.DT.Format.html">Peach\DT\Format</a></code> <var>$format</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -265,7 +274,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Peach.DT.Datetime.html#87-105" title="Go to source code">__construct</a>( <span>integer <var>$year</var></span>, <span>integer <var>$month</var></span>, <span>integer <var>$date</var></span>, <span>integer <var>$hour</var></span>, <span>integer <var>$min</var></span> )</code>
+		<code><a href="source-class-Peach.DT.Datetime.html#86-104" title="Go to source code">__construct</a>( <span>integer <var>$year</var></span>, <span>integer <var>$month</var></span>, <span>integer <var>$date</var></span>, <span>integer <var>$hour</var></span>, <span>integer <var>$min</var></span> )</code>
 
 		<div class="description short">
 			
@@ -315,7 +324,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getType">#</a>
-		<code><a href="source-class-Peach.DT.Datetime.html#107-114" title="Go to source code">getType</a>( )</code>
+		<code><a href="source-class-Peach.DT.Datetime.html#106-113" title="Go to source code">getType</a>( )</code>
 
 		<div class="description short">
 			
@@ -356,7 +365,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_formatTime">#</a>
-		<code><a href="source-class-Peach.DT.Datetime.html#222-232" title="Go to source code">formatTime</a>( )</code>
+		<code><a href="source-class-Peach.DT.Datetime.html#221-231" title="Go to source code">formatTime</a>( )</code>
 
 		<div class="description short">
 			
@@ -397,7 +406,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___toString">#</a>
-		<code><a href="source-class-Peach.DT.Datetime.html#234-244" title="Go to source code">__toString</a>( )</code>
+		<code><a href="source-class-Peach.DT.Datetime.html#233-243" title="Go to source code">__toString</a>( )</code>
 
 		<div class="description short">
 			
@@ -438,7 +447,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toDatetime">#</a>
-		<code><a href="source-class-Peach.DT.Datetime.html#246-255" title="Go to source code">toDatetime</a>( )</code>
+		<code><a href="source-class-Peach.DT.Datetime.html#245-254" title="Go to source code">toDatetime</a>( )</code>
 
 		<div class="description short">
 			
@@ -479,7 +488,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toTimestamp">#</a>
-		<code><a href="source-class-Peach.DT.Datetime.html#257-266" title="Go to source code">toTimestamp</a>( )</code>
+		<code><a href="source-class-Peach.DT.Datetime.html#256-265" title="Go to source code">toTimestamp</a>( )</code>
 
 		<div class="description short">
 			
@@ -580,6 +589,6 @@
 </div>
 </div>
 <script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?479437553"></script>
+<script src="elementlist.js?1670841986"></script>
 </body>
 </html>

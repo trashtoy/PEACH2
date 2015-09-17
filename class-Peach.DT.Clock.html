@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Peach\DT\Clock | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?3901564645">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+						<ul>
+				<li><a href="namespace-Peach.DF.html">DF</a>
+						</li>
+				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+						</li>
+				<li><a href="namespace-Peach.Markup.html">Markup</a>
+						</li>
+				<li><a href="namespace-Peach.Util.html">Util</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.DT.AbstractTime.html">AbstractTime</a></li>
+				<li class="active"><a href="class-Peach.DT.Clock.html">Clock</a></li>
+				<li><a href="class-Peach.DT.Date.html">Date</a></li>
+				<li><a href="class-Peach.DT.Datetime.html">Datetime</a></li>
+				<li><a href="class-Peach.DT.DefaultClock.html">DefaultClock</a></li>
+				<li><a href="class-Peach.DT.FixedClock.html">FixedClock</a></li>
+				<li><a href="class-Peach.DT.FormatWrapper.html">FormatWrapper</a></li>
+				<li><a href="class-Peach.DT.HttpDateFormat.html">HttpDateFormat</a></li>
+				<li><a href="class-Peach.DT.OffsetClock.html">OffsetClock</a></li>
+				<li><a href="class-Peach.DT.ShiftFormat.html">ShiftFormat</a></li>
+				<li><a href="class-Peach.DT.SimpleFormat.html">SimpleFormat</a></li>
+				<li><a href="class-Peach.DT.TimeEquator.html">TimeEquator</a></li>
+				<li><a href="class-Peach.DT.Timestamp.html">Timestamp</a></li>
+				<li><a href="class-Peach.DT.TimeWrapper.html">TimeWrapper</a></li>
+				<li><a href="class-Peach.DT.UnixTimeFormat.html">UnixTimeFormat</a></li>
+				<li><a href="class-Peach.DT.Util.html">Util</a></li>
+				<li><a href="class-Peach.DT.W3cDatetimeFormat.html">W3cDatetimeFormat</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.DT.Format.html">Format</a></li>
+				<li><a href="class-Peach.DT.Time.html">Time</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.DT.html" title="Summary of Peach\DT"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Clock</h1>
+
+
+	<div class="description">
+	
+<p>現在時刻を生成するためのクラスです.
+このクラスのインスタンスは <code><a href="class-Peach.DT.Date.html#_now">Peach\DT\Date::now()</a></code>, <code><a href="class-Peach.DT.Datetime.html#_now">Peach\DT\Datetime::now()</a></code>, <code><a href="class-Peach.DT.Timestamp.html#_now">Peach\DT\Timestamp::now()</a></code>
+などのメソッドの引数に渡す形で使用します.</p>
+
+<p>このクラスの具象クラスは以下の用途で利用されることを想定しています.</p>
+
+<ul>
+	<li>現在時刻に依存する機能の単体テスト</li>
+
+	<li>現在時刻を過去または未来にセットして特定の機能をエミュレートする</li>
+</ul>
+
+	</div>
+
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Peach.DT.DefaultClock.html">Peach\DT\DefaultClock</a>, 
+			<a href="class-Peach.DT.FixedClock.html">Peach\DT\FixedClock</a>, 
+			<a href="class-Peach.DT.OffsetClock.html">Peach\DT\OffsetClock</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-Peach.DT.Clock.html#30-62" title="Go to source code">Peach/DT/Clock.php</a><br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="getUnixTime" id="_getUnixTime">
+
+		<td class="attributes"><code>
+			abstract protected 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUnixTime">#</a>
+		<code><a href="source-class-Peach.DT.Clock.html#44-49" title="Go to source code">getUnixTime</a>( )</code>
+
+		<div class="description short">
+			
+<p>この Clock が指し示す時間を Unix time として返します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>この Clock が指し示す時間を Unix time として返します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>Unix time<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTimestamp" id="_getTimestamp">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTimestamp">#</a>
+		<code><a href="source-class-Peach.DT.Clock.html#51-61" title="Go to source code">getTimestamp</a>( )</code>
+
+		<div class="description short">
+			
+<p><code><a href="class-Peach.DT.Clock.html#_getUnixTime">Peach\DT\Clock::getUnixTime()</a></code> で取得した値を使って Timestamp
+インスタンスを生成します.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p><code><a href="class-Peach.DT.Clock.html#_getUnixTime">Peach\DT\Clock::getUnixTime()</a></code> で取得した値を使って Timestamp
+インスタンスを生成します.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code></code><br>Timestamp<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?1093664697"></script>
+<script src="elementlist.js?1670841986"></script>
+</body>
+</html>
