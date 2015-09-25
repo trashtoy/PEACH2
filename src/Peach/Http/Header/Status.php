@@ -27,7 +27,9 @@
  */
 namespace Peach\Http\Header;
 
+use InvalidArgumentException;
 use Peach\Http\HeaderItem;
+use Peach\Util\Values;
 
 class Status implements HeaderItem
 {
@@ -52,8 +54,27 @@ class Status implements HeaderItem
      */
     public function __construct($code, $reasonPhrase = "")
     {
-        $this->code         = $code;
+        $this->code         = $this->cleanCode($code);
         $this->reasonPhrase = $reasonPhrase;
+    }
+    
+    /**
+     * 引数を 3 桁の数字文字列に変換します.
+     * 
+     * @param  mixed $code
+     * @return string 3 桁の数字から成る文字列
+     * @throws InvalidArgumentException
+     */
+    private function cleanCode($code)
+    {
+        $value = Values::stringValue($code);
+        if (!strlen($value)) {
+            throw new InvalidArgumentException("Code must not be empty");
+        }
+        if (!preg_match("/\\A[0-9]{3}\\z/", $value)) {
+            throw new InvalidArgumentException("Code must be composed of 3 digits.");
+        }
+        return $value;
     }
     
     /**

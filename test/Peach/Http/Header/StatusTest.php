@@ -26,6 +26,32 @@ class StatusTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * コンストラクタの第 1 引数が空文字列として評価された場合に
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\Status::__construct
+     * @covers Peach\Http\Header\Status::cleanCode
+     * @expectedException InvalidArgumentException
+     */
+    public function test__constructFailByEmptyCode()
+    {
+        new Status("");
+    }
+    
+    /**
+     * 第 1 引数が空文字列として評価された場合に
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\Status::__construct
+     * @covers Peach\Http\Header\Status::cleanCode
+     * @expectedException InvalidArgumentException
+     */
+    public function test__constructFailByInvalidCode()
+    {
+        new Status("asdf");
+    }
+    
+    /**
      * @covers Peach\Http\Header\Status::__construct
      * @covers Peach\Http\Header\Status::getCode
      */
