@@ -27,6 +27,9 @@
  */
 namespace Peach\Http;
 
+/**
+ * HTTP リクエストおよびレスポンスの Body 部分を表現するインタフェースです.
+ */
 interface MessageBody
 {
     /**
@@ -35,7 +38,9 @@ interface MessageBody
     public function getValue();
     
     /**
-     * @return MessageBodyEncoder
+     * この MessageBody を文字列に変換するための Renderer を返します.
+     * 
+     * @return MessageBodyRenderer
      */
-    public function getEncoder();
+    public function getRenderer();
 }
