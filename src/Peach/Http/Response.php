@@ -27,11 +27,13 @@
  */
 namespace Peach\Http;
 
+use Peach\Util\ArrayMap;
+
 class Response
 {
     /**
-     * HeaderItem 型オブジェクトの配列です.
-     * @var HeaderItem[]
+     * HeaderItem 型オブジェクトを格納する ArrayMap です.
+     * @var ArrayMap
      */
     private $headerList;
     
@@ -42,11 +44,44 @@ class Response
     private $messageBody;
     
     /**
-     * 
+     * @codeCoverageIgnore
      */
     public function __construct()
     {
-        $this->headerList  = array();
+        $this->headerList  = new ArrayMap();
         $this->messageBody = null;
+    }
+    
+    /**
+     * 指定された名前のヘッダーを取得します.
+     * 存在しない場合は null を返します.
+     * 
+     * @param  string $name ヘッダー名
+     * @return HeaderItem   指定されたヘッダーに該当する HeaderItem オブジェクト
+     */
+    public function getHeader($name)
+    {
+        return $this->headerList->get($name);
+    }
+    
+    /**
+     * 指定されたヘッダーをこの Response に設定します.
+     * 
+     * @param HeaderItem $item
+     */
+    public function setHeader(HeaderItem $item)
+    {
+        $name = $item->getName();
+        $this->headerList->put($name, $item);
+    }
+    
+    /**
+     * 指定された名前の HeaderItem が存在するかどうか調べます.
+     * @param  string $name ヘッダー名
+     * @return bool         指定された名前の HeaderItem が存在する場合のみ true
+     */
+    public function hasHeader($name)
+    {
+        return $this->headerList->containsKey($name);
     }
 }
