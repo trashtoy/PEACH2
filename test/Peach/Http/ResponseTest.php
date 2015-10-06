@@ -48,6 +48,19 @@ class ResponseTest extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * getHeader() の引数が大文字・小文字を区別しないことを確認します.
+     * 
+     * @covers Peach\Http\Response::getHeader
+     */
+    public function testAccessHeaderByCaseInsensitive()
+    {
+        $obj  = $this->object;
+        $item = new Raw("X-Powered-By", "PHP/5.6.0");
+        $obj->setHeader($item);
+        $this->assertSame($item, $obj->getHeader("x-powered-by"));
+    }
+    
+    /**
      * 該当する HeaderItem が存在する場合に true, 存在しない場合に false
      * を返すことを確認します.
      * 

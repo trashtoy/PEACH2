@@ -61,7 +61,7 @@ class Response
      */
     public function getHeader($name)
     {
-        return $this->headerList->get($name);
+        return $this->headerList->get(strtolower($name));
     }
     
     /**
@@ -71,7 +71,7 @@ class Response
      */
     public function setHeader(HeaderItem $item)
     {
-        $name = $item->getName();
+        $name = strtolower($item->getName());
         $this->headerList->put($name, $item);
     }
     
@@ -82,6 +82,6 @@ class Response
      */
     public function hasHeader($name)
     {
-        return $this->headerList->containsKey($name);
+        return $this->headerList->containsKey(strtolower($name));
     }
 }
