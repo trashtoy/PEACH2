@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2015 @trashtoy
  * https://github.com/trashtoy/
@@ -39,17 +40,17 @@ class Response
     
     /**
      *
-     * @var MessageBody
+     * @var Body
      */
-    private $messageBody;
+    private $body;
     
     /**
      * @codeCoverageIgnore
      */
     public function __construct()
     {
-        $this->headerList  = new ArrayMap();
-        $this->messageBody = null;
+        $this->headerList = new ArrayMap();
+        $this->body       = null;
     }
     
     /**

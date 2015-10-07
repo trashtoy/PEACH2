@@ -27,7 +27,7 @@
  */
 namespace Peach\Http;
 
-interface MessageBodyRenderer
+interface BodyRenderer
 {
     /**
      * 

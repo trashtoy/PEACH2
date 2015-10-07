@@ -30,7 +30,7 @@ namespace Peach\Http;
 /**
  * HTTP リクエストおよびレスポンスの Body 部分を表現するインタフェースです.
  */
-interface MessageBody
+interface Body
 {
     /**
      * @return mixed
@@ -38,9 +38,9 @@ interface MessageBody
     public function getValue();
     
     /**
-     * この MessageBody を文字列に変換するための Renderer を返します.
+     * この Body オブジェクトを文字列に変換するための Renderer を返します.
      * 
-     * @return MessageBodyRenderer
+     * @return BodyRenderer
      */
     public function getRenderer();
 }
