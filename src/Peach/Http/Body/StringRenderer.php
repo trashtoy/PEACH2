@@ -43,6 +43,21 @@ class StringRenderer implements BodyRenderer
     private function __construct() {}
     
     /**
+     * このクラスの唯一のインスタンスを返します.
+     * 
+     * @return StringRenderer
+     * @codeCoverageIgnore
+     */
+    public static function getInstance()
+    {
+        static $instance = null;
+        if ($instance === null) {
+            $instance = new self();
+        }
+        return $instance;
+    }
+    
+    /**
      * 指定された値を文字列として返します.
      * 
      * @param mixed $var
