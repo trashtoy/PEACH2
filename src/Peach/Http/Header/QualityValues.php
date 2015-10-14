@@ -59,8 +59,28 @@ class QualityValues implements HeaderItem
      */
     public function __construct($name, array $qvalueList)
     {
+        foreach ($qvalueList as $key => $value) {
+            $this->validateQvalue($key, $value);
+        }
         $this->name       = $name;
         $this->qvalueList = $qvalueList;
+    }
+    
+    /**
+     * それぞれの qvalue の値が 0 以上 1 以下の小数となっていることを確認します.
+     * 
+     * @param string $key
+     * @param string $value
+     * @throws \InvalidArgumentException
+     */
+    private function validateQvalue($key, $value)
+    {
+        if (!is_numeric($value)) {
+            throw new \InvalidArgumentException("Each qvalue must be a real number");
+        }
+        if ($value < 0 || 1.0 < $value) {
+            throw new \InvalidArgumentException("Each qvalue must be in the range 0 through 1");
+        }
     }
     
     /**

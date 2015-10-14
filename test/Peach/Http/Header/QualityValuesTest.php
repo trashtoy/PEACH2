@@ -26,6 +26,32 @@ class QualityValuesTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * qvalue の値が小数でない場合に InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\QualityValues::__construct
+     * @covers Peach\Http\Header\QualityValues::validateQvalue
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByInvalidQvalue()
+    {
+        $q = array("ja" => 1.0, "en-US" => "hoge", "en" => 0.5);
+        new QualityValues("Accept-Language", $q);
+    }
+    
+    /**
+     * qvalue の値が 0 以上 1 以下でない場合に InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\QualityValues::__construct
+     * @covers Peach\Http\Header\QualityValues::validateQvalue
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByInvalidRange()
+    {
+        $q = array("ja" => 2.0, "en-US" => 0.5, "en" => 0.1);
+        new QualityValues("Accept-Language", $q);
+    }
+    
+    /**
      * @covers Peach\Http\Header\QualityValues::format
      */
     public function testFormat()
