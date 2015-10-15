@@ -75,6 +75,9 @@ class QualityValues implements HeaderItem
      */
     private function validateQvalue($key, $value)
     {
+        if (!preg_match("/\\A[a-zA-Z0-9_\\-\\/]+\\z/", $key)) {
+            throw new \InvalidArgumentException("Invalid qvalue name: '{$key}'");
+        }
         if (!is_numeric($value)) {
             throw new \InvalidArgumentException("Each qvalue must be a real number");
         }

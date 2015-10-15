@@ -52,6 +52,19 @@ class QualityValuesTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * qvalue の値に不正な文字が含まれていた場合に InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\QualityValues::__construct
+     * @covers Peach\Http\Header\QualityValues::validateQvalue
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByInvalidQvalueName()
+    {
+        $q = array("ja" => 1.0, "foo bar" => 0.5, "baz" => 0.3);
+        new QualityValues("Accept-Language", $q);
+    }
+    
+    /**
      * @covers Peach\Http\Header\QualityValues::format
      */
     public function testFormat()
