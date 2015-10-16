@@ -62,6 +62,7 @@ class QualityValues implements HeaderItem
         foreach ($qvalueList as $key => $value) {
             $this->validateQvalue($key, $value);
         }
+        arsort($qvalueList);
         $this->name       = $name;
         $this->qvalueList = $qvalueList;
     }

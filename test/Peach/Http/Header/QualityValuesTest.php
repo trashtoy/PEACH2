@@ -74,6 +74,19 @@ class QualityValuesTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 配列の定義の順番に関係なく qvalue の値が大きい順に出力されることを確認します.
+     * 
+     * @covers Peach\Http\Header\QualityValues::__construct
+     * @covers Peach\Http\Header\QualityValues::format
+     */
+    public function testFormatWithSort()
+    {
+        $q   = array("en" => 0.2, "ja" => 1.0, "en-GB" => 0.5, "en-US" => 0.7);
+        $obj = new QualityValues("Accept-Language", $q);
+        $this->assertSame("ja,en-US;q=0.7,en-GB;q=0.5,en;q=0.2", $obj->format());
+    }
+    
+    /**
      * @covers Peach\Http\Header\QualityValues::getName
      */
     public function testGetName()
