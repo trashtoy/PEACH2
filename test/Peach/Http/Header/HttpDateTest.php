@@ -32,6 +32,27 @@ class HttpDateTest extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * 妥当なヘッダー名を引数に指定した場合に正常終了することを確認します.
+     * 
+     * @covers Peach\Http\Header\HttpDate::__construct
+     */
+    public function test__constructSuccess()
+    {
+        new HttpDate("Valid-Name", Timestamp::now(), new HttpDateFormat());
+    }
+    
+    /**
+     * 妥当でないヘッダー名を引数に指定した場合に InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\HttpDate::__construct
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByInvalidName()
+    {
+        new HttpDate("Invalid/Name", Timestamp::now(), new HttpDateFormat());
+    }
+    
+    /**
      * @covers Peach\Http\Header\HttpDate::format
      */
     public function testFormat()

@@ -26,6 +26,27 @@ class QualityValuesTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 妥当なヘッダー名を引数に指定した場合に正常終了することを確認します.
+     * 
+     * @covers Peach\Http\Header\QualityValues::__construct
+     */
+    public function test__constructSuccess()
+    {
+        new QualityValues("Valid-Name", array("ja" => 1.0, "en-US" => 0.9, "en-GB" => 0.8, "en" => 0.7));
+    }
+    
+    /**
+     * 妥当でないヘッダー名を引数に指定した場合に InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\QualityValues::__construct
+     * @expectedException \InvalidArgumentException
+     */
+    public function test__constructFailByInvalidName()
+    {
+        new QualityValues("Invalid/Name", array("ja" => 1.0, "en-US" => 0.9, "en-GB" => 0.8, "en" => 0.7));
+    }
+    
+    /**
      * qvalue の値が小数でない場合に InvalidArgumentException をスローすることを確認します.
      * 
      * @covers Peach\Http\Header\QualityValues::__construct

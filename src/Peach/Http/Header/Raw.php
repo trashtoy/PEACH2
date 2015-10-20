@@ -28,6 +28,7 @@
 namespace Peach\Http\Header;
 
 use Peach\Http\HeaderItem;
+use Peach\Http\Util;
 
 class Raw implements HeaderItem
 {
@@ -50,6 +51,7 @@ class Raw implements HeaderItem
      */
     public function __construct($name, $value)
     {
+        Util::validateHeaderName($name);
         $this->name = $name;
         $this->value = $value;
     }

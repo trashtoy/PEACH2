@@ -28,6 +28,7 @@
 namespace Peach\Http\Header;
 
 use Peach\Http\HeaderItem;
+use Peach\Http\Util;
 use Peach\DT\Timestamp;
 use Peach\DT\HttpDateFormat;
 
@@ -62,6 +63,7 @@ class HttpDate implements HeaderItem
      */
     public function __construct($name, Timestamp $time, HttpDateFormat $format = null)
     {
+        Util::validateHeaderName($name);
         $this->name   = $name;
         $this->time   = $time;
         $this->format = ($format === null) ? HttpDateFormat::getInstance() : $format;

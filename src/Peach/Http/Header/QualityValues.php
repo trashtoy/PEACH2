@@ -28,6 +28,7 @@
 namespace Peach\Http\Header;
 
 use Peach\Http\HeaderItem;
+use Peach\Http\Util;
 
 /**
  * Accept, Accept-Language, Accept-Encoding など, quality value を値に持つヘッダーを表現するクラスです.
@@ -59,6 +60,7 @@ class QualityValues implements HeaderItem
      */
     public function __construct($name, array $qvalueList)
     {
+        Util::validateHeaderName($name);
         foreach ($qvalueList as $key => $value) {
             $this->validateQvalue($key, $value);
         }
