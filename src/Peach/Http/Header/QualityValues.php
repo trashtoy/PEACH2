@@ -27,13 +27,13 @@
  */
 namespace Peach\Http\Header;
 
-use Peach\Http\HeaderItem;
+use Peach\Http\HeaderField;
 use Peach\Http\Util;
 
 /**
  * Accept, Accept-Language, Accept-Encoding など, quality value を値に持つヘッダーを表現するクラスです.
  */
-class QualityValues implements HeaderItem
+class QualityValues implements HeaderField
 {
     /**
      *

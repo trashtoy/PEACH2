@@ -48,8 +48,8 @@ class Request
     private $postParameters;
     
     /**
-     * HeaderItem 型オブジェクトの配列です.
-     * @var HeaderItem[]
+     * HeaderField 型オブジェクトの配列です.
+     * @var HeaderField[]
      */
     private $headerList;
     

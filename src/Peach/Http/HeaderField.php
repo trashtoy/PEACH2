@@ -28,7 +28,7 @@
  */
 namespace Peach\Http;
 
-interface HeaderItem
+interface HeaderField
 {
     /**
      * @return string

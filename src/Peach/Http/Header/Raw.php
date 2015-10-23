@@ -27,10 +27,10 @@
  */
 namespace Peach\Http\Header;
 
-use Peach\Http\HeaderItem;
+use Peach\Http\HeaderField;
 use Peach\Http\Util;
 
-class Raw implements HeaderItem
+class Raw implements HeaderField
 {
     /**
      *

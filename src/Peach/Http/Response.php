@@ -33,7 +33,7 @@ use Peach\Util\ArrayMap;
 class Response
 {
     /**
-     * HeaderItem 型オブジェクトを格納する ArrayMap です.
+     * HeaderField 型オブジェクトを格納する ArrayMap です.
      * @var ArrayMap
      */
     private $headerList;
@@ -58,7 +58,7 @@ class Response
      * 存在しない場合は null を返します.
      * 
      * @param  string $name ヘッダー名
-     * @return HeaderItem   指定されたヘッダーに該当する HeaderItem オブジェクト
+     * @return HeaderField   指定されたヘッダーに該当する HeaderField オブジェクト
      */
     public function getHeader($name)
     {
@@ -68,18 +68,18 @@ class Response
     /**
      * 指定されたヘッダーをこの Response に設定します.
      * 
-     * @param HeaderItem $item
+     * @param HeaderField $item
      */
-    public function setHeader(HeaderItem $item)
+    public function setHeader(HeaderField $item)
     {
         $name = strtolower($item->getName());
         $this->headerList->put($name, $item);
     }
     
     /**
-     * 指定された名前の HeaderItem が存在するかどうか調べます.
+     * 指定された名前の HeaderField が存在するかどうか調べます.
      * @param  string $name ヘッダー名
-     * @return bool         指定された名前の HeaderItem が存在する場合のみ true
+     * @return bool         指定された名前の HeaderField が存在する場合のみ true
      */
     public function hasHeader($name)
     {

@@ -28,10 +28,10 @@
 namespace Peach\Http\Header;
 
 use InvalidArgumentException;
-use Peach\Http\HeaderItem;
+use Peach\Http\HeaderField;
 use Peach\Util\Values;
 
-class Status implements HeaderItem
+class Status implements HeaderField
 {
     /**
      * 3 桁の数字から成る文字列です.

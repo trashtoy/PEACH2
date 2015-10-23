@@ -27,7 +27,7 @@
  */
 namespace Peach\Http\Header;
 
-use Peach\Http\HeaderItem;
+use Peach\Http\HeaderField;
 use Peach\Http\Util;
 use Peach\DT\Timestamp;
 use Peach\DT\HttpDateFormat;
@@ -35,7 +35,7 @@ use Peach\DT\HttpDateFormat;
 /**
  * Last-Modified や If-Modified-Since など, HTTP-date 形式の値を持つヘッダーです.
  */
-class HttpDate implements HeaderItem
+class HttpDate implements HeaderField
 {
     /**
      *

@@ -32,8 +32,8 @@ class ResponseTest extends PHPUnit_Framework_TestCase
      * getHeader() と setHeader() のテストです. 以下を確認します.
      * 
      * - getHeader() の引数に存在しない名前を指定した場合 null を返すこと
-     * - getHeader() が指定された名前に対応する HeaderItem オブジェクトを返すこと
-     * - setHeader() で設定した HeaderItem オブジェクトが getHeader() から取得できること
+     * - getHeader() が指定された名前に対応する HeaderField オブジェクトを返すこと
+     * - setHeader() で設定した HeaderField オブジェクトが getHeader() から取得できること
      * 
      * @covers Peach\Http\Response::getHeader
      * @covers Peach\Http\Response::setHeader
@@ -61,7 +61,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
     }
     
     /**
-     * 該当する HeaderItem が存在する場合に true, 存在しない場合に false
+     * 該当する HeaderField が存在する場合に true, 存在しない場合に false
      * を返すことを確認します.
      * 
      * @covers Peach\Http\Response::hasHeader
