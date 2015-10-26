@@ -60,4 +60,14 @@ class Request
         $this->postParameters  = array();
         $this->headerList      = array();
     }
+    
+    /**
+     * この Request が malformed かどうかを判断します.
+     * 
+     * @todo 実装する
+     */
+    public function isMalformed()
+    {
+        return false;
+    }
 }

@@ -85,4 +85,14 @@ class Response
     {
         return $this->headerList->containsKey(strtolower($name));
     }
+    
+    /**
+     * この Response が malformed かどうかを判断します.
+     * 
+     * @todo 実装する
+     */
+    public function isMalformed()
+    {
+        return false;
+    }
 }
