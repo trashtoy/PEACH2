@@ -37,7 +37,7 @@ class Util
     private function __construct() {}
     
     /**
-     * 指定された文字列が HTTP ヘッダーとして妥当かどうかを検証します.
+     * 指定された文字列が HTTP ヘッダー名として妥当かどうかを検証します.
      * 文字列が半角アルファベット・数字・ハイフンから成る場合のみ妥当とします.
      * 妥当な文字列でない場合は InvalidArgumentException をスローします.
      * 
@@ -61,5 +61,17 @@ class Util
         if (!preg_match("/\\A[a-zA-Z0-9\\-]+\\z/", $name)) {
             throw new InvalidArgumentException("{$name} is not a valid header name");
         }
+    }
+    
+    /**
+     * 指定された文字列が HTTP ヘッダーの値として妥当かどうかを検証します.
+     * 
+     * @todo   実装する
+     * @param  string $value
+     * @return bool
+     */
+    public static function validateHeaderValue($value)
+    {
+        return true;
     }
 }
