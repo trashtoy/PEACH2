@@ -66,12 +66,25 @@ class Util
     /**
      * 指定された文字列が HTTP ヘッダーの値として妥当かどうかを検証します.
      * 
+     * {@link https://tools.ietf.org/html/rfc7230 RFC 7230} で定義された以下の ABNF に基いて妥当性の判定を行います.
+     * 
+     * <pre>
+     * header-field   = field-name ":" OWS field-value OWS
+     * 
+     * field-name     = token
+     * field-value    = *( field-content / obs-fold )
+     * field-content  = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+     * field-vchar    = VCHAR / obs-text
+     *
+     * obs-fold       = CRLF 1*( SP / HTAB )
+     * </pre>
+     * 
      * @todo   実装する
      * @param  string $value
-     * @return bool
+     * @throws InvalidArgumentException
      */
     public static function validateHeaderValue($value)
     {
-        return true;
+        
     }
 }
