@@ -77,4 +77,30 @@ class UtilTest extends PHPUnit_Framework_TestCase
             $this->fail("'{$name}' must be treated as invalid");
         }
     }
+    
+    /**
+     * ヘッダー値として不正な文字列を指定した場合に
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * - VCHAR (%x21-%x7E) の範囲外の文字
+     * - 文字列の先頭・末尾にあるホワイトスペース
+     * - obs-fold (RFC7230 により廃止された複数行によるヘッダー値)
+     */
+    public function testValidateHeaderValueFail()
+    {
+        $errorList = array(
+            "This is テスト",
+            "  foobar  ",
+            "abc\r\n  xyz",
+        );
+        foreach ($errorList as $value) {
+            try {
+                Util::validateHeaderValue($value);
+            } catch (InvalidArgumentException $e) {
+                continue;
+            }
+            
+            $this->fail("'{$value}' must be treated as invalid");
+        }
+    }
 }
