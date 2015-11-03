@@ -79,12 +79,37 @@ class Util
      * obs-fold       = CRLF 1*( SP / HTAB )
      * </pre>
      * 
-     * @todo   実装する
-     * @param  string $value
-     * @throws InvalidArgumentException
+     * 妥当な文字列でない場合は InvalidArgumentException をスローします.
+     * obs-text および obs-fold については RFC7230 で廃止されているため例外として処理します.
+     * 
+     * @param  string $value 検査対象のヘッダー値
+     * @throws InvalidArgumentException 引数がヘッダー値として不正だった場合
      */
     public static function validateHeaderValue($value)
     {
-        
+        if (!self::handleValidateHeaderValue($value)) {
+            throw new InvalidArgumentException("'{$value}' is not a valid header value");
+        }
+    }
+    
+    /**
+     * 引数がヘッダー値として妥当な場合のみ true を返します.
+     * 
+     * @param  string $value
+     * @return bool
+     */
+    private static function handleValidateHeaderValue($value)
+    {
+        $trimmed = trim($value);
+        if ($trimmed !== $value) {
+            return false;
+        }
+        foreach (str_split($value) as $chr) {
+            $byte = ord($chr);
+            if ($byte < 0x21 || 0x7E < $byte) {
+                return false;
+            }
+        }
+        return true;
     }
 }
