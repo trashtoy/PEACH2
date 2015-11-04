@@ -79,6 +79,31 @@ class UtilTest extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * validateHeaderValue() のテストです.
+     * 
+     * 先頭および末尾が印字可能な US-ASCII 文字であり,
+     * その中間が任意の個数の印字可能 US-ASCII もしくは空白文字で構成されれている場合に妥当とします.
+     * RFC 7230 の定義により空文字列も妥当と判定します.
+     * 
+     * @covers Peach\Http\Util::validateHeaderValue
+     * @covers Peach\Http\Util::handleValidateHeaderValue
+     * @covers Peach\Http\Util::validateBytes
+     * @covers Peach\Http\Util::validateVCHAR
+     */
+    public function testValidateHeaderValue()
+    {
+        $validList = array(
+            "var",
+            "",
+            "The Quick Brown Fox Jumps Over The Lazy Dogs",
+            "=?iso-8859-1?q?this=20is=20some=20text?=", // RFC 2047
+        );
+        foreach ($validList as $value) {
+            Util::validateHeaderValue($value);
+        }
+    }
+    
+    /**
      * ヘッダー値として不正な文字列を指定した場合に
      * InvalidArgumentException をスローすることを確認します.
      * 

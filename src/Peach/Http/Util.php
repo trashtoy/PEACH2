@@ -104,12 +104,44 @@ class Util
         if ($trimmed !== $value) {
             return false;
         }
-        foreach (str_split($value) as $chr) {
-            $byte = ord($chr);
-            if ($byte < 0x21 || 0x7E < $byte) {
+        if ($value === "") {
+            return true;
+        }
+        $bytes = str_split($value);
+        return (count($bytes) === 1) ? self::validateVCHAR($value) : self::validateBytes($bytes);
+    }
+    
+    /**
+     * 
+     * @param  array $bytes
+     * @return bool
+     */
+    private static function validateBytes($bytes)
+    {
+        $head = array_shift($bytes);
+        if (!self::validateVCHAR($head)) {
+            return false;
+        }
+        $tail = array_pop($bytes);
+        if (!self::validateVCHAR($tail)) {
+            return false;
+        }
+        foreach ($bytes as $chr) {
+            if (!self::validateVCHAR($chr) && $chr !== " " && $chr !== "\t") {
                 return false;
             }
         }
         return true;
+    }
+    
+    /**
+     * 
+     * @param  string $chr
+     * @return bool
+     */
+    private static function validateVCHAR($chr)
+    {
+        $byte = ord($chr);
+        return (0x21 <= $byte && $byte <= 0x7E);
     }
 }
