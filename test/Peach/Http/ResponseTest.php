@@ -3,6 +3,8 @@ namespace Peach\Http;
 
 use PHPUnit_Framework_TestCase;
 use Peach\Http\Header\Raw;
+use Peach\Http\Header\Status;
+use Peach\Http\Response;
 
 class ResponseTest extends PHPUnit_Framework_TestCase
 {
@@ -73,5 +75,26 @@ class ResponseTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($obj->hasHeader("Accept-Ranges"));
         $obj->setHeader($item);
         $this->assertTrue($obj->hasHeader("Accept-Ranges"));
+    }
+    
+    /**
+     * isMalformed() が true を返す条件が正しいかどうかをテストします.
+     * 以下の条件に一つ以上合致した場合に malformed とみなします.
+     * 
+     * - ステータスライン (:status 擬似ヘッダー) が存在しない
+     * 
+     * @covers Peach\Http\Response::isMalformed
+     * @covers Peach\Http\Response::validateStatusHeader
+     */
+    public function testIsMalformed()
+    {
+        $obj1 = new Response();
+        $this->assertTrue($obj1->isMalformed());
+        $obj1->setHeader(new Status("404", "File Not Found"));
+        $this->assertFalse($obj1->isMalformed());
+        
+        $obj2 = new Response();
+        $obj2->setHeader(new Raw(":status", "This is invalid"));
+        $this->assertTrue($obj2->isMalformed());
     }
 }

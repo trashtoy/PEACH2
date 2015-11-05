@@ -28,6 +28,7 @@
  */
 namespace Peach\Http;
 
+use Peach\Http\Header\Status;
 use Peach\Util\ArrayMap;
 
 class Response
@@ -90,9 +91,28 @@ class Response
      * この Response が malformed かどうかを判断します.
      * 
      * @todo 実装する
+     * @return bool
      */
     public function isMalformed()
     {
+        if (!$this->validateStatusHeader()) {
+            return true;
+        }
+        
         return false;
+    }
+    
+    /**
+     * この Response の :status 擬似ヘッダーが適切かどうかを調べます.
+     * 
+     * @return bool
+     */
+    private function validateStatusHeader()
+    {
+        if (!$this->hasHeader(":status")) {
+            return false;
+        }
+        $status = $this->getHeader(":status");
+        return ($status instanceof Status);
     }
 }
