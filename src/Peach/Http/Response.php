@@ -40,7 +40,7 @@ class Response
     private $headerList;
     
     /**
-     *
+     * HTTP レスポンスのメッセージボディ部分を表す Body オブジェクトです.
      * @var Body
      */
     private $body;
@@ -88,10 +88,10 @@ class Response
     }
     
     /**
-     * この Response が malformed かどうかを判断します.
+     * この Response が malformed (奇形) かどうかを判断します.
      * 
      * @todo 実装する
-     * @return bool
+     * @return bool このオブジェクトが表現する Response が malformed (奇形) と判定される場合に true, それ以外は false
      */
     public function isMalformed()
     {
