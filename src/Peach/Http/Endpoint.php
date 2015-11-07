@@ -28,21 +28,23 @@
 namespace Peach\Http;
 
 /**
- * Useragent (WEBブラウザなど) から受け取った情報を {@link Request} オブジェクトに変換したり,
- * {@link Response} オブジェクトを HTTP レスポンスとして useragent に送信したりするインタフェースです.
+ * HTTP における HTTP メッセージの送受信を担当するインタフェースです.
+ * 
+ * クライアント (WEBブラウザなど) から受け取った情報を {@link Request} オブジェクトとして取り出したり,
+ * {@link Response} オブジェクトを HTTP レスポンスとしてクライアントに送信したりする機能を持ちます.
  */
-interface MessageHandler
+interface Endpoint
 {
     /**
-     * Useragent から送信されたデータを Request オブジェクトに変換します.
+     * この Endpoint の処理対象の Request オブジェクトを返します.
      * 
      * @return Request
      * @todo   Request クラスを実装する
      */
-    public function receive();
+    public function getRequest();
     
     /**
-     * 引数の Response オブジェクトを useragent に送信します.
+     * 引数の Response オブジェクトをクライアントに送信します.
      * 
      * @param Response $response 送信対象の Response
      */
