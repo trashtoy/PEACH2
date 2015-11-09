@@ -67,6 +67,17 @@ class Response
     }
     
     /**
+     * この Response が持つヘッダーの一覧を取得します.
+     * 
+     * @return HeaderField[] この Response に定義されている HeaderField のリスト
+     * @todo 実装する
+     */
+    public function getHeaderList()
+    {
+        return array();
+    }
+    
+    /**
      * 指定されたヘッダーをこの Response に設定します.
      * 
      * @param HeaderField $item
