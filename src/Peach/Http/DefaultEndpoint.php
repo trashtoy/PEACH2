@@ -27,6 +27,8 @@
  */
 namespace Peach\Http;
 
+use Peach\Util\Strings;
+
 /**
  * 一般的な WEB アプリケーションで使用されることを想定した Endpoint です.
  * 
@@ -38,12 +40,41 @@ namespace Peach\Http;
 class DefaultEndpoint implements Endpoint
 {
     /**
+     * 
+     * @var Request
+     */
+    private $request;
+    
+    public function __construct()
+    {
+    }
+    
+    /**
      * @return Request
-     * @todo 実装する
+     */
+    private function createRequest()
+    {
+        $keys    = array_keys($_SERVER);
+        $request = new Request();
+        foreach ($keys as $key) {
+            if (!Strings::startsWith($key, "HTTP_")) {
+                continue;
+            }
+            $name  = str_replace("_", "-", substr($key, 5));
+            $value = $_SERVER[$key];
+            new Raw($name, $value); // @todo Request オブジェクトに追加する
+        }
+    }
+    
+    /**
+     * @return Request
      */
     public function getRequest()
     {
-        
+        if ($this->request === null) {
+            $this->request = $this->createRequest();
+        }
+        return $this->request;
     }
     
     /**
