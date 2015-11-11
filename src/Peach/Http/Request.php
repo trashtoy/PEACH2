@@ -27,6 +27,8 @@
  */
 namespace Peach\Http;
 
+use Peach\Util\ArrayMap;
+
 class Request
 {
     /**
@@ -58,7 +60,51 @@ class Request
         $this->path = null;
         $this->queryParameters = array();
         $this->postParameters  = array();
-        $this->headerList      = array();
+        $this->headerList      = new ArrayMap();
+    }
+    
+    /**
+     * 指定された名前のヘッダーを取得します.
+     * 存在しない場合は null を返します.
+     * 
+     * @param  string $name ヘッダー名
+     * @return HeaderField   指定されたヘッダーに該当する HeaderField オブジェクト
+     */
+    public function getHeader($name)
+    {
+        return $this->headerList->get(strtolower($name));
+    }
+    
+    /**
+     * この Request が持つヘッダーの一覧を取得します.
+     * 
+     * @return HeaderField[] この Request に定義されている HeaderField のリスト
+     * @todo 実装する
+     */
+    public function getHeaderList()
+    {
+        return array();
+    }
+    
+    /**
+     * 指定されたヘッダーをこの Request に設定します.
+     * 
+     * @param HeaderField $item
+     */
+    public function setHeader(HeaderField $item)
+    {
+        $name = strtolower($item->getName());
+        $this->headerList->put($name, $item);
+    }
+    
+    /**
+     * 指定された名前の HeaderField が存在するかどうか調べます.
+     * @param  string $name ヘッダー名
+     * @return bool         指定された名前の HeaderField が存在する場合のみ true
+     */
+    public function hasHeader($name)
+    {
+        return $this->headerList->containsKey(strtolower($name));
     }
     
     /**
