@@ -27,6 +27,7 @@
  */
 namespace Peach\Http;
 
+use Peach\Http\Header\Raw;
 use Peach\Util\Strings;
 
 /**
@@ -62,8 +63,12 @@ class DefaultEndpoint implements Endpoint
             }
             $name  = str_replace("_", "-", substr($key, 5));
             $value = $_SERVER[$key];
-            new Raw($name, $value); // @todo Request オブジェクトに追加する
+            $request->setHeader(new Raw($name, $value)); // @todo ヘッダーの内容に応じて生成するオブジェクトの型を変える
         }
+        
+        // @todo URL のパスと GET, POST パラメータを取得する
+        
+        return $request;
     }
     
     /**
