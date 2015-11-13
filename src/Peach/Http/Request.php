@@ -39,13 +39,13 @@ class Request
     
     /**
      * PHP の $_GET に相当するパラメータです.
-     * @var array
+     * @var ArrayMap
      */
     private $queryParameters;
     
     /**
      * PHP の $_POST に相当するパラメータです.
-     * @var array
+     * @var ArrayMap
      */
     private $postParameters;
     
@@ -58,8 +58,8 @@ class Request
     public function __construct()
     {
         $this->path = null;
-        $this->queryParameters = array();
-        $this->postParameters  = array();
+        $this->queryParameters = new ArrayMap();
+        $this->postParameters  = new ArrayMap();
         $this->headerList      = new ArrayMap();
     }
     
@@ -105,6 +105,52 @@ class Request
     public function hasHeader($name)
     {
         return $this->headerList->containsKey(strtolower($name));
+    }
+    
+    /**
+     * 
+     * @param array|ArrayMap $params
+     */
+    public function setQuery($params)
+    {
+        if (is_array($params)) {
+            $this->setQuery(new ArrayMap($params));
+            return;
+        }
+        $this->queryParameters->putAll($params);
+    }
+    
+    /**
+     * @param  string
+     * @return string|array
+     */
+    public function getQuery($name, $defaultValue = null)
+    {
+        return $this->queryParameters->get($name, $defaultValue);
+    }
+    
+    /**
+     * 
+     * @param array|ArrayMap $params
+     * @todo  引数のバリデーション
+     */
+    public function setPost($params)
+    {
+        if (is_array($params)) {
+            $this->setPost(new ArrayMap($params));
+            return;
+        }
+        $this->postParameters->putAll($params);
+    }
+    
+    /**
+     * 
+     * @param  string $name
+     * @return string|array
+     */
+    public function getPost($name, $defaultValue = null)
+    {
+        return $this->postParameters->get($name, $defaultValue);
     }
     
     /**

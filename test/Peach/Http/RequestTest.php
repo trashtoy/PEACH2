@@ -97,4 +97,36 @@ class RequestTest extends \PHPUnit_Framework_TestCase
             'This test has not been implemented yet.'
         );
     }
+    
+    /**
+     * @covers Peach\Http\Request::setQuery
+     * @covers Peach\Http\Request::getQuery
+     */
+    public function testAccessQuery()
+    {
+        $obj = $this->object;
+        $this->assertNull($obj->getQuery("hoge"));
+        $this->assertSame("asdf", $obj->getQuery("fuga", "asdf"));
+        
+        $params = array("hoge" => "1", "fuga" => 2, "piyo" => "xxxxx");
+        $obj->setQuery($params);
+        $this->assertSame("1", $obj->getQuery("hoge"));
+        $this->assertSame(2, $obj->getQuery("fuga", "asdf"));
+    }
+    
+    /**
+     * @covers Peach\Http\Request::setPost
+     * @covers Peach\Http\Request::getPost
+     */
+    public function testAccessPost()
+    {
+        $obj = $this->object;
+        $this->assertNull($obj->getPost("hoge"));
+        $this->assertSame("asdf", $obj->getPost("fuga", "asdf"));
+        
+        $params = array("hoge" => "1", "fuga" => 2, "piyo" => "xxxxx");
+        $obj->setPost($params);
+        $this->assertSame("1", $obj->getPost("hoge"));
+        $this->assertSame(2, $obj->getPost("fuga", "asdf"));
+    }
 }
