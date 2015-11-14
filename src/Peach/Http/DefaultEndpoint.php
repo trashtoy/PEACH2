@@ -66,7 +66,11 @@ class DefaultEndpoint implements Endpoint
             $request->setHeader(new Raw($name, $value)); // @todo ヘッダーの内容に応じて生成するオブジェクトの型を変える
         }
         
-        // @todo URL のパスと GET, POST パラメータを取得する
+        $scheme = isset($_SERVER["HTTPS"]) ? "https" : "http";
+        $request->setQuery($_GET);
+        $request->setPost($_POST);
+        $request->setHeader(new Raw(":path", $_SERVER["REQUEST_URI"]));
+        $request->setHeader(new Raw(":scheme", $scheme));
         
         return $request;
     }
