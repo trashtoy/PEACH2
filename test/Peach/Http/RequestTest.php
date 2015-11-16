@@ -28,6 +28,24 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * getPath() と setPath() のテストです. 以下を確認します.
+     * 
+     * - 初期状態では getPath() が null を返すこと
+     * - setPath() で設定した値が getPath() から取得できること
+     * 
+     * @covers Peach\Http\Request::getPath
+     * @covers Peach\Http\Request::setPath
+     */
+    public function testAccessPath()
+    {
+        $obj  = $this->object;
+        $path = "/foo/bar/baz";
+        $this->assertNull($obj->getPath());
+        $obj->setPath($path);
+        $this->assertSame($path, $obj->getPath());
+    }
+    
+    /**
      * getHeader() と setHeader() のテストです. 以下を確認します.
      * 
      * - getHeader() の引数に存在しない名前を指定した場合 null を返すこと

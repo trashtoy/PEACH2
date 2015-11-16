@@ -64,6 +64,26 @@ class Request
     }
     
     /**
+     * この Request のパス (URL のうち, クエリ・フラグメントを除いた部分) を設定します.
+     * 
+     * @param string $path セットするパス
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+    
+    /**
+     * この Request のパス (URL のうち, クエリ・フラグメントを除いた部分) を返します.
+     * 
+     * @return string この Request のパス
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+    
+    /**
      * 指定された名前のヘッダーを取得します.
      * 存在しない場合は null を返します.
      * 
