@@ -66,13 +66,30 @@ class DefaultEndpoint implements Endpoint
             $request->setHeader(new Raw($name, $value)); // @todo ヘッダーの内容に応じて生成するオブジェクトの型を変える
         }
         
-        $scheme = isset($_SERVER["HTTPS"]) ? "https" : "http";
+        $rawPath = $_SERVER["REQUEST_URI"];
+        $scheme  = isset($_SERVER["HTTPS"]) ? "https" : "http";
         $request->setQuery($_GET);
         $request->setPost($_POST);
-        $request->setHeader(new Raw(":path", $_SERVER["REQUEST_URI"]));
+        $request->setHeader(new Raw(":path", $rawPath));
         $request->setHeader(new Raw(":scheme", $scheme));
-        
+        $request->setPath($this->getRequestPath($rawPath));
         return $request;
+    }
+    
+    /**
+     * URL からクエリ部分を除いたパスを返します.
+     * 無効なパスが指定された場合は代替値として "/" を返します.
+     * 
+     * @param  string $rawPath
+     * @return string クエリ部分を除いたパス文字列
+     */
+    private function getRequestPath($rawPath)
+    {
+        $path     = "([^?#]+)";
+        $query    = "(\\?[^#]*)?";
+        $fragment = "(\\#.*)?";
+        $matched  = array();
+        return (preg_match("/\\A{$path}{$query}{$fragment}\\z/", $rawPath, $matched)) ? $matched[1] : "/";
     }
     
     /**
