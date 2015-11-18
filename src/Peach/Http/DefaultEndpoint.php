@@ -63,7 +63,7 @@ class DefaultEndpoint implements Endpoint
             }
             $name  = str_replace("_", "-", substr($key, 5));
             $value = $_SERVER[$key];
-            $request->setHeader(new Raw($name, $value)); // @todo ヘッダーの内容に応じて生成するオブジェクトの型を変える
+            $request->setHeader(Util::parseHeader($name, $value));
         }
         
         $rawPath = $_SERVER["REQUEST_URI"];

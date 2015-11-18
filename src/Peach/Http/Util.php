@@ -28,6 +28,7 @@
 namespace Peach\Http;
 
 use InvalidArgumentException;
+use Peach\Http\Header\Raw;
 
 class Util
 {
@@ -143,5 +144,18 @@ class Util
     {
         $byte = ord($chr);
         return (0x21 <= $byte && $byte <= 0x7E);
+    }
+    
+    /**
+     * 指定されたヘッダー名, ヘッダー値の組み合わせから
+     * HeaderField オブジェクトを構築します.
+     * 
+     * @param  string $name  ヘッダー名
+     * @param  string $value ヘッダー値
+     * @return HeaderField
+     */
+    public static function parseHeader($name, $value)
+    {
+        return new Raw($name, $value);
     }
 }
