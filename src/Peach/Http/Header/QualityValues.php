@@ -78,7 +78,7 @@ class QualityValues implements HeaderField
      */
     private function validateQvalue($key, $value)
     {
-        if (!preg_match("/\\A[a-zA-Z0-9_\\-\\/]+\\z/", $key)) {
+        if (!preg_match("/\\A[a-zA-Z0-9_\\-\\/\\+\\*]+\\z/", $key)) {
             throw new \InvalidArgumentException("Invalid qvalue name: '{$key}'");
         }
         if (!is_numeric($value)) {

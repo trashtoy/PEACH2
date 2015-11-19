@@ -128,4 +128,26 @@ class UtilTest extends PHPUnit_Framework_TestCase
             $this->fail("'{$value}' must be treated as invalid");
         }
     }
+    
+    /**
+     * @covers Peach\Http\Util::parseHeader
+     * @covers Peach\Http\Util::parseQualityValue
+     * @covers Peach\Http\Util::parseQvalue
+     */
+    public function testParseHeader()
+    {
+        $q1 = array(
+            "text/html"             => 1.0,
+            "application/xhtml+xml" => 1.0,
+            "application/xml"       => 0.9,
+            "image/webp"            => 1.0,
+            "*/*"                   => 0.8,
+        );
+        $h1 = new Header\QualityValues("accept", $q1);
+        $this->assertEquals($h1, Util::parseHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"));
+        $this->assertEquals($h1, Util::parseHeader("Accept", "text/html;x,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"));
+        
+        $r1 = new Header\Raw("connection", "keep-alive");
+        $this->assertEquals($r1, Util::parseHeader("Connection", "keep-alive"));
+    }
 }

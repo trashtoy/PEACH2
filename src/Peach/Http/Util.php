@@ -156,6 +156,54 @@ class Util
      */
     public static function parseHeader($name, $value)
     {
-        return new Raw($name, $value);
+        static $qNames = array(
+            "accept",
+            "accept-language",
+            "accept-encoding",
+        );
+        $lName = strtolower($name);
+        if (in_array($lName, $qNames)) {
+            return new Header\QualityValues($lName, self::parseQualityValue($value));
+        }
+        
+        return new Raw($lName, $value);
+    }
+    
+    /**
+     * 
+     * @param  string $value
+     * @return array
+     */
+    private static function parseQualityValue($value)
+    {
+        $values  = preg_split("/\\s*,\\s*/", $value);
+        $matched = array();
+        $qvList  = array();
+        foreach ($values as $item) {
+            if (preg_match("/\\A([^;]+)\\s*;\\s*(.+)\\z/", $item, $matched)) {
+                $key    = $matched[1];
+                $qvalue = self::parseQvalue($matched[2]);
+            } else {
+                $key    = $item;
+                $qvalue = 1.0;
+            }
+            $qvList[$key] = $qvalue;
+        }
+        return $qvList;
+    }
+    
+    /**
+     * 
+     * @param  string $qvalue "q=0.9" のような形式の文字列
+     * @return int    qvalue の小数値. もしも不正な場合は 1.0
+     */
+    private static function parseQvalue($qvalue)
+    {
+        $matched = array();
+        if (preg_match("/\\Aq\\s*=\\s*([0-9\\.]+)\\z/", $qvalue, $matched)) {
+            $val = (float) $matched[1];
+            return (0.0 < $val && $val <= 1.0) ? $val : 1;
+        }
+        return 1;
     }
 }
