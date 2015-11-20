@@ -71,4 +71,9 @@ class Raw implements HeaderField
     {
         return $this->name;
     }
+    
+    public function getValue()
+    {
+        return $this->value;
+    }
 }

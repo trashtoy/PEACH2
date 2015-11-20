@@ -86,4 +86,13 @@ class HttpDate implements HeaderField
     {
         return $this->name;
     }
+    
+    /**
+     * 
+     * @return Timestamp
+     */
+    public function getValue()
+    {
+        return $this->time;
+    }
 }

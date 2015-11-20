@@ -110,4 +110,13 @@ class QualityValues implements HeaderField
     {
         return $this->name;
     }
+    
+    /**
+     * 
+     * @return array
+     */
+    public function getValue()
+    {
+        return $this->qvalueList;
+    }
 }

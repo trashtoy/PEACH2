@@ -38,7 +38,7 @@ class Status implements HeaderField
      * 
      * @var string
      */
-    private $statusCode;
+    private $code;
     
     /**
      * HTTP ステータスの "Reason-phrase" をあらわす文字列です.
@@ -114,5 +114,14 @@ class Status implements HeaderField
     public function getName()
     {
         return ":status";
+    }
+    
+    /**
+     * 
+     * @return array
+     */
+    public function getValue()
+    {
+        return array($this->code, $this->reasonPhrase);
     }
 }

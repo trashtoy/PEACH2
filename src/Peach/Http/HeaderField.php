@@ -36,6 +36,11 @@ interface HeaderField
     public function getName();
     
     /**
+     * @return mixed
+     */
+    public function getValue();
+    
+    /**
      * @return string
      */
     public function format();
