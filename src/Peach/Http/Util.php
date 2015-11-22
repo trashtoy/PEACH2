@@ -28,6 +28,10 @@
 namespace Peach\Http;
 
 use InvalidArgumentException;
+use Peach\DT\HttpDateFormat;
+use Peach\DT\Timestamp;
+use Peach\Http\Header\HttpDate;
+use Peach\Http\Header\QualityValues;
 use Peach\Http\Header\Raw;
 
 class Util
@@ -161,11 +165,20 @@ class Util
             "accept-language",
             "accept-encoding",
         );
+        static $dNames = array(
+            "date",
+            "if-modified-since",
+            "last-modified",
+        );
         $lName = strtolower($name);
         if (in_array($lName, $qNames)) {
-            return new Header\QualityValues($lName, self::parseQualityValue($value));
+            return new QualityValues($lName, self::parseQualityValue($value));
         }
-        
+        if (in_array($lName, $dNames)) {
+            $format    = HttpDateFormat::getInstance();
+            $timestamp = Timestamp::parse($value, $format);
+            return new HttpDate($lName, $timestamp, $format);
+        }
         return new Raw($lName, $value);
     }
     
