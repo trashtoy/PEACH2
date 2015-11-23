@@ -1,10 +1,11 @@
 <?php
 namespace Peach\Http;
 
-use PHPUnit_Framework_TestCase;
+use Peach\Http\Header\NoField;
 use Peach\Http\Header\Raw;
 use Peach\Http\Header\Status;
 use Peach\Http\Response;
+use PHPUnit_Framework_TestCase;
 
 class ResponseTest extends PHPUnit_Framework_TestCase
 {
@@ -44,7 +45,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
     {
         $obj  = $this->object;
         $item = new Raw("Server", "Apache");
-        $this->assertNull($obj->getHeader("Server"));
+        $this->assertSame(NoField::getInstance(), $obj->getHeader("Server"));
         $obj->setHeader($item);
         $this->assertSame($item, $obj->getHeader("Server"));
     }

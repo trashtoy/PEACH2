@@ -1,9 +1,11 @@
 <?php
 namespace Peach\Http;
 
+use Peach\Http\Header\NoField;
 use Peach\Http\Header\Raw;
+use PHPUnit_Framework_TestCase;
 
-class RequestTest extends \PHPUnit_Framework_TestCase
+class RequestTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Request
@@ -59,7 +61,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     {
         $obj  = $this->object;
         $item = new Raw("Useragent", "hogehoge");
-        $this->assertNull($obj->getHeader("Useragent"));
+        $this->assertSame(NoField::getInstance(), $obj->getHeader("Useragent"));
         $obj->setHeader($item);
         $this->assertSame($item, $obj->getHeader("Useragent"));
     }

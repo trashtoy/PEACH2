@@ -27,6 +27,7 @@
  */
 namespace Peach\Http;
 
+use Peach\Http\Header\NoField;
 use Peach\Util\ArrayMap;
 
 class Request
@@ -85,14 +86,15 @@ class Request
     
     /**
      * 指定された名前のヘッダーを取得します.
-     * 存在しない場合は null を返します.
+     * 存在しない場合は NoField オブジェクトを返します.
      * 
      * @param  string $name ヘッダー名
-     * @return HeaderField   指定されたヘッダーに該当する HeaderField オブジェクト
+     * @return HeaderField  指定されたヘッダーに該当する HeaderField オブジェクト
      */
     public function getHeader($name)
     {
-        return $this->headerList->get(strtolower($name));
+        $header = $this->headerList->get(strtolower($name));
+        return ($header instanceof HeaderField) ? $header : NoField::getInstance();
     }
     
     /**

@@ -28,6 +28,7 @@
  */
 namespace Peach\Http;
 
+use Peach\Http\Header\NoField;
 use Peach\Http\Header\Status;
 use Peach\Util\ArrayMap;
 
@@ -63,7 +64,8 @@ class Response
      */
     public function getHeader($name)
     {
-        return $this->headerList->get(strtolower($name));
+        $header = $this->headerList->get(strtolower($name));
+        return ($header instanceof HeaderField) ? $header : NoField::getInstance();
     }
     
     /**
