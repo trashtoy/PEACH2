@@ -128,4 +128,22 @@ class Response
         $status = $this->getHeader(":status");
         return ($status instanceof Status);
     }
+    
+    /**
+     * 
+     * @param Body $body
+     */
+    public function setBody(Body $body)
+    {
+        $this->body = $body;
+    }
+    
+    /**
+     * 
+     * @return Body
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
 }

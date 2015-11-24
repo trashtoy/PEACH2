@@ -1,6 +1,7 @@
 <?php
 namespace Peach\Http;
 
+use Peach\Http\Body\StringRenderer;
 use Peach\Http\Header\NoField;
 use Peach\Http\Header\Raw;
 use Peach\Http\Header\Status;
@@ -97,5 +98,23 @@ class ResponseTest extends PHPUnit_Framework_TestCase
         $obj2 = new Response();
         $obj2->setHeader(new Raw(":status", "This is invalid"));
         $this->assertTrue($obj2->isMalformed());
+    }
+    
+    /**
+     * getBody() と setBody() のテストです. 以下を確認します.
+     * 
+     * - setBody() で設定した Body オブジェクトが getBody() から取得できること
+     * - setBody() が実行されていない状態で getBody() が null を返すこと
+     * 
+     * @covers Peach\Http\Response::setBody
+     * @covers Peach\Http\Response::getBody
+     */
+    public function testAccessBody()
+    {
+        $obj1 = $this->object;
+        $this->assertNull($obj1->getBody());
+        $body = new Body("Hogehoge", StringRenderer::getInstance());
+        $obj1->setBody($body);
+        $this->assertSame($body, $obj1->getBody());
     }
 }
