@@ -151,6 +151,29 @@ class Util
     }
     
     /**
+     * 指定された Request の If-Modified-Since および If-None-Match ヘッダーを参照し,
+     * この Request がキャッシュしているリソースの最新版が存在するかどうかを判定します.
+     * 
+     * @param  Request   $request      判定対象の Request
+     * @param  Timestamp $lastModified サーバー側リソースの最終更新日時
+     * @param  string    $etag         サーバー側リソースの ETag
+     * @return bool
+     */
+    public static function checkResponseUpdate(Request $request, Timestamp $lastModified, $etag = null)
+    {
+        $ifModifiedSince = $request->getHeader("If-Modified-Since");
+        if (!($ifModifiedSince instanceof HttpDate)) {
+            return true;
+        }
+        $clientTime = $ifModifiedSince->getValue();
+        if ($clientTime->before($lastModified)) {
+            return true;
+        }
+        
+        return $etag !== $request->getHeader("If-None-Match")->getValue();
+    }
+    
+    /**
      * 指定されたヘッダー名, ヘッダー値の組み合わせから
      * HeaderField オブジェクトを構築します.
      * 

@@ -2,6 +2,9 @@
 namespace Peach\Http;
 
 use InvalidArgumentException;
+use Peach\DT\Timestamp;
+use Peach\Http\Header\HttpDate;
+use Peach\Http\Header\Raw;
 use PHPUnit_Framework_TestCase;
 
 class UtilTest extends PHPUnit_Framework_TestCase
@@ -127,6 +130,44 @@ class UtilTest extends PHPUnit_Framework_TestCase
             
             $this->fail("'{$value}' must be treated as invalid");
         }
+    }
+    
+    /**
+     * checkRespoonseUpdate() のテストです. 以下を確認します.
+     * 
+     * - If-Modified-Since ヘッダーがない場合は true を返すこと
+     * - If-Modified-Since ヘッダーが示す時刻が第 2 引数よりも過去の場合は true を返すこと
+     * - If-Modified-Since が合致している場合, If-None-Match ヘッダーと ETag の値が合致していたら false, それ以外は true を返すこと
+     * 
+     * @covers Peach\Http\Util::checkResponseUpdate
+     */
+    public function testCheckResponseUpdate()
+    {
+        $time = new Timestamp(2012, 5, 21, 7, 34, 45);
+        $etag = "b10a8db164e0754105b7a99be72e3fe5";
+        
+        $req1 = new Request();
+        $this->assertTrue(Util::checkResponseUpdate($req1, $time));
+        
+        $req2 = new Request();
+        $req2->setHeader(new HttpDate("If-Modified-Since", new Timestamp(2012, 4, 30, 11, 22, 33)));
+        $this->assertTrue(Util::checkResponseUpdate($req2, $time));
+        
+        $req3 = new Request();
+        $req3->setHeader(new HttpDate("If-Modified-Since", new Timestamp(2012, 5, 21, 7, 34, 45)));
+        $this->assertFalse(Util::checkResponseUpdate($req3, $time));
+        $this->assertTrue(Util::checkResponseUpdate($req3, $time, $etag));
+        
+        $req4 = new Request();
+        $req4->setHeader(new HttpDate("If-Modified-Since", new Timestamp(2012, 5, 21, 7, 34, 45)));
+        $req4->setHeader(new Raw("If-None-Match", "9e107d9d372bb6826bd81d3542a419d6"));
+        $this->assertTrue(Util::checkResponseUpdate($req4, $time, $etag));
+        
+        $req5 = new Request();
+        $req5->setHeader(new HttpDate("If-Modified-Since", new Timestamp(2012, 5, 21, 7, 34, 45)));
+        $req5->setHeader(new Raw("If-None-Match", "b10a8db164e0754105b7a99be72e3fe5"));
+        $this->assertTrue(Util::checkResponseUpdate($req5, $time));
+        $this->assertFalse(Util::checkResponseUpdate($req5, $time, $etag));
     }
     
     /**
