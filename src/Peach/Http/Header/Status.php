@@ -31,6 +31,11 @@ use InvalidArgumentException;
 use Peach\Http\HeaderField;
 use Peach\Util\Values;
 
+/**
+ * HTTP レスポンスのステータスを表すクラスです.
+ * 
+ * このクラスは HTTP/1 におけるステータスライン, HTTP/2 における :status 擬似ヘッダーを表現します.
+ */
 class Status implements HeaderField
 {
     /**
@@ -48,6 +53,7 @@ class Status implements HeaderField
     private $reasonPhrase;
     
     /**
+     * 指定されたステータスコードおよび Reason-Phrase からなる Status インスタンスを構築します.
      * 
      * @param string $code         "200", "404" など, 3 桁の数字から成る文字列
      * @param string $reasonPhrase "OK", "Not Found" など, HTTP ステータスの Reason-Phrase に相当する文字列 (省略可能)
@@ -61,9 +67,9 @@ class Status implements HeaderField
     /**
      * 引数を 3 桁の数字文字列に変換します.
      * 
-     * @param  mixed $code
+     * @param  mixed  $code ステータスコードをあらわす文字列または整数
      * @return string 3 桁の数字から成る文字列
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException 引数がステータスコードとして妥当ではない場合
      */
     private function cleanCode($code)
     {
@@ -88,7 +94,7 @@ class Status implements HeaderField
     }
     
     /**
-     * このステータスの ReasonPhrase 部分を返します.
+     * このステータスの Reason-Phrase 部分を返します.
      * 
      * @return string
      */
@@ -100,6 +106,8 @@ class Status implements HeaderField
     /**
      * このメソッドは HTTP/2 ベースのレスポンスでのみ利用されます.
      * ステータスコードのみ返します.
+     * 
+     * @return string
      */
     public function format()
     {
@@ -117,6 +125,8 @@ class Status implements HeaderField
     }
     
     /**
+     * この Status オブジェクトの情報を返します.
+     * 返り値はステータスコードおよび Reason-Phrase から成る要素数 2 の配列となります.
      * 
      * @return array
      */
