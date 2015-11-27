@@ -30,24 +30,32 @@ namespace Peach\Http\Header;
 use Peach\Http\HeaderField;
 use Peach\Http\Util;
 
+/**
+ * 単純なテキストデータをあらわす HeaderField です.
+ * 
+ * このクラスの format() および getValue() は同じ結果を返します.
+ */
 class Raw implements HeaderField
 {
     /**
+     * ヘッダー名をあらわす文字列です.
      *
      * @var string
      */
     private $name;
     
     /**
+     * ヘッダー値をあらわす文字列です.
      *
      * @var string
      */
     private $value;
     
     /**
+     * 指定されたヘッダー名およびヘッダー値を持つ Raw オブジェクトを構築します.
      * 
-     * @param type $name
-     * @param type $value
+     * @param string $name  ヘッダー名
+     * @param string $value ヘッダー値
      */
     public function __construct($name, $value)
     {
@@ -57,7 +65,9 @@ class Raw implements HeaderField
     }
     
     /**
-     * @return string
+     * このヘッダーの値をそのまま返します.
+     * 
+     * @return string ヘッダー値
      */
     public function format()
     {
@@ -65,13 +75,20 @@ class Raw implements HeaderField
     }
     
     /**
-     * @return string
+     * この HeaderField のヘッダー名を返します.
+     * 
+     * @return string ヘッダー名
      */
     public function getName()
     {
         return $this->name;
     }
     
+    /**
+     * この HeaderField のヘッダー値として使用される値を返します.
+     * 
+     * @return string ヘッダー値として使用される値
+     */
     public function getValue()
     {
         return $this->value;
