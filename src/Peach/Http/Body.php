@@ -28,19 +28,51 @@
 namespace Peach\Http;
 
 /**
- * HTTP リクエストおよびレスポンスの Body 部分を表現するインタフェースです.
+ * HTTP リクエストおよびレスポンスの Body 部分を表現するクラスです.
  */
-interface Body
+class Body
 {
     /**
+     *
+     * @var mixed
+     */
+    private $value;
+    
+    /**
+     *
+     * @var BodyRenderer
+     */
+    private $renderer;
+    
+    /**
+     * 指定された出力対象のデータおよび BodyRenderer から成る Body オブジェクトを構築します.
+     * 
+     * @param mixed $value 出力対象のデータ
+     * @param BodyRenderer $renderer 出力対象のデータを HTTP メッセージボディに変換するための BodyRenderer オブジェクト
+     */
+    public function __construct($value, BodyRenderer $renderer)
+    {
+        $this->value      = $value;
+        $this->renderer   = $renderer;
+    }
+    
+    /**
+     * この Response が返却する値の生データ (内部表現) を返します.
+     * 
      * @return mixed
      */
-    public function getValue();
+    public function getValue()
+    {
+        return $this->value;
+    }
     
     /**
      * この Body オブジェクトを文字列に変換するための Renderer を返します.
      * 
      * @return BodyRenderer
      */
-    public function getRenderer();
+    public function getRenderer()
+    {
+        return $this->renderer;
+    }
 }
