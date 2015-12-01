@@ -38,28 +38,32 @@ use Peach\DT\HttpDateFormat;
 class HttpDate implements HeaderField
 {
     /**
-     *
+     * ヘッダー名をあらわす文字列です.
      * @var string
      */
     private $name;
     
     /**
-     *
+     * このヘッダーがあらわす時刻です. GMT ではなくこのシステムのタイムゾーンを基準とします.
      * @var Timestamp
      */
     private $time;
     
     /**
-     *
+     * このヘッダーの時刻を書式化するための HttpDateFormat です.
      * @var HttpDateFormat
      */
     private $format;
     
     /**
+     * 指定されたヘッダー名および時刻を持つ HttpDate オブジェクトを構築します.
+     * オプションとして第 3 引数に任意の HttpDateFormat を指定することができます.
+     * デフォルトではシステムのタイムゾーンを基準としてヘッダーを書式化しますが,
+     * 特定のタイムゾーンを基準にしたい場合に使用してください.
      * 
-     * @param string         $name
-     * @param Timestamp      $time
-     * @param HttpDateFormat $format
+     * @param string         $name   ヘッダー名
+     * @param Timestamp      $time   時刻 (GMT ではなくシステムのタイムゾーンを基準とする)
+     * @param HttpDateFormat $format ヘッダー値を書式化するための HttpDateFormat
      */
     public function __construct($name, Timestamp $time, HttpDateFormat $format = null)
     {
@@ -70,8 +74,9 @@ class HttpDate implements HeaderField
     }
     
     /**
+     * このヘッダーの時刻を HTTP-date 形式で書式化します.
      * 
-     * @return string
+     * @return string HTTP-date 形式の文字列
      */
     public function format()
     {
@@ -79,8 +84,9 @@ class HttpDate implements HeaderField
     }
     
     /**
+     * このヘッダーの名前を返します.
      * 
-     * @return string
+     * @return string ヘッダー名
      */
     public function getName()
     {
@@ -88,8 +94,9 @@ class HttpDate implements HeaderField
     }
     
     /**
+     * このヘッダーが表現する時刻を返します.
      * 
-     * @return Timestamp
+     * @return Timestamp このヘッダーが表現する時刻
      */
     public function getValue()
     {
