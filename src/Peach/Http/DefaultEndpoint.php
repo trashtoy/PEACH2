@@ -28,6 +28,7 @@
 namespace Peach\Http;
 
 use Peach\Http\Header\Raw;
+use Peach\Http\Header\Status;
 use Peach\Util\Strings;
 
 /**
@@ -110,6 +111,29 @@ class DefaultEndpoint implements Endpoint
      */
     public function send(Response $response)
     {
+        $body = $response->getBody();
+        if ($body instanceof Body) {
+            $renderer = $body->getRenderer();
+            $value    = $body->getValue();
+            $result   = $renderer->render($value);
+            $response->setHeader(new Raw("Content-Length", strlen($result)));
+        } else {
+            $result   = null;
+        }
         
+        foreach ($response->getHeaderList() as $header) {
+            if ($header instanceof Status) {
+                $code         = $header->getCode();
+                $reasonPhrase = $header->getReasonPhrase();
+                header("HTTP/1.1 {$code} {$reasonPhrase}");
+                continue;
+            }
+            $name  = $header->getName();
+            $value = $header->format();
+            header("{$name}: {$value}");
+        }
+        if (strlen($result)) {
+            echo $result;
+        }
     }
 }
