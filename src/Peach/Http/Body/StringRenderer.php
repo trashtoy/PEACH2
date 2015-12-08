@@ -60,8 +60,8 @@ class StringRenderer implements BodyRenderer
     /**
      * 指定された値を文字列として返します.
      * 
-     * @param mixed $var
-     * @return string
+     * @param  mixed $var 任意の値
+     * @return string     指定された値の文字列表現
      */
     public function render($var)
     {

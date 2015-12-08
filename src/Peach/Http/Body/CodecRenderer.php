@@ -47,7 +47,7 @@ class CodecRenderer implements BodyRenderer
     /**
      * 指定された Codec オブジェクトを使って render を行う CodecRenderer オブジェクトを構築します.
      * 
-     * @param Codec $codec
+     * @param Codec $codec 任意の値を文字列に変換する Codec
      */
     public function __construct(Codec $codec)
     {
