@@ -67,6 +67,26 @@ class RequestTest extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * getHeader() の第 1 引数について "Host" と ":authority" を同一視することを確認します.
+     * 
+     * @covers Peach\Http\Request::getHeader
+     */
+    public function testAccessHost()
+    {
+       $obj1 = new Request();
+       $h1   = new Raw(":authority", "www.example.com");
+       $obj1->setHeader($h1);
+       $this->assertSame($h1, $obj1->getHeader("Host"));
+       $this->assertSame($h1, $obj1->getHeader(":authority"));
+       
+       $obj2 = new Request();
+       $h2   = new Raw("Host", "www.example.com");
+       $obj2->setHeader($h2);
+       $this->assertSame($h2, $obj2->getHeader("Host"));
+       $this->assertSame($h2, $obj2->getHeader(":authority"));
+    }
+    
+    /**
      * getHeader() の引数が大文字・小文字を区別しないことを確認します.
      * 
      * @covers Peach\Http\Request::getHeader

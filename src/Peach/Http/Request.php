@@ -93,7 +93,12 @@ class Request
      */
     public function getHeader($name)
     {
-        $header = $this->headerList->get(strtolower($name));
+        $lName  = strtolower($name);
+        if ($lName === "host") {
+            return $this->getHeader(":authority");
+        }
+        
+        $header = $this->headerList->get($lName);
         return ($header instanceof HeaderField) ? $header : NoField::getInstance();
     }
     
@@ -116,7 +121,8 @@ class Request
     public function setHeader(HeaderField $item)
     {
         $name = strtolower($item->getName());
-        $this->headerList->put($name, $item);
+        $key  = ($name === "host") ? ":authority" : $name;
+        $this->headerList->put($key, $item);
     }
     
     /**
