@@ -202,6 +202,10 @@ class Util
             $timestamp = Timestamp::parse($value, $format);
             return new HttpDate($lName, $timestamp, $format);
         }
+        if ($lName === "host") {
+            return new Raw(":authority", $value);
+        }
+        
         return new Raw($lName, $value);
     }
     
