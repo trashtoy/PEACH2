@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Copyright (c) 2015 @trashtoy
  * https://github.com/trashtoy/
@@ -28,20 +27,34 @@
  */
 namespace Peach\Http;
 
+/**
+ * HTTP リクエストまたは HTTP レスポンスにおけるヘッダーフィールドをあらわします.
+ */
 interface HeaderField
 {
     /**
+     * このヘッダーフィールドのヘッダー名を返します.
+     * 
      * @return string
      */
     public function getName();
     
     /**
+     * このヘッダーフィールドの値を返します.
+     * 
+     * 配列形式で返します.
+     * 
      * @return mixed
      */
     public function getValue();
     
     /**
-     * @return string
+     * このヘッダーフィールドのヘッダー値を書式化します.
+     * 
+     * もしもこのヘッダーフィールドが複数回セットされる場合は配列で返します.
+     * "Set-Cookie" などが該当します.
+     * 
+     * @return string|array
      */
     public function format();
 }
