@@ -130,10 +130,29 @@ class DefaultEndpoint implements Endpoint
             }
             $name  = $header->getName();
             $value = $header->format();
-            header("{$name}: {$value}");
+            $this->printHeader($name, $value);
         }
         if (strlen($result)) {
             echo $result;
         }
+    }
+    
+    /**
+     * 指定されたヘッダー名およびヘッダー値の組み合わせを出力します.
+     * もしもヘッダー値が配列の場合 (Set-Cookie など) は,
+     * 同じヘッダー名による複数のヘッダー行を出力します.
+     * 
+     * @param string       $name  ヘッダー名
+     * @param string|array $value ヘッダー値
+     */
+    private function printHeader($name, $value)
+    {
+        if (is_array($value)) {
+            foreach ($value as $item) {
+                $this->printHeader($name, $item);
+            }
+        }
+        
+        header("{$name}: {$value}");
     }
 }
