@@ -134,4 +134,18 @@ class Status implements HeaderField
     {
         return array($this->code, $this->reasonPhrase);
     }
+    
+    /**
+     * "200 OK" をあらわす Status オブジェクトを返します.
+     * 
+     * @return Status
+     */
+    public static function getOK()
+    {
+        static $ok = null;
+        if ($ok === null) {
+            $ok = new self("200", "OK");
+        }
+        return $ok;
+    }
 }
