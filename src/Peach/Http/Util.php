@@ -46,8 +46,8 @@ class Util
      * 文字列が半角アルファベット・数字・ハイフンから成る場合のみ妥当とします.
      * 妥当な文字列でない場合は InvalidArgumentException をスローします.
      * 
-     * @param string $name
-     * @throws InvalidArgumentException
+     * @param string $name ヘッダー名
+     * @throws InvalidArgumentException 引数がヘッダー名として不正だった場合
      */
     public static function validateHeaderName($name)
     {
@@ -100,8 +100,8 @@ class Util
     /**
      * 引数がヘッダー値として妥当な場合のみ true を返します.
      * 
-     * @param  string $value
-     * @return bool
+     * @param  string $value ヘッダー値
+     * @return bool          妥当なヘッダー値の場合は true, それ以外は false
      */
     private static function handleValidateHeaderValue($value)
     {
@@ -140,9 +140,9 @@ class Util
     }
     
     /**
-     * 
-     * @param  string $chr
-     * @return bool
+     * 引数の 1 文字について, 印字可能文字かどうかを判定します.
+     * @param  string $chr 検査対象の文字
+     * @return bool        印字可能文字の場合のみ true
      */
     private static function validateVCHAR($chr)
     {
