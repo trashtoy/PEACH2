@@ -51,10 +51,7 @@ interface HeaderField
     /**
      * このヘッダーフィールドのヘッダー値を書式化します.
      * 
-     * もしもこのヘッダーフィールドが複数回セットされる場合は配列で返します.
-     * "Set-Cookie" などが該当します.
-     * 
-     * @return string|array
+     * @return string
      */
     public function format();
 }
