@@ -95,7 +95,9 @@ class SetCookie implements RepeatableHeaderField
      */
     public function format()
     {
-        return "";
+        $name  = rawurlencode($this->name);
+        $value = rawurlencode($this->value);
+        return "{$name}={$value}";
     }
     
     /**
