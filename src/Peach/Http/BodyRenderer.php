@@ -27,12 +27,16 @@
  */
 namespace Peach\Http;
 
+/**
+ * HTTP メッセージの body 部分を書式化するインタフェースです.
+ */
 interface BodyRenderer
 {
     /**
+     * 指定された値を文字列に変換します.
      * 
-     * @param  mixed $var
-     * @return string
+     * @param  mixed $var 変換対象の値
+     * @return string     変換後の文字列
      */
     public function render($var);
 }
