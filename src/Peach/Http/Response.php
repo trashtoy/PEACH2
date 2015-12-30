@@ -70,13 +70,13 @@ class Response
     
     /**
      * この Response が持つヘッダーの一覧を取得します.
+     * 返り値の配列に対する操作はこのオブジェクトに影響しません.
      * 
-     * @return HeaderField[] この Response に定義されている HeaderField のリスト
-     * @todo 実装する
+     * @return HeaderField[] この Response にセットされている HeaderField の一覧
      */
     public function getHeaderList()
     {
-        return array();
+        return $this->headerList->asArray();
     }
     
     /**
