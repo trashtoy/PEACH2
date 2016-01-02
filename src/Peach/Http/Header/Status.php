@@ -28,7 +28,7 @@
 namespace Peach\Http\Header;
 
 use InvalidArgumentException;
-use Peach\Http\HeaderField;
+use Peach\Http\SingleHeaderField;
 use Peach\Util\Values;
 
 /**
@@ -36,7 +36,7 @@ use Peach\Util\Values;
  * 
  * このクラスは HTTP/1 におけるステータスライン, HTTP/2 における :status 擬似ヘッダーを表現します.
  */
-class Status implements HeaderField
+class Status implements SingleHeaderField
 {
     /**
      * 3 桁の数字から成る文字列です.

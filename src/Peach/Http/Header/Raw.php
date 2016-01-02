@@ -27,7 +27,7 @@
  */
 namespace Peach\Http\Header;
 
-use Peach\Http\HeaderField;
+use Peach\Http\SingleHeaderField;
 use Peach\Http\Util;
 
 /**
@@ -35,7 +35,7 @@ use Peach\Http\Util;
  * 
  * このクラスの format() および getValue() は同じ結果を返します.
  */
-class Raw implements HeaderField
+class Raw implements SingleHeaderField
 {
     /**
      * ヘッダー名をあらわす文字列です.

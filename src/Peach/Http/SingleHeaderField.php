@@ -28,14 +28,22 @@
 namespace Peach\Http;
 
 /**
- * HTTP リクエストまたは HTTP レスポンスにおけるヘッダーフィールドをあらわします.
+ * HTTP メッセージ内に 1 つだけ存在できるヘッダーフィールドです.
+ * HTTP/1.1 で定義されているヘッダーフィールドのうち "Set-Cookie" を除くすべてのヘッダーフィールドが該当します.
  */
-interface HeaderField
+interface SingleHeaderField extends HeaderField
 {
     /**
-     * このヘッダーフィールドのヘッダー名を返します.
+     * このヘッダーフィールドの値を返します.
+     * 
+     * @return mixed
+     */
+    public function getValue();
+    
+    /**
+     * このヘッダーフィールドのヘッダー値を書式化します.
      * 
      * @return string
      */
-    public function getName();
+    public function format();
 }
