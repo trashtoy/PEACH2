@@ -27,57 +27,16 @@
  */
 namespace Peach\Http\Header;
 
-use Peach\Http\RepeatableHeaderField;
+use Peach\Http\MultiHeaderField;
+use Peach\Util\ArrayMap;
 
-class SetCookie implements RepeatableHeaderField
+class SetCookie implements MultiHeaderField
 {
     /**
      *
-     * @var string
+     * @var ArrayMap
      */
-    private $name;
-    
-    /**
-     *
-     * @var string
-     */
-    private $value;
-    
-    /**
-     *
-     * @var Timestamp
-     */
-    private $expires;
-    
-    /**
-     *
-     * @var int
-     */
-    private $maxAge;
-    
-    /**
-     *
-     * @var string
-     */
-    private $domain;
-    
-    /**
-     *
-     * @var string
-     */
-    private $path;  
-    
-    /**
-     *
-     * @var bool
-     */
-    private $secure;
-    
-    /**
-     *
-     * @var bool
-     */
-    private $httpOnly;
+    private $items;
     
     /**
      * 
@@ -86,18 +45,36 @@ class SetCookie implements RepeatableHeaderField
      */
     public function __construct($name, $value)
     {
-        $this->name  = $name;
-        $this->value = $value;
+        $this->items = new ArrayMap();
+        if ($name !== null) {
+            $this->setItem($name, $value);
+        }
     }
     
     /**
-     * @todo 実装する
+     * 指定された Cookie 名および Cookie 値を持つ新しい Set-Cookie ヘッダーを追加します.
+     * 
+     * @param string $name  Cookie 名
+     * @param string $value Cookie 値
+     */
+    public function setItem($name, $value)
+    {
+        $item = new CookieItem($name, $value);
+        $this->items->put($name, $item);
+    }
+    
+    /**
+     * すべての Set-Cookie ヘッダーの値を配列で返します.
+     * 
+     * @return array すべての Set-Cookie ヘッダー値の配列
      */
     public function format()
     {
-        $name  = rawurlencode($this->name);
-        $value = rawurlencode($this->value);
-        return "{$name}={$value}";
+        $result = array();
+        foreach ($this->items as $item) {
+            $result[] = $item->format();
+        }
+        return $result;
     }
     
     /**
@@ -111,13 +88,13 @@ class SetCookie implements RepeatableHeaderField
     }
     
     /**
-     * このヘッダーがあらわす値を返します.
-     * 返り値に path や domain などの各種オプションは含まれません.
+     * このオブジェクトにセットされている Set-Cookie ヘッダーの一覧を
+     * CookieItem オブジェクトの配列として返します.
      * 
-     * @return string このヘッダーの値
+     * @return CookieItem[] CookieItem オブジェクトの配列
      */
-    public function getValue()
+    public function getValues()
     {
-        return $this->value;
+        return array_values($this->items->asArray());
     }
 }

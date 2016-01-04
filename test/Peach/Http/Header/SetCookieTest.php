@@ -27,14 +27,19 @@ class SetCookieTest extends PHPUnit_Framework_TestCase
      * URL エンコードに変換されます.
      * 
      * @covers Peach\Http\Header\SetCookie::__construct
+     * @covers Peach\Http\Header\SetCookie::setItem
      * @covers Peach\Http\Header\SetCookie::format
      */
     public function testFormat()
     {
-        $obj1 = new SetCookie("foo", "test01");
-        $this->assertSame("foo=test01", $obj1->format());
+        $expected1 = array("foo=test01", "bar=test02");
+        $obj1      = new SetCookie("foo", "test01");
+        $obj1->setItem("bar", "test02");
+        $this->assertSame($expected1, $obj1->format());
+        
+        $expected2 = array("%E3%83%86%E3%82%B9%E3%83%88=%E7%A2%BA%E8%AA%8D");
         $obj2 = new SetCookie("テスト", "確認");
-        $this->assertSame("%E3%83%86%E3%82%B9%E3%83%88=%E7%A2%BA%E8%AA%8D", $obj2->format());
+        $this->assertSame($expected2, $obj2->format());
     }
     
     /**
@@ -49,13 +54,19 @@ class SetCookieTest extends PHPUnit_Framework_TestCase
     }
     
     /**
-     * この Set-Cookie の値を返します.
+     * 対象の SetCookie オブジェクトにセットされている CookieItem の配列を返すことを確認します.
      * 
-     * @covers Peach\Http\Header\SetCookie::getValue
+     * @covers Peach\Http\Header\SetCookie::getValues
+     * @covers Peach\Http\Header\SetCookie::setItem
      */
-    public function testGetValue()
+    public function testGetValues()
     {
-        $obj = new SetCookie("foo", "test01");
-        $this->assertSame("test01", $obj->getValue());
+        $expected = array(
+            new CookieItem("foo", "test01"),
+            new CookieItem("bar", "test02"),
+        );
+        $obj      = new SetCookie("foo", "test01");
+        $obj->setItem("bar", "test02");
+        $this->assertEquals($expected, $obj->getValues());
     }
 }
