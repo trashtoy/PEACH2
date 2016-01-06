@@ -50,4 +50,17 @@ class CookieOptionsTest extends \PHPUnit_Framework_TestCase
         $obj = new CookieOptions();
         $this->assertNull($obj->getExpires());
     }
+    
+    /**
+     * setTimeZoneOffset() でセットした値が getTimeZoneOffset() から取得できることを確認します.
+     * 
+     * @covers Peach\Http\Header\CookieOptions::getTimeZoneOffset
+     * @covers Peach\Http\Header\CookieOptions::setTimeZoneOffset
+     */
+    public function testAccessTimeZoneOffset()
+    {
+        $obj = $this->object;
+        $obj->setTimeZoneOffset(-540);
+        $this->assertSame(-540, $obj->getTimeZoneOffset());
+    }
 }

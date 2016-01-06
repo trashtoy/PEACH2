@@ -28,6 +28,7 @@
 namespace Peach\Http\Header;
 
 use Peach\DT\Timestamp;
+use Peach\DT\Util;
 
 /**
  * Set-Cookie ヘッダーの各種属性をあらわすクラスです.
@@ -41,6 +42,14 @@ class CookieOptions
      * @var Timestamp
      */
     private $expires;
+    
+    /**
+     * このプログラムが扱う時刻のタイムゾーンです.
+     * この値が null の場合はデフォルトのタイムゾーンを適用します.
+     * 
+     * @var int
+     */
+    private $timeZoneOffset;
     
     /**
      * 属性を何も持たない, 新しい CookieOptions オブジェクトを構築します.
@@ -69,5 +78,29 @@ class CookieOptions
     public function getExpires()
     {
         return $this->expires;
+    }
+    
+    /**
+     * このオブジェクトが取り扱う Timestamp オブジェクトの時差を秒単位でセットします.
+     * このメソッドは expires 属性の出力に影響します.
+     * PHP の date.timezone 設定がシステムの時差と異なる場合に使用してください.
+     * 通常はこのメソッドを使用する必要はありません.
+     * 
+     * @param int $offset 時差
+     */
+    public function setTimeZoneOffset($offset)
+    {
+        $this->timeZoneOffset = ($offset === null) ? null : Util::cleanTimeZoneOffset($offset);
+    }
+    
+    /**
+     * このオブジェクトが取り扱う Timestamp オブジェクトの時差を返します.
+     * このメソッドはデフォルトで null を返します.
+     * 
+     * @return int 時差. ただしデフォルトの場合は null
+     */
+    public function getTimeZoneOffset()
+    {
+        return $this->timeZoneOffset;
     }
 }
