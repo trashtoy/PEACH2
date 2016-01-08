@@ -75,4 +75,18 @@ class CookieOptionsTest extends \PHPUnit_Framework_TestCase
         $obj = new CookieOptions();
         $this->assertNull($obj->getTimeZoneOffset());
     }
+    
+    /**
+     * setTimeZoneOffset() で指定した値が -1425 以上 1425 以下に丸められることを確認します.
+     * 
+     * @covers Peach\Http\Header\CookieOptions::setTimeZoneOffset
+     */
+    public function testSetTimeZoneOffsetByInvalidValue()
+    {
+        $obj = $this->object;
+        $obj->setTimeZoneOffset(-2000);
+        $this->assertSame(-1425, $obj->getTimeZoneOffset());
+        $obj->setTimeZoneOffset(3000);
+        $this->assertSame(1425, $obj->getTimeZoneOffset());
+    }
 }

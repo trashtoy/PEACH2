@@ -81,12 +81,16 @@ class CookieOptions
     }
     
     /**
-     * このオブジェクトが取り扱う Timestamp オブジェクトの時差を秒単位でセットします.
+     * このオブジェクトが取り扱う Timestamp オブジェクトの時差を分単位でセットします.
      * このメソッドは expires 属性の出力に影響します.
      * PHP の date.timezone 設定がシステムの時差と異なる場合に使用してください.
      * 通常はこのメソッドを使用する必要はありません.
      * 
+     * もしも引数に -23:45 (1425) 以上または +23:45 (-1425) 未満の値を指定した場合は
+     * -23:45 または +23:45 に丸めた結果を返します.
+     * 
      * @param int $offset 時差
+     * @see   Util::cleanTimeZoneOffset()
      */
     public function setTimeZoneOffset($offset)
     {
