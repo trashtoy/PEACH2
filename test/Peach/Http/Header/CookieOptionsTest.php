@@ -89,4 +89,17 @@ class CookieOptionsTest extends \PHPUnit_Framework_TestCase
         $obj->setTimeZoneOffset(3000);
         $this->assertSame(1425, $obj->getTimeZoneOffset());
     }
+    
+    /**
+     * formatOptions() のテストです. 以下を確認します.
+     * 
+     * - デフォルトの状態では空の配列を返すこと
+     * 
+     * @covers Peach\Http\Header\CookieOptions::formatOptions
+     */
+    public function testFormatOptions()
+    {
+        $obj = $this->object;
+        $this->assertSame(array(), $obj->formatOptions());
+    }
 }

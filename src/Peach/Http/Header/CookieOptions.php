@@ -107,4 +107,17 @@ class CookieOptions
     {
         return $this->timeZoneOffset;
     }
+    
+    /**
+     * このオブジェクトが持つ各属性を書式化し, 結果を配列で返します.
+     * 
+     * @return array 各属性を書式化した結果の配列
+     * @ignore
+     * @todo 複数の Set-Cookie ヘッダーで同じオプションを適用することを想定し, 返り値をキャッシュできるようにする
+     */
+    public function formatOptions()
+    {
+        $result = array();
+        return $result;
+    }
 }
