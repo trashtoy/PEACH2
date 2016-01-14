@@ -1,7 +1,10 @@
 <?php
 namespace Peach\Http\Header;
 
-class CookieOptionsTest extends \PHPUnit_Framework_TestCase
+use PHPUnit_Framework_TestCase;
+use Peach\DT\Timestamp;
+
+class CookieOptionsTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var CookieOptions
@@ -34,7 +37,7 @@ class CookieOptionsTest extends \PHPUnit_Framework_TestCase
     public function testAccessExpires()
     {
         $obj       = $this->object;
-        $timestamp = new \Peach\DT\Timestamp(2012, 5, 21, 7, 34, 45);
+        $timestamp = new Timestamp(2012, 5, 21, 7, 34, 45);
         $obj->setExpires($timestamp);
         $this->assertSame($timestamp, $obj->getExpires());
     }
@@ -101,5 +104,19 @@ class CookieOptionsTest extends \PHPUnit_Framework_TestCase
     {
         $obj = $this->object;
         $this->assertSame(array(), $obj->formatOptions());
+    }
+    
+    /**
+     * expires 属性が書式化されることを確認します.
+     * 
+     * @covers Peach\Http\Header\CookieOptions::formatExpires
+     */
+    public function testFormatExpires()
+    {
+        $expected = array("expires=Sun, 20-May-2012 22:34:45 GMT");
+        $obj      = $this->object;
+        $obj->setExpires(new Timestamp(2012, 5, 21, 7, 34, 45));
+        $obj->setTimeZoneOffset(-540);
+        $this->assertSame($expected, $obj->formatOptions());
     }
 }

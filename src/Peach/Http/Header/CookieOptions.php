@@ -118,6 +118,22 @@ class CookieOptions
     public function formatOptions()
     {
         $result = array();
+        if ($this->expires !== null) {
+            $result[] = $this->formatExpires();
+        }
         return $result;
+    }
+    
+    /**
+     * expires 属性を書式化します.
+     * 
+     * @return string "expires=Wdy, DD-Mon-YY HH:MM:SS GMT" 形式の文字列
+     */
+    private function formatExpires()
+    {
+        $format = CookieExpiresFormat::getInstance();
+        $offset = Util::cleanTimeZoneOffset($this->timeZoneOffset);
+        $date   = $format->format($this->expires, $offset);
+        return "expires={$date}";
     }
 }
