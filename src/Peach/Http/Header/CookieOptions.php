@@ -29,6 +29,7 @@ namespace Peach\Http\Header;
 
 use Peach\DT\Timestamp;
 use Peach\DT\Util;
+use Peach\Util\Values;
 
 /**
  * Set-Cookie ヘッダーの各種属性をあらわすクラスです.
@@ -50,6 +51,12 @@ class CookieOptions
      * @var int
      */
     private $timeZoneOffset;
+    
+    /**
+     * max-age 属性をあらわす整数です.
+     * @var int
+     */
+    private $maxAge;
     
     /**
      * 属性を何も持たない, 新しい CookieOptions オブジェクトを構築します.
@@ -109,6 +116,29 @@ class CookieOptions
     }
     
     /**
+     * max-age 属性の値をセットします.
+     * 引数に 0 をセットした場合は対象の Cookie がブラウザから削除されます.
+     * 引数が 0 未満の値の場合は 0 として扱われます.
+     * 
+     * @param int $maxAge max-age 属性の値
+     */
+    public function setMaxAge($maxAge)
+    {
+        $this->maxAge = ($maxAge === null) ? null : Values::intValue($maxAge, 0);
+    }
+    
+    /**
+     * max-age 属性の値を返します.
+     * もしも max-age 属性がセットされていない場合は null を返します.
+     * 
+     * @return int max-age 属性の値. セットされていない場合は null
+     */
+    public function getMaxAge()
+    {
+        return $this->maxAge;
+    }
+    
+    /**
      * このオブジェクトが持つ各属性を書式化し, 結果を配列で返します.
      * 
      * @return array 各属性を書式化した結果の配列
@@ -121,6 +151,7 @@ class CookieOptions
         if ($this->expires !== null) {
             $result[] = $this->formatExpires();
         }
+        
         return $result;
     }
     

@@ -119,4 +119,40 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
         $obj->setTimeZoneOffset(-540);
         $this->assertSame($expected, $obj->formatOptions());
     }
+    
+    /**
+     * setMaxAge() および getMaxAge() のテストです. 以下を確認します.
+     * 
+     * - setMaxAge() でセットした値が getMaxAge() から取得できること
+     * - デフォルトでは null を返すこと
+     * - 整数以外の値をセットした場合は整数に変換されること
+     * - 0 未満の値をセットした場合は 0 に変換されること
+     * - 一度セットした値を null で初期化できること
+     * 
+     * @covers Peach\Http\Header\CookieOptions::getMaxAge
+     * @covers Peach\Http\Header\CookieOptions::setMaxAge
+     */
+    public function testAccessMaxAge()
+    {
+        $obj1 = new CookieOptions();
+        $obj1->setMaxAge(3600);
+        $this->assertSame(3600, $obj1->getMaxAge());
+        
+        $obj2 = new CookieOptions();
+        $this->assertNull($obj2->getMaxAge());
+        
+        $obj3 = new CookieOptions();
+        $obj3->setMaxAge("1234.56789");
+        $this->assertSame(1234, $obj3->getMaxAge());
+        
+        $obj4 = new CookieOptions();
+        $obj4->setMaxAge(-1800);
+        $this->assertSame(0, $obj4->getMaxAge());
+        
+        $obj5 = new CookieOptions();
+        $obj5->setMaxAge(1800);
+        $this->assertNotNull($obj5->getMaxAge());
+        $obj5->setMaxAge(null);
+        $this->assertNull($obj5->getMaxAge());
+    }
 }
