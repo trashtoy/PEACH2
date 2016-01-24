@@ -110,6 +110,7 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
      * expires 属性が書式化されることを確認します.
      * 
      * @covers Peach\Http\Header\CookieOptions::formatExpires
+     * @covers Peach\Http\Header\CookieOptions::formatOptions
      */
     public function testFormatExpires()
     {
@@ -154,5 +155,31 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
         $this->assertNotNull($obj5->getMaxAge());
         $obj5->setMaxAge(null);
         $this->assertNull($obj5->getMaxAge());
+    }
+    
+    /**
+     * setDomain() および getDomain() のテストです. 以下を確認します.
+     * 
+     * - setDomain() でセットした値が getDomain() から取得できること
+     * - デフォルトでは null を返すこと
+     * - 一度セットした値を null で初期化できること
+     * 
+     * @covers Peach\Http\Header\CookieOptions::getDomain
+     * @covers Peach\Http\Header\CookieOptions::setDomain
+     */
+    public function testAccessDomain()
+    {
+        $obj1 = new CookieOptions();
+        $obj1->setDomain("example.com");
+        $this->assertSame("example.com", $obj1->getDomain());
+        
+        $obj2 = new CookieOptions();
+        $this->assertNull($obj2->getDomain());
+        
+        $obj3 = new CookieOptions();
+        $obj3->setDomain("example.org");
+        $this->assertNotNull($obj3->getDomain());
+        $obj3->setDomain(null);
+        $this->assertNull($obj3->getDomain());
     }
 }

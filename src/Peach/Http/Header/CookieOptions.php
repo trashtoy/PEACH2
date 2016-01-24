@@ -59,6 +59,13 @@ class CookieOptions
     private $maxAge;
     
     /**
+     * domain 属性をあらわす文字列です.
+     * 
+     * @var string
+     */
+    private $domain;
+    
+    /**
      * 属性を何も持たない, 新しい CookieOptions オブジェクトを構築します.
      */
     public function __construct()
@@ -136,6 +143,28 @@ class CookieOptions
     public function getMaxAge()
     {
         return $this->maxAge;
+    }
+    
+    /**
+     * domain 属性の値をセットします.
+     * 引数に null をセットした場合は domain 属性を削除します.
+     * 
+     * @param string $domain domain 属性の値
+     */
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+    }
+    
+    /**
+     * domain 属性の値を返します.
+     * domain 属性がセットされていない場合は null を返します.
+     * 
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->domain;
     }
     
     /**
