@@ -27,6 +27,7 @@
  */
 namespace Peach\Http\Header;
 
+use InvalidArgumentException;
 use Peach\DT\Timestamp;
 use Peach\DT\Util;
 use Peach\Util\Values;
@@ -153,7 +154,42 @@ class CookieOptions
      */
     public function setDomain($domain)
     {
+        if (!$this->validateDomain($domain)) {
+            throw new InvalidArgumentException("Invalid domain: '{$domain}'");
+        }
         $this->domain = $domain;
+    }
+    
+    /**
+     * 指定された文字列が, ドメイン名として妥当かどうかを確認します.
+     * RFC 1035 に基づいて, 引数の文字列が以下の BNF 記法を満たすかどうかを調べます.
+     * 妥当な場合は true, そうでない場合は false を返します.
+     * 
+     * ただし, 本来は Invalid にも関わらず実際に使われているドメイン名に対応するため
+     * label の先頭の数字文字列を敢えて許す実装となっています.
+     * 
+     * <pre>
+     * {domain} ::= {subdomain} | " "
+     * {subdomain} ::= {label} | {subdomain} "." {label}
+     * {label} ::= {letter} [ [ {ldh-str} ] {let-dig} ]
+     * {ldh-str} ::= {let-dig-hyp} | {let-dig-hyp} {ldh-str}
+     * {let-dig-hyp} ::= {let-dig} | "-"
+     * {let-dig} ::= {letter} | {digit}
+     * </pre>
+     * 
+     * @param  string $domain 検査対象のドメイン名
+     * @return bool           引数がドメイン名として妥当な場合のみ true
+     */
+    private function validateDomain($domain)
+    {
+        if ($domain === null) {
+            return true;
+        }
+        $letter    = "[a-zA-Z0-9]";
+        $letDigHyp = "(-|{$letter})";
+        $label     = "{$letter}({$letDigHyp}*{$letter})*";
+        $pattern   = "{$label}(\\.{$label})*";
+        return preg_match("/\\A{$pattern}\\z/", $domain);
     }
     
     /**

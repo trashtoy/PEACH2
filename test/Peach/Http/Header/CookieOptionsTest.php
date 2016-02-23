@@ -1,6 +1,7 @@
 <?php
 namespace Peach\Http\Header;
 
+use InvalidArgumentException;
 use PHPUnit_Framework_TestCase;
 use Peach\DT\Timestamp;
 
@@ -181,5 +182,50 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
         $this->assertNotNull($obj3->getDomain());
         $obj3->setDomain(null);
         $this->assertNull($obj3->getDomain());
+    }
+    
+    /**
+     * 不正なドメイン名を指定して setDomain() を実行した際に
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\CookieOptions::setDomain
+     * @covers Peach\Http\Header\CookieOptions::validateDomain
+     */
+    public function testValidateDomainFail()
+    {
+        $obj1   = new CookieOptions();
+        $ngList = array(
+            "example..com",  // empty label
+            "-example.com",  // invalid head hyphen
+            "e{xampl}e.com", // invalid characters
+        );
+        foreach ($ngList as $domain) {
+            try {
+                $obj1->setDomain($domain);
+                $this->fail("String '{$domain}' must be treated as invalid");
+            } catch (InvalidArgumentException $e) {
+            }
+        }
+    }
+    
+    /**
+     * 妥当なログイン名 (ただし実在しうる不正なログイン名も含みます)
+     * を setDomain() の引数にセットした際に正常終了することを確認します.
+     * 
+     * @covers Peach\Http\Header\CookieOptions::setDomain
+     * @covers Peach\Http\Header\CookieOptions::validateDomain
+     */
+    public function testValidateDomainSuccess()
+    {
+        $obj1   = new CookieOptions();
+        $okList = array(
+            "xn--28j2af.xn--q9jyb4c",
+            "1101.org",
+            "localhost",
+            null,
+        );
+        foreach ($okList as $domain) {
+            $obj1->setDomain($domain);
+        }
     }
 }
