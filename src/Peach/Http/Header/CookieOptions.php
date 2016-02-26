@@ -67,6 +67,13 @@ class CookieOptions
     private $domain;
     
     /**
+     * path 属性をあらわす文字列です.
+     * 
+     * @var string
+     */
+    private $path;
+    
+    /**
      * 属性を何も持たない, 新しい CookieOptions オブジェクトを構築します.
      */
     public function __construct()
@@ -201,6 +208,28 @@ class CookieOptions
     public function getDomain()
     {
         return $this->domain;
+    }
+    
+    /**
+     * path 属性の値をセットします.
+     * 引数に null をセットした場合は path 属性を削除します.
+     * 
+     * @param string $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+    
+    /**
+     * path 属性の値を返します.
+     * もしも path 属性がセットされていない場合は null を返します.
+     * 
+     * @return string path 属性の値. セットされていない場合は null
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
     
     /**

@@ -228,4 +228,30 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
             $obj1->setDomain($domain);
         }
     }
+    
+    /**
+     * setPath() および getPath() のテストです. 以下を確認します.
+     * 
+     * - setPath() でセットした値が getPath() から取得できること
+     * - デフォルトでは null を返すこと
+     * - 一度セットした値を null で初期化できること
+     * 
+     * @covers Peach\Http\Header\CookieOptions::getPath
+     * @covers Peach\Http\Header\CookieOptions::setPath
+     */
+    public function testAccessPath()
+    {
+        $obj1 = new CookieOptions();
+        $obj1->setPath("/foo/bar");
+        $this->assertSame("/foo/bar", $obj1->getPath());
+        
+        $obj2 = new CookieOptions();
+        $this->assertNull($obj2->getPath());
+        
+        $obj3 = new CookieOptions();
+        $obj3->setPath("/hoge/fuga/");
+        $this->assertNotNull($obj3->getPath());
+        $obj3->setPath(null);
+        $this->assertNull($obj3->getPath());
+    }
 }
