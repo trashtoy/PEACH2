@@ -254,4 +254,49 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
         $obj3->setPath(null);
         $this->assertNull($obj3->getPath());
     }
+    
+    /**
+     * 不正なパスを指定して setPath() を実行した際に
+     * InvalidArgumentException をスローすることを確認します.
+     * 
+     * @covers Peach\Http\Header\CookieOptions::setPath
+     * @covers Peach\Http\Header\CookieOptions::validatePath
+     */
+    public function testValidatePathFail()
+    {
+        $obj1   = new CookieOptions();
+        $ngList = array(
+            "//foo/bar",  // empty first segment
+            "/foo<bar>/", // invalid char
+            "foo/bar",    // not absolute path
+            "/foo/%1xyz", // invalid percent encoding
+        );
+        foreach ($ngList as $path) {
+            try {
+                $obj1->setPath($path);
+                $this->fail("String '{$path}' must be treated as invalid");
+            } catch (InvalidArgumentException $e) {
+            }
+        }
+    }
+    
+    /**
+     * 妥当なパスを setPath() の引数にセットした際に正常終了することを確認します.
+     * 
+     * @covers Peach\Http\Header\CookieOptions::setPath
+     * @covers Peach\Http\Header\CookieOptions::validatePath
+     */
+    public function testValidatePathSuccess()
+    {
+        $obj1   = new CookieOptions();
+        $okList = array(
+            "/",
+            "/foo//bar///baz////",
+            "/foo/My%20Documents/test\$01.txt",
+            null,
+        );
+        foreach ($okList as $domain) {
+            $obj1->setPath($domain);
+        }
+    }
 }

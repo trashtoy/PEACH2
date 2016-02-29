@@ -218,7 +218,45 @@ class CookieOptions
      */
     public function setPath($path)
     {
+        if (!$this->validatePath($path)) {
+            throw new InvalidArgumentException("Invalid path: '{$path}'");
+        }
         $this->path = $path;
+    }
+    
+    /**
+     * 指定された文字列が RFC 3986 にて定義される URI のパス文字列として妥当かどうかを検証します.
+     * フォーマットは以下の BNF 記法に基づきます.
+     * 
+     * <pre>
+     * path-absolute = "/" [ segment-nz *( "/" segment ) ]
+     * segment       = *pchar
+     * segment-nz    = 1*pchar
+     * pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
+     * unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"
+     * pct-encoded   = "%" HEXDIG HEXDIG
+     * sub-delims    = "!" / "$" / "&" / "'" / "(" / ")"
+     * </pre>
+     * 
+     * @param  string $path 検査対象のパス
+     * @return bool         引数がパスとして妥当な場合のみ true
+     */
+    private function validatePath($path)
+    {
+        if ($path === null) {
+            return true;
+        }
+        
+        $classUnreserved = "a-zA-Z0-9\\-\\._~";
+        $classSubDelims  = "!\$&'\\(\\)";
+        $classOthers     = ":@";
+        $validChars      = "[{$classUnreserved}{$classSubDelims}{$classOthers}]";
+        $pctEncoded      = "%[0-9a-fA-F]{2}";
+        $pchar           = "{$validChars}|{$pctEncoded}";
+        $segment         = "({$pchar})*";
+        $segmentNz       = "({$pchar})+";
+        $pathAbsolute    = "\\/({$segmentNz}(\\/{$segment})*)?";
+        return preg_match("/\\A{$pathAbsolute}\\z/", $path);
     }
     
     /**
