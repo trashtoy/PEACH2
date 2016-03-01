@@ -299,4 +299,33 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
             $obj1->setPath($domain);
         }
     }
+    
+    /**
+     * setSecure() および hasSecure() のテストです. 以下を確認します.
+     * 
+     * - setSecure() でセットした値が hasSecure() から取得できること
+     * - デフォルトでは hasSecure() が false を返すこと
+     * - bool 以外の値をセットした後 hasSecure() が bool 値を返すこと
+     * 
+     * @covers Peach\Http\Header\CookieOptions::__construct
+     * @covers Peach\Http\Header\CookieOptions::hasSecure
+     * @covers Peach\Http\Header\CookieOptions::setSecure
+     */
+    public function testAccessSecure()
+    {
+        $obj1 = new CookieOptions();
+        $obj1->setSecure(true);
+        $this->assertTrue($obj1->hasSecure());
+        $obj1->setSecure(false);
+        $this->assertFalse($obj1->hasSecure());
+        
+        $obj2 = new CookieOptions();
+        $this->assertFalse($obj2->hasSecure());
+        
+        $obj3 = new CookieOptions();
+        $obj3->setSecure("asdf");
+        $this->assertSame(true, $obj3->hasSecure());
+        $obj3->setSecure(0);
+        $this->assertSame(false, $obj3->hasSecure());
+    }
 }

@@ -74,10 +74,19 @@ class CookieOptions
     private $path;
     
     /**
+     * secure 属性をあらわす論理値です.
+     * true の場合のみ secure 属性が付与されます.
+     * 
+     * @var bool
+     */
+    private $secure;
+    
+    /**
      * 属性を何も持たない, 新しい CookieOptions オブジェクトを構築します.
      */
     public function __construct()
     {
+        $this->secure = false;
     }
     
     /**
@@ -268,6 +277,30 @@ class CookieOptions
     public function getPath()
     {
         return $this->path;
+    }
+    
+    /**
+     * secure 属性をセットします.
+     * もしも引数が true の場合は secure 属性を有効化, false の場合は無効化します.
+     * 
+     * @param bool $secure secure 属性を有効化する場合は true, 無効化する場合は false
+     */
+    public function setSecure($secure)
+    {
+        $this->secure = (bool) $secure;
+    }
+    
+    /**
+     * secure 属性が有効かどうかを判定します.
+     * secure 属性が有効な場合は true, そうでない場合は false を返します.
+     * もしもこのオブジェクトの setSecure() を一度も実行していない場合,
+     * secure 属性は無効となるため false を返します.
+     * 
+     * @return bool secure 属性が有効な場合は true, そうでない場合は false
+     */
+    public function hasSecure()
+    {
+        return $this->secure;
     }
     
     /**
