@@ -87,6 +87,7 @@ class CookieOptions
     public function __construct()
     {
         $this->secure = false;
+        $this->httpOnly = false;
     }
     
     /**
@@ -301,6 +302,30 @@ class CookieOptions
     public function hasSecure()
     {
         return $this->secure;
+    }
+    
+    /**
+     * httponly 属性をセットします.
+     * もしも引数が true の場合は httponly 属性を有効化, false の場合は無効化します.
+     * 
+     * @param bool $httpOnly httponly 属性を有効化する場合は true, 無効化する場合は false
+     */
+    public function setHttpOnly($httpOnly)
+    {
+        $this->httpOnly = (bool) $httpOnly;
+    }
+    
+    /**
+     * httponly 属性が有効かどうかを判定します.
+     * httponly 属性が有効な場合は true, そうでない場合は false を返します.
+     * もしもこのオブジェクトの setHttpOnly() を一度も実行していない場合,
+     * httponly 属性は無効となるため false を返します.
+     * 
+     * @return bool httponly 属性が有効な場合は true, そうでない場合は false
+     */
+    public function hasHttpOnly()
+    {
+        return $this->httpOnly;
     }
     
     /**

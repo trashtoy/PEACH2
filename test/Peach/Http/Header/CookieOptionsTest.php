@@ -328,4 +328,33 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
         $obj3->setSecure(0);
         $this->assertSame(false, $obj3->hasSecure());
     }
+    
+    /**
+     * setHttpOnly() および hasHttpOnly() のテストです. 以下を確認します.
+     * 
+     * - setHttpOnly() でセットした値が hasHttpOnly() から取得できること
+     * - デフォルトでは hasHttpOnly() が false を返すこと
+     * - bool 以外の値をセットした後 hasHttpOnly() が bool 値を返すこと
+     * 
+     * @covers Peach\Http\Header\CookieOptions::__construct
+     * @covers Peach\Http\Header\CookieOptions::hasHttpOnly
+     * @covers Peach\Http\Header\CookieOptions::setHttpOnly
+     */
+    public function testAccessHttpOnly()
+    {
+        $obj1 = new CookieOptions();
+        $obj1->setHttpOnly(true);
+        $this->assertTrue($obj1->hasHttpOnly());
+        $obj1->setHttpOnly(false);
+        $this->assertFalse($obj1->hasHttpOnly());
+        
+        $obj2 = new CookieOptions();
+        $this->assertFalse($obj2->hasHttpOnly());
+        
+        $obj3 = new CookieOptions();
+        $obj3->setHttpOnly("asdf");
+        $this->assertSame(true, $obj3->hasHttpOnly());
+        $obj3->setHttpOnly(0);
+        $this->assertSame(false, $obj3->hasHttpOnly());
+    }
 }
