@@ -98,6 +98,7 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
      * formatOptions() のテストです. 以下を確認します.
      * 
      * - デフォルトの状態では空の配列を返すこと
+     * - セットされた属性の値が返り値の配列内に含まれていること
      * 
      * @covers Peach\Http\Header\CookieOptions::formatOptions
      */
@@ -105,6 +106,23 @@ class CookieOptionsTest extends PHPUnit_Framework_TestCase
     {
         $obj = $this->object;
         $this->assertSame(array(), $obj->formatOptions());
+        
+        $expected = array(
+            "expires=Fri, 13-Feb-2009 23:31:30 GMT",
+            "max-age=3600",
+            "domain=example.com",
+            "path=/foo/bar",
+            "secure",
+            "httponly",
+        );
+        $obj->setTimeZoneOffset(-540);
+        $obj->setExpires(new Timestamp(2009, 2, 14, 8, 31, 30));
+        $obj->setMaxAge(3600);
+        $obj->setDomain("example.com");
+        $obj->setPath("/foo/bar");
+        $obj->setSecure(true);
+        $obj->setHttpOnly(true);
+        $this->assertSame($expected, $obj->formatOptions());
     }
     
     /**

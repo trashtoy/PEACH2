@@ -341,7 +341,21 @@ class CookieOptions
         if ($this->expires !== null) {
             $result[] = $this->formatExpires();
         }
-        
+        if ($this->maxAge !== null) {
+            $result[] = "max-age={$this->maxAge}";
+        }
+        if ($this->domain !== null) {
+            $result[] = "domain={$this->domain}";
+        }
+        if ($this->path !== null) {
+            $result[] = "path={$this->path}";
+        }
+        if ($this->secure) {
+            $result[] = "secure";
+        }
+        if ($this->httpOnly) {
+            $result[] = "httponly";
+        }
         return $result;
     }
     
