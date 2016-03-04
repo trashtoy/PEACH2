@@ -27,6 +27,8 @@
  */
 namespace Peach\Http\Header;
 
+use Peach\Util\Arrays;
+
 /**
  * 1 行分の Set-Cookie ヘッダーをあらわすクラスです.
  */
@@ -47,15 +49,23 @@ class CookieItem
     private $value;
     
     /**
-     * 指定された Cookie 名および Cookie 値を持つ CookieItem を構築します.
-     * 
-     * @param string $name  Cookie 名
-     * @param string $value Cookie 値
+     *
+     * @var CookieOptions
      */
-    public function __construct($name, $value)
+    private $options;
+    
+    /**
+     * 指定されたキーおよび値の cookie を持つ CookieItem オブジェクトを構築します.
+     * 
+     * @param string $name           cookie のキー
+     * @param string $value          cookie の値
+     * @param CookieOptions $options その cookie が持つ属性
+     */
+    public function __construct($name, $value, CookieOptions $options = null)
     {
         $this->name    = $name;
         $this->value   = $value;
+        $this->options = $options;
     }
     
     /**
@@ -64,6 +74,17 @@ class CookieItem
      * @return string Set-Cookie ヘッダーの値部分
      */
     public function format()
+    {
+        $data = $this->formatData();
+        return ($this->options === null) ? $data : implode("; ", Arrays::concat($data, $this->options->formatOptions()));
+    }
+    
+    /**
+     * 出力の先頭の "key=value" 部分を書式化します.
+     * 
+     * @return string "key=value" 形式の文字列
+     */
+    private function formatData()
     {
         $name  = rawurlencode($this->name);
         $value = rawurlencode($this->value);
