@@ -39,27 +39,33 @@ class SetCookie implements MultiHeaderField
     private $items;
     
     /**
+     * 新しい SetCookie オブジェクトを構築します.
+     * 引数に cookie のキー, 値, 属性を指定することで, 初期化と同時に
+     * 1 個目の cookie を追加することができます.
+     * 引数を省略した場合は cookie を何も持たない状態で初期化されます.
      * 
-     * @param string $name
-     * @param string $value
+     * @param string        $name    cookie のキー
+     * @param string        $value   cookie の値
+     * @param CookieOptions $options 各種属性
      */
-    public function __construct($name, $value)
+    public function __construct($name = null, $value = null, CookieOptions $options = null)
     {
         $this->items = new ArrayMap();
         if ($name !== null) {
-            $this->setItem($name, $value);
+            $this->setItem($name, $value, $options);
         }
     }
     
     /**
-     * 指定された Cookie 名および Cookie 値を持つ新しい Set-Cookie ヘッダーを追加します.
+     * 指定されたキーと値の cookie を持つ新しい Set-Cookie ヘッダーを追加します.
      * 
-     * @param string $name  Cookie 名
-     * @param string $value Cookie 値
+     * @param string        $name    cookie のキー
+     * @param string        $value   cookie の値
+     * @param CookieOptions $options 各種属性
      */
-    public function setItem($name, $value)
+    public function setItem($name, $value, CookieOptions $options = null)
     {
-        $item = new CookieItem($name, $value);
+        $item = new CookieItem($name, $value, $options);
         $this->items->put($name, $item);
     }
     

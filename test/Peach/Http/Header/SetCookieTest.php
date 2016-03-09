@@ -22,6 +22,30 @@ class SetCookieTest extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * コンストラクタのテストです. 以下を確認します.
+     * 
+     * - 引数を指定しない場合, cookie を何も持たないインスタンスが生成されること
+     * - 引数を指定した場合, 指定された引数に応じた cookie が 1 つ追加された状態となること
+     * 
+     * @covers Peach\Http\Header\SetCookie::__construct
+     * @covers Peach\Http\Header\SetCookie::format
+     */
+    public function test__construct()
+    {
+        $obj1 = new SetCookie();
+        $this->assertSame(array(), $obj1->format());
+        
+        $obj2 = new SetCookie("foo", "test01");
+        $this->assertSame(array("foo=test01"), $obj2->format());
+        
+        $opt  = new CookieOptions();
+        $opt->setPath("/test");
+        $opt->setMaxAge(86400);
+        $obj3 = new SetCookie("bar", "test02", $opt);
+        $this->assertSame(array("bar=test02; max-age=86400; path=/test"), $obj3->format());
+    }
+    
+    /**
      * "key=value" 形式の文字列を返すことを確認します.
      * もしも Cookie のキーまたは値が ASCII ではない場合,
      * URL エンコードに変換されます.
