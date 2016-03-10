@@ -1,6 +1,7 @@
 <?php
 namespace Peach\Http\Header;
 
+use Peach\DT\Timestamp;
 use PHPUnit_Framework_TestCase;
 
 class SetCookieTest extends PHPUnit_Framework_TestCase
@@ -43,6 +44,38 @@ class SetCookieTest extends PHPUnit_Framework_TestCase
         $opt->setMaxAge(86400);
         $obj3 = new SetCookie("bar", "test02", $opt);
         $this->assertSame(array("bar=test02; max-age=86400; path=/test"), $obj3->format());
+    }
+    
+    /**
+     * setItem() のテストです. 以下を確認します.
+     * 
+     * - 第 3 引数を省略した場合は属性を持たない cookie がセットされること
+     * - 第 3 引数に cookie の各種属性を指定できること
+     * - 同じキーの cookie を複数回指定した場合は, 後からセットした値で上書きされること
+     * 
+     * @covers Peach\Http\Header\SetCookie::setItem
+     */
+    public function testSetItem()
+    {
+        $expected1 = array("foo=test01");
+        $obj1      = new SetCookie();
+        $obj1->setItem("foo", "test01");
+        $this->assertSame($expected1, $obj1->format());
+        
+        $expected2 = array("bar=test02; expires=Sun, 20-May-2012 22:34:45 GMT; domain=example.com");
+        $opt       = new CookieOptions();
+        $opt->setTimeZoneOffset(-540); // UTC+9
+        $opt->setExpires(new Timestamp(2012, 5, 21, 7, 34, 45));
+        $opt->setDomain("example.com");
+        $obj2      = new SetCookie();
+        $obj2->setItem("bar", "test02", $opt);
+        $this->assertSame($expected2, $obj2->format());
+        
+        $expected3 = array("foobar=test04");
+        $obj3      = new SetCookie();
+        $obj3->setItem("foobar", "test03");
+        $obj3->setItem("foobar", "test04");
+        $this->assertSame($expected3, $obj3->format());
     }
     
     /**
