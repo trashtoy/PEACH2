@@ -67,12 +67,14 @@ class DefaultEndpoint implements Endpoint
             $request->setHeader(Util::parseHeader($name, $value));
         }
         
+        $method  = strtolower($_SERVER["REQUEST_METHOD"]);
         $rawPath = $_SERVER["REQUEST_URI"];
         $scheme  = isset($_SERVER["HTTPS"]) ? "https" : "http";
         $request->setQuery($_GET);
         $request->setPost($_POST);
         $request->setHeader(new Raw(":path", $rawPath));
         $request->setHeader(new Raw(":scheme", $scheme));
+        $request->setHeader(new Raw(":method", $method));
         $request->setPath($this->getRequestPath($rawPath));
         return $request;
     }
