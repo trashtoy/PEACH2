@@ -151,8 +151,9 @@ class DefaultEndpoint implements Endpoint
     {
         if (is_array($value)) {
             foreach ($value as $item) {
-                $this->printHeader($name, $item);
+                header("{$name}: {$item}", false);
             }
+            return;
         }
         
         header("{$name}: {$value}");
