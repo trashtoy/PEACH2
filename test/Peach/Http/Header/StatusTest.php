@@ -90,4 +90,34 @@ class StatusTest extends \PHPUnit_Framework_TestCase
         $obj = $this->object;
         $this->assertSame(":status", $obj->getName());
     }
+    
+    /**
+     * ステータスコードと Reason-Phrase からなる配列を返すことを確認します.
+     * 
+     * @covers Peach\Http\Header\Status::getValue
+     */
+    public function testGetValue()
+    {
+        $obj      = $this->object;
+        $expected = array("404", "Not Found");
+        $this->assertSame($expected, $obj->getValue());
+    }
+
+    /**
+     * getOK() のテストです. 以下を確認します.
+     * 
+     * - ステータスコード "200" および Phrase-Reason "OK" から成る Status オブジェクトを返すこと
+     * - 複数回実行した際に同一のオブジェクトを返すこと
+     * 
+     * @covers Peach\Http\Header\Status::getOK
+     */
+    public function testGetOK()
+    {
+        $obj1      = Status::getOK();
+        $expected1 = array("200", "OK");
+        $this->assertSame($expected1, $obj1->getValue());
+        
+        $obj2      = Status::getOK();
+        $this->assertSame($obj1, $obj2);
+    }
 }
