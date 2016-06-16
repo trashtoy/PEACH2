@@ -1,8 +1,7 @@
 <phpunit>
     <filter>
-        <blacklist>
-            <file>../src/autoload.php</file>
-            <file>../src/SplClassLoader.php</file>
-        </blacklist>
+        <whitelist>
+            <directory>../src/Peach</directory>
+        </whitelist>
     </filter>
 </phpunit>
