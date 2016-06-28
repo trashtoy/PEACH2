@@ -124,4 +124,14 @@ class Comment implements Container, Node
     {
         return $this->nodeList->getChildNodes();
     }
+    
+    /**
+     * このオブジェクト自身を返します.
+     * 
+     * @return Component このオブジェクト
+     */
+    public function getAppendee()
+    {
+        return $this;
+    }
 }

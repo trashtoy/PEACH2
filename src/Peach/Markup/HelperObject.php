@@ -255,4 +255,14 @@ class HelperObject implements Container
         $node = $this->node;
         return ($node instanceof Container) ? $node->getChildNodes() : array();
     }
+    
+    /**
+     * このオブジェクトがラップしているノードの getApendee() の結果を返します.
+     * 
+     * @return NodeList
+     */
+    public function getAppendee()
+    {
+        return $this->node->getAppendee();
+    }
 }

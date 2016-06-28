@@ -45,6 +45,33 @@ class ContainerTestImpl
         $obj->append($nList);                           // added 3 nodes (count: 5)
         $obj->append(array("A", "B", array("C", "D"))); // added 4 nodes (count: 9)
         $test->assertSame(9, count($obj->getChildNodes()));
+        
+        $this->testAppendHelperObject();
+    }
+    
+    /**
+     * HelperObject を引数として append() を実行した場合,
+     * HelperObject が持つ Component オブジェクトに対して
+     * append() の処理が適用されることを確認します.
+     * 
+     * @covers Peach\Markup\Container::append
+     */
+    private function testAppendHelperObject()
+    {
+        $test   = $this->test;
+        $obj    = $this->object;
+        $helper = new Helper(new DefaultBuilder());
+        $node1  = $helper->createObject("div")->append("Test 1")->append("Test 2")->append("Test 3");
+        $obj->append($node1);
+        
+        $expected = new ContainerElement("div");
+        $expected->append("Test 1");
+        $expected->append("Test 2");
+        $expected->append("Test 3");
+
+        $childNodes = $obj->getChildNodes();
+        $test->assertSame(10, count($childNodes)); // append 1 node (count: 10)
+        $test->assertEquals($expected, $childNodes[9]);
     }
     
     /**
