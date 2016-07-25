@@ -54,8 +54,8 @@ class NameBreakControlTest extends \PHPUnit_Framework_TestCase
     private function createBreakNode($name)
     {
         $test = new ContainerElement($name);
-        $test->append("First Child");
-        $test->append("Second Child");
+        $test->appendNode("First Child");
+        $test->appendNode("Second Child");
         return $test;
     }
     
@@ -66,7 +66,7 @@ class NameBreakControlTest extends \PHPUnit_Framework_TestCase
     private function createNoBreakNode($name)
     {
         $test = new ContainerElement($name);
-        $test->append("First Child");
+        $test->appendNode("First Child");
         return $test;
     }
 }

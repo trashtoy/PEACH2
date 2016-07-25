@@ -58,9 +58,9 @@ class ContainerElement extends Element implements Container
      * @param  mixed $var 追加する値
      * @throws \InvalidArgumentException 指定されたノードの中にこのノードが存在している場合
      */
-    public function append($var)
+    public function appendNode($var)
     {
-        $this->childNodes->append($var);
+        $this->childNodes->appendNode($var);
     }
     
     /**

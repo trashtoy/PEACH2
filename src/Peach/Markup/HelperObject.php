@@ -75,16 +75,26 @@ class HelperObject implements Container
      * このオブジェクトがラップしているオブジェクトが Container でない場合は何もしません.
      * 
      * @param  mixed $var   追加される値
-     * @return HelperObject 自分自身
      */
-    public function append($var)
+    public function appendNode($var)
     {
         $node = $this->node;
         if ($node instanceof Container) {
             $appendee = ($var instanceof HelperObject) ? $var->getNode() : $var;
-            $node->append($appendee);
+            $node->appendNode($appendee);
         }
-        
+    }
+    
+    /**
+     * このオブジェクトの子ノードとして, 指定された値を追加して, 最後に自分自身を返します.
+     * メソッドチェーンを可能にするための appendNode() のシンタックスシュガーです.
+     * 
+     * @param  mixed $var   追加される値
+     * @return HelperObject 自分自身
+     */
+    public function append($var)
+    {
+        $this->appendNode($var);
         return $this;
     }
     
@@ -103,7 +113,7 @@ class HelperObject implements Container
      */
     public function appendTo(Container $container)
     {
-        $container->append($this->getNode());
+        $container->appendNode($this->getNode());
         return $this;
     }
     

@@ -88,15 +88,15 @@ class CommentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Container で定義されている append() の仕様通りに動作することを確認します.
+     * Container で定義されている appendNode() の仕様通りに動作することを確認します.
      * 
-     * @covers Peach\Markup\Comment::append
+     * @covers Peach\Markup\Comment::appendNode
      * @see    Peach\Markup\ContainerTestImpl::testAppend
      */
-    public function testAppend()
+    public function testAppendNode()
     {
         $test = new ContainerTestImpl($this, $this->object1);
-        $test->testAppend();
+        $test->testAppendNode();
     }
 
     /**

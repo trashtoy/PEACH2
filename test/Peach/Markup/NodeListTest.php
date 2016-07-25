@@ -46,32 +46,32 @@ class NodeListTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Container で定義されている append() の仕様通りに動作することを確認します.
+     * Container で定義されている appendNode() の仕様通りに動作することを確認します.
      * 
-     * @covers Peach\Markup\NodeList::append
+     * @covers Peach\Markup\NodeList::appendNode
      * @covers Peach\Markup\NodeList::getAppendee
      * @see    Peach\Markup\ContainerTestImpl::testAppend
      */
-    public function testAppend()
+    public function testAppendNode()
     {
         $test = new ContainerTestImpl($this, $this->object);
-        $test->testAppend();
+        $test->testAppendNode();
     }
     
     /**
-     * 自分自身を含むノードを append しようとした場合に例外をスローすることを確認します.
+     * 自分自身を含むノードを引数に appendNode() を実行した場合に例外をスローすることを確認します.
      * 
      * @covers Peach\Markup\NodeList::append
      * @covers Peach\Markup\NodeList::checkOwner
      * @expectedException \InvalidArgumentException
      */
-    public function testAppendFail()
+    public function testAppendNodeFail()
     {
         $a        = new ContainerElement("a");
         $b        = new ContainerElement("b");
         $c        = new ContainerElement("c");
         $nodeList = new NodeList(array($a, $b, $c));
-        $c->append($nodeList);
+        $c->appendNode($nodeList);
     }
     
     /**

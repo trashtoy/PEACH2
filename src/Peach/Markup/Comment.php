@@ -110,9 +110,9 @@ class Comment implements Container, Node
      * ノードを追加した場合, このコメントノードは引数のノードのコメントアウトとして働きます.
      * @param mixed $var このコメントに追加するテキストまたはノード
      */
-    public function append($var)
+    public function appendNode($var)
     {
-        $this->nodeList->append($var);
+        $this->nodeList->appendNode($var);
     }
     
     /**

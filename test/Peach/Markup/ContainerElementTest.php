@@ -52,14 +52,14 @@ class ContainerElementTest extends ElementTest
     }
     
     /**
-     * Container で定義されている append() の仕様通りに動作することを確認します.
+     * Container で定義されている appendNode() の仕様通りに動作することを確認します.
      * 
-     * @covers Peach\Markup\ContainerElement::append
+     * @covers Peach\Markup\ContainerElement::appendNode
      */
-    public function testAppend()
+    public function testAppendNode()
     {
         $test = new ContainerTestImpl($this, $this->object);
-        $test->testAppend();
+        $test->testAppendNode();
     }
     
     /**

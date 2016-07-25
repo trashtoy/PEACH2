@@ -55,7 +55,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         
         $div  = new ContainerElement("div");
         $div->setAttribute("id", "test");
-        $div->append("Sample Text");
+        $div->appendNode("Sample Text");
         $ho   = new HelperObject($h, $div);
         $obj2 = new HelperObject($h, $ho);
         $this->assertSame($div, $obj2->getNode());
@@ -79,20 +79,20 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
      * ラップしているノードが Container の場合は子ノードが追加され,
      * そうでない場合は何も変化しないことを確認します.
      * 
-     * @covers Peach\Markup\HelperObject::append
+     * @covers Peach\Markup\HelperObject::appendNode
      */
-    public function testAppend()
+    public function testAppendNode()
     {
         $h    = $this->helper;
         
         $obj1 = new HelperObject($h, "p");
-        $obj1->append("Sample Text");
+        $obj1->appendNode("Sample Text");
         $p    = new ContainerElement("p");
-        $p->append("Sample Text");
+        $p->appendNode("Sample Text");
         $this->assertEquals($p,  $obj1->getNode());
         
         $obj2 = new HelperObject($h, "br");
-        $obj2->append("Sample Text");
+        $obj2->appendNode("Sample Text");
         $br   = new EmptyElement("br");
         $this->assertEquals($br, $obj2->getNode());
     }
@@ -114,7 +114,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($childNodes);
         
         $p = new ContainerElement("p");
-        $p->append("Sample Text");
+        $p->appendNode("Sample Text");
         $this->assertEquals($p, $childNodes[0]);
     }
     
@@ -136,7 +136,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         ));
         $code   = new Code($str);
         $script = new ContainerElement("script");
-        $script->append($code);
+        $script->appendNode($code);
         
         $obj1   = new HelperObject($h, "script");
         $obj1->appendCode($code);
@@ -199,9 +199,9 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($obj1, $obj1->children());
         
         $p         = new ContainerElement("p");
-        $p->append("First");
-        $p->append("Second");
-        $p->append("Third");
+        $p->appendNode("First");
+        $p->appendNode("Second");
+        $p->appendNode("Third");
         $obj2      = new HelperObject($h, $p);
         $this->assertEquals($obj1, $obj2->children());
         
@@ -306,9 +306,9 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         );
         
         $p        = new ContainerElement("p");
-        $p->append("First");
-        $p->append("Second");
-        $p->append("Third");
+        $p->appendNode("First");
+        $p->appendNode("Second");
+        $p->appendNode("Third");
         $obj1     = new HelperObject($h, $p);
         $this->assertEquals($expected, $obj1->getChildNodes());
         

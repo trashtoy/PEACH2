@@ -84,7 +84,7 @@ class HelperTest extends \PHPUnit_Framework_TestCase
         
         $div= new ContainerElement("div");
         $div->setAttribute("id", "test");
-        $div->append("Sample Text");
+        $div->appendNode("Sample Text");
         $ho = $h->createObject($div);
         $this->assertSame($div, $h->createNode($ho));
         

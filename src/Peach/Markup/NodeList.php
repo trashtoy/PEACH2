@@ -65,7 +65,7 @@ class NodeList implements Container
     {
         $this->nodeList = array();
         $this->owner    = $owner;
-        $this->append($var);
+        $this->appendNode($var);
     }
     
     /**
@@ -115,7 +115,7 @@ class NodeList implements Container
      * 
      * @param Node|Container|array|string $var
      */
-    public function append($var)
+    public function appendNode($var)
     {
         $appendee = $this->prepareAppendee($var);
         if ($appendee === null) {

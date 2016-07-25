@@ -52,12 +52,12 @@ class BreakControlWrapperTest extends \PHPUnit_Framework_TestCase
     {
         $obj = $this->object;
         $e5  = new ContainerElement("span");
-        $e5->append("some text");
+        $e5->appendNode("some text");
         $this->assertFalse($obj->breaks($e5));
         
         $e6  = new ContainerElement("span");
-        $e6->append("first text");
-        $e6->append("second test");
+        $e6->appendNode("first text");
+        $e6->appendNode("second test");
         $this->assertTrue($obj->breaks($e6));
     }
 }

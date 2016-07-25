@@ -46,7 +46,7 @@ interface Container extends Component
      * 
      * @param Node|Container|array|string $var
      */
-    public function append($var);
+    public function appendNode($var);
     
     /**
      * このコンテナの子ノードの一覧を

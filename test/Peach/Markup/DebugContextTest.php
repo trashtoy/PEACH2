@@ -88,7 +88,7 @@ class DebugContextTest extends ContextTest
         )) . "\r\n";
         $context   = $this->object;
         $comment   = new Comment();
-        $comment->append("This is test");
+        $comment->appendNode("This is test");
         $this->expectOutputString($expected);
         $context->handleComment($comment);
         $this->assertSame($expected, $context->getResult());
@@ -111,7 +111,7 @@ class DebugContextTest extends ContextTest
         )) . "\r\n";
         $context   = $this->object;
         $container = new ContainerElement("div");
-        $container->append("This is test");
+        $container->appendNode("This is test");
         $this->expectOutputString($expected);
         $context->handleContainerElement($container);
         $this->assertSame($expected, $context->getResult());
@@ -154,12 +154,12 @@ class DebugContextTest extends ContextTest
         )) . "\r\n";
         $nodeList = new NodeList();
         $comment  = new Comment();
-        $comment->append("This is test comment");
+        $comment->appendNode("This is test comment");
         $img      = new EmptyElement("img");
         $img->setAttributes(array("src" => "test.jpg", "alt" => ""));
-        $nodeList->append($comment);
-        $nodeList->append($img);
-        $nodeList->append("Test image");
+        $nodeList->appendNode($comment);
+        $nodeList->appendNode($img);
+        $nodeList->appendNode("Test image");
         
         $context = $this->object;
         $this->expectOutputString($expected);

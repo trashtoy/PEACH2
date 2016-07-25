@@ -234,7 +234,7 @@ class Html
         $currentText = Values::stringValue($current);
         $select      = new ContainerElement("select");
         $select->setAttributes($attr);
-        $select->append(self::createOptions($currentText, $candidates));
+        $select->appendNode(self::createOptions($currentText, $candidates));
         return $select;
     } 
    
@@ -252,8 +252,8 @@ class Html
             if (is_array($value)) {
                 $optgroup = new ContainerElement("optgroup");
                 $optgroup->setAttribute("label", $key);
-                $optgroup->append(self::createOptions($current, $value));
-                $result->append($optgroup);
+                $optgroup->appendNode(self::createOptions($current, $value));
+                $result->appendNode($optgroup);
                 continue;
             }
             
@@ -263,8 +263,8 @@ class Html
             if ($current === $value) {
                 $option->setAttribute("selected");
             }
-            $option->append($key);
-            $result->append($option);
+            $option->appendNode($key);
+            $result->appendNode($option);
         }
         return $result;
     }

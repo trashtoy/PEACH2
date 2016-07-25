@@ -14,8 +14,8 @@ class TestUtil
         if ($html === null) {
             $html = new ContainerElement("html");
             $html->setAttribute("lang", "ja");
-            $html->append(self::createHead());
-            $html->append(self::createBody());
+            $html->appendNode(self::createHead());
+            $html->appendNode(self::createBody());
         }
         return $html;
     }
@@ -28,11 +28,11 @@ class TestUtil
         $meta   = new EmptyElement("meta");
         $meta->setAttributes(array("http-equiv" => "Content-Type", "content" => "text/html; charset=UTF-8"));
         $title  = new ContainerElement("title");
-        $title->append("TEST PAGE");
+        $title->appendNode("TEST PAGE");
         
         $head   = new ContainerElement("head");
-        $head->append($meta);
-        $head->append($title);
+        $head->appendNode($meta);
+        $head->appendNode($title);
         return $head;
     }
     
@@ -42,7 +42,7 @@ class TestUtil
     private static function createBody()
     {
         $body   = new ContainerElement("body");
-        $body->append(self::createForm());
+        $body->appendNode(self::createForm());
         return $body;
     }
     
@@ -62,13 +62,13 @@ class TestUtil
         
         $form   = new ContainerElement("form");
         $form->setAttributes(array("method" => "post", "action" => "sample.php"));
-        $form->append("Name");
-        $form->append($text);
-        $form->append($br);
-        $form->append($check);
-        $form->append("Enable something");
-        $form->append($br);
-        $form->append($submit);
+        $form->appendNode("Name");
+        $form->appendNode($text);
+        $form->appendNode($br);
+        $form->appendNode($check);
+        $form->appendNode("Enable something");
+        $form->appendNode($br);
+        $form->appendNode($submit);
         return $form;
     }
     
