@@ -61,7 +61,7 @@ class NodeListTest extends \PHPUnit_Framework_TestCase
     /**
      * 自分自身を含むノードを引数に appendNode() を実行した場合に例外をスローすることを確認します.
      * 
-     * @covers Peach\Markup\NodeList::append
+     * @covers Peach\Markup\NodeList::appendNode
      * @covers Peach\Markup\NodeList::checkOwner
      * @expectedException \InvalidArgumentException
      */
