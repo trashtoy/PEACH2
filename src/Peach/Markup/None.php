@@ -66,4 +66,14 @@ class None implements Component
     {
         $context->handleNone($this);
     }
+    
+    /**
+     * 空の NodeList を返します.
+     * 
+     * @return Component 空の NodeList
+     */
+    public function getAppendee()
+    {
+        return new NodeList();
+    }
 }

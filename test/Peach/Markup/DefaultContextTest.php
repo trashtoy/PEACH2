@@ -59,7 +59,7 @@ class DefaultContextTest extends ContextTest
         $this->assertSame($expected1, $obj1->getResult());
         
         $expected2 = "<!--SAMPLE TEXT-->";
-        $comment->append("SAMPLE TEXT");
+        $comment->appendNode("SAMPLE TEXT");
         $obj2      = $this->getTestObject();
         $obj2->handleComment($comment);
         $this->assertSame($expected2, $obj2->getResult());
@@ -70,7 +70,7 @@ class DefaultContextTest extends ContextTest
             "<element />",
             "-->",
         ));
-        $comment->append(new EmptyElement("element"));
+        $comment->appendNode(new EmptyElement("element"));
         $obj3      = $this->getTestObject();
         $obj3->handleComment($comment);
         $this->assertSame($expected3, $obj3->getResult());
@@ -83,16 +83,16 @@ class DefaultContextTest extends ContextTest
         $script    = new ContainerElement("script");
         $script->setAttribute("src", "sample.js");
         $comment2  = new Comment("[if IE 9]>", "<![endif]");
-        $comment2->append($script);
+        $comment2->appendNode($script);
         $obj4      = $this->getTestObject();
         $obj4->handleComment($comment2);
         $this->assertSame($expected4, $obj4->getResult());
         
         $expected5 = "<!--TEST-->";
         $comment3  = new Comment();
-        $comment3->append("TEST");
+        $comment3->appendNode("TEST");
         $comment4  = new Comment();
-        $comment4->append($comment3);
+        $comment4->appendNode($comment3);
         $obj5      = $this->getTestObject();
         $obj5->handleComment($comment4);
         $this->assertSame($expected5, $obj5->getResult());
@@ -100,8 +100,8 @@ class DefaultContextTest extends ContextTest
         $expected6 = "<div><!--TEST--></div>";
         $div       = new ContainerElement("div");
         $comment5  = new Comment();
-        $comment5->append("TEST");
-        $div->append($comment5);
+        $comment5->appendNode("TEST");
+        $div->appendNode($comment5);
         $obj6      = $this->getTestObject();
         $obj6->handle($div);
         $this->assertSame($expected6, $obj6->getResult());
@@ -159,9 +159,9 @@ EOS;
         $code  = new Code($text);
         $style = new ContainerElement("style");
         $style->setAttribute("type", "text/css");
-        $style->append($code);
+        $style->appendNode($code);
         $head  = new ContainerElement("head");
-        $head->append($style);
+        $head->appendNode($style);
         
         $expected = implode("\r\n", array(
             '<head>',
@@ -191,9 +191,9 @@ EOS;
     public function testHandleCodeByEmptyString()
     {
         $container = new NodeList();
-        $container->append(new Text("First"));
-        $container->append(new Code(""));
-        $container->append(new Text("Second"));
+        $container->appendNode(new Text("First"));
+        $container->appendNode(new Code(""));
+        $container->appendNode(new Text("Second"));
         
         $obj = $this->object;
         $obj->handle($container);
@@ -249,7 +249,7 @@ EOS;
         
         $expected2 = "<sample><empty /></sample>";
         $node2     = new ContainerElement("sample");
-        $node2->append(new EmptyElement("empty"));
+        $node2->appendNode(new EmptyElement("empty"));
         $obj2      = $this->getTestObject();
         $obj2->handleContainerElement($node2);
         $this->assertSame($expected2, $obj2->getResult());
@@ -257,13 +257,13 @@ EOS;
         $expected3 = "<sample><test></test></sample>";
         $node3     = new ContainerElement("sample");
         $child     = new ContainerElement("test");
-        $node3->append($child);
+        $node3->appendNode($child);
         $obj3      = $this->getTestObject();
         $obj3->handleContainerElement($node3);
         $this->assertSame($expected3, $obj3->getResult());
         
         $expected4 = "<sample><test>NODE1</test></sample>";
-        $child->append("NODE1");
+        $child->appendNode("NODE1");
         $obj4      = $this->getTestObject();
         $obj4->handleContainerElement($node3);
         $this->assertSame($expected4, $obj4->getResult());
@@ -276,7 +276,7 @@ EOS;
             "    </test>",
             "</sample>",
         ));
-        $child->append("NODE2");
+        $child->appendNode("NODE2");
         $obj5      = $this->getTestObject();
         $obj5->handleContainerElement($node3);
         $this->assertSame($expected5, $obj5->getResult());
@@ -294,11 +294,11 @@ EOS;
         $node1    = new EmptyElement("empty");
         $node2    = new Text("Sample Text");
         $node3    = new ContainerElement("container");
-        $node3->append("TEST");
+        $node3->appendNode("TEST");
         $nodeList = new NodeList();
-        $nodeList->append($node1);
-        $nodeList->append($node2);
-        $nodeList->append($node3);
+        $nodeList->appendNode($node1);
+        $nodeList->appendNode($node2);
+        $nodeList->appendNode($node3);
         $expected = implode("\r\n", array(
             '<empty />',
             'Sample Text',

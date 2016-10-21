@@ -78,4 +78,14 @@ class Text implements Node
     {
         return $this->text;
     }
+    
+    /**
+     * このオブジェクト自身を返します.
+     * 
+     * @return Component このオブジェクト
+     */
+    public function getAppendee()
+    {
+        return $this;
+    }
 }

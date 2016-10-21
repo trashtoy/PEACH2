@@ -262,23 +262,23 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
         
         $opt1   = new ContainerElement("option");
         $opt1->setAttribute("value", "1");
-        $opt1->append("Apple");
-        $select->append($opt1);
+        $opt1->appendNode("Apple");
+        $select->appendNode($opt1);
         
         $opt2   = new ContainerElement("option");
         $opt2->setAttribute("value", "2");
-        $opt2->append("Orange");
-        $select->append($opt2);
+        $opt2->appendNode("Orange");
+        $select->appendNode($opt2);
         
         $opt3   = new ContainerElement("option");
         $opt3->setAttribute("value", "3");
-        $opt3->append("Pear");
-        $select->append($opt3);
+        $opt3->appendNode("Pear");
+        $select->appendNode($opt3);
         
         $opt4   = new ContainerElement("option");
         $opt4->setAttribute("value", "4");
-        $opt4->append("Peach");
-        $select->append($opt4);
+        $opt4->appendNode("Peach");
+        $select->appendNode($opt4);
         if ($selectFlag) {
             $opt4->setAttribute("selected");
         }
@@ -298,50 +298,50 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
         
         $grp1   = new ContainerElement("optgroup");
         $grp1->setAttribute("label", "Fruit");
-        $select->append($grp1);
+        $select->appendNode($grp1);
         $grp2   = new ContainerElement("optgroup");
         $grp2->setAttribute("label", "Dessert");
-        $select->append($grp2);
+        $select->appendNode($grp2);
         $other  = new ContainerElement("option");
         $other->setAttribute("value", "8");
-        $other->append("Others");
-        $select->append($other);
+        $other->appendNode("Others");
+        $select->appendNode($other);
         
         $opt1   = new ContainerElement("option");
         $opt1->setAttribute("value", "1");
-        $opt1->append("Apple");
-        $grp1->append($opt1);
+        $opt1->appendNode("Apple");
+        $grp1->appendNode($opt1);
         
         $opt2   = new ContainerElement("option");
         $opt2->setAttribute("value", "2");
-        $opt2->append("Orange");
-        $grp1->append($opt2);
+        $opt2->appendNode("Orange");
+        $grp1->appendNode($opt2);
         
         $opt3   = new ContainerElement("option");
         $opt3->setAttribute("value", "3");
-        $opt3->append("Pear");
-        $grp1->append($opt3);
+        $opt3->appendNode("Pear");
+        $grp1->appendNode($opt3);
         
         $opt4   = new ContainerElement("option");
         $opt4->setAttribute("value", "4");
-        $opt4->append("Peach");
-        $grp1->append($opt4);
+        $opt4->appendNode("Peach");
+        $grp1->appendNode($opt4);
         
         $opt5   = new ContainerElement("option");
         $opt5->setAttribute("value", "5");
-        $opt5->append("Chocolate");
-        $grp2->append($opt5);
+        $opt5->appendNode("Chocolate");
+        $grp2->appendNode($opt5);
         
         $opt6   = new ContainerElement("option");
         $opt6->setAttribute("value", "6");
         $opt6->setAttribute("selected");
-        $opt6->append("Doughnut");
-        $grp2->append($opt6);
+        $opt6->appendNode("Doughnut");
+        $grp2->appendNode($opt6);
         
         $opt7   = new ContainerElement("option");
         $opt7->setAttribute("value", "7");
-        $opt7->append("Ice cream");
-        $grp2->append($opt7);
+        $opt7->appendNode("Ice cream");
+        $grp2->appendNode($opt7);
         
         return $select;
     }
