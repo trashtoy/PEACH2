@@ -21,7 +21,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->helper = new Helper(new DefaultBuilder(), array("meta", "input", "br"));
+        $this->helper = new BaseHelper(new DefaultBuilder(), array("meta", "input", "br"));
         $this->object = new HelperObject($this->helper, "sample");
     }
     
@@ -224,7 +224,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         $b    = new DefaultBuilder();
         $b->setRenderer("SGML");
         $b->setIndent(new Indent(0, "  ", Indent::LF));
-        $h2   = new Helper($b, array("meta", "input", "br"));
+        $h2   = new BaseHelper($b, array("meta", "input", "br"));
         $obj2 = TestUtil::createTestHelperObject($h2);
         $this->assertSame(TestUtil::getCustomBuildResult(), $obj2->write());
     }

@@ -3,10 +3,10 @@ namespace Peach\Markup;
 require_once(__DIR__ . "/TestUtil.php");
 use Peach\DT\Datetime;
 
-class HelperTest extends \PHPUnit_Framework_TestCase
+class BaseHelperTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Helper
+     * @var BaseHelper
      */
     protected $object;
     
@@ -16,7 +16,7 @@ class HelperTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Helper(new DefaultBuilder(), array("meta", "input", "br"));
+        $this->object = new BaseHelper(new DefaultBuilder(), array("meta", "input", "br"));
     }
     
     /**
@@ -36,7 +36,7 @@ class HelperTest extends \PHPUnit_Framework_TestCase
      * - 第 2 引数を指定した場合, 生成される HelperObject の要素にその内容が属性としてセットされること
      * - 第 2 引数を指定したが, 生成される HelperObject が要素ではない場合は無視されること
      * 
-     * @covers Peach\Markup\Helper::createObject
+     * @covers Peach\Markup\BaseHelper::createObject
      */
     public function testCreateObject()
     {
@@ -70,8 +70,8 @@ class HelperTest extends \PHPUnit_Framework_TestCase
      * - null または空文字列の場合: 空の {@link NodeList}
      * - それ以外: 引数の文字列表現のテキストノード
      * 
-     * @covers Peach\Markup\Helper::createNode
-     * @covers Peach\Markup\Helper::createElement
+     * @covers Peach\Markup\BaseHelper::createNode
+     * @covers Peach\Markup\BaseHelper::createElement
      */
     public function testCreateNode()
     {
@@ -102,7 +102,7 @@ class HelperTest extends \PHPUnit_Framework_TestCase
     
     /**
      * Helper にセットされた Builder の build() の結果が返ることを確認します.
-     * @covers Peach\Markup\Helper::write
+     * @covers Peach\Markup\BaseHelper::write
      */
     public function testWrite()
     {
@@ -117,9 +117,9 @@ class HelperTest extends \PHPUnit_Framework_TestCase
      * - getBuilder() がコンストラクタの引数に指定した Builder オブジェクトと同一のものを返すこと
      * - setBuilder() で指定した Builder オブジェクトが getBuilder() から取得できること
      * 
-     * @covers Peach\Markup\Helper::__construct
-     * @covers Peach\Markup\Helper::getBuilder
-     * @covers Peach\Markup\Helper::setBuilder
+     * @covers Peach\Markup\BaseHelper::__construct
+     * @covers Peach\Markup\BaseHelper::getBuilder
+     * @covers Peach\Markup\BaseHelper::setBuilder
      */
     public function testAccessBuilder()
     {
@@ -128,7 +128,7 @@ class HelperTest extends \PHPUnit_Framework_TestCase
         $b2 = new DefaultBuilder();
         $b2->setBreakControl(MinimalBreakControl::getInstance());
         
-        $h = new Helper($b1);
+        $h = new BaseHelper($b1);
         $this->assertSame($b1, $h->getBuilder());
         $h->setBuilder($b2);
         $this->assertSame($b2, $h->getBuilder());

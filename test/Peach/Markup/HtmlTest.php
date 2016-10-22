@@ -65,14 +65,14 @@ class HtmlTest extends \PHPUnit_Framework_TestCase
         $b1  = new DefaultBuilder();
         $b1->setBreakControl($breakControl);
         $b1->setRenderer("HTML");
-        $ex1 = new Helper($b1, $emptyNodeNames);
+        $ex1 = new BaseHelper($b1, $emptyNodeNames);
         Html::init();
         $this->assertEquals($ex1, Html::getHelper());
         
         $b2  = new DefaultBuilder();
         $b2->setBreakControl($breakControl);
         $b2->setRenderer("XHTML");
-        $ex2 = new Helper($b2, $emptyNodeNames);
+        $ex2 = new BaseHelper($b2, $emptyNodeNames);
         Html::init(true);
         $this->assertEquals($ex2, Html::getHelper());
     }

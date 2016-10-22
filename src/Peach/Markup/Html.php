@@ -83,7 +83,7 @@ class Html
         }
         // @codeCoverageIgnoreEnd
         
-        return new Helper(self::createBuilder($xml), $emptyNodeNames);
+        return new BaseHelper(self::createBuilder($xml), $emptyNodeNames);
     }
     
     /**
