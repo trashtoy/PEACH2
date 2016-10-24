@@ -61,7 +61,7 @@ class ContainerTestImpl
         $test   = $this->test;
         $obj    = $this->object;
         $helper = new BaseHelper(new DefaultBuilder());
-        $node1  = $helper->createObject("div")->append("Test 1")->append("Test 2")->append("Test 3");
+        $node1  = $helper->tag("div")->append("Test 1")->append("Test 2")->append("Test 3");
         $obj->appendNode($node1);
         
         $expected = new ContainerElement("div");

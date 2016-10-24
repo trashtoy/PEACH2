@@ -73,7 +73,7 @@ class BaseHelper implements Helper
      * @param  array $attr
      * @return HelperObject
      */
-    public function createObject($var, $attr = array())
+    public function tag($var, $attr = array())
     {
         $object = new HelperObject($this, $var);
         if (count($attr)) {

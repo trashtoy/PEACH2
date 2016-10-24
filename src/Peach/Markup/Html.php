@@ -140,7 +140,7 @@ class Html
      */
     public static function tag($name = null, array $attr = array())
     {
-        return self::getHelper()->createObject($name, $attr);
+        return self::getHelper()->tag($name, $attr);
     }
     
     /**
@@ -157,7 +157,7 @@ class Html
     public static function comment($contents = null, $prefix = "", $suffix = "")
     {
         $comment = new Comment($prefix, $suffix);
-        return self::getHelper()->createObject($comment)->append($contents);
+        return self::getHelper()->tag($comment)->append($contents);
     }
     
     /**

@@ -29,34 +29,34 @@ class BaseHelperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * createObject() のテストです. 以下について確認します.
+     * tag() のテストです. 以下について確認します.
      * 
      * - HelperObject 型のオブジェクトを返すこと
      * - 返り値の HelperObject が, createNode() によって生成された Component をラップしていること
      * - 第 2 引数を指定した場合, 生成される HelperObject の要素にその内容が属性としてセットされること
      * - 第 2 引数を指定したが, 生成される HelperObject が要素ではない場合は無視されること
      * 
-     * @covers Peach\Markup\BaseHelper::createObject
+     * @covers Peach\Markup\BaseHelper::tag
      */
     public function testCreateObject()
     {
         $h    = $this->object;
-        $obj  = $h->createObject("p");
+        $obj  = $h->tag("p");
         $this->assertInstanceOf("Peach\\Markup\\HelperObject", $obj);
         
-        $h1   = $h->createObject(new ContainerElement("h1"));
-        $div  = $h->createObject("div");
-        $emp  = $h->createObject("");
+        $h1   = $h->tag(new ContainerElement("h1"));
+        $div  = $h->tag("div");
+        $emp  = $h->tag("");
         $this->assertEquals(new ContainerElement("h1"),  $h1->getNode());
         $this->assertEquals(new ContainerElement("div"), $div->getNode());
         $this->assertEquals(new NodeList(),              $emp->getNode());
         
-        $obj2  = $h->createObject("input", array("type" => "text", "name" => "title", "value" => "sample attribute"));
+        $obj2  = $h->tag("input", array("type" => "text", "name" => "title", "value" => "sample attribute"));
         $input = new EmptyElement("input");
         $input->setAttributes(array("type" => "text", "name" => "title", "value" => "sample attribute"));
         $this->assertEquals($input, $obj2->getNode());
         
-        $obj3  = $h->createObject(null, array("class" => "ignore_test"));
+        $obj3  = $h->tag(null, array("class" => "ignore_test"));
         $this->assertEquals(new NodeList(), $obj3->getNode());
     }
     
@@ -85,7 +85,7 @@ class BaseHelperTest extends \PHPUnit_Framework_TestCase
         $div= new ContainerElement("div");
         $div->setAttribute("id", "test");
         $div->appendNode("Sample Text");
-        $ho = $h->createObject($div);
+        $ho = $h->tag($div);
         $this->assertSame($div, $h->createNode($ho));
         
         $p = new ContainerElement("p");
@@ -107,7 +107,7 @@ class BaseHelperTest extends \PHPUnit_Framework_TestCase
     public function testWrite()
     {
         $h = $this->object;
-        $o = $h->createObject(TestUtil::getTestNode());
+        $o = $h->tag(TestUtil::getTestNode());
         $this->assertSame(TestUtil::getDefaultBuildResult(), $h->write($o));
     }
     

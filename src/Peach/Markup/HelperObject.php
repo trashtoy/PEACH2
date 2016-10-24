@@ -49,7 +49,7 @@ class HelperObject implements Container
     
     /**
      * 指定された Helper オブジェクトに紐付けられた新しいインスタンスを構築します.
-     * このコンストラクタは {@link Helper::createObject()} から呼び出されます.
+     * このコンストラクタは {@link Helper::tag()} から呼び出されます.
      * 通常は, エンドユーザーがコンストラクタを直接呼び出す機会はありません.
      * 
      * @param Helper $helper
@@ -180,7 +180,7 @@ class HelperObject implements Container
             return $this;
         }
         
-        $result = $this->helper->createObject(null);
+        $result = $this->helper->tag(null);
         if ($this->node instanceof Container) {
             $result->append($this->node->getChildNodes());
         }
@@ -219,7 +219,7 @@ class HelperObject implements Container
      */
     public function prototype()
     {
-        return $this->helper->createObject($this->createPrototype());
+        return $this->helper->tag($this->createPrototype());
     }
     
     /**
