@@ -101,6 +101,42 @@ class BaseHelperTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * createElement() のテストです.
+     * コンストラクタ引数で空要素タグとして指定したタグ名については EmptyElement,
+     * それ以外については ContainerElement 型オブジェクトを返すことを確認します.
+     * 
+     * @param        string $expectedClassName
+     * @param        string $tagName
+     * @covers       Peach\Markup\BaseHelper::createElement
+     * @dataProvider forTestCreateElement
+     */
+    public function testCreateElement($expectedClassName, $tagName)
+    {
+        $h   = $this->object;
+        $obj = $h->createElement($tagName);
+        $this->assertInstanceOf($expectedClassName, $obj);
+    }
+    
+    /**
+     * createElement() のテストのためのデータセットです.
+     * 2 番目の引数で createElement() を実行した結果,
+     * 1 番目のクラス名のインスタンスが生成されることを期待します.
+     * 
+     * @return array
+     */
+    public function forTestCreateElement()
+    {
+        return array(
+            array("Peach\\Markup\\EmptyElement", "meta"),
+            array("Peach\\Markup\\EmptyElement", "input"),
+            array("Peach\\Markup\\EmptyElement", "br"),
+            array("Peach\\Markup\\ContainerElement", "body"),
+            array("Peach\\Markup\\ContainerElement", "p"),
+            array("Peach\\Markup\\ContainerElement", "div"),
+        );
+    }
+
+    /**
      * Helper にセットされた Builder の build() の結果が返ることを確認します.
      * @covers Peach\Markup\BaseHelper::write
      */
