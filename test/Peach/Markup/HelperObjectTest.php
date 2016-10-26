@@ -21,8 +21,17 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->helper = new BaseHelper(new DefaultBuilder(), array("meta", "input", "br"));
+        $this->helper = $this->createTestHelper();
         $this->object = new HelperObject($this->helper, "sample");
+    }
+    
+    /**
+     * 
+     * @return BaseHelper
+     */
+    private function createTestHelper()
+    {
+        return new BaseHelper(new DefaultBuilder(), array("meta", "input", "br"));
     }
     
     /**
@@ -36,45 +45,56 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
     /**
      * コンストラクタの第 2 引数に指定された値によって, 返される値が変化することを確認します.
      * 
-     * - {@link Node Node} 型オブジェクトの場合: 同一のオブジェクト
-     * - {@link HelperObject HelperObject} 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
+     * - {@link Node} 型オブジェクトの場合: 引数自身
+     * - {@link NodeList} 型オブジェクトの場合: 引数自身
+     * - {@link HelperObject} 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
      * - 文字列の場合: 引数の文字列を要素名に持つ新しい {@link Element}
      * - null または空文字列の場合: 空の {@link NodeList}
      * - それ以外: 引数の文字列表現のテキストノード
      * 
+     * @param  Component $expected
+     * @param  mixed     $var
      * @covers Peach\Markup\HelperObject::__construct
+     * @covers Peach\Markup\HelperObject::createNode
      * @covers Peach\Markup\HelperObject::getNode
+     * @dataProvider forTestGetNode
      */
-    public function testGetNode()
+    public function testGetNode($expected, $var)
     {
         $h    = $this->helper;
-        
-        $node = new EmptyElement("br");
-        $obj1 = new HelperObject($h, $node);
-        $this->assertSame($node, $obj1->getNode());
-        
-        $div  = new ContainerElement("div");
-        $div->setAttribute("id", "test");
-        $div->appendNode("Sample Text");
-        $ho   = new HelperObject($h, $div);
-        $obj2 = new HelperObject($h, $ho);
-        $this->assertSame($div, $obj2->getNode());
-        
-        $obj3 = new HelperObject($h, "p");
-        $this->assertEquals(new ContainerElement("p"), $obj3->getNode());
-        
-        $emptyList = new NodeList();
-        $obj4      = new HelperObject($h, null);
-        $this->assertEquals($emptyList, $obj4->getNode());
-        $obj5      = new HelperObject($h, "");
-        $this->assertEquals($emptyList, $obj5->getNode());
-        
-        $datetime = new Datetime(2012, 5, 21, 7, 34);
-        $textNode = new Text("2012-05-21 07:34");
-        $obj6     = new HelperObject($h, $datetime);
-        $this->assertEquals($textNode, $obj6->getNode());
+        $obj  = new HelperObject($h, $var);
+        $this->assertEquals($expected, $obj->getNode());
     }
     
+    /**
+     * @return array
+     */
+    public function forTestGetNode()
+    {
+        $h         = $this->createTestHelper();
+        $node      = new EmptyElement("br");
+        $nodeList  = new NodeList(array("First", "Second", "Third"));
+        $p         = new ContainerElement("p");
+        $emptyList = new NodeList();
+        $datetime  = new Datetime(2012, 5, 21, 7, 34);
+        $textNode  = new Text("2012-05-21 07:34");
+        
+        $div = new ContainerElement("div");
+        $div->setAttribute("id", "test");
+        $div->appendNode("Sample Text");
+        $ho  = $h->tag($div);
+        
+        return array(
+            array($node, $node),         // Node 型オブジェクトの場合: 引数自身
+            array($nodeList, $nodeList), // NodeList 型オブジェクトの場合: 引数自身
+            array($div, $ho),            // HelperObject 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
+            array($p, "p"),              // 文字列の場合: 引数の文字列を要素名に持つ新しい Element
+            array($emptyList, null),     // null の場合: 空の NodeList
+            array($emptyList, ""),       // 空文字列の場合: 空の NodeList
+            array($textNode, $datetime), // それ以外: 引数の文字列表現のテキストノード
+        );
+    }
+       
     /**
      * ラップしているノードが Container の場合は子ノードが追加され,
      * そうでない場合は何も変化しないことを確認します.

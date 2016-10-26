@@ -59,47 +59,7 @@ class BaseHelperTest extends \PHPUnit_Framework_TestCase
         $obj3  = $h->tag(null, array("class" => "ignore_test"));
         $this->assertEquals(new NodeList(), $obj3->getNode());
     }
-    
-    /**
-     * createNode() のテストです. 引数によって, 以下の結果が返ることを確認します.
-     * 
-     * - {@link Node} 型オブジェクトの場合: 引数自身
-     * - {@link NodeList} 型オブジェクトの場合: 引数自身
-     * - {@link HelperObject} 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
-     * - 文字列の場合: 引数の文字列を要素名に持つ新しい {@link Element}
-     * - null または空文字列の場合: 空の {@link NodeList}
-     * - それ以外: 引数の文字列表現のテキストノード
-     * 
-     * @covers Peach\Markup\BaseHelper::createNode
-     * @covers Peach\Markup\BaseHelper::createElement
-     */
-    public function testCreateNode()
-    {
-        $h = $this->object;
-        $node = new EmptyElement("br");
-        $this->assertSame($node, $h->createNode($node));
-        
-        $nodeList = new NodeList(array("First", "Second", "Third"));
-        $this->assertSame($nodeList, $h->createNode($nodeList));
-        
-        $div= new ContainerElement("div");
-        $div->setAttribute("id", "test");
-        $div->appendNode("Sample Text");
-        $ho = $h->tag($div);
-        $this->assertSame($div, $h->createNode($ho));
-        
-        $p = new ContainerElement("p");
-        $this->assertEquals($p, $h->createNode("p"));
-        
-        $emptyList = new NodeList();
-        $this->assertEquals($emptyList, $h->createNode(null));
-        $this->assertEquals($emptyList, $h->createNode(""));
-        
-        $datetime = new Datetime(2012, 5, 21, 7, 34);
-        $textNode = new Text("2012-05-21 07:34");
-        $this->assertEquals($textNode, $h->createNode($datetime));
-    }
-    
+     
     /**
      * createElement() のテストです.
      * コンストラクタ引数で空要素タグとして指定したタグ名については EmptyElement,

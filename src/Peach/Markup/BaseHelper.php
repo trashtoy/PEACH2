@@ -26,7 +26,6 @@
  * @since  2.0.0
  */
 namespace Peach\Markup;
-use Peach\Util\Values;
 
 /**
  * ノードの生成を簡略化するための API を備えたヘルパーです.
@@ -80,40 +79,6 @@ class BaseHelper implements Helper
             $object->attr($attr);
         }
         return $object;
-    }
-    
-    /**
-     * 引数の値をノードに変換します. このメソッドは {@link HelperObject}
-     * から参照されます. エンドユーザーが直接使う機会はありません.
-     * 返り値は, 引数によって以下のようになります.
-     * 
-     * - {@link Node} 型オブジェクトの場合: 引数自身
-     * - {@link NodeList} 型オブジェクトの場合: 引数自身
-     * - {@link HelperObject} 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
-     * - 文字列の場合: 引数の文字列を要素名に持つ新しい {@link Element}
-     * - null または空文字列の場合: 空の {@link NodeList}
-     * - 上記に当てはまらない場合: 引数の文字列表現をあらわす {@link Text} ノード
-     * 
-     * @param  mixed $var 変換対象の値
-     * @return Component  変換後のノード
-     * @ignore
-     */
-    public function createNode($var)
-    {
-        if ($var instanceof Node) {
-            return $var;
-        }
-        if ($var instanceof NodeList) {
-            return $var;
-        }
-        if ($var instanceof HelperObject) {
-            return $var->getNode();
-        }
-        if (is_string($var) && strlen($var)) {
-            return $this->createElement($var);
-        }
-        $nodeName = Values::stringValue($var);
-        return strlen($nodeName) ? new Text($nodeName) : new NodeList();
     }
     
     /**
