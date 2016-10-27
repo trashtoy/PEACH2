@@ -29,4 +29,36 @@ namespace Peach\Markup;
 
 interface Helper
 {
+    /**
+     * 新しい HelperObject を生成します.
+     * このメソッドが返す HelperObject は, 引数の型に応じて以下のように振る舞います.
+     * 
+     * - 文字列の場合: その文字列を要素名に持つ {@link Element}
+     * - null または空文字列の場合: 空の {@link NodeList}
+     * - Node オブジェクトの場合: その Node 自身
+     * 
+     * 第 2 引数に配列を指定した場合, 生成された要素に対して属性をセットすることが出来ます.
+     * (生成された HelperObject が要素ではない場合, 第 2 引数は無視されます)
+     * 
+     * @param  string|Component $var
+     * @param  array $attr
+     * @return HelperObject
+     */
+    public function tag($var, $attr = array());
+    
+    /**
+     * 指定された HelperObject を別の形式 (例えば HTML コードなど) に変換します.
+     * 
+     * @param  HelperObject $object 変換対象の HelperObject
+     * @return mixed                変換結果
+     */
+    public function write(HelperObject $object);
+    
+    /**
+     * 指定された要素名を持つ新しい Element オブジェクトを返します.
+     * 
+     * @param  string  $name 要素名
+     * @return Element       指定された要素名を持つ Element
+     */
+    public function createElement($name);
 }
