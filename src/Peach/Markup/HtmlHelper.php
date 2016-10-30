@@ -28,6 +28,7 @@
 namespace Peach\Markup;
 
 use InvalidArgumentException;
+use Peach\Util\Values;
 
 class HtmlHelper extends AbstractHelper
 {
@@ -124,6 +125,149 @@ class HtmlHelper extends AbstractHelper
     public function docType()
     {
         return strlen($this->docType) ? new Code($this->docType) : None::getInstance();
+    }
+    
+    /**
+     * 指定された内容のコメントノードを作成します.
+     * 引数にノードを指定した場合, そのノードの内容をコメントアウトします.
+     * 
+     * 第 2, 第 3 引数にコメントの接頭辞・接尾辞を含めることが出来ます.
+     * 
+     * @param  string|Component $contents コメントにしたいテキストまたはノード
+     * @param  string $prefix コメントの接頭辞
+     * @param  string $suffix コメントの接尾辞
+     * @return HelperObject
+     */
+    public function comment($contents = null, $prefix = "", $suffix = "")
+    {
+        $comment = new Comment($prefix, $suffix);
+        return $this->tag($comment)->append($contents);
+    }
+    
+    /**
+     * IE 9 以前の Internet Explorer で採用されている条件付きコメントを生成します.
+     * 以下にサンプルを挙げます.
+     * <code>
+     * echo Html::conditionalComment("lt IE 7", "He died on April 9, 2014.")->write();
+     * </code>
+     * このコードは次の文字列を出力します.
+     * <code>
+     * <!--[if lt IE 7]>He died on April 9, 2014.<![endif]-->
+     * </code>
+     * 第 2 引数を省略した場合は空の条件付きコメントを生成します.
+     * 
+     * @param  string                        $cond     条件文 ("lt IE 7" など)
+     * @param  string|Component $contents 条件付きコメントで囲みたいテキストまたはノード
+     * @return HelperObject 条件付きコメントを表現する HelperObject
+     */
+    public function conditionalComment($cond, $contents = null)
+    {
+        return $this->comment($contents, "[if {$cond}]>", "<![endif]");
+    }
+    
+    /**
+     * HTML の select 要素を生成します.
+     * 第 1 引数にはデフォルトで選択されている値,
+     * 第 2 引数には選択肢を配列で指定します.
+     * キーがラベル, 値がそのラベルに割り当てられたデータとなります.
+     * 
+     * 引数を二次元配列にすることで, 一次元目のキーを optgroup にすることが出来ます.
+     * 以下にサンプルを挙げます.
+     * <code>
+     * $candidates = array(
+     *     "Fruit"   => array(
+     *         "Apple"  => 1,
+     *         "Orange" => 2,
+     *         "Pear"   => 3,
+     *         "Peach"  => 4,
+     *     ),
+     *     "Dessert" => array(
+     *         "Chocolate" => 5,
+     *         "Doughnut"  => 6,
+     *         "Ice cream" => 7,
+     *     ),
+     *     "Others" => 8,
+     * );
+     * $select = Html::createSelectElement("6", $candidates, array("class" => "sample", "name" => "favorite"));
+     * </code>
+     * この要素を出力すると以下の結果が得られます.
+     * <code>
+     * <select class="sample" name="favorite">
+     *     <optgroup label="Fruit">
+     *         <option value="1">Apple</option>
+     *         <option value="2">Orange</option>
+     *         <option value="3">Pear</option>
+     *         <option value="4">Peach</option>
+     *     </optgroup>
+     *     <optgroup label="Dessert">
+     *         <option value="5">Chocolate</option>
+     *         <option value="6" selected>Doughnut</option>
+     *         <option value="7">Ice cream</option>
+     *     </optgroup>
+     *     <option value="8">Others</option>
+     * </select>
+     * </code>
+     * 
+     * @param  string $current    デフォルト値
+     * @param  array  $candidates 選択肢の一覧
+     * @param  array  $attr       追加で指定する属性 (class, id, style など)
+     * @return ContainerElement HTML の select 要素
+     */
+    public function createSelectElement($current, array $candidates, array $attr = array())
+    {
+        $currentText = Values::stringValue($current);
+        $select      = new ContainerElement("select");
+        $select->setAttributes($attr);
+        $select->appendNode(self::createOptions($currentText, $candidates));
+        return $select;
+    } 
+   
+    /**
+     * select 要素に含まれる option の一覧を作成します.
+     * 
+     * @param  string $current    デフォルト値
+     * @param  array  $candidates 選択肢の一覧
+     * @return NodeList option 要素の一覧
+     */
+    private function createOptions($current, array $candidates)
+    {
+        $result = new NodeList();
+        foreach ($candidates as $key => $value) {
+            if (is_array($value)) {
+                $optgroup = new ContainerElement("optgroup");
+                $optgroup->setAttribute("label", $key);
+                $optgroup->appendNode($this->createOptions($current, $value));
+                $result->appendNode($optgroup);
+                continue;
+            }
+            
+            $option  = new ContainerElement("option");
+            $option->setAttribute("value", $value);
+            $value   = Values::stringValue($value);
+            if ($current === $value) {
+                $option->setAttribute("selected");
+            }
+            $option->appendNode($key);
+            $result->appendNode($option);
+        }
+        return $result;
+    }
+    
+    /**
+     * HTML の select 要素を生成し, 結果を HelperObject として返します.
+     * 引数および処理内容は
+     * {@link Html::createSelectElement()}
+     * と全く同じですが, 生成された要素を HelperObject でラップするところが異なります.
+     * 
+     * @see    Html::createSelectElement
+     * @param  string $current    デフォルト値
+     * @param  array  $candidates 選択肢の一覧
+     * @param  array  $attr       追加で指定する属性 (class, id, style など)
+     * @return HelperObject
+     */
+    public function select($current, array $candidates, array $attr = array())
+    {
+        return $this->tag(self::createSelectElement($current, $candidates, $attr));
     }
     
     private static function detectMode($param)
