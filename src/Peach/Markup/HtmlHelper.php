@@ -30,51 +30,88 @@ namespace Peach\Markup;
 use InvalidArgumentException;
 use Peach\Util\Values;
 
+/**
+ * HTML の出力に特化した Helper です.
+ * XML 宣言, DOCTYPE 宣言, select 要素やコメントの出力機能などを備えています.
+ * 
+ * このクラスは通常コンストラクタではなく newInstance() メソッドを使って初期化を行います.
+ * フォーマットのきめ細やかなカスタマイズを行いたい場合のみコンストラクタから生成してください.
+ */
 class HtmlHelper extends AbstractHelper
 {
 
     /**
+     * HTML 4.01 Strict のモードです.
+     * 
      * @var string
      */
     const MODE_HTML4_STRICT        = "html4s";
     
     /**
+     * HTML 4.01 Transitional のモードです.
+     * 
      * @var string
      */
     const MODE_HTML4_TRANSITIONAL  = "html4t";
     
     /**
+     * XHTML 1.0 Strict のモードです.
+     * 
      * @var string
      */
     const MODE_XHTML1_STRICT       = "xhtml1s";
     
     /**
+     * XHTML 1.0 Transitional のモードです.
+     * 
      * @var string
      */
     const MODE_XHTML1_TRANSITIONAL = "xhtml1t";
     
     /**
+     * XHTML 1.1 のモードです.
+     * 
      * @var string
      */
     const MODE_XHTML1_1            = "xhtml1_1";
     
     /**
+     * HTML5 のモードです.
+     * 
      * @var string
      */
     const MODE_HTML5               = "html5";
     
     /**
-     *
+     * このオブジェクトが出力する文書型宣言のコードです.
+     * 
      * @var string
      */
     private $docType;
     
     /**
-     *
+     * このオブジェクトが XHTML 形式かどうかをあらわします.
+     * xmlDec() メソッドの返り値に影響します.
+     * 
      * @var bool
      */
     private $isXhtml;
     
+    /**
+     * 指定された Helper オブジェクトを利用して HTML タグの出力を行う, 新しい
+     * HtmlHelper オブジェクトを構築します.
+     * 
+     * 第 2 引数の文字列は docType() メソッドの返り値に関係します.
+     * もしも未指定の場合, このオブジェクトが docType() メソッドで生成する
+     * Component は何も出力しません.
+     * 第 3 引数のフラグは xmlDec() メソッドの返り値に関係します.
+     * true の場合は xmlDec() が返す Component は XML 宣言を出力しますが,
+     * それ以外の場合は何も出力しません.
+     * 
+     * @param Helper $parent  カスタマイズ対象の Helper オブジェクト
+     * @param string $docType この Helper が生成する文書型宣言の文字列
+     * @param bool   $isXhtml XHTML として生成する場合のみ true
+     */
     public function __construct(Helper $parent, $docType = null, $isXhtml = null)
     {
         parent::__construct($parent);
@@ -83,6 +120,15 @@ class HtmlHelper extends AbstractHelper
     }
     
     /**
+     * 指定されたモードで HtmlHelper オブジェクトを生成します.
+     * 引数には以下の定数を指定してください.
+     * 
+     * - {@link HtmlHelper::MODE_HTML4_STRICT}
+     * - {@link HtmlHelper::MODE_HTML4_TRANSITIONAL}
+     * - {@link HtmlHelper::MODE_XHTML1_STRICT}
+     * - {@link HtmlHelper::MODE_XHTML1_TRANSITIONAL}
+     * - {@link HtmlHelper::MODE_XHTML1_1}
+     * - {@link HtmlHelper::MODE_HTML5}
      * 
      * @param  string $mode
      * @return HtmlHelper
@@ -97,9 +143,10 @@ class HtmlHelper extends AbstractHelper
     }
     
     /**
+     * 指定されたモードに応じた BaseHelper を返します.
      * 
      * @param  string $mode
-     * @return HtmlHelper
+     * @return BaseHelper
      */
     private static function createBaseHelper($mode)
     {
@@ -110,8 +157,16 @@ class HtmlHelper extends AbstractHelper
     }
     
     /**
+     * XML 宣言をあらわす Component を返します.
+     * もしもこの HtmlHelper が XHTML モードで生成された場合,
+     * このメソッドは以下のコードを出力する {@link Code} オブジェクトを返します.
+     * <code>
+     * <?xml version="1.0" encoding="UTF-8"?>
+     * </code>
      * 
-     * @return Component
+     * それ以外は {@link None} オブジェクトを返します.
+     * 
+     * @return Component XML 宣言をあらわす Code オブジェクトまたは None
      */
     public function xmlDec()
     {
@@ -119,8 +174,11 @@ class HtmlHelper extends AbstractHelper
     }
     
     /**
+     * 文書型宣言をあらわす Code オブジェクトを返します.
+     * 返り値の Component が出力するコードは, このオブジェクトの初期化時に指定されたモード
+     * (あるいはコンストラクタの第 2 引数) に応じて異なる文書型宣言となります.
      * 
-     * @return Component
+     * @return Component 文書型宣言をあらわす Code オブジェクト. ただし初期化時に指定されていない場合は None
      */
     public function docType()
     {
@@ -148,7 +206,7 @@ class HtmlHelper extends AbstractHelper
      * IE 9 以前の Internet Explorer で採用されている条件付きコメントを生成します.
      * 以下にサンプルを挙げます.
      * <code>
-     * echo Html::conditionalComment("lt IE 7", "He died on April 9, 2014.")->write();
+     * echo $htmlHelper->conditionalComment("lt IE 7", "He died on April 9, 2014.")->write();
      * </code>
      * このコードは次の文字列を出力します.
      * <code>
@@ -259,7 +317,7 @@ class HtmlHelper extends AbstractHelper
      * {@link Html::createSelectElement()}
      * と全く同じですが, 生成された要素を HelperObject でラップするところが異なります.
      * 
-     * @see    Html::createSelectElement
+     * @see    HtmlHelper::createSelectElement
      * @param  string $current    デフォルト値
      * @param  array  $candidates 選択肢の一覧
      * @param  array  $attr       追加で指定する属性 (class, id, style など)
@@ -270,6 +328,14 @@ class HtmlHelper extends AbstractHelper
         return $this->tag(self::createSelectElement($current, $candidates, $attr));
     }
     
+    /**
+     * newInstance() の引数で指定された文字列のバリデーションを行います.
+     * 未対応の文字列が指定された場合は InvalidArgumentException をスローします.
+     * 
+     * @param  string $param
+     * @return string
+     * @throws InvalidArgumentException
+     */
     private static function detectMode($param)
     {
         static $mapping = null;
@@ -300,9 +366,10 @@ class HtmlHelper extends AbstractHelper
     }
     
     /**
+     * 指定されたモードが XHTML かどうかを判定します.
      * 
-     * @param  string $mode
-     * @return bool
+     * @param  string $mode モード (ただし detectMode() でバリデーション済み)
+     * @return bool         XHTML と判定された場合のみ true
      */
     private static function checkXhtmlFromMode($mode)
     {
@@ -314,6 +381,12 @@ class HtmlHelper extends AbstractHelper
         return in_array($mode, $xhtmlModes);
     }
     
+    /**
+     * 指定されたモードに応じた DOCTYPE 宣言の文字列を返します.
+     * 
+     * @param  string $mode モード (ただし detectMode() でバリデーション済み)
+     * @return string       DOCTYPE 宣言
+     */
     private static function getDocTypeFromMode($mode)
     {
         static $docTypeList = array(

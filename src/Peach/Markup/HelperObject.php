@@ -73,8 +73,9 @@ class HelperObject implements Container
      * - null または空文字列の場合: 空の {@link NodeList}
      * - 上記に当てはまらない場合: 引数の文字列表現をあらわす {@link Text} ノード
      * 
-     * @param  mixed $var 変換対象の値
-     * @return Component  変換後のノード
+     * @param  mixed $var     変換対象の値
+     * @param  Helper $helper ノードの生成に利用する Helper オブジェクト
+     * @return Component      変換後のノード
      */
     private function createNode($var, Helper $helper)
     {

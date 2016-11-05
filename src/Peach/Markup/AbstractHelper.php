@@ -27,17 +27,26 @@
  */
 namespace Peach\Markup;
 
+/**
+ * HTML や RSS など, 特定のマークアップ言語に特化した Helper
+ * クラスを新たに実装する際に利用するスケルトン実装です.
+ * 
+ * このクラスおよびその具象クラスは Decorator パターンで実装されています.
+ */
 abstract class AbstractHelper implements Helper
 {
     /**
-     *
+     * このオブジェクトに設定されているベースの Helper オブジェクトです.
+     * Helper インタフェースで定義されている各種メソッドの実際の処理をこのメンバ変数に移譲しています.
+     * 
      * @var Helper
      */
     private $parent;
     
     /**
+     * 指定された Helper オブジェクトをベースとして, 新しいインスタンスを生成します.
      * 
-     * @param Helper $parent
+     * @param Helper $parent ベースの Helper オブジェクト
      */
     public function __construct(Helper $parent)
     {
@@ -45,8 +54,9 @@ abstract class AbstractHelper implements Helper
     }
     
     /**
+     * このオブジェクトに設定されているベースの Helper オブジェクトを返します.
      * 
-     * @return Helper
+     * @return Helper ベースの Helper オブジェクト
      */
     public function getParentHelper()
     {
@@ -65,6 +75,7 @@ abstract class AbstractHelper implements Helper
     }
     
     /**
+     * ベースの Helper オブジェクトの tag() メソッドの結果をそのまま返します.
      * 
      * @param  string|Component $var
      * @param  array $attr
@@ -76,6 +87,7 @@ abstract class AbstractHelper implements Helper
     }
     
     /**
+     * ベースの Helper オブジェクトの write() メソッドの結果をそのまま返します.
      * 
      * @param  HelperObject $object
      * @return mixed

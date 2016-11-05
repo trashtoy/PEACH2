@@ -165,6 +165,7 @@ class NameValidator_Range
     private $next;
     
     /**
+     * 指定された Unicode 符号点の範囲を持つ NameValidator_Range オブジェクトを構築します.
      * 
      * @param int $min 範囲の最小値
      * @param int $max 範囲の最大値
