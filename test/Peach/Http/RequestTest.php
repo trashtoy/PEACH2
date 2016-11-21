@@ -1,7 +1,10 @@
 <?php
 namespace Peach\Http;
 
+use Peach\DT\Timestamp;
+use Peach\Http\Header\HttpDate;
 use Peach\Http\Header\NoField;
+use Peach\Http\Header\QualityValues;
 use Peach\Http\Header\Raw;
 use PHPUnit_Framework_TestCase;
 
@@ -70,6 +73,7 @@ class RequestTest extends PHPUnit_Framework_TestCase
      * getHeader() の第 1 引数について "Host" と ":authority" を同一視することを確認します.
      * 
      * @covers Peach\Http\Request::getHeader
+     * @covers Peach\Http\Request::__construct
      */
     public function testAccessHost()
     {
@@ -115,26 +119,96 @@ class RequestTest extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * setHeader() で指定した HeaderField オブジェクトのすべてを配列として返すことを確認します.
+     * 
      * @covers Peach\Http\Request::getHeaderList
-     * @todo   Implement testGetHeaderList().
      */
     public function testGetHeaderList()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+        $obj  = $this->object;
+        $obj->setHeader(new Raw("Host", "www.example.com"));
+        $obj->setHeader(new QualityValues("Accept-Language", array("ja" => 1.0, "en" => 0.5)));
+        $obj->setHeader(new HttpDate("If-Modified-Since", new Timestamp(2012, 5, 21, 8, 34, 45)));
+        
+        $expected = array(
+            ":authority"        => new Raw("Host", "www.example.com"),
+            "accept-language"   => new QualityValues("Accept-Language", array("ja" => 1.0, "en" => 0.5)),
+            "if-modified-since" => new HttpDate("If-Modified-Since", new Timestamp(2012, 5, 21, 8, 34, 45)),
         );
+        $this->assertEquals($expected, $obj->getHeaderList());
     }
     
     /**
+     * isMalformed() のテストです.
+     * 以下の疑似ヘッダーがすべてセットされている場合のみ false を返すことを確認します.
+     * 
+     * - :path
+     * - :authority
+     * - :method
+     * - :scheme
+     * 
+     * @param boolean $expected
+     * @param Request $obj
      * @covers Peach\Http\Request::isMalformed
-     * @todo   Implement testIsMalformed().
+     * @dataProvider forTestIsMalformed
      */
-    public function testIsMalformed()
+    public function testIsMalformed($expected, Request $obj)
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+        $this->assertSame($expected, $obj->isMalformed());
+    }
+    
+    /**
+     * testIsMalformed() のテストデータです.
+     * 
+     * @return array
+     */
+    public function forTestIsMalformed()
+    {
+        // OK
+        $test1 = new Request();
+        $test1->setHeader(new Raw(":path",      "/sample/index.html"));
+        $test1->setHeader(new Raw(":authority", "www.example.com"));
+        $test1->setHeader(new Raw(":method",    "get"));
+        $test1->setHeader(new Raw(":scheme",    "http"));
+        
+        // :authority を Host に置換しても OK
+        $test2 = new Request();
+        $test2->setHeader(new Raw(":path", "/sample/index.html"));
+        $test2->setHeader(new Raw("Host",  "www.example.com"));
+        $test2->setHeader(new Raw(":method", "get"));
+        $test2->setHeader(new Raw(":scheme", "http"));
+        
+        // :path がない
+        $test3 = new Request();
+        $test3->setHeader(new Raw("Host",  "www.example.com"));
+        $test3->setHeader(new Raw(":method", "get"));
+        $test3->setHeader(new Raw(":scheme", "http"));
+        
+        // :authority がない
+        $test4 = new Request();
+        $test4->setHeader(new Raw(":path", "/sample/index.html"));
+        $test4->setHeader(new Raw(":method", "get"));
+        $test4->setHeader(new Raw(":scheme", "http"));
+        
+        // :method がない
+        $test5 = new Request();
+        $test5->setHeader(new Raw(":path",      "/sample/index.html"));
+        $test5->setHeader(new Raw(":authority", "www.example.com"));
+        $test5->setHeader(new Raw(":scheme",    "http"));
+        
+        // :scheme がない
+        $test6 = new Request();
+        $test6->setHeader(new Raw(":path",      "/sample/index.html"));
+        $test6->setHeader(new Raw(":authority", "www.example.com"));
+        $test6->setHeader(new Raw(":method",    "get"));
+        
+        return array(
+            array(false, $test1),
+            array(false, $test2),
+            array(true , $test3),
+            array(true , $test4),
+            array(true , $test5),
+            array(true , $test6),
         );
     }
     
