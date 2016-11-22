@@ -83,7 +83,7 @@ class StructuralChar implements Expression
         $ws = WS::getInstance();
         $ws->handle($context);
         if (!$context->hasNext()) {
-            $context->throwException("Unexpected end of JSON");
+            throw $context->createException("Unexpected end of JSON");
         }
         $this->handleChar($context);
         $ws->handle($context);
@@ -108,7 +108,7 @@ class StructuralChar implements Expression
             return "'{$chr}'";
         };
         $expectedList = implode(", ", array_map($quote, $expected));
-        $context->throwException("'{$chr}' is not allowed (expected: {$expectedList})");
+        throw $context->createException("'{$chr}' is not allowed (expected: {$expectedList})");
     }
     
     /**

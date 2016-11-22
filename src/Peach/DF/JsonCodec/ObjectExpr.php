@@ -73,7 +73,7 @@ class ObjectExpr implements Expression
         
         while (true) {
             if ($context->current() === "}") {
-                $context->throwException("Closing bracket after comma is not permitted");
+                throw $context->createException("Closing bracket after comma is not permitted");
             }
             $member = new Member();
             $member->handle($context);
