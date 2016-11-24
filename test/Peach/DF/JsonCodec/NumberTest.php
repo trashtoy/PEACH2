@@ -168,6 +168,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      * - オプションが OFF の場合, 巨大整数を float として変換すること
      * 
      * @covers Peach\DF\JsonCodec\Number::handle
+     * @covers Peach\DF\JsonCodec\Number::getResult
      */
     public function testHandleNumberByBigInt()
     {
