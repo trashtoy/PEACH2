@@ -51,6 +51,17 @@ class TextTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * このオブジェクト自身を返すことを確認します.
+     * 
+     * @covers Peach\Markup\Text::getAppendee
+     */
+    public function testGetAppendee()
+    {
+        $obj = $this->object;
+        $this->assertSame($obj, $obj->getAppendee());
+    }
+    
+    /**
      * コンストラクタに指定した文字列を返すことを確認します.
      * 
      * @covers Peach\Markup\Text::__toString

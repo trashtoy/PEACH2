@@ -98,7 +98,18 @@ class CommentTest extends \PHPUnit_Framework_TestCase
         $test = new ContainerTestImpl($this, $this->object1);
         $test->testAppendNode();
     }
-
+    
+    /**
+     * このオブジェクト自身を返すことを確認します.
+     * 
+     * @covers Peach\Markup\Comment::getAppendee
+     */
+    public function testGetAppendee()
+    {
+        $obj = $this->object1;
+        $this->assertSame($obj, $obj->getAppendee());
+    }
+    
     /**
      * Container で定義されている getChildNodes() の仕様通りに動作することを確認します.
      * 

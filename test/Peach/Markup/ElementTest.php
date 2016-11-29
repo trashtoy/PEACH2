@@ -201,4 +201,15 @@ abstract class ElementTest extends \PHPUnit_Framework_TestCase
         $expected = array("first" => "1", "option" => null);
         $this->assertSame($expected, $obj->getAttributes());
     }
+    
+    /**
+     * このオブジェクト自身を返すことを確認します.
+     * 
+     * @covers Peach\Markup\Element::getAppendee
+     */
+    public function testGetAppendee()
+    {
+        $obj = $this->object;
+        $this->assertSame($obj, $obj->getAppendee());
+    }
 }
