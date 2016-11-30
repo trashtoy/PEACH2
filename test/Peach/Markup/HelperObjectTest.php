@@ -336,4 +336,41 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         $obj2     = new HelperObject($h, $text);
         $this->assertSame(array(), $obj2->getChildNodes());
     }
+    
+    /**
+     * このオブジェクトがラップしているノードの getAppendee() と同じ結果となることを確認します.
+     * 
+     * @covers Peach\Markup\HelperObject::getAppendee
+     */
+    public function testGetAppendee()
+    {
+        $h        = $this->helper;
+        $nodeList = new NodeList();
+        $nodeList->appendNode("First");
+        $nodeList->appendNode("Second");
+        $nodeList->appendNode("Third");
+        $obj      = new HelperObject($h, $nodeList);
+        $this->assertEquals($nodeList->getAppendee(), $obj->getAppendee());
+    }
+    
+    /**
+     * append() のテストです. 以下を確認します.
+     * 
+     * - appendNode() と同じ処理が行われること
+     * - 自分自身を返り値として返すこと
+     * 
+     * @covers Peach\Markup\HelperObject::append
+     */
+    public function testAppend()
+    {
+        $h = $this->helper;
+        $obj = new HelperObject($h, "p");
+        
+        $expected = new ContainerElement("p");
+        $expected->appendNode("Test");
+        
+        $returnValue = $obj->append("Test");
+        $this->assertSame($obj, $returnValue);
+        $this->assertEquals($expected, $obj->getNode());
+    }
 }
