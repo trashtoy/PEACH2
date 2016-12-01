@@ -113,6 +113,11 @@ class UtilTest extends PHPUnit_Framework_TestCase
      * - VCHAR (%x21-%x7E) の範囲外の文字
      * - 文字列の先頭・末尾にあるホワイトスペース
      * - obs-fold (RFC7230 により廃止された複数行によるヘッダー値)
+     * 
+     * @covers Peach\Http\Util::validateHeaderValue
+     * @covers Peach\Http\Util::handleValidateHeaderValue
+     * @covers Peach\Http\Util::validateBytes
+     * @covers Peach\Http\Util::validateVCHAR
      */
     public function testValidateHeaderValueFail()
     {
@@ -120,6 +125,7 @@ class UtilTest extends PHPUnit_Framework_TestCase
             "This is テスト",
             "  foobar  ",
             "abc\r\n  xyz",
+            chr(1) . "test",
         );
         foreach ($errorList as $value) {
             try {
@@ -190,5 +196,30 @@ class UtilTest extends PHPUnit_Framework_TestCase
         
         $r1 = new Header\Raw("connection", "keep-alive");
         $this->assertEquals($r1, Util::parseHeader("Connection", "keep-alive"));
+    }
+    
+    /**
+     * Last-Modified などのヘッダーを HttpDate オブジェクトとして取り込むことを確認します.
+     * 
+     * @covers Peach\Http\Util::parseHeader
+     */
+    public function testParseHeaderFromHttpDate()
+    {
+        $tz = date_default_timezone_get();
+        date_default_timezone_set("Asia/Tokyo");
+        $expected = new HttpDate("last-modified", new Timestamp(2012, 5, 21, 7, 34, 45));
+        $this->assertEquals($expected, Util::parseHeader("Last-Modified", "Sun, 20 May 2012 22:34:45 GMT"));
+        date_default_timezone_set($tz);
+    }
+    
+    /**
+     * Host ヘッダーを ":autority" というヘッダー名で取り込むことを確認します.
+     * 
+     * @covers Peach\Http\Util::parseHeader
+     */
+    public function testParseHeaderFromHost()
+    {
+        $expected = new Raw(":authority", "www.example.com");
+        $this->assertEquals($expected, Util::parseHeader("Host", "www.example.com"));
     }
 }
