@@ -50,6 +50,7 @@ class NodeListTest extends \PHPUnit_Framework_TestCase
      * 
      * @covers Peach\Markup\NodeList::appendNode
      * @covers Peach\Markup\NodeList::getAppendee
+     * @covers Peach\Markup\NodeList::prepareAppendee
      * @see    Peach\Markup\ContainerTestImpl::testAppend
      */
     public function testAppendNode()
