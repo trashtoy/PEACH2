@@ -126,12 +126,13 @@ class Comment implements Container, Node
     }
     
     /**
-     * このオブジェクト自身を返します.
+     * このオブジェクトを {@link Container::appendNode()} に指定した場合,
+     * このオブジェクト自身が追加されます.
      * 
-     * @return Component このオブジェクト
+     * @return NodeList このオブジェクトを 1 つだけ含んだ NodeList
      */
     public function getAppendee()
     {
-        return $this;
+        return new NodeList($this);
     }
 }

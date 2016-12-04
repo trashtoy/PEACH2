@@ -106,8 +106,9 @@ class CommentTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAppendee()
     {
-        $obj = $this->object1;
-        $this->assertSame($obj, $obj->getAppendee());
+        $obj      = $this->object1;
+        $expected = new NodeList($obj);
+        $this->assertEquals($expected, $obj->getAppendee());
     }
     
     /**

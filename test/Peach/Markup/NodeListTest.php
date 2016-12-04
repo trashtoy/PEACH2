@@ -60,6 +60,30 @@ class NodeListTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * 配列を引数として appeneNode を実行した場合,
+     * 配列に含まれるそれぞれの値が個別に追加されることを確認します.
+     * 
+     * @covers Peach\Markup\NodeList::appendNode
+     * @covers Peach\Markup\NodeList::prepareAppendee
+     */
+    public function testAppendNodeByArray()
+    {
+        $arr = array(
+            "Test1",
+            new EmptyElement("br"),
+            new Code("Test2"),
+        );
+        $expected = array(
+            new Text("Test1"),
+            new EmptyElement("br"),
+            new Code("Test2"),
+        );
+        $obj = new NodeList();
+        $obj->appendNode($arr);
+        $this->assertEquals($expected, $obj->getChildNodes());
+    }
+    
+    /**
      * 自分自身を含むノードを引数に appendNode() を実行した場合に例外をスローすることを確認します.
      * 
      * @covers Peach\Markup\NodeList::appendNode

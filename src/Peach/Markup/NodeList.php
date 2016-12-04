@@ -76,21 +76,22 @@ class NodeList implements Container
      */
     private function prepareAppendee($var)
     {
+        if ($var instanceof Node) {
+            return $var;
+        }
         if ($var instanceof Component) {
-            $appendee = $var->getAppendee();
-            if ($appendee instanceof NodeList) {
-                return $appendee->getChildNodes();
-            }
-            if ($appendee instanceof Node) {
-                return array($appendee);
-            }
+            return $var->getAppendee()->getChildNodes();
         }
         
         if (is_array($var)) {
             $result = array();
             foreach ($var as $i) {
                 $appendee = $this->prepareAppendee($i);
-                $result   = array_merge($result, $appendee);
+                if (is_array($appendee)) {
+                    array_splice($result, count($result), 0, $appendee);
+                } else {
+                    $result[] = $appendee;
+                }
             }
             return $result;
         }
@@ -118,10 +119,6 @@ class NodeList implements Container
     public function appendNode($var)
     {
         $appendee = $this->prepareAppendee($var);
-        if ($appendee === null) {
-            return;
-        }
-        
         if (isset($this->owner)) {
             $this->checkOwner($appendee);
         }

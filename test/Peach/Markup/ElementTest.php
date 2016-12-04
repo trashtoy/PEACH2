@@ -209,7 +209,8 @@ abstract class ElementTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAppendee()
     {
-        $obj = $this->object;
-        $this->assertSame($obj, $obj->getAppendee());
+        $obj      = $this->object;
+        $expected = new NodeList($obj);
+        $this->assertEquals($expected, $obj->getAppendee());
     }
 }
