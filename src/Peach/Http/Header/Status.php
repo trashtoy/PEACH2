@@ -142,10 +142,13 @@ class Status implements SingleHeaderField
      */
     public static function getOK()
     {
+        // @codeCoverageIgnoreStart
         static $ok = null;
         if ($ok === null) {
             $ok = new self("200", "OK");
         }
+        // @codeCoverageIgnoreEnd
+        
         return $ok;
     }
 }
