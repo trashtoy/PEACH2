@@ -48,6 +48,7 @@ class NoField implements HeaderField
     /**
      * このクラスの唯一のインスタンスを返します.
      * @return NoField 唯一の NoField インスタンス
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {
