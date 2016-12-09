@@ -115,4 +115,16 @@ class QualityValuesTest extends \PHPUnit_Framework_TestCase
         $obj = $this->object;
         $this->assertSame("Accept-Language", $obj->getName());
     }
+    
+    /**
+     * qvalue の値が大きい順にソートされた結果を返すことを確認します.
+     * 
+     * @covers Peach\Http\Header\QualityValues::getValue
+     */
+    public function testGetValue()
+    {
+        $obj      = $this->object;
+        $expected = array("ja" => 1.0, "en-US" => 0.9, "en-GB" => 0.8, "en" => 0.7);
+        $this->assertSame($expected, $obj->getValue());
+    }
 }
