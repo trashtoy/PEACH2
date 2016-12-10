@@ -1,7 +1,9 @@
 <?php
 namespace Peach\Http;
 
+use Peach\DT\Timestamp;
 use Peach\Http\Body\StringRenderer;
+use Peach\Http\Header\HttpDate;
 use Peach\Http\Header\NoField;
 use Peach\Http\Header\Raw;
 use Peach\Http\Header\Status;
@@ -77,6 +79,26 @@ class ResponseTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($obj->hasHeader("Accept-Ranges"));
         $obj->setHeader($item);
         $this->assertTrue($obj->hasHeader("Accept-Ranges"));
+    }
+    
+    /**
+     * setHeader() で指定した HeaderField オブジェクトのすべてを配列として返すことを確認します.
+     * 
+     * @covers Peach\Http\Response::getHeaderList
+     */
+    public function testGetHeaderList()
+    {
+        $obj = new Response();
+        $obj->setHeader(Status::getOK());
+        $obj->setHeader(new Raw("Content-Type", "text/plain"));
+        $obj->setHeader(new HttpDate("Last-Modified", new Timestamp(2012, 5, 21, 7, 34, 45)));
+        
+        $expected = array(
+            ":status"       => Status::getOK(),
+            "content-type"  => new Raw("Content-Type", "text/plain"),
+            "last-modified" => new HttpDate("Last-Modified", new Timestamp(2012, 5, 21, 7, 34, 45)),
+        );
+        $this->assertEquals($expected, $obj->getHeaderList());
     }
     
     /**
