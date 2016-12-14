@@ -52,7 +52,7 @@ class Request
     
     /**
      * HeaderField 型オブジェクトの配列です.
-     * @var HeaderField[]
+     * @var ArrayMap
      */
     private $headerList;
     
@@ -110,7 +110,7 @@ class Request
      */
     public function getHeaderList()
     {
-        return array();
+        return $this->headerList->asArray();
     }
     
     /**
@@ -182,12 +182,24 @@ class Request
     }
     
     /**
-     * この Request が malformed かどうかを判断します.
+     * この Request が malformed (不正な形式) かどうかを判断します.
+     * 以下に挙げるヘッダーのうち, 1 つでも欠けているものがあった場合に malformed と判定します.
      * 
-     * @todo 実装する
+     * - :method
+     * - :scheme
+     * - :path
+     * - :authority (または Host)
+     * 
+     * @return bool この Request が malformed と判定された場合のみ true
      */
     public function isMalformed()
     {
+        $headerNames = array(":method", ":scheme", ":path", ":authority");
+        foreach ($headerNames as $h) {
+            if (!$this->hasHeader($h)) {
+                return true;
+            }
+        }
         return false;
     }
 }

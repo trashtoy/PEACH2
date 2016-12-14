@@ -61,4 +61,15 @@ class RawTest extends PHPUnit_Framework_TestCase
         $obj = new Raw("Server", "Apache");
         $this->assertSame("Server", $obj->getName());
     }
+    
+    /**
+     * コンストラクタ引数に指定した値と同じものを返すことを確認します.
+     * 
+     * @covers Peach\Http\Header\Raw::getValue
+     */
+    public function testGetValue()
+    {
+        $obj = new Raw("X-Test-Header", "This is test");
+        $this->assertSame("This is test", $obj->getValue());
+    }
 }

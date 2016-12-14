@@ -50,12 +50,37 @@ class NodeListTest extends \PHPUnit_Framework_TestCase
      * 
      * @covers Peach\Markup\NodeList::appendNode
      * @covers Peach\Markup\NodeList::getAppendee
+     * @covers Peach\Markup\NodeList::prepareAppendee
      * @see    Peach\Markup\ContainerTestImpl::testAppend
      */
     public function testAppendNode()
     {
         $test = new ContainerTestImpl($this, $this->object);
         $test->testAppendNode();
+    }
+    
+    /**
+     * 配列を引数として appeneNode を実行した場合,
+     * 配列に含まれるそれぞれの値が個別に追加されることを確認します.
+     * 
+     * @covers Peach\Markup\NodeList::appendNode
+     * @covers Peach\Markup\NodeList::prepareAppendee
+     */
+    public function testAppendNodeByArray()
+    {
+        $arr = array(
+            "Test1",
+            new EmptyElement("br"),
+            new Code("Test2"),
+        );
+        $expected = array(
+            new Text("Test1"),
+            new EmptyElement("br"),
+            new Code("Test2"),
+        );
+        $obj = new NodeList();
+        $obj->appendNode($arr);
+        $this->assertEquals($expected, $obj->getChildNodes());
     }
     
     /**

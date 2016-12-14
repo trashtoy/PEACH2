@@ -42,11 +42,10 @@ interface Component
     public function accept(Context $context);
     
     /**
-     * このオブジェクトが {@link Container::append()} の引数に指定された際に,
-     * 実際に追加されるノードを返します.
-     * このメソッドの返り値は Node または NodeList 型となります
+     * このオブジェクトが {@link Container::appendNode()} の引数に指定された際に,
+     * 実際に追加されるノードの一覧を返します.
      * 
-     * @return Component Container に追加されるオブジェクト
+     * @return NodeList Container に追加されるオブジェクト
      */
     public function getAppendee();
 }

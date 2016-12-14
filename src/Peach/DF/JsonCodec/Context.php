@@ -166,13 +166,14 @@ class Context
     }
     
     /**
+     * この Context が指し示す位置でデコードに失敗したことをあらわす DecodeException を返します.
      * 
      * @param string $message
-     * @throws DecodeException
+     * @return DecodeException
      */
-    public function throwException($message)
+    public function createException($message)
     {
-        throw new DecodeException("{$message} at line {$this->row}, column {$this->col}");
+        return new DecodeException("{$message} at line {$this->row}, column {$this->col}");
     }
     
     /**
@@ -183,7 +184,7 @@ class Context
     {
         static $breakCode = array("\r", "\n", "\r\n");
         if (!$this->hasNext()) {
-            $this->throwException("Cannnot read next");
+            throw $this->createException("Cannnot read next");
         }
         $result = $this->current;
         if (in_array($result, $breakCode)) {
@@ -219,7 +220,7 @@ class Context
     public function skip($count)
     {
         if ($this->count - $this->index < $count) {
-            $this->throwException("Cannot skip {$count} characters");
+            throw $this->createException("Cannot skip {$count} characters");
         }
         
         $this->index += $count;

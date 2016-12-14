@@ -61,7 +61,7 @@ class Root implements Expression
         
         if ($context->hasNext()) {
             $current = $context->current();
-            $context->throwException("Unexpected character('{$current}')");
+            throw $context->createException("Unexpected character('{$current}')");
         }
         
         $this->result = $value->getResult();

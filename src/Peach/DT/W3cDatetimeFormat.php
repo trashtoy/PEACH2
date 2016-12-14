@@ -128,17 +128,18 @@ class W3cDatetimeFormat implements Format
      */
     public function __construct($externalOffset = null, $internalOffset = null)
     {
+        // @codeCoverageIgnoreStart
         if ($externalOffset === false) {
-            // @codeCoverageIgnoreStart
             $this->usingTz        = false;
             $this->externalOffset = null;
             $this->internalOffset = null;
-            // @codeCoverageIgnoreEnd
-        } else {
-            $this->usingTz        = true;
-            $this->externalOffset = Util::cleanTimeZoneOffset($externalOffset);
-            $this->internalOffset = Util::cleanTimeZoneOffset($internalOffset);
+            return;
         }
+        // @codeCoverageIgnoreEnd
+        
+        $this->usingTz        = true;
+        $this->externalOffset = Util::cleanTimeZoneOffset($externalOffset);
+        $this->internalOffset = Util::cleanTimeZoneOffset($internalOffset);
     }
     
     /**
@@ -174,7 +175,7 @@ class W3cDatetimeFormat implements Format
             $date  = substr($format, 8, 2);
             return new Date($year, $month, $date);
         } else {
-            $this->throwFormatException($format, "YYYY-MM-DD");
+            throw $this->createFormatException($format, "YYYY-MM-DD");
         }
     }
     
@@ -192,7 +193,7 @@ class W3cDatetimeFormat implements Format
         $tzp    = self::$timeZonePattern;
         $result = null;
         if (!preg_match("/^{$dp}[^0-9][0-9]{2}:[0-9]{2}{$tzp}/", $format, $result)) {
-            $this->throwFormatException($format, "YYYY-MM-DD hh:mm[timezone]");
+            throw $this->createFormatException($format, "YYYY-MM-DD hh:mm[timezone]");
         }
         
         $year   = substr($format, 0,  4);
@@ -218,7 +219,7 @@ class W3cDatetimeFormat implements Format
         $tzp    = self::$timeZonePattern;
         $result = null;
         if (!preg_match("/^{$dp}[^0-9][0-9]{2}:[0-9]{2}:[0-9]{2}{$tzp}/", $format, $result)) {
-            $this->throwFormatException($format, "YYYY-MM-DD hh:mm:ss");
+            throw $this->createFormatException($format, "YYYY-MM-DD hh:mm:ss");
         }
         
         $year   = substr($format, 0,  4);
@@ -272,15 +273,16 @@ class W3cDatetimeFormat implements Format
     }
     
     /**
-     * 指定された文字列が想定されたフォーマットでなかった際に呼ばれるメソッドです.
+     * 指定された文字列が想定されたフォーマットでないことをあらわす
+     * InvalidArgumentException を生成します.
      * 
      * @param string $format
      * @param string $expected
-     * @throws \InvalidArgumentException
+     * @return \InvalidArgumentException
      */
-    private function throwFormatException($format, $expected)
+    private function createFormatException($format, $expected)
     {
-        throw new \InvalidArgumentException("Illegal format({$format}). Expected: {$expected}");
+        return new \InvalidArgumentException("Illegal format({$format}). Expected: {$expected}");
     }
     
     /**

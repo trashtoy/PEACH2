@@ -67,4 +67,12 @@ class HttpDateTest extends PHPUnit_Framework_TestCase
     {
         $this->assertSame("Last-Modified", $this->object->getName());
     }
+    
+    /**
+     * @covers Peach\Http\Header\HttpDate::getValue
+     */
+    public function testGetValue()
+    {
+        $this->assertEquals(new Timestamp(2012, 5, 21, 8, 34, 45), $this->object->getValue());
+    }
 }

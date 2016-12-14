@@ -52,4 +52,14 @@ class NoneTest extends \PHPUnit_Framework_TestCase
         $this->object->accept($context);
         $this->assertSame("handleNone", $context->getResult());
     }
+    
+    /**
+     * 空の NodeList を返すことを確認します.
+     * 
+     * @covers Peach\Markup\None::getAppendee
+     */
+    public function testGetAppendee()
+    {
+        $this->assertEquals(new NodeList(), $this->object->getAppendee());
+    }
 }

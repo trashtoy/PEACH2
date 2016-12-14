@@ -121,7 +121,7 @@ class Number implements Expression
         // check zero
         if ($context->current() === "0") {
             if (preg_match("/^0[0-9]$/", $context->getSequence(2))) {
-                $context->throwException("Integral part must not start with 0");
+                throw $context->createException("Integral part must not start with 0");
             }
             $this->result .= "0";
             $context->next();
@@ -143,7 +143,7 @@ class Number implements Expression
             $this->result .= $context->current();
             $context->next();
         } else {
-            $context->throwException("Invalid number format");
+            throw $context->createException("Invalid number format");
         }
     }
     
