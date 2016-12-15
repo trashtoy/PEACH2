@@ -29,6 +29,8 @@
 namespace Peach\DF\JsonCodec;
 
 /**
+ * 不正な JSON フォーマットを decode しようとした際にスローされる例外です.
+ * 
  * @ignore
  */
 class DecodeException extends \Exception
