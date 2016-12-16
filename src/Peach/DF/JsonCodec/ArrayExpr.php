@@ -41,17 +41,22 @@ namespace Peach\DF\JsonCodec;
 class ArrayExpr implements Expression
 {
     /**
-     *
+     * handle() の解析結果です.
+     * 
      * @var array
      */
     private $result;
     
+    /**
+     * 新しい ArrayExpr オブジェクトを構築します.
+     */
     public function __construct()
     {
         $this->result = null;
     }
     
     /**
+     * 現在の Context から配列部分を読み込みます.
      * 
      * @param Context $context
      */
@@ -83,6 +88,8 @@ class ArrayExpr implements Expression
     }
     
     /**
+     * handle() の結果を配列で返します.
+     * 
      * @return array
      */
     public function getResult()
