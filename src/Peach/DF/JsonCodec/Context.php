@@ -32,12 +32,15 @@ use Peach\Util\ArrayMap;
 use Peach\DF\Utf8Codec;
 
 /**
+ * デコード対象の文字列とデコードオプションを持つクラスです.
+ * 
  * @ignore
  */
 class Context
 {
     /**
-     *
+     * デコード対象の文字列を Unicode 符号点の配列に分解するための Utf8Codec です.
+     * 
      * @var Utf8Codec;
      */
     private $utf8Codec;
@@ -85,8 +88,10 @@ class Context
     private $col;
     
     /**
+     * 指定されたデコード対象文字列とデコードオプションを持つ Context インスタンスを構築します.
      * 
-     * @param string $text
+     * @param string $text デコード対象文字列
+     * @param ArrayMap $options デコードオプション
      */
     public function __construct($text, ArrayMap $options)
     {
@@ -112,6 +117,7 @@ class Context
     }
     
     /**
+     * 次の文字が存在するかどうかを判定します.
      * 
      * @return bool
      */
@@ -121,6 +127,9 @@ class Context
     }
     
     /**
+     * この Context が現在指し示している 1 文字を計算します.
+     * このメソッドは, このオブジェクトの現在位置 (行数・列数) をデバッグ出力する機能の都合により
+     *  "\r\n" の文字列を 1 文字としてカウントします.
      * 
      * @return string
      */
@@ -138,6 +147,7 @@ class Context
     }
     
     /**
+     * 指定された Unicode 符号点を文字列に変換します.
      * 
      * @param int $point
      * @return string
@@ -147,17 +157,29 @@ class Context
         return $this->utf8Codec->encode($point);
     }
     
+    /**
+     * 指定された相対位置の Unicode 符号点を文字列に変換します.
+     * @param int $index
+     * @return string
+     */
     private function encodeIndex($index)
     {
         return ($index < $this->count) ? $this->encodeCodepoint($this->unicodeList[$index]) : null;
     }
     
+    /**
+     * この Context が現在指し示している文字を返します.
+     * 
+     * @return string
+     */
     public function current()
     {
         return $this->current;
     }
     
     /**
+     * この Context の現在位置の Unicode 符号点を返します.
+     * 
      * @return int 現在の文字の Unicode 符号点. もしも現在の文字が存在しない場合は null
      */
     public function currentCodePoint()
