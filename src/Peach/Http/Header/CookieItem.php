@@ -49,7 +49,8 @@ class CookieItem
     private $value;
     
     /**
-     *
+     * この cookie が持つ属性をあらわします.
+     * 
      * @var CookieOptions
      */
     private $options;
