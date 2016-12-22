@@ -39,7 +39,8 @@ use Peach\Http\BodyRenderer;
 class CodecRenderer implements BodyRenderer
 {
     /**
-     *
+     * render() 内で値を文字列に変換するための Codec です.
+     * 
      * @var Codec
      */
     private $codec;
