@@ -33,13 +33,16 @@ namespace Peach\Http;
 class Body
 {
     /**
-     *
+     * HTTP レスポンスの Body として出力される任意の値です.
+     * 
      * @var mixed
      */
     private $value;
     
     /**
-     *
+     * このオブジェクトの $value にセットされた値を, HTTP レスポンスの Body
+     * として出力される文字列に変換するための BodyRenderer です.
+     * 
      * @var BodyRenderer
      */
     private $renderer;
