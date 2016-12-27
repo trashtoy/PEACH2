@@ -42,16 +42,24 @@ use Peach\Util\Strings;
 class DefaultEndpoint implements Endpoint
 {
     /**
+     * クライアントから受信した HTTP リクエストです.
+     * createRequest() の返り値をキャッシュするために利用されます.
      * 
      * @var Request
      */
     private $request;
     
+    /**
+     * 新しい DefaultEndpoint インスタンスを構築します.
+     */
     public function __construct()
     {
     }
     
     /**
+     * グローバル変数 $_GET, $_POST, $_SERVER などを基にして
+     * Request オブジェクトを作成します.
+     * 
      * @return Request
      */
     private function createRequest()
@@ -96,6 +104,9 @@ class DefaultEndpoint implements Endpoint
     }
     
     /**
+     * 受信した HTTP リクエストを $_GET, $_POST, $_SERVER などのグローバル変数を参照して
+     * Request オブジェクトに変換し, その結果を返します.
+     * 
      * @return Request
      */
     public function getRequest()
@@ -107,9 +118,10 @@ class DefaultEndpoint implements Endpoint
     }
     
     /**
+     * 指定された Response オブジェクトを header() や echo()
+     * などを使ってクライアントに送信します.
      * 
-     * @param Response $response
-     * @todo 実装する
+     * @param Response $response 送信対象の Response オブジェクト
      */
     public function send(Response $response)
     {
