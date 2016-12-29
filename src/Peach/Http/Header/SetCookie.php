@@ -30,10 +30,14 @@ namespace Peach\Http\Header;
 use Peach\Http\MultiHeaderField;
 use Peach\Util\ArrayMap;
 
+/**
+ * Set-Cookie ヘッダーを表現するクラスです.
+ */
 class SetCookie implements MultiHeaderField
 {
     /**
-     *
+     * 各 cookie のキーと, そのキーに相当する CookieItem オブジェクトをマッピングする ArrayMap です.
+     * 
      * @var ArrayMap
      */
     private $items;

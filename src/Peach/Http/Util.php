@@ -34,6 +34,9 @@ use Peach\Http\Header\HttpDate;
 use Peach\Http\Header\QualityValues;
 use Peach\Http\Header\Raw;
 
+/**
+ * HTTP メッセージを扱う際によく使われる機能を集めたユーティリティクラスです.
+ */
 class Util
 {
     /**
@@ -117,6 +120,8 @@ class Util
     }
     
     /**
+     * 指定された文字列が印字可能文字と空白文字で構成されているかどうかを確認します.
+     * ただし文字列の先頭および末尾が空白文字だった場合は NG とします.
      * 
      * @param  array $bytes
      * @return bool
@@ -210,6 +215,11 @@ class Util
     }
     
     /**
+     * qualitiy value を配列に変換します.
+     * 引数を "ja,en-us;q=0.8,en;q=0.6" とした場合, 返り値は以下の配列になります.
+     * <pre>
+     * array("ja" => 1.0, "en-us" => 0.8, "en" => 0.6)
+     * </pre>
      * 
      * @param  string $value
      * @return array
@@ -233,9 +243,10 @@ class Util
     }
     
     /**
+     * qvalue 形式の文字列 ("q=0.8" など) から小数部分を解析し, float として返します.
      * 
      * @param  string $qvalue "q=0.9" のような形式の文字列
-     * @return int    qvalue の小数値. もしも不正な場合は 1.0
+     * @return float  qvalue の小数値. もしも不正な場合は 1.0
      */
     private static function parseQvalue($qvalue)
     {

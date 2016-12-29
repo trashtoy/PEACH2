@@ -65,8 +65,8 @@ class StructuralChar implements Expression
     private $result;
     
     /**
-     * 
-     * @param array $expected
+     * 指定された文字を受理する StructuralChar インスタンスを構築します.
+     * @param array $expected 受理される文字のリスト
      */
     public function __construct(array $expected)
     {
@@ -75,6 +75,8 @@ class StructuralChar implements Expression
     }
     
     /**
+     * 現在の Context から空白および想定される文字を読み込みます.
+     * もしも想定外の文字を検知した場合は DecodeException をスローします.
      * 
      * @param Context $context
      */
@@ -90,6 +92,7 @@ class StructuralChar implements Expression
     }
     
     /**
+     * 空白以外の文字を検知した際の処理です.
      * 
      * @param Context $context
      * @throws DecodeException 期待されている文字以外の文字を検知した場合
@@ -112,6 +115,7 @@ class StructuralChar implements Expression
     }
     
     /**
+     * handle() の結果を返します.
      * 
      * @return string
      */

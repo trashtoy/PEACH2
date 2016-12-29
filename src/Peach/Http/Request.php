@@ -30,6 +30,9 @@ namespace Peach\Http;
 use Peach\Http\Header\NoField;
 use Peach\Util\ArrayMap;
 
+/**
+ * HTTP リクエストをあらわすクラスです.
+ */
 class Request
 {
     /**
@@ -56,6 +59,9 @@ class Request
      */
     private $headerList;
     
+    /**
+     * 空の Request インスタンスを構築します.
+     */
     public function __construct()
     {
         $this->path = null;
@@ -136,6 +142,9 @@ class Request
     }
     
     /**
+     * 指定された値を GET パラメータとしてセットします.
+     * 引数には配列または ArrayMap オブジェクトを指定することができます.
+     * 配列または ArrayMap のキーをパラメータ名, 値をそのパラメータの値とします.
      * 
      * @param array|ArrayMap $params
      */
@@ -149,8 +158,13 @@ class Request
     }
     
     /**
-     * @param  string
-     * @return string|array
+     * 指定された名前の GET パラメータを返します.
+     * 第 2 引数に, そのパラメータが存在しなかった場合に返される代替値を指定することができます.
+     * 第 2 引数を指定しない場合は null を返します.
+     * 
+     * @param  string       $name         パラメータ名
+     * @param  string|array $defaultValue そのパラメータが存在しない場合の代替値. 未指定の場合は null
+     * @return string|array               パラメータの値
      */
     public function getQuery($name, $defaultValue = null)
     {
@@ -158,9 +172,11 @@ class Request
     }
     
     /**
+     * 指定された値を POST パラメータとしてセットします.
+     * 引数には配列または ArrayMap オブジェクトを指定することができます.
+     * 配列または ArrayMap のキーをパラメータ名, 値をそのパラメータの値とします.
      * 
      * @param array|ArrayMap $params
-     * @todo  引数のバリデーション
      */
     public function setPost($params)
     {
@@ -172,9 +188,13 @@ class Request
     }
     
     /**
+     * 指定された名前の POST パラメータを返します.
+     * 第 2 引数に, そのパラメータが存在しなかった場合に返される代替値を指定することができます.
+     * 第 2 引数を指定しない場合は null を返します.
      * 
-     * @param  string $name
-     * @return string|array
+     * @param  string       $name         パラメータ名
+     * @param  string|array $defaultValue そのパラメータが存在しない場合の代替値. 未指定の場合は null
+     * @return string|array               パラメータの値
      */
     public function getPost($name, $defaultValue = null)
     {

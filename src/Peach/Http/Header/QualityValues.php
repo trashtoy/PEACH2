@@ -36,13 +36,15 @@ use Peach\Http\Util;
 class QualityValues implements SingleHeaderField
 {
     /**
-     *
+     * ヘッダー名です.
+     * 
      * @var string
      */
     private $name;
     
     /**
-     *
+     * このヘッダーに含まれる quality value の一覧です.
+     * 
      * @var array
      */
     private $qvalueList;
@@ -90,6 +92,9 @@ class QualityValues implements SingleHeaderField
     }
     
     /**
+     * このヘッダーに含まれる quality value の一覧を "," で連結した文字列で出力します.
+     * 各 quality value について, その値が 1.0 に等しい場合はキーのみ,
+     * 1.0 未満の場合は "key;q=value" 形式で書式化されます.
      * 
      * @return string
      */
@@ -103,6 +108,7 @@ class QualityValues implements SingleHeaderField
     }
     
     /**
+     * このヘッダーの名前を返します.
      * 
      * @return string
      */
@@ -112,6 +118,7 @@ class QualityValues implements SingleHeaderField
     }
     
     /**
+     * このヘッダーに含まれる quality value の一覧を配列で返します.
      * 
      * @return array
      */

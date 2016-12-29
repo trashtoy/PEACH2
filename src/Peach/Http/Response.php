@@ -32,6 +32,9 @@ use Peach\Http\Header\NoField;
 use Peach\Http\Header\Status;
 use Peach\Util\ArrayMap;
 
+/**
+ * HTTP レスポンスをあらわすクラスです.
+ */
 class Response
 {
     /**
@@ -47,6 +50,8 @@ class Response
     private $body;
     
     /**
+     * 空の Response インスタンスを構築します.
+     * 
      * @codeCoverageIgnore
      */
     public function __construct()
@@ -130,7 +135,7 @@ class Response
     }
     
     /**
-     * 
+     * 指定された Body オブジェクトをセットします.
      * @param Body $body
      */
     public function setBody(Body $body)
@@ -139,6 +144,8 @@ class Response
     }
     
     /**
+     * このオブジェクトにセットされている Body オブジェクトを返します.
+     * セットされていない場合は null を返します.
      * 
      * @return Body
      */
