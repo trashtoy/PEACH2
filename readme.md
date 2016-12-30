@@ -41,6 +41,10 @@ All the classes of this module implement interface Codec.
 - SerializationCodec: wrapping [serialize](http://php.net/manual/function.serialize.php) and [unserialize](http://php.net/manual/function.unserialize.php)
 - CodecChain: concatenating multiple Codec instances
 
+### Http
+HTTP message handling module with minimal side effects.
+By implementing the interface Endpoint as a mock, you can check the behavior of the web application with a simple unit test.
+
 Requirements
 ------------
 
