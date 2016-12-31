@@ -8,7 +8,7 @@ Features
 --------
 
 ### Util
-Object-oriented array manipulation modules like 
+Object-oriented array manipulation modules like
 [Java Collections Framework](http://docs.oracle.com/javase/8/docs/technotes/guides/collections/).
 
 - Map interface like java.util.HashMap. You can use objects as key.
@@ -55,6 +55,12 @@ That's all.
 
 How to use
 ----------
+
+### Composer
+You can install using composer by the following command:  
+`composer require trashtoy/peach2`
+
+### Autoloading
 Require autoload.php  
 `require_once("/path/to/PEACH2/autoload.php");`  
 or set up autoload manually.
