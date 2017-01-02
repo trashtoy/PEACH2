@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Markup\DebugBuilder | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -108,9 +150,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -121,11 +160,9 @@
 
 
 	<div class="description">
-	
-<p>デバッグ用の Builder です. この Builder は build()
-実行時に自動的にデバッグ文字列の echo を行います. (自動
-echo を無効化することも出来ます)</p>
-
+	<p>デバッグ用の Builder です.
+この Builder は build() 実行時に自動的にデバッグ文字列の echo を行います.
+(自動 echo を無効化することも出来ます)</p>
 	</div>
 
 	<dl class="tree">
@@ -156,7 +193,8 @@ echo を無効化することも出来ます)</p>
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.DebugBuilder.html#30-55" title="Go to source code">Peach/Markup/DebugBuilder.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Markup.DebugBuilder.html#30-55" title="Go to source code">Peach/Markup/DebugBuilder.php</a>
+		<br>
 	</div>
 
 
@@ -167,6 +205,7 @@ echo を無効化することも出来ます)</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -177,19 +216,13 @@ echo を無効化することも出来ます)</p>
 		<code><a href="source-class-Peach.Markup.DebugBuilder.html#37-45" title="Go to source code">__construct</a>( <span>boolean <var>$echoMode</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
-			
-<p>新しい DebugBuilder を構築します. 引数で, 自動 echo
-を行うかどうか指定することが出来ます. (デフォルトは true
-です)</p>
-
+			<p>新しい DebugBuilder を構築します.
+引数で, 自動 echo を行うかどうか指定することが出来ます. (デフォルトは true です)</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>新しい DebugBuilder を構築します. 引数で, 自動 echo
-を行うかどうか指定することが出来ます. (デフォルトは true
-です)</p>
-
+			<p>新しい DebugBuilder を構築します.
+引数で, 自動 echo を行うかどうか指定することが出来ます. (デフォルトは true です)</p>
 
 
 				<h4>Parameters</h4>
@@ -209,6 +242,7 @@ echo を無効化することも出来ます)</p>
 
 		<td class="attributes"><code>
 			 protected 
+
 			<code><a href="class-Peach.Markup.DebugContext.html">Peach\Markup\DebugContext</a></code>
 			
 			</code>
@@ -219,23 +253,17 @@ echo を無効化することも出来ます)</p>
 		<code><a href="source-class-Peach.Markup.DebugBuilder.html#47-54" title="Go to source code">createContext</a>( )</code>
 
 		<div class="description short">
-			
-<p>この Builder にセットされた echoMode で DebugContext
-を初期化します.</p>
-
+			<p>この Builder にセットされた echoMode で DebugContext を初期化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この Builder にセットされた echoMode で DebugContext
-を初期化します.</p>
-
+			<p>この Builder にセットされた echoMode で DebugContext を初期化します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.DebugContext.html">Peach\Markup\DebugContext</a></code></code><br>新しい DebugContext<br>
+					<code><a href="class-Peach.Markup.DebugContext.html">Peach\Markup\DebugContext</a></code><br>新しい DebugContext
 				</div>
 
 
@@ -274,11 +302,11 @@ echo を無効化することも出来ます)</p>
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

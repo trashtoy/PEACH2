@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
-	<title>Class Peach\Markup\Helper | PEACH2</title>
+	<title>Interface Peach\Markup\Helper | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li class="active"><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li class="active"><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -108,31 +150,35 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Helper</h1>
+	<h1>Interface Helper</h1>
 
 
 	<div class="description">
-	
-<p>ノードの生成を簡略化するための API
-を備えたヘルパーです.
-ノードの構築およびマークアップ出力の手間を省力化するためのクラスです.</p>
-
+	<p>ノードの生成を簡略化するための API を備えたヘルパーです.
+このインタフェースを使用することで,
+ノードの構築およびマークアップ出力の手間を省力化することができます.</p>
 	</div>
 
 
 
 
 
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-Peach.Markup.AbstractHelper.html">Peach\Markup\AbstractHelper</a>, 
+			<a href="class-Peach.Markup.BaseHelper.html">Peach\Markup\BaseHelper</a>
+	</div>
 
+	<div>
+		<h4>Indirect known implementers</h4>
+			<a href="class-Peach.Markup.HtmlHelper.html">Peach\Markup\HtmlHelper</a>
+	</div>
 
 
 
@@ -142,97 +188,45 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.Helper.html#31-163" title="Go to source code">Peach/Markup/Helper.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Markup.Helper.html#30-69" title="Go to source code">Peach/Markup/Helper.php</a>
+		<br>
 	</div>
 
 
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+	<tr data-order="tag" id="_tag">
 
 		<td class="attributes"><code>
 			 public 
-			
-			
-			</code>
-		</td>
 
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Peach.Markup.Helper.html#49-59" title="Go to source code">__construct</a>( <span><code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code> <var>$builder</var></span>, <span>array <var>$emptyNodeNames</var> = <span class="php-keyword1">array</span>()</span> )</code>
-
-		<div class="description short">
-			
-<p>指定された Builder を使ってマークアップを行う, 新しい
-Helper インスタンスを生成します. 第二引数で,
-空要素として扱われる要素名の一覧を指定することができます.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>指定された Builder を使ってマークアップを行う, 新しい
-Helper インスタンスを生成します. 第二引数で,
-空要素として扱われる要素名の一覧を指定することができます.</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$builder</var></dt>
-					<dd>マークアップに利用する Builder</dd>
-					<dt><var>$emptyNodeNames</var></dt>
-					<dd>空要素の要素名一覧</dd>
-				</dl></div>
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="createObject" id="_createObject">
-
-		<td class="attributes"><code>
-			 public 
 			<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_createObject">#</a>
-		<code><a href="source-class-Peach.Markup.Helper.html#61-83" title="Go to source code">createObject</a>( <span>string|<code><a href="class-Peach.Markup.Component.html">Peach\Markup\Component</a></code> <var>$var</var></span>, <span>array <var>$attr</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<a class="anchor" href="#_tag">#</a>
+		<code><a href="source-class-Peach.Markup.Helper.html#37-52" title="Go to source code">tag</a>( <span>string|<code><a href="class-Peach.Markup.Component.html">Peach\Markup\Component</a></code> <var>$var</var></span>, <span>array <var>$attr</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
-			
-<p>新しい HelperObject を生成します. このメソッドが返す
-HelperObject は,
-引数の型に応じて以下のように振る舞います.</p>
-
+			<p>新しい HelperObject を生成します.
+このメソッドが返す HelperObject は, 引数の型に応じて以下のように振る舞います.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>新しい HelperObject を生成します. このメソッドが返す
-HelperObject は,
-引数の型に応じて以下のように振る舞います.</p>
+			<p>新しい HelperObject を生成します.
+このメソッドが返す HelperObject は, 引数の型に応じて以下のように振る舞います.</p>
 
 <ul>
-	<li>文字列の場合: その文字列を要素名に持つ <code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code></li>
-
-	<li>null または空文字列の場合: 空の <code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code></li>
-
-	<li>Node オブジェクトの場合: その Node 自身</li>
+<li>文字列の場合: その文字列を要素名に持つ <code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code></li>
+<li>null または空文字列の場合: 空の <code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code></li>
+<li>Node オブジェクトの場合: その Node 自身</li>
 </ul>
 
-<p>第 2 引数に配列を指定した場合,
-生成された要素に対して属性をセットすることが出来ます.
-(生成された HelperObject が要素ではない場合, 第 2
-引数は無視されます)</p>
-
+<p>第 2 引数に配列を指定した場合, 生成された要素に対して属性をセットすることが出来ます.
+(生成された HelperObject が要素ではない場合, 第 2 引数は無視されます)</p>
 
 
 				<h4>Parameters</h4>
@@ -245,7 +239,7 @@ HelperObject は,
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code></code><br>HelperObject<br>
+					<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 				</div>
 
 
@@ -258,6 +252,7 @@ HelperObject は,
 
 		<td class="attributes"><code>
 			 public 
+
 			mixed
 			
 			</code>
@@ -265,33 +260,25 @@ HelperObject は,
 
 		<td class="name"><div>
 		<a class="anchor" href="#_write">#</a>
-		<code><a href="source-class-Peach.Markup.Helper.html#119-128" title="Go to source code">write</a>( <span><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code> <var>$object</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.Helper.html#54-60" title="Go to source code">write</a>( <span><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code> <var>$object</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された HelperObject の変換結果を返します.
-このヘルパーに設定されている Builder を使って, 引数の
-HelperObject を build した結果を返します.</p>
-
+			<p>指定された HelperObject を別の形式 (例えば HTML コードなど) に変換します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された HelperObject の変換結果を返します.
-このヘルパーに設定されている Builder を使って, 引数の
-HelperObject を build した結果を返します.</p>
-
+			<p>指定された HelperObject を別の形式 (例えば HTML コードなど) に変換します.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$object</var></dt>
-					<dd></dd>
+					<dd>変換対象の HelperObject</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>mixed</code><br>mixed<br>
+					mixed<br>変換結果
 				</div>
 
 
@@ -300,80 +287,38 @@ HelperObject を build した結果を返します.</p>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getBuilder" id="_getBuilder">
+	<tr data-order="createElement" id="_createElement">
 
 		<td class="attributes"><code>
 			 public 
-			<code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code>
+
+			<code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getBuilder">#</a>
-		<code><a href="source-class-Peach.Markup.Helper.html#130-139" title="Go to source code">getBuilder</a>( )</code>
+		<a class="anchor" href="#_createElement">#</a>
+		<code><a href="source-class-Peach.Markup.Helper.html#62-68" title="Go to source code">createElement</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
-			
-<p>この Helper にセットされている Builder
-オブジェクトを返します. 返り値の Builder に対する変更は,
-この Helper にも影響されます.</p>
-
+			<p>指定された要素名を持つ新しい Element オブジェクトを返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この Helper にセットされている Builder
-オブジェクトを返します. 返り値の Builder に対する変更は,
-この Helper にも影響されます.</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code></code><br>Builder<br>
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="setBuilder" id="_setBuilder">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_setBuilder">#</a>
-		<code><a href="source-class-Peach.Markup.Helper.html#141-150" title="Go to source code">setBuilder</a>( <span><code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code> <var>$builder</var></span> )</code>
-
-		<div class="description short">
-			
-<p>この Helper にセットされている Builder を, 引数の Builder
-オブジェクトで上書きします.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>この Helper にセットされている Builder を, 引数の Builder
-オブジェクトで上書きします.</p>
-
+			<p>指定された要素名を持つ新しい Element オブジェクトを返します.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$builder</var></dt>
-					<dd></dd>
+					<dt><var>$name</var></dt>
+					<dd>要素名</dd>
 				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code><br>指定された要素名を持つ Element
+				</div>
 
 
 
@@ -403,11 +348,11 @@ HelperObject を build した結果を返します.</p>
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

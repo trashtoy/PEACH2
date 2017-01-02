@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Interface Peach\Markup\Node | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li class="active"><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -108,9 +150,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -121,22 +160,16 @@
 
 
 	<div class="description">
-	
-<p>Component
-の中でも特にマークアップ言語を構成するパーツであることを示すマーカーインタフェースです.
+	<p>Component の中でも特にマークアップ言語を構成するパーツであることを示すマーカーインタフェースです.
 具体的には以下のようなクラスが該当します.</p>
 
 <ul>
-	<li><code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code></li>
-
-	<li><code><a href="class-Peach.Markup.Comment.html">Peach\Markup\Comment</a></code></li>
-
-	<li><code><a href="class-Peach.Markup.Text.html">Peach\Markup\Text</a></code></li>
+<li><code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code></li>
+<li><code><a href="class-Peach.Markup.Comment.html">Peach\Markup\Comment</a></code></li>
+<li><code><a href="class-Peach.Markup.Text.html">Peach\Markup\Text</a></code></li>
 </ul>
 
-<p><code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code> などはマークアップの一部ではないので,
-このインタフェースを実装しません.</p>
-
+<p><code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code> などはマークアップの一部ではないので, このインタフェースを実装しません.</p>
 	</div>
 
 	<dl class="tree">
@@ -174,7 +207,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.Node.html#30-42" title="Go to source code">Peach/Markup/Node.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Markup.Node.html#30-42" title="Go to source code">Peach/Markup/Node.php</a>
+		<br>
 	</div>
 
 
@@ -184,7 +218,8 @@
 	<caption>Methods inherited from <a href="class-Peach.Markup.Component.html#methods">Peach\Markup\Component</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-Peach.Markup.Component.html#_accept">accept()</a>
+			<a href="class-Peach.Markup.Component.html#_accept">accept()</a>, 
+			<a href="class-Peach.Markup.Component.html#_getAppendee">getAppendee()</a>
 		</code></td>
 	</tr>
 	</table>
@@ -208,11 +243,11 @@
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

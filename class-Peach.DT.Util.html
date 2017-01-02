@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\DT\Util | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+				<li class="active">
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -80,8 +121,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -96,9 +136,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -109,9 +146,7 @@
 
 
 	<div class="description">
-	
-<p>時間関連のユーティリティクラスです.</p>
-
+	<p>時間関連のユーティリティクラスです.</p>
 	</div>
 
 
@@ -128,7 +163,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.DT.Util.html#32-158" title="Go to source code">Peach/DT/Util.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.DT.Util.html#32-158" title="Go to source code">Peach/DT/Util.php</a>
+		<br>
 	</div>
 
 
@@ -139,6 +175,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			integer
 			
 			</code>
@@ -149,22 +186,16 @@
 		<code><a href="source-class-Peach.DT.Util.html#42-57" title="Go to source code">compareTime</a>( <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$time1</var></span>, <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$time2</var></span> )</code>
 
 		<div class="description short">
-			
-<p>2つの時間オブジェクトを比較します.
-一つめの引数のほうが後 (未来) の場合は正の値, 前 (過去)
-の場合は負の値, 同じ場合は 0 を返します.</p>
-
+			<p>2つの時間オブジェクトを比較します. 一つめの引数のほうが後 (未来) の場合は正の値,
+前 (過去) の場合は負の値, 同じ場合は 0 を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>2つの時間オブジェクトを比較します.
-一つめの引数のほうが後 (未来) の場合は正の値, 前 (過去)
-の場合は負の値, 同じ場合は 0 を返します.</p>
+			<p>2つの時間オブジェクトを比較します. 一つめの引数のほうが後 (未来) の場合は正の値,
+前 (過去) の場合は負の値, 同じ場合は 0 を返します.</p>
 
-<p>このメソッドは, 一つ目の時間オブジェクトの <code><a href="class-Peach.Util.Comparable.html#_compareTo">Peach\Util\Comparable::compareTo()</a></code> メソッドを呼び出し
+<p>このメソッドは, 一つ目の時間オブジェクトの <a href="Time::compareTo">Time::compareTo</a> メソッドを呼び出し
 二つ目の時間オブジェクトと比較した結果を返します.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -177,13 +208,13 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>1つ目の時間を2つ目の時間と比較した結果<br>
+					integer<br>1つ目の時間を2つ目の時間と比較した結果
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.Util.Comparable.html#_compareTo">Peach\Util\Comparable::compareTo()</a></code></code><br>
+						<code><a href="class-Peach.Util.Comparable.html#_compareTo">Peach\Util\Comparable::compareTo()</a></code><br>
 				</div>
 
 
@@ -194,6 +225,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
 			
 			</code>
@@ -204,28 +236,22 @@
 		<code><a href="source-class-Peach.DT.Util.html#59-75" title="Go to source code">oldest</a>( )</code>
 
 		<div class="description short">
-			
-<p>引数に渡された時間オブジェクトの中で最も古いものを返します.
-引数に Time 型オブジェクトを羅列するか, Time
-型オブジェクトの配列を指定してください. 引数に Time
-が一つも存在しない場合は NULL を返します.</p>
-
+			<p>引数に渡された時間オブジェクトの中で最も古いものを返します.
+引数に Time 型オブジェクトを羅列するか, Time 型オブジェクトの配列を指定してください.
+引数に Time が一つも存在しない場合は NULL を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>引数に渡された時間オブジェクトの中で最も古いものを返します.
-引数に Time 型オブジェクトを羅列するか, Time
-型オブジェクトの配列を指定してください. 引数に Time
-が一つも存在しない場合は NULL を返します.</p>
-
+			<p>引数に渡された時間オブジェクトの中で最も古いものを返します.
+引数に Time 型オブジェクトを羅列するか, Time 型オブジェクトの配列を指定してください.
+引数に Time が一つも存在しない場合は NULL を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>引数の中で最も古い Time オブジェクト. 引数が空か, Time
-オブジェクトが含まれていない場合は NULL<br>
+					<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code><br><p>引数の中で最も古い Time オブジェクト.
+                  引数が空か, Time オブジェクトが含まれていない場合は NULL</p>
 				</div>
 
 
@@ -238,6 +264,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
 			
 			</code>
@@ -248,28 +275,22 @@
 		<code><a href="source-class-Peach.DT.Util.html#77-93" title="Go to source code">latest</a>( )</code>
 
 		<div class="description short">
-			
-<p>引数に渡された時間オブジェクトの中で最新のものを返します.
-引数に Time 型オブジェクトを羅列するか, Time
-型オブジェクトの配列を指定してください. 引数に Time
-が一つも存在しない場合は NULL を返します.</p>
-
+			<p>引数に渡された時間オブジェクトの中で最新のものを返します.
+引数に Time 型オブジェクトを羅列するか, Time 型オブジェクトの配列を指定してください.
+引数に Time が一つも存在しない場合は NULL を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>引数に渡された時間オブジェクトの中で最新のものを返します.
-引数に Time 型オブジェクトを羅列するか, Time
-型オブジェクトの配列を指定してください. 引数に Time
-が一つも存在しない場合は NULL を返します.</p>
-
+			<p>引数に渡された時間オブジェクトの中で最新のものを返します.
+引数に Time 型オブジェクトを羅列するか, Time 型オブジェクトの配列を指定してください.
+引数に Time が一つも存在しない場合は NULL を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>引数の中で最新の Time オブジェクト. 引数が空か, Time
-オブジェクトが含まれていない場合は NULL<br>
+					<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code><br><p>引数の中で最新の Time オブジェクト.
+                   引数が空か, Time オブジェクトが含まれていない場合は NULL</p>
 				</div>
 
 
@@ -282,6 +303,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			boolean
 			
 			</code>
@@ -292,23 +314,19 @@
 		<code><a href="source-class-Peach.DT.Util.html#95-120" title="Go to source code">validate</a>( <span>integer <var>$year</var></span>, <span>integer <var>$month</var></span>, <span>integer <var>$date</var></span>, <span>integer <var>$hour</var> = <span class="php-num">0</span></span>, <span>integer <var>$minute</var> = <span class="php-num">0</span></span>, <span>integer <var>$second</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
-			
-<p>引数に指定された年・月・日 (オプションで時・分・秒)
-の妥当性を検証します. 妥当な組み合わせの場合は TRUE,
-それ以外は FALSE を返します.
+			<p>引数に指定された年・月・日 (オプションで時・分・秒) の妥当性を検証します.
+妥当な組み合わせの場合は TRUE, それ以外は FALSE を返します.
 引数に数値以外の型が含まれていた場合, それが数値文字列
-(<a href="http://www.php.net/manual/ja/function.is-numeric.php">is_numeric()</a> が TRUE を返す) の場合のみ妥当とみなします.</p>
-
+(<a href="http://www.php.net/manual/ja/function.is-numeric.php">is_numeric()</a> が TRUE を返す)
+の場合のみ妥当とみなします.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>引数に指定された年・月・日 (オプションで時・分・秒)
-の妥当性を検証します. 妥当な組み合わせの場合は TRUE,
-それ以外は FALSE を返します.
+			<p>引数に指定された年・月・日 (オプションで時・分・秒) の妥当性を検証します.
+妥当な組み合わせの場合は TRUE, それ以外は FALSE を返します.
 引数に数値以外の型が含まれていた場合, それが数値文字列
-(<a href="http://www.php.net/manual/ja/function.is-numeric.php">is_numeric()</a> が TRUE を返す) の場合のみ妥当とみなします.</p>
-
+(<a href="http://www.php.net/manual/ja/function.is-numeric.php">is_numeric()</a> が TRUE を返す)
+の場合のみ妥当とみなします.</p>
 
 
 				<h4>Parameters</h4>
@@ -329,7 +347,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>組み合わせが妥当な場合に TRUE, それ以外は FALSE<br>
+					boolean<br>組み合わせが妥当な場合に TRUE, それ以外は FALSE
 				</div>
 
 
@@ -342,6 +360,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			integer
 			
 			</code>
@@ -352,26 +371,22 @@
 		<code><a href="source-class-Peach.DT.Util.html#122-137" title="Go to source code">getTimeZoneOffset</a>( )</code>
 
 		<div class="description short">
-			
-<p>システム時刻と GMT との時差を, 分単位で返します.</p>
-
+			<p>システム時刻と GMT との時差を, 分単位で返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>システム時刻と GMT との時差を, 分単位で返します.</p>
+			<p>システム時刻と GMT との時差を, 分単位で返します.</p>
 
-<p>システム時刻が GMT よりも未来の場合 (UTC + 1 以上)
-は負の値, システム時刻が GMT よりも過去の場合 (UTF - 1
-以下) は正の値を返します. 例えばタイムゾーンが "Asia/Tokyo"
-(+09:00) の場合, 返り値は -540 となります.</p>
-
+<p>システム時刻が GMT よりも未来の場合 (UTC + 1 以上) は負の値,
+システム時刻が GMT よりも過去の場合 (UTF - 1 以下) は正の値を返します.
+例えばタイムゾーンが "Asia/Tokyo" (+09:00) の場合,
+返り値は -540 となります.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>int<br>
+					integer
 				</div>
 
 
@@ -384,6 +399,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			integer
 			
 			</code>
@@ -394,34 +410,22 @@
 		<code><a href="source-class-Peach.DT.Util.html#139-157" title="Go to source code">cleanTimeZoneOffset</a>( <span>integer <var>$offset</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された時差 (分単位) の値が妥当かどうかを調べ,
-必要に応じて値を丸めた結果を返します.
-世界で実際に使用されているタイムゾーンは UTC-12 から
-UTC+14 ですが, このメソッドでは -23:45 から +23:45
-を妥当なタイムゾーンとみなします. もしも -23:45
-以前の時差が指定された場合は -23:45 (1425), +23:45
-以降の時差が指定された場合は +23:45 (-1425)
-に丸めた結果を返します.</p>
-
+			<p>指定された時差 (分単位) の値が妥当かどうかを調べ, 必要に応じて値を丸めた結果を返します.
+世界で実際に使用されているタイムゾーンは UTC-12 から UTC+14 ですが,
+このメソッドでは -23:45 から +23:45 を妥当なタイムゾーンとみなします.
+もしも -23:45 以前の時差が指定された場合は -23:45 (1425),
++23:45 以降の時差が指定された場合は +23:45 (-1425) に丸めた結果を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された時差 (分単位) の値が妥当かどうかを調べ,
-必要に応じて値を丸めた結果を返します.
-世界で実際に使用されているタイムゾーンは UTC-12 から
-UTC+14 ですが, このメソッドでは -23:45 から +23:45
-を妥当なタイムゾーンとみなします. もしも -23:45
-以前の時差が指定された場合は -23:45 (1425), +23:45
-以降の時差が指定された場合は +23:45 (-1425)
-に丸めた結果を返します.</p>
+			<p>指定された時差 (分単位) の値が妥当かどうかを調べ, 必要に応じて値を丸めた結果を返します.
+世界で実際に使用されているタイムゾーンは UTC-12 から UTC+14 ですが,
+このメソッドでは -23:45 から +23:45 を妥当なタイムゾーンとみなします.
+もしも -23:45 以前の時差が指定された場合は -23:45 (1425),
++23:45 以降の時差が指定された場合は +23:45 (-1425) に丸めた結果を返します.</p>
 
-<p>もしも NULL が指定された場合は <code><a href="class-Peach.DT.Util.html#_getTimeZoneOffset">Peach\DT\Util::getTimeZoneOffset()</a></code>
-の結果を返します.
-それ以外の数値以外の値が指定された場合は,
-整数にキャストした値を使用します.</p>
-
+<p>もしも NULL が指定された場合は <a href="Util::getTimeZoneOffset">Util::getTimeZoneOffset</a> の結果を返します.
+それ以外の数値以外の値が指定された場合は, 整数にキャストした値を使用します.</p>
 
 
 				<h4>Parameters</h4>
@@ -432,7 +436,7 @@ UTC+14 ですが, このメソッドでは -23:45 から +23:45
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>引数を -1425 以上 1425 以下に丸めた値<br>
+					integer<br>引数を -1425 以上 1425 以下に丸めた値
 				</div>
 
 
@@ -463,11 +467,11 @@ UTC+14 ですが, このメソッドでは -23:45 から +23:45
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

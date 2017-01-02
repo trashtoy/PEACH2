@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Markup\Context | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -108,9 +150,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -121,26 +160,16 @@
 
 
 	<div class="description">
-	
-<p>各ノードを変換する処理を担当するクラスです.
-このクラスは Visitor パターンにより設計されています
-(Visitor クラスに相当します). <code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code>
-クラスと連携して以下のように動作します.</p>
+	<p>各ノードを変換する処理を担当するクラスです.
+このクラスは Visitor パターンにより設計されています (Visitor クラスに相当します).
+<code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code> クラスと連携して以下のように動作します.</p>
 
 <ol>
-	<li>エンドユーザーが Builder オブジェクトの <code><a href="class-Peach.Markup.Builder.html#_build">Peach\Markup\Builder::build()</a></code> メソッドを実行します</li>
-
-	<li>build() メソッドの内部で新しい Context
-	オブジェクトが生成されます</li>
-
-	<li>Context オブジェクトの <code><a href="class-Peach.Markup.Context.html#_handle">Peach\Markup\Context::handle()</a></code>
-	メソッドが呼び出され, build()
-	の引数に指定されたノードを変換します</li>
-
-	<li>変換結果を <code><a href="class-Peach.Markup.Context.html#_getResult">Peach\Markup\Context::getResult()</a></code> から取り出し, build()
-	メソッドの返り値として返します</li>
+<li>エンドユーザーが Builder オブジェクトの <a href="Builder::build()">Builder::build()</a> メソッドを実行します</li>
+<li>build() メソッドの内部で新しい Context オブジェクトが生成されます</li>
+<li>Context オブジェクトの <a href="Context::handle()">Context::handle()</a> メソッドが呼び出され, build() の引数に指定されたノードを変換します</li>
+<li>変換結果を <a href="Context::getResult()">Context::getResult()</a> から取り出し, build() メソッドの返り値として返します</li>
 </ol>
-
 	</div>
 
 
@@ -162,7 +191,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.Context.html#30-102" title="Go to source code">Peach/Markup/Context.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Markup.Context.html#30-102" title="Go to source code">Peach/Markup/Context.php</a>
+		<br>
 	</div>
 
 
@@ -173,6 +203,7 @@
 
 		<td class="attributes"><code>
 			final public 
+
 			
 			
 			</code>
@@ -183,23 +214,15 @@
 		<code><a href="source-class-Peach.Markup.Context.html#42-52" title="Go to source code">handle</a>( <span><code><a href="class-Peach.Markup.Component.html">Peach\Markup\Component</a></code> <var>$c</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定されたオブジェクトを処理します.
-オブジェクトの種類に応じて,
-このクラスの具象クラスで定義された各 handle
-メソッドに処理が割り当てられます. Visitor パターンの visit
-メソッドに相当します.</p>
-
+			<p>指定されたオブジェクトを処理します.
+オブジェクトの種類に応じて, このクラスの具象クラスで定義された各 handle メソッドに処理が割り当てられます.
+Visitor パターンの visit メソッドに相当します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定されたオブジェクトを処理します.
-オブジェクトの種類に応じて,
-このクラスの具象クラスで定義された各 handle
-メソッドに処理が割り当てられます. Visitor パターンの visit
-メソッドに相当します.</p>
-
+			<p>指定されたオブジェクトを処理します.
+オブジェクトの種類に応じて, このクラスの具象クラスで定義された各 handle メソッドに処理が割り当てられます.
+Visitor パターンの visit メソッドに相当します.</p>
 
 
 				<h4>Parameters</h4>
@@ -219,6 +242,7 @@
 
 		<td class="attributes"><code>
 			abstract public 
+
 			mixed
 			
 			</code>
@@ -229,23 +253,17 @@
 		<code><a href="source-class-Peach.Markup.Context.html#54-59" title="Go to source code">getResult</a>( )</code>
 
 		<div class="description short">
-			
-<p>処理結果を取得します. まだ handle()
-が実行されていない場合は NULL を返します.</p>
-
+			<p>処理結果を取得します. まだ handle() が実行されていない場合は NULL を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>処理結果を取得します. まだ handle()
-が実行されていない場合は NULL を返します.</p>
-
+			<p>処理結果を取得します. まだ handle() が実行されていない場合は NULL を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>mixed</code><br>処理結果<br>
+					mixed<br>処理結果
 				</div>
 
 
@@ -258,6 +276,7 @@
 
 		<td class="attributes"><code>
 			abstract public 
+
 			
 			
 			</code>
@@ -268,15 +287,11 @@
 		<code><a href="source-class-Peach.Markup.Context.html#61-65" title="Go to source code">handleContainerElement</a>( <span><code><a href="class-Peach.Markup.ContainerElement.html">Peach\Markup\ContainerElement</a></code> <var>$node</var></span> )</code>
 
 		<div class="description short">
-			
-<p>コンテナ要素を処理します.</p>
-
+			<p>コンテナ要素を処理します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>コンテナ要素を処理します.</p>
-
+			<p>コンテナ要素を処理します.</p>
 
 
 				<h4>Parameters</h4>
@@ -296,6 +311,7 @@
 
 		<td class="attributes"><code>
 			abstract public 
+
 			
 			
 			</code>
@@ -306,15 +322,11 @@
 		<code><a href="source-class-Peach.Markup.Context.html#67-71" title="Go to source code">handleEmptyElement</a>( <span><code><a href="class-Peach.Markup.EmptyElement.html">Peach\Markup\EmptyElement</a></code> <var>$node</var></span> )</code>
 
 		<div class="description short">
-			
-<p>空要素を処理します.</p>
-
+			<p>空要素を処理します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>空要素を処理します.</p>
-
+			<p>空要素を処理します.</p>
 
 
 				<h4>Parameters</h4>
@@ -334,6 +346,7 @@
 
 		<td class="attributes"><code>
 			abstract public 
+
 			
 			
 			</code>
@@ -344,15 +357,11 @@
 		<code><a href="source-class-Peach.Markup.Context.html#73-77" title="Go to source code">handleText</a>( <span><code><a href="class-Peach.Markup.Text.html">Peach\Markup\Text</a></code> <var>$node</var></span> )</code>
 
 		<div class="description short">
-			
-<p>テキストノードを処理します.</p>
-
+			<p>テキストノードを処理します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>テキストノードを処理します.</p>
-
+			<p>テキストノードを処理します.</p>
 
 
 				<h4>Parameters</h4>
@@ -372,6 +381,7 @@
 
 		<td class="attributes"><code>
 			abstract public 
+
 			
 			
 			</code>
@@ -382,15 +392,11 @@
 		<code><a href="source-class-Peach.Markup.Context.html#79-83" title="Go to source code">handleCode</a>( <span><code><a href="class-Peach.Markup.Code.html">Peach\Markup\Code</a></code> <var>$node</var></span> )</code>
 
 		<div class="description short">
-			
-<p>整形済テキストを処理します.</p>
-
+			<p>整形済テキストを処理します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>整形済テキストを処理します.</p>
-
+			<p>整形済テキストを処理します.</p>
 
 
 				<h4>Parameters</h4>
@@ -410,6 +416,7 @@
 
 		<td class="attributes"><code>
 			abstract public 
+
 			
 			
 			</code>
@@ -420,15 +427,11 @@
 		<code><a href="source-class-Peach.Markup.Context.html#85-89" title="Go to source code">handleComment</a>( <span><code><a href="class-Peach.Markup.Comment.html">Peach\Markup\Comment</a></code> <var>$node</var></span> )</code>
 
 		<div class="description short">
-			
-<p>コメントノードを処理します.</p>
-
+			<p>コメントノードを処理します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>コメントノードを処理します.</p>
-
+			<p>コメントノードを処理します.</p>
 
 
 				<h4>Parameters</h4>
@@ -448,6 +451,7 @@
 
 		<td class="attributes"><code>
 			abstract public 
+
 			
 			
 			</code>
@@ -458,15 +462,11 @@
 		<code><a href="source-class-Peach.Markup.Context.html#91-95" title="Go to source code">handleNodeList</a>( <span><code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code> <var>$nodeList</var></span> )</code>
 
 		<div class="description short">
-			
-<p>NodeList を処理します.</p>
-
+			<p>NodeList を処理します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>NodeList を処理します.</p>
-
+			<p>NodeList を処理します.</p>
 
 
 				<h4>Parameters</h4>
@@ -486,6 +486,7 @@
 
 		<td class="attributes"><code>
 			abstract public 
+
 			
 			
 			</code>
@@ -496,15 +497,11 @@
 		<code><a href="source-class-Peach.Markup.Context.html#97-101" title="Go to source code">handleNone</a>( <span><code><a href="class-Peach.Markup.None.html">Peach\Markup\None</a></code> <var>$none</var></span> )</code>
 
 		<div class="description short">
-			
-<p>None を処理します.</p>
-
+			<p>None を処理します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>None を処理します.</p>
-
+			<p>None を処理します.</p>
 
 
 				<h4>Parameters</h4>
@@ -542,11 +539,11 @@
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\DT\W3cDatetimeFormat | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+				<li class="active">
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -80,8 +121,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -96,9 +136,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -109,37 +146,25 @@
 
 
 	<div class="description">
-	
-<p><a href="http://www.w3.org/TR/NOTE-datetime">W3CDTF</a>
-と時間オブジェクトの相互変換を行うフォーマットです.
-本来の W3CDTF は日付と時刻の間に "T" が入りますが (例:
-"YYYY-MM-DDThh:mm:ss") このクラスは SQL
-などで用いられる慣用表現 (例: "YYYY-MM-DD hh:mm:ss")
-のパースもできます.</p>
+	<p><a href="http://www.w3.org/TR/NOTE-datetime">W3CDTF</a> と時間オブジェクトの相互変換を行うフォーマットです.
+本来の W3CDTF は日付と時刻の間に "T" が入りますが (例: "YYYY-MM-DDThh:mm:ss")
+このクラスは SQL などで用いられる慣用表現 (例: "YYYY-MM-DD hh:mm:ss") のパースもできます.</p>
 
-<p>parse メソッドは, 文字列の先頭が W3CDTF
-の書式にマッチするかどうかで妥当性をチェックします.
-"2012-05-21T07:30:00" のような文字列は parseDate, parseDatetime,
-parseTimestamp のすべてのメソッドで受け付けますが, "2012-05-21"
-のような文字列は parseDate だけしか受け付けません.</p>
+<p>parse メソッドは, 文字列の先頭が W3CDTF の書式にマッチするかどうかで妥当性をチェックします.
+"2012-05-21T07:30:00" のような文字列は
+parseDate, parseDatetime, parseTimestamp のすべてのメソッドで受け付けますが,
+"2012-05-21" のような文字列は parseDate だけしか受け付けません.</p>
 
 <p>このクラスはタイムゾーンを適切に扱うことが出来ます.
-parse 系メソッドでは,
-時間オブジェクトに変換する際に内部のタイムゾーンに合わせて時刻を調整します.
-例えばシステム時刻が UTC+9 として, GMT の時間文字列
-"2012-05-20T22:30Z" を parse した場合 9
-時間進ませた時間オブジェクト (new Datetime(2012, 5, 21, 7, 30)
-に等価) を生成します.</p>
+parse 系メソッドでは, 時間オブジェクトに変換する際に内部のタイムゾーンに合わせて時刻を調整します.
+例えばシステム時刻が UTC+9 として, GMT の時間文字列 "2012-05-20T22:30Z" を parse した場合
+9 時間進ませた時間オブジェクト (new Datetime(2012, 5, 21, 7, 30) に等価) を生成します.</p>
 
-<p>時間オブジェクトを書式化する際は,
-出力用の時差に合わせた文字列を生成します.
-例えば内部のタイムゾーンが UTC+9, 出力用のタイムゾーンが
-UTC+5 に設定されているものとします. この場合,
-内部のタイムゾーンと出力用のタイムゾーンの時差が -4
-時間となるため, new Datetime(2012, 5, 21, 7, 30)
-の時間オブジェクトを書式化した結果は "2012-05-21T03:30+5:00"
-となります.</p>
-
+<p>時間オブジェクトを書式化する際は, 出力用の時差に合わせた文字列を生成します.
+例えば内部のタイムゾーンが UTC+9, 出力用のタイムゾーンが UTC+5 に設定されているものとします.
+この場合, 内部のタイムゾーンと出力用のタイムゾーンの時差が -4 時間となるため,
+new Datetime(2012, 5, 21, 7, 30) の時間オブジェクトを書式化した結果は
+"2012-05-21T03:30+5:00" となります.</p>
 	</div>
 
 	<dl class="tree">
@@ -165,7 +190,8 @@ UTC+5 に設定されているものとします. この場合,
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.DT.W3cDatetimeFormat.html#30-359" title="Go to source code">Peach/DT/W3cDatetimeFormat.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.DT.W3cDatetimeFormat.html#30-361" title="Go to source code">Peach/DT/W3cDatetimeFormat.php</a>
+		<br>
 	</div>
 
 
@@ -176,6 +202,7 @@ UTC+5 に設定されているものとします. この場合,
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -183,23 +210,18 @@ UTC+5 に設定されているものとします. この場合,
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#91-142" title="Go to source code">__construct</a>( <span>integer <var>$externalOffset</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$internalOffset</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#91-143" title="Go to source code">__construct</a>( <span>integer <var>$externalOffset</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$internalOffset</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
-<p>指定されたタイムゾーンの条件で,
-新しいフォーマットを構築します.
+			<p>指定されたタイムゾーンの条件で, 新しいフォーマットを構築します.
 タイムゾーンを扱わない場合は, コンストラクタの代わりに
-<code><a href="class-Peach.DT.W3cDatetimeFormat.html#_getInstance">Peach\DT\W3cDatetimeFormat::getInstance()</a></code> を使って下さい.</p>
-
+<a href="W3cDatetimeFormat::getInstance">W3cDatetimeFormat::getInstance</a> を使って下さい.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定されたタイムゾーンの条件で,
-新しいフォーマットを構築します.
+			<p>指定されたタイムゾーンの条件で, 新しいフォーマットを構築します.
 タイムゾーンを扱わない場合は, コンストラクタの代わりに
-<code><a href="class-Peach.DT.W3cDatetimeFormat.html#_getInstance">Peach\DT\W3cDatetimeFormat::getInstance()</a></code> を使って下さい.</p>
+<a href="W3cDatetimeFormat::getInstance">W3cDatetimeFormat::getInstance</a> を使って下さい.</p>
 
 <p>引数 $externalOffset を指定することで,
 書式化する際のタイムゾーンの値を設定することが出来ます.
@@ -207,66 +229,35 @@ UTC+5 に設定されているものとします. この場合,
 さらに $internalOffset を指定することで,
 システム時刻のタイムゾーンとして任意の値を指定することも出来ます.</p>
 
-<p>$externalOffset と $internalOffset を省略した場合,
-デフォルト値としてシステム時刻の設定 (<code><a href="class-Peach.DT.Util.html#_getTimeZoneOffset">Peach\DT\Util::getTimeZoneOffset()</a></code>) と同じ値が指定されます. UTC+1
-以上の時差を設定する場合は負の値, UTC-1
-以下の時差を設定する場合は正の値を指定してください.</p>
+<p>$externalOffset と $internalOffset を省略した場合, デフォルト値としてシステム時刻の設定
+(<a href="Util::getTimeZoneOffset">Util::getTimeZoneOffset</a>) と同じ値が指定されます.
+UTC+1 以上の時差を設定する場合は負の値,
+UTC-1 以下の時差を設定する場合は正の値を指定してください.</p>
 
-<p>以下に, $externalOffset と $internalOffset
-の組み合わせによる動作例を示します.</p>
+<p>以下に, $externalOffset と $internalOffset の組み合わせによる動作例を示します.</p>
 
-<pre>
-<span
-class="php-comment">// 書式・システム時刻共に UTC+9</span>
-<span
-class="php-var">$f1</span> = <span
-class="php-keyword1">new</span> W3cDatetimeFormat(-<span
-class="php-num">540</span>, -<span class="php-num">540</span>);
+<pre><span class="php-comment">// 書式・システム時刻共に UTC+9</span>
+<span class="php-var">$f1</span> = <span class="php-keyword1">new</span> W3cDatetimeFormat(-<span class="php-num">540</span>, -<span class="php-num">540</span>);
 
-<span
-class="php-comment">// 書式は GMT, システム時刻は UTC+9</span>
-<span
-class="php-var">$f2</span> = <span
-class="php-keyword1">new</span> W3cDatetimeFormat(<span
-class="php-num">0</span>,    -<span class="php-num">540</span>);
+<span class="php-comment">// 書式は GMT, システム時刻は UTC+9</span>
+<span class="php-var">$f2</span> = <span class="php-keyword1">new</span> W3cDatetimeFormat(<span class="php-num">0</span>,    -<span class="php-num">540</span>);
 
-<span
-class="php-comment">// 書式は UTC+9, システム時刻は GMT</span>
-<span
-class="php-var">$f3</span> = <span
-class="php-keyword1">new</span> W3cDatetimeFormat(-<span
-class="php-num">540</span>,    <span class="php-num">0</span>);
+<span class="php-comment">// 書式は UTC+9, システム時刻は GMT</span>
+<span class="php-var">$f3</span> = <span class="php-keyword1">new</span> W3cDatetimeFormat(-<span class="php-num">540</span>,    <span class="php-num">0</span>);
 
-<span
-class="php-comment">// 2012-05-21T07:30 の時間オブジェクトを生成</span>
-<span
-class="php-var">$d</span> = <span class="php-keyword1">new</span> Datetime(<span
-class="php-num">2012</span>, <span class="php-num">5</span>, <span
-class="php-num">21</span>, <span class="php-num">7</span>, <span
-class="php-num">30</span>);
-<span class="php-keyword2">var_dump</span>(<span
-class="php-var">$d</span>-&gt;format(<span class="php-var">$f1</span>)); <span
-class="php-comment">// &quot;2012-05-21T07:30+09:00&quot;</span>
-<span
-class="php-keyword2">var_dump</span>(<span
-class="php-var">$d</span>-&gt;format(<span class="php-var">$f2</span>)); <span
-class="php-comment">// &quot;2012-05-20T22:30Z&quot;      (UTC+9 の時刻を GMT として書式化)</span>
-<span
-class="php-keyword2">var_dump</span>(<span
-class="php-var">$d</span>-&gt;format(<span class="php-var">$f3</span>)); <span
-class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+9 として書式化)</span>
-</pre>
-
+<span class="php-comment">// 2012-05-21T07:30 の時間オブジェクトを生成</span>
+<span class="php-var">$d</span> = <span class="php-keyword1">new</span> Datetime(<span class="php-num">2012</span>, <span class="php-num">5</span>, <span class="php-num">21</span>, <span class="php-num">7</span>, <span class="php-num">30</span>);
+<span class="php-keyword2">var_dump</span>(<span class="php-var">$d</span>-&gt;format(<span class="php-var">$f1</span>)); <span class="php-comment">// &quot;2012-05-21T07:30+09:00&quot;</span>
+<span class="php-keyword2">var_dump</span>(<span class="php-var">$d</span>-&gt;format(<span class="php-var">$f2</span>)); <span class="php-comment">// &quot;2012-05-20T22:30Z&quot;      (UTC+9 の時刻を GMT として書式化)</span>
+<span class="php-keyword2">var_dump</span>(<span class="php-var">$d</span>-&gt;format(<span class="php-var">$f3</span>)); <span class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+9 として書式化)</span></pre>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$externalOffset</var></dt>
-					<dd>フォーマットの時差 (単位は分,
-省略した場合はシステム設定の値を使用)</dd>
+					<dd>フォーマットの時差 (単位は分, 省略した場合はシステム設定の値を使用)</dd>
 					<dt><var>$internalOffset</var></dt>
-					<dd>システム時刻の時差 (単位は分,
-省略した場合はシステム設定の値を使用)</dd>
+					<dd>システム時刻の時差 (単位は分, 省略した場合はシステム設定の値を使用)</dd>
 				</dl></div>
 
 
@@ -280,6 +271,7 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="attributes"><code>
 			 public static
+
 			<code><a href="class-Peach.DT.W3cDatetimeFormat.html">Peach\DT\W3cDatetimeFormat</a></code>
 			
 			</code>
@@ -287,34 +279,28 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInstance">#</a>
-		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#144-159" title="Go to source code">getInstance</a>( )</code>
+		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#145-160" title="Go to source code">getInstance</a>( )</code>
 
 		<div class="description short">
-			
-<p>デフォルトのインスタンスを返します.
-このメソッドから生成されたオブジェクトは, parse
-の際にタイムゾーンを一切考慮しません. また,
-書式化する際にタイムゾーン文字列を付与しません.</p>
-
+			<p>デフォルトのインスタンスを返します.
+このメソッドから生成されたオブジェクトは, parse の際にタイムゾーンを一切考慮しません.
+また, 書式化する際にタイムゾーン文字列を付与しません.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>デフォルトのインスタンスを返します.
-このメソッドから生成されたオブジェクトは, parse
-の際にタイムゾーンを一切考慮しません. また,
-書式化する際にタイムゾーン文字列を付与しません.</p>
-
+			<p>デフォルトのインスタンスを返します.
+このメソッドから生成されたオブジェクトは, parse の際にタイムゾーンを一切考慮しません.
+また, 書式化する際にタイムゾーン文字列を付与しません.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.W3cDatetimeFormat.html">Peach\DT\W3cDatetimeFormat</a></code></code><br>タイムゾーンに対応しないインスタンス<br>
+					<code><a href="class-Peach.DT.W3cDatetimeFormat.html">Peach\DT\W3cDatetimeFormat</a></code><br>タイムゾーンに対応しないインスタンス
 				</div>
 
 
-				<h4>CodeCoverageIgnore</h4>
+				<h4>Codecoverageignore</h4>
 				<div class="list">
 				</div>
 
@@ -326,6 +312,7 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code>
 			
 			</code>
@@ -333,18 +320,14 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseDate">#</a>
-		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#161-179" title="Go to source code">parseDate</a>( <span>string <var>$format</var></span> )</code>
+		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#162-180" title="Go to source code">parseDate</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>"YYYY-MM-DD" 形式の文字列を解析します.</p>
-
+			<p>"YYYY-MM-DD" 形式の文字列を解析します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>"YYYY-MM-DD" 形式の文字列を解析します.</p>
-
+			<p>"YYYY-MM-DD" 形式の文字列を解析します.</p>
 
 
 				<h4>Parameters</h4>
@@ -355,13 +338,13 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code><br>解析結果
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.DT.Format.html#_parseDate">Peach\DT\Format::parseDate()</a></code></code><br>
+						<code><a href="class-Peach.DT.Format.html#_parseDate">Peach\DT\Format::parseDate()</a></code><br>
 				</div>
 
 
@@ -374,6 +357,7 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code>
 			
 			</code>
@@ -381,22 +365,16 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseDatetime">#</a>
-		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#181-206" title="Go to source code">parseDatetime</a>( <span>string <var>$format</var></span> )</code>
+		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#182-207" title="Go to source code">parseDatetime</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>"YYYY-MM-DDThh:mm" 形式の文字列を解析します.
-文字列の末尾にタイムゾーン (+hh:mm や -hh:mm など)
-を含む場合は, システム時刻への変換を行います.</p>
-
+			<p>"YYYY-MM-DDThh:mm" 形式の文字列を解析します.
+文字列の末尾にタイムゾーン (+hh:mm や -hh:mm など) を含む場合は, システム時刻への変換を行います.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>"YYYY-MM-DDThh:mm" 形式の文字列を解析します.
-文字列の末尾にタイムゾーン (+hh:mm や -hh:mm など)
-を含む場合は, システム時刻への変換を行います.</p>
-
+			<p>"YYYY-MM-DDThh:mm" 形式の文字列を解析します.
+文字列の末尾にタイムゾーン (+hh:mm や -hh:mm など) を含む場合は, システム時刻への変換を行います.</p>
 
 
 				<h4>Parameters</h4>
@@ -407,13 +385,13 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code><br>解析結果
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.DT.Format.html#_parseDatetime">Peach\DT\Format::parseDatetime()</a></code></code><br>
+						<code><a href="class-Peach.DT.Format.html#_parseDatetime">Peach\DT\Format::parseDatetime()</a></code><br>
 				</div>
 
 
@@ -426,6 +404,7 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code>
 			
 			</code>
@@ -433,18 +412,14 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseTimestamp">#</a>
-		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#208-233" title="Go to source code">parseTimestamp</a>( <span>string <var>$format</var></span> )</code>
+		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#209-234" title="Go to source code">parseTimestamp</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>"YYYY-MM-DDThh:mm:ss" 形式の文字列を解析します.</p>
-
+			<p>"YYYY-MM-DDThh:mm:ss" 形式の文字列を解析します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>"YYYY-MM-DDThh:mm:ss" 形式の文字列を解析します.</p>
-
+			<p>"YYYY-MM-DDThh:mm:ss" 形式の文字列を解析します.</p>
 
 
 				<h4>Parameters</h4>
@@ -455,13 +430,13 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code><br>解析結果
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.DT.Format.html#_parseTimestamp">Peach\DT\Format::parseTimestamp()</a></code></code><br>
+						<code><a href="class-Peach.DT.Format.html#_parseTimestamp">Peach\DT\Format::parseTimestamp()</a></code><br>
 				</div>
 
 
@@ -474,6 +449,7 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -481,20 +457,14 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="name"><div>
 		<a class="anchor" href="#_formatDate">#</a>
-		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#235-245" title="Go to source code">formatDate</a>( <span><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code> <var>$d</var></span> )</code>
+		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#236-246" title="Go to source code">formatDate</a>( <span><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された時間オブジェクトを "YYYY-MM-DD"
-形式の文字列に変換します.</p>
-
+			<p>指定された時間オブジェクトを "YYYY-MM-DD" 形式の文字列に変換します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された時間オブジェクトを "YYYY-MM-DD"
-形式の文字列に変換します.</p>
-
+			<p>指定された時間オブジェクトを "YYYY-MM-DD" 形式の文字列に変換します.</p>
 
 
 				<h4>Parameters</h4>
@@ -505,13 +475,13 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>"YYYY-MM-DD" 形式の文字列<br>
+					string<br>"YYYY-MM-DD" 形式の文字列
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.DT.Format.html#_formatDate">Peach\DT\Format::formatDate()</a></code></code><br>
+						<code><a href="class-Peach.DT.Format.html#_formatDate">Peach\DT\Format::formatDate()</a></code><br>
 				</div>
 
 
@@ -524,6 +494,7 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -531,24 +502,16 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="name"><div>
 		<a class="anchor" href="#_formatDatetime">#</a>
-		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#247-259" title="Go to source code">formatDatetime</a>( <span><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code> <var>$d</var></span> )</code>
+		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#248-260" title="Go to source code">formatDatetime</a>( <span><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された時間オブジェクトを "YYYY-MM-DDThh:mm"
-形式の文字列に変換します.
-このインスタンスがタイムゾーンに対応している場合,
-末尾にタイムゾーン文字列も付加します.</p>
-
+			<p>指定された時間オブジェクトを "YYYY-MM-DDThh:mm" 形式の文字列に変換します.
+このインスタンスがタイムゾーンに対応している場合, 末尾にタイムゾーン文字列も付加します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された時間オブジェクトを "YYYY-MM-DDThh:mm"
-形式の文字列に変換します.
-このインスタンスがタイムゾーンに対応している場合,
-末尾にタイムゾーン文字列も付加します.</p>
-
+			<p>指定された時間オブジェクトを "YYYY-MM-DDThh:mm" 形式の文字列に変換します.
+このインスタンスがタイムゾーンに対応している場合, 末尾にタイムゾーン文字列も付加します.</p>
 
 
 				<h4>Parameters</h4>
@@ -559,13 +522,13 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>"YYYY-MM-DDThh:mm" 形式の文字列<br>
+					string<br>"YYYY-MM-DDThh:mm" 形式の文字列
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.DT.Format.html#_formatDatetime">Peach\DT\Format::formatDatetime()</a></code></code><br>
+						<code><a href="class-Peach.DT.Format.html#_formatDatetime">Peach\DT\Format::formatDatetime()</a></code><br>
 				</div>
 
 
@@ -578,6 +541,7 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -585,24 +549,16 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 		<td class="name"><div>
 		<a class="anchor" href="#_formatTimestamp">#</a>
-		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#261-272" title="Go to source code">formatTimestamp</a>( <span><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code> <var>$d</var></span> )</code>
+		<code><a href="source-class-Peach.DT.W3cDatetimeFormat.html#262-273" title="Go to source code">formatTimestamp</a>( <span><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された時間オブジェクトを "YYYY-MM-DDThh:mm:ss"
-形式の文字列に変換します.
-このインスタンスがタイムゾーンに対応している場合,
-末尾にタイムゾーン文字列も付加します.</p>
-
+			<p>指定された時間オブジェクトを "YYYY-MM-DDThh:mm:ss" 形式の文字列に変換します.
+このインスタンスがタイムゾーンに対応している場合, 末尾にタイムゾーン文字列も付加します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された時間オブジェクトを "YYYY-MM-DDThh:mm:ss"
-形式の文字列に変換します.
-このインスタンスがタイムゾーンに対応している場合,
-末尾にタイムゾーン文字列も付加します.</p>
-
+			<p>指定された時間オブジェクトを "YYYY-MM-DDThh:mm:ss" 形式の文字列に変換します.
+このインスタンスがタイムゾーンに対応している場合, 末尾にタイムゾーン文字列も付加します.</p>
 
 
 				<h4>Parameters</h4>
@@ -613,13 +569,13 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>"YYYY-MM-DDThh:mm:ss" 形式の文字列<br>
+					string<br>"YYYY-MM-DDThh:mm:ss" 形式の文字列
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.DT.Format.html#_formatTimestamp">Peach\DT\Format::formatTimestamp()</a></code></code><br>
+						<code><a href="class-Peach.DT.Format.html#_formatTimestamp">Peach\DT\Format::formatTimestamp()</a></code><br>
 				</div>
 
 
@@ -650,11 +606,11 @@ class="php-comment">// &quot;2012-05-21T16:30+09:00&quot; (GMT の時刻を UTC+
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

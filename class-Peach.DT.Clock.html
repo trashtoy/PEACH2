@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\DT\Clock | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+				<li class="active">
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -80,8 +121,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -96,9 +136,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -109,19 +146,18 @@
 
 
 	<div class="description">
-	
-<p>現在時刻を生成するためのクラスです.
-このクラスのインスタンスは <code><a href="class-Peach.DT.Date.html#_now">Peach\DT\Date::now()</a></code>, <code><a href="class-Peach.DT.Datetime.html#_now">Peach\DT\Datetime::now()</a></code>, <code><a href="class-Peach.DT.Timestamp.html#_now">Peach\DT\Timestamp::now()</a></code>
+	<p>現在時刻を生成するためのクラスです. このクラスのインスタンスは
+<code><a href="class-Peach.DT.Date.html#_now">Peach\DT\Date::now()</a></code>,
+<code><a href="class-Peach.DT.Datetime.html#_now">Peach\DT\Datetime::now()</a></code>,
+<code><a href="class-Peach.DT.Timestamp.html#_now">Peach\DT\Timestamp::now()</a></code>
 などのメソッドの引数に渡す形で使用します.</p>
 
 <p>このクラスの具象クラスは以下の用途で利用されることを想定しています.</p>
 
 <ul>
-	<li>現在時刻に依存する機能の単体テスト</li>
-
-	<li>現在時刻を過去または未来にセットして特定の機能をエミュレートする</li>
+<li>現在時刻に依存する機能の単体テスト</li>
+<li>現在時刻を過去または未来にセットして特定の機能をエミュレートする</li>
 </ul>
-
 	</div>
 
 
@@ -144,7 +180,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.DT.Clock.html#30-62" title="Go to source code">Peach/DT/Clock.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.DT.Clock.html#30-62" title="Go to source code">Peach/DT/Clock.php</a>
+		<br>
 	</div>
 
 
@@ -155,6 +192,7 @@
 
 		<td class="attributes"><code>
 			abstract protected 
+
 			integer
 			
 			</code>
@@ -165,21 +203,17 @@
 		<code><a href="source-class-Peach.DT.Clock.html#44-49" title="Go to source code">getUnixTime</a>( )</code>
 
 		<div class="description short">
-			
-<p>この Clock が指し示す時間を Unix time として返します.</p>
-
+			<p>この Clock が指し示す時間を Unix time として返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この Clock が指し示す時間を Unix time として返します.</p>
-
+			<p>この Clock が指し示す時間を Unix time として返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>Unix time<br>
+					integer<br>Unix time
 				</div>
 
 
@@ -192,6 +226,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code>
 			
 			</code>
@@ -202,23 +237,19 @@
 		<code><a href="source-class-Peach.DT.Clock.html#51-61" title="Go to source code">getTimestamp</a>( )</code>
 
 		<div class="description short">
-			
-<p><code><a href="class-Peach.DT.Clock.html#_getUnixTime">Peach\DT\Clock::getUnixTime()</a></code> で取得した値を使って Timestamp
-インスタンスを生成します.</p>
-
+			<p><code><a href="class-Peach.DT.Clock.html#_getUnixTime">Peach\DT\Clock::getUnixTime()</a></code> で取得した値を使って
+Timestamp インスタンスを生成します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p><code><a href="class-Peach.DT.Clock.html#_getUnixTime">Peach\DT\Clock::getUnixTime()</a></code> で取得した値を使って Timestamp
-インスタンスを生成します.</p>
-
+			<p><code><a href="class-Peach.DT.Clock.html#_getUnixTime">Peach\DT\Clock::getUnixTime()</a></code> で取得した値を使って
+Timestamp インスタンスを生成します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code></code><br>Timestamp<br>
+					<code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code>
 				</div>
 
 
@@ -249,11 +280,11 @@
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

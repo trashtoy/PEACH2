@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Peach\Http\Request | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Http.Body.html">Body</a></li>
+				<li><a href="class-Peach.Http.DefaultEndpoint.html">DefaultEndpoint</a></li>
+				<li class="active"><a href="class-Peach.Http.Request.html">Request</a></li>
+				<li><a href="class-Peach.Http.Response.html">Response</a></li>
+				<li><a href="class-Peach.Http.Util.html">Util</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Http.BodyRenderer.html">BodyRenderer</a></li>
+				<li><a href="class-Peach.Http.Endpoint.html">Endpoint</a></li>
+				<li><a href="class-Peach.Http.HeaderField.html">HeaderField</a></li>
+				<li><a href="class-Peach.Http.MultiHeaderField.html">MultiHeaderField</a></li>
+				<li><a href="class-Peach.Http.SingleHeaderField.html">SingleHeaderField</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Http.html" title="Summary of Peach\Http"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Request</h1>
+
+
+	<div class="description">
+	<p>HTTP リクエストをあらわすクラスです.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Http.html">Http</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Peach.Http.Request.html#33-225" title="Go to source code">Peach/Http/Request.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#62-71" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			<p>空の Request インスタンスを構築します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>空の Request インスタンスを構築します.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setPath" id="_setPath">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setPath">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#73-81" title="Go to source code">setPath</a>( <span>string <var>$path</var></span> )</code>
+
+		<div class="description short">
+			<p>この Request のパス (URL のうち, クエリ・フラグメントを除いた部分) を設定します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>この Request のパス (URL のうち, クエリ・フラグメントを除いた部分) を設定します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$path</var></dt>
+					<dd>セットするパス</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPath" id="_getPath">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPath">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#83-91" title="Go to source code">getPath</a>( )</code>
+
+		<div class="description short">
+			<p>この Request のパス (URL のうち, クエリ・フラグメントを除いた部分) を返します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>この Request のパス (URL のうち, クエリ・フラグメントを除いた部分) を返します.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>この Request のパス
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getHeader" id="_getHeader">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Peach.Http.HeaderField.html">Peach\Http\HeaderField</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHeader">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#93-109" title="Go to source code">getHeader</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			<p>指定された名前のヘッダーを取得します.
+存在しない場合は NoField オブジェクトを返します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された名前のヘッダーを取得します.
+存在しない場合は NoField オブジェクトを返します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>ヘッダー名</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Peach.Http.HeaderField.html">Peach\Http\HeaderField</a></code><br>指定されたヘッダーに該当する HeaderField オブジェクト
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getHeaderList" id="_getHeaderList">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Peach.Http.HeaderField.html">Peach\Http\HeaderField</a>[]</code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHeaderList">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#111-120" title="Go to source code">getHeaderList</a>( )</code>
+
+		<div class="description short">
+			<p>この Request が持つヘッダーの一覧を取得します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>この Request が持つヘッダーの一覧を取得します.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Peach.Http.HeaderField.html">Peach\Http\HeaderField</a>[]</code><br>この Request に定義されている HeaderField のリスト
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setHeader" id="_setHeader">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setHeader">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#122-132" title="Go to source code">setHeader</a>( <span><code><a href="class-Peach.Http.HeaderField.html">Peach\Http\HeaderField</a></code> <var>$item</var></span> )</code>
+
+		<div class="description short">
+			<p>指定されたヘッダーをこの Request に設定します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定されたヘッダーをこの Request に設定します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$item</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="hasHeader" id="_hasHeader">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_hasHeader">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#134-142" title="Go to source code">hasHeader</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			<p>指定された名前の HeaderField が存在するかどうか調べます.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された名前の HeaderField が存在するかどうか調べます.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>ヘッダー名</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>指定された名前の HeaderField が存在する場合のみ true
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setQuery" id="_setQuery">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setQuery">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#144-158" title="Go to source code">setQuery</a>( <span>array|<code><a href="class-Peach.Util.ArrayMap.html">Peach\Util\ArrayMap</a></code> <var>$params</var></span> )</code>
+
+		<div class="description short">
+			<p>指定された値を GET パラメータとしてセットします.
+引数には配列または ArrayMap オブジェクトを指定することができます.
+配列または ArrayMap のキーをパラメータ名, 値をそのパラメータの値とします.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された値を GET パラメータとしてセットします.
+引数には配列または ArrayMap オブジェクトを指定することができます.
+配列または ArrayMap のキーをパラメータ名, 値をそのパラメータの値とします.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$params</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getQuery" id="_getQuery">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getQuery">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#160-172" title="Go to source code">getQuery</a>( <span>string <var>$name</var></span>, <span>string|array <var>$defaultValue</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>指定された名前の GET パラメータを返します.
+第 2 引数に, そのパラメータが存在しなかった場合に返される代替値を指定することができます.
+第 2 引数を指定しない場合は null を返します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された名前の GET パラメータを返します.
+第 2 引数に, そのパラメータが存在しなかった場合に返される代替値を指定することができます.
+第 2 引数を指定しない場合は null を返します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>パラメータ名</dd>
+					<dt><var>$defaultValue</var></dt>
+					<dd>そのパラメータが存在しない場合の代替値. 未指定の場合は null</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|array<br>パラメータの値
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setPost" id="_setPost">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setPost">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#174-188" title="Go to source code">setPost</a>( <span>array|<code><a href="class-Peach.Util.ArrayMap.html">Peach\Util\ArrayMap</a></code> <var>$params</var></span> )</code>
+
+		<div class="description short">
+			<p>指定された値を POST パラメータとしてセットします.
+引数には配列または ArrayMap オブジェクトを指定することができます.
+配列または ArrayMap のキーをパラメータ名, 値をそのパラメータの値とします.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された値を POST パラメータとしてセットします.
+引数には配列または ArrayMap オブジェクトを指定することができます.
+配列または ArrayMap のキーをパラメータ名, 値をそのパラメータの値とします.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$params</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPost" id="_getPost">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPost">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#190-202" title="Go to source code">getPost</a>( <span>string <var>$name</var></span>, <span>string|array <var>$defaultValue</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>指定された名前の POST パラメータを返します.
+第 2 引数に, そのパラメータが存在しなかった場合に返される代替値を指定することができます.
+第 2 引数を指定しない場合は null を返します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された名前の POST パラメータを返します.
+第 2 引数に, そのパラメータが存在しなかった場合に返される代替値を指定することができます.
+第 2 引数を指定しない場合は null を返します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>パラメータ名</dd>
+					<dt><var>$defaultValue</var></dt>
+					<dd>そのパラメータが存在しない場合の代替値. 未指定の場合は null</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|array<br>パラメータの値
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isMalformed" id="_isMalformed">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isMalformed">#</a>
+		<code><a href="source-class-Peach.Http.Request.html#204-224" title="Go to source code">isMalformed</a>( )</code>
+
+		<div class="description short">
+			<p>この Request が malformed (不正な形式) かどうかを判断します.
+以下に挙げるヘッダーのうち, 1 つでも欠けているものがあった場合に malformed と判定します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>この Request が malformed (不正な形式) かどうかを判断します.
+以下に挙げるヘッダーのうち, 1 つでも欠けているものがあった場合に malformed と判定します.</p>
+
+<ul>
+<li>:method</li>
+<li>:scheme</li>
+<li>:path</li>
+<li>:authority (または Host)</li>
+</ul>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>この Request が malformed と判定された場合のみ true
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

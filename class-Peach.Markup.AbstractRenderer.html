@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Markup\AbstractRenderer | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li class="active"><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -108,9 +150,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -121,13 +160,10 @@
 
 
 	<div class="description">
-	
-<p>SGML や XML
-をマークアップするための必要最低限の書式化ルールを定義した抽象基底クラスです.</p>
+	<p>SGML や XML をマークアップするための必要最低限の書式化ルールを定義した抽象基底クラスです.</p>
 
 <p><code><a href="class-Peach.Markup.SgmlRenderer.html">Peach\Markup\SgmlRenderer</a></code> および <code><a href="class-Peach.Markup.XmlRenderer.html">Peach\Markup\XmlRenderer</a></code>
 の共通部分の実装です.</p>
-
 	</div>
 
 	<dl class="tree">
@@ -158,7 +194,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.AbstractRenderer.html#30-110" title="Go to source code">Peach/Markup/AbstractRenderer.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Markup.AbstractRenderer.html#30-110" title="Go to source code">Peach/Markup/AbstractRenderer.php</a>
+		<br>
 	</div>
 
 
@@ -169,6 +206,7 @@
 
 		<td class="attributes"><code>
 			final public 
+
 			string
 			
 			</code>
@@ -179,17 +217,13 @@
 		<code><a href="source-class-Peach.Markup.AbstractRenderer.html#38-47" title="Go to source code">formatStartTag</a>( <span><code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code> <var>$element</var></span> )</code>
 
 		<div class="description short">
-			
-<p>開始タグをマークアップします. この書式化ルールは SGML,
-XML 共通です.</p>
-
+			<p>開始タグをマークアップします.
+この書式化ルールは SGML, XML 共通です.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>開始タグをマークアップします. この書式化ルールは SGML,
-XML 共通です.</p>
-
+			<p>開始タグをマークアップします.
+この書式化ルールは SGML, XML 共通です.</p>
 
 
 				<h4>Parameters</h4>
@@ -200,7 +234,7 @@ XML 共通です.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>開始タグ ("&lt;tagName attr... &gt;")<br>
+					string<br>開始タグ ("<tagName attr... >")
 				</div>
 
 
@@ -215,6 +249,7 @@ XML 共通です.</p>
 
 		<td class="attributes"><code>
 			final public 
+
 			string
 			
 			</code>
@@ -225,17 +260,13 @@ XML 共通です.</p>
 		<code><a href="source-class-Peach.Markup.AbstractRenderer.html#49-58" title="Go to source code">formatEndTag</a>( <span><code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code> <var>$element</var></span> )</code>
 
 		<div class="description short">
-			
-<p>終了タグをマークアップします. この書式化ルールは SGML,
-XML 共通です.</p>
-
+			<p>終了タグをマークアップします.
+この書式化ルールは SGML, XML 共通です.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>終了タグをマークアップします. この書式化ルールは SGML,
-XML 共通です.</p>
-
+			<p>終了タグをマークアップします.
+この書式化ルールは SGML, XML 共通です.</p>
 
 
 				<h4>Parameters</h4>
@@ -246,7 +277,7 @@ XML 共通です.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>終了タグ ("&lt;/tagName&gt;")<br>
+					string<br>終了タグ ("</tagName>")
 				</div>
 
 
@@ -261,6 +292,7 @@ XML 共通です.</p>
 
 		<td class="attributes"><code>
 			final public 
+
 			string
 			
 			</code>
@@ -271,17 +303,13 @@ XML 共通です.</p>
 		<code><a href="source-class-Peach.Markup.AbstractRenderer.html#60-69" title="Go to source code">formatEmptyTag</a>( <span><code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code> <var>$element</var></span> )</code>
 
 		<div class="description short">
-			
-<p>空要素タグをマークアップします.
+			<p>空要素タグをマークアップします.
 タグの末尾の書式化方法は各サブクラスに依存します.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>空要素タグをマークアップします.
+			<p>空要素タグをマークアップします.
 タグの末尾の書式化方法は各サブクラスに依存します.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -292,8 +320,7 @@ XML 共通です.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>空要素タグ ("&lt;tagName attr... &gt;" または &lt;tagName attr...
-/&gt;")<br>
+					string<br>空要素タグ ("<tagName attr... >" または <tagName attr... />")
 				</div>
 
 
@@ -308,6 +335,7 @@ XML 共通です.</p>
 
 		<td class="attributes"><code>
 			final protected 
+
 			string
 			
 			</code>
@@ -318,15 +346,11 @@ XML 共通です.</p>
 		<code><a href="source-class-Peach.Markup.AbstractRenderer.html#71-86" title="Go to source code">formatTagPrefix</a>( <span><code><a href="class-Peach.Markup.Element.html">Peach\Markup\Element</a></code> <var>$element</var></span> )</code>
 
 		<div class="description short">
-			
-<p>開始タグまたは空要素タグの共通部分を書式化します.</p>
-
+			<p>開始タグまたは空要素タグの共通部分を書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>開始タグまたは空要素タグの共通部分を書式化します.</p>
-
+			<p>開始タグまたは空要素タグの共通部分を書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -337,7 +361,7 @@ XML 共通です.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>"&lt;elementName ... "<br>
+					string<br>"&lt;elementName ... "
 				</div>
 
 
@@ -350,6 +374,7 @@ XML 共通です.</p>
 
 		<td class="attributes"><code>
 			abstract protected 
+
 			string
 			
 			</code>
@@ -360,15 +385,11 @@ XML 共通です.</p>
 		<code><a href="source-class-Peach.Markup.AbstractRenderer.html#88-95" title="Go to source code">formatAttribute</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された属性を書式化します.</p>
-
+			<p>指定された属性を書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された属性を書式化します.</p>
-
+			<p>指定された属性を書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -381,7 +402,7 @@ XML 共通です.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>属性<br>
+					string<br>属性
 				</div>
 
 
@@ -394,6 +415,7 @@ XML 共通です.</p>
 
 		<td class="attributes"><code>
 			abstract protected 
+
 			string
 			
 			</code>
@@ -404,15 +426,11 @@ XML 共通です.</p>
 		<code><a href="source-class-Peach.Markup.AbstractRenderer.html#97-103" title="Go to source code">formatBooleanAttribute</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
-			
-<p>値の省略された属性を書式化します.</p>
-
+			<p>値の省略された属性を書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>値の省略された属性を書式化します.</p>
-
+			<p>値の省略された属性を書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -423,7 +441,7 @@ XML 共通です.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>属性<br>
+					string<br>属性
 				</div>
 
 
@@ -436,6 +454,7 @@ XML 共通です.</p>
 
 		<td class="attributes"><code>
 			abstract protected 
+
 			string
 			
 			</code>
@@ -446,21 +465,17 @@ XML 共通です.</p>
 		<code><a href="source-class-Peach.Markup.AbstractRenderer.html#105-109" title="Go to source code">formatEmptyTagSuffix</a>( )</code>
 
 		<div class="description short">
-			
-<p>空要素タグの末尾を書式化します.</p>
-
+			<p>空要素タグの末尾を書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>空要素タグの末尾を書式化します.</p>
-
+			<p>空要素タグの末尾を書式化します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>空要素の末尾. SGML は "&gt;", XML は " /&gt;".<br>
+					string<br>空要素の末尾. SGML は ">", XML は " />".
 				</div>
 
 
@@ -491,11 +506,11 @@ XML 共通です.</p>
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

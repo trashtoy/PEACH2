@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\DT\SimpleFormat | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+				<li class="active">
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -80,8 +121,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -96,9 +136,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -109,103 +146,61 @@
 
 
 	<div class="description">
-	
-<p>Java の <a href="http://docs.oracle.com/javase/jp/7/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a> と同じような使い勝手で,
-ユーザー定義の書式を扱うことができるクラスです.
-日付・時刻のパターンは <a
-href="http://www.php.net/manual/function.date.php">www.php.net/manual/function.date.php</a>
-date() の一部を採用しています.</p>
+	<p>Java の
+<a href="http://docs.oracle.com/javase/jp/7/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>
+と同じような使い勝手で, ユーザー定義の書式を扱うことができるクラスです.
+日付・時刻のパターンは www.php.net/manual/function.date.php date() の一部を採用しています.</p>
 
 <ul>
-	<li>Y: 年 (4桁固定)</li>
-
-	<li>m: 月 (2桁固定)</li>
-
-	<li>n: 月 (1～2桁)</li>
-
-	<li>d: 日 (2桁固定)</li>
-
-	<li>j: 日 (1～2桁)</li>
-
-	<li>H: 時 (2桁固定)</li>
-
-	<li>G: 時 (1～2桁)</li>
-
-	<li>i: 分 (2桁固定)</li>
-
-	<li>s: 秒 (2桁固定)</li>
+<li>Y: 年 (4桁固定)</li>
+<li>m: 月 (2桁固定)</li>
+<li>n: 月 (1～2桁)</li>
+<li>d: 日 (2桁固定)</li>
+<li>j: 日 (1～2桁)</li>
+<li>H: 時 (2桁固定)</li>
+<li>G: 時 (1～2桁)</li>
+<li>i: 分 (2桁固定)</li>
+<li>s: 秒 (2桁固定)</li>
 </ul>
 
 <p>以下は, このクラス独自の拡張パターンです.</p>
 
 <ul>
-	<li>f: 分 (1～2桁)</li>
-
-	<li>b: 秒 (1～2桁)</li>
-
-	<li>E: 曜日 (後述)</li>
+<li>f: 分 (1～2桁)</li>
+<li>b: 秒 (1～2桁)</li>
+<li>E: 曜日 (後述)</li>
 </ul>
 
-<p>"2012年5月21日(月)"
-のように曜日を含む書式の入出力を行う場合は,
-コンストラクタの第 2
-引数に曜日文字列の一覧を指定してください.
+<p>"2012年5月21日(月)" のように曜日を含む書式の入出力を行う場合は,
+コンストラクタの第 2 引数に曜日文字列の一覧を指定してください.
 以下に例を示します.</p>
 
-<pre>
-<span class="php-var">$format</span> = <span
-class="php-keyword1">new</span> SimpleFormat(<span
-class="php-quote">&quot;Y年n月j日(E)&quot;</span>, <span
-class="php-keyword1">array</span>(<span
-class="php-quote">&quot;日&quot;</span>, <span
-class="php-quote">&quot;月&quot;</span>, <span
-class="php-quote">&quot;火&quot;</span>, <span
-class="php-quote">&quot;水&quot;</span>, <span
-class="php-quote">&quot;木&quot;</span>, <span
-class="php-quote">&quot;金&quot;</span>, <span
-class="php-quote">&quot;土&quot;</span>));
-</pre>
+<pre><span class="php-var">$format</span> = <span class="php-keyword1">new</span> SimpleFormat(<span class="php-quote">&quot;Y年n月j日(E)&quot;</span>, <span class="php-keyword1">array</span>(<span class="php-quote">&quot;日&quot;</span>, <span class="php-quote">&quot;月&quot;</span>, <span class="php-quote">&quot;火&quot;</span>, <span class="php-quote">&quot;水&quot;</span>, <span class="php-quote">&quot;木&quot;</span>, <span class="php-quote">&quot;金&quot;</span>, <span class="php-quote">&quot;土&quot;</span>));</pre>
 
-<p>第 2 引数を省略した場合はデフォルト値として array("Sun",
-"Mon", "Tue", "Wed", "Thu", "Fri", "Sat") が適用されます.</p>
+<p>第 2 引数を省略した場合はデフォルト値として array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+が適用されます.</p>
 
 <p>パターンを繋げて記述する場合は (例: "Ymd_His" など)
-必ず固定長のパターンを使用してください. 可変長 (n, j, G
-など) のパターンは常に最長一致でマッチングするため,
+必ず固定長のパターンを使用してください.
+可変長 (n, j, G など) のパターンは常に最長一致でマッチングするため,
 繋げて記述した際にパースに失敗する可能性があります.</p>
 
-<p>このクラスは, 月の文字列表記 (例えば "Jan", "Feb" など)
-のためのパターンをサポートしません.
-そのようなフォーマットが必要となった場合は, 独自の
-Format クラスを定義する必要があります.</p>
+<p>このクラスは, 月の文字列表記 (例えば "Jan", "Feb" など) のためのパターンをサポートしません.
+そのようなフォーマットが必要となった場合は, 独自の Format クラスを定義する必要があります.</p>
 
-<p>パースまたは書式化を行う際,
-情報が足りない場合はデフォルト値が指定されます.
-年・月・日については現在の日付, 時・分・秒については 0
-が適用されます. 具体的には,
-以下のような状況が相当します.</p>
+<p>パースまたは書式化を行う際, 情報が足りない場合はデフォルト値が指定されます.
+年・月・日については現在の日付, 時・分・秒については 0 が適用されます.
+具体的には, 以下のような状況が相当します.</p>
 
 <ol>
-	<li>パースする際,
-	オブジェクトを構成するために必要な情報をパターン文字列が網羅していなかった.
-	(例: "m/d" というパターンをパースした場合,
-	「年」の情報がパターン文字列に含まれていないため,
-	現在の年が適用されます)</li>
-
-	<li>時間オブジェクトを書式化する際に,
-	パターン文字列に含まれるフィールドを
-	そのオブジェクトが持っていなかった. (例: "Y/m/d H:i:s"
-	というパターンで Date オブジェクトを書式化した場合, Date
-	は時刻の情報を持たないため, 時刻部分は 00:00:00
-	となります.)</li>
+<li>パースする際, オブジェクトを構成するために必要な情報をパターン文字列が網羅していなかった. (例: "m/d" というパターンをパースした場合, 「年」の情報がパターン文字列に含まれていないため, 現在の年が適用されます)</li>
+<li>時間オブジェクトを書式化する際に, パターン文字列に含まれるフィールドを そのオブジェクトが持っていなかった. (例: "Y/m/d H:i:s" というパターンで Date オブジェクトを書式化した場合, Date は時刻の情報を持たないため, 時刻部分は 00:00:00 となります.)</li>
 </ol>
 
 <p>PHP の date() 関数の実装と同様に,
 バックスラッシュをつけることでパターン文字列が展開されるのを抑制することができます.</p>
 
-<p>このクラスはイミュータブルです.
-一つのオブジェクトを複数の箇所で使いまわすことが出来ます.</p>
-
+<p>このクラスはイミュータブルです. 一つのオブジェクトを複数の箇所で使いまわすことが出来ます.</p>
 	</div>
 
 	<dl class="tree">
@@ -231,7 +226,8 @@ Format クラスを定義する必要があります.</p>
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.DT.SimpleFormat.html#35-416" title="Go to source code">Peach/DT/SimpleFormat.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.DT.SimpleFormat.html#35-416" title="Go to source code">Peach/DT/SimpleFormat.php</a>
+		<br>
 	</div>
 
 
@@ -242,6 +238,7 @@ Format クラスを定義する必要があります.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -252,17 +249,11 @@ Format クラスを定義する必要があります.</p>
 		<code><a href="source-class-Peach.DT.SimpleFormat.html#121-134" title="Go to source code">__construct</a>( <span>string <var>$pattern</var></span>, <span>array <var>$dayList</var> = <span class="php-keyword1">array</span>(<span class="php-quote">&quot;Sun&quot;</span>, <span class="php-quote">&quot;Mon&quot;</span>, <span class="php-quote">&quot;Tue&quot;</span>, <span class="php-quote">&quot;Wed&quot;</span>, <span class="php-quote">&quot;Thu&quot;</span>, <span class="php-quote">&quot;Fri&quot;</span>, <span class="php-quote">&quot;Sat&quot;</span>)</span> )</code>
 
 		<div class="description short">
-			
-<p>指定されたパターン文字列で SimpleFormat
-を初期化します.</p>
-
+			<p>指定されたパターン文字列で SimpleFormat を初期化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定されたパターン文字列で SimpleFormat
-を初期化します.</p>
-
+			<p>指定されたパターン文字列で SimpleFormat を初期化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -270,8 +261,7 @@ Format クラスを定義する必要があります.</p>
 					<dt><var>$pattern</var></dt>
 					<dd>パターン文字列</dd>
 					<dt><var>$dayList</var></dt>
-					<dd>曜日文字列の配列. デフォルトは array("Sun", "Mon", "Tue", "Wed",
-"Thu", "Fri", "Sat")</dd>
+					<dd>曜日文字列の配列. デフォルトは array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")</dd>
 				</dl></div>
 
 
@@ -285,6 +275,7 @@ Format クラスを定義する必要があります.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -295,21 +286,17 @@ Format クラスを定義する必要があります.</p>
 		<code><a href="source-class-Peach.DT.SimpleFormat.html#172-179" title="Go to source code">getFormat</a>( )</code>
 
 		<div class="description short">
-			
-<p>このオブジェクトのパターン文字列を返します.</p>
-
+			<p>このオブジェクトのパターン文字列を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このオブジェクトのパターン文字列を返します.</p>
-
+			<p>このオブジェクトのパターン文字列を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>パターン文字列<br>
+					string<br>パターン文字列
 				</div>
 
 
@@ -322,6 +309,7 @@ Format クラスを定義する必要があります.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code>
 			
 			</code>
@@ -332,15 +320,11 @@ Format クラスを定義する必要があります.</p>
 		<code><a href="source-class-Peach.DT.SimpleFormat.html#181-190" title="Go to source code">parseDate</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を解析し, Date に変換します.</p>
-
+			<p>指定された文字列を解析し, Date に変換します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を解析し, Date に変換します.</p>
-
+			<p>指定された文字列を解析し, Date に変換します.</p>
 
 
 				<h4>Parameters</h4>
@@ -351,7 +335,7 @@ Format クラスを定義する必要があります.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code><br>解析結果
 				</div>
 
 
@@ -366,6 +350,7 @@ Format クラスを定義する必要があります.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code>
 			
 			</code>
@@ -376,15 +361,11 @@ Format クラスを定義する必要があります.</p>
 		<code><a href="source-class-Peach.DT.SimpleFormat.html#192-201" title="Go to source code">parseDatetime</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を解析し, Datetime に変換します.</p>
-
+			<p>指定された文字列を解析し, Datetime に変換します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を解析し, Datetime に変換します.</p>
-
+			<p>指定された文字列を解析し, Datetime に変換します.</p>
 
 
 				<h4>Parameters</h4>
@@ -395,7 +376,7 @@ Format クラスを定義する必要があります.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code><br>解析結果
 				</div>
 
 
@@ -410,6 +391,7 @@ Format クラスを定義する必要があります.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code>
 			
 			</code>
@@ -420,15 +402,11 @@ Format クラスを定義する必要があります.</p>
 		<code><a href="source-class-Peach.DT.SimpleFormat.html#203-212" title="Go to source code">parseTimestamp</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を解析し, Timestamp に変換します.</p>
-
+			<p>指定された文字列を解析し, Timestamp に変換します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を解析し, Timestamp に変換します.</p>
-
+			<p>指定された文字列を解析し, Timestamp に変換します.</p>
 
 
 				<h4>Parameters</h4>
@@ -439,7 +417,7 @@ Format クラスを定義する必要があります.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code><br>解析結果
 				</div>
 
 
@@ -454,6 +432,7 @@ Format クラスを定義する必要があります.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -464,15 +443,11 @@ Format クラスを定義する必要があります.</p>
 		<code><a href="source-class-Peach.DT.SimpleFormat.html#214-222" title="Go to source code">formatDate</a>( <span><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Date オブジェクトを書式化します.</p>
-
+			<p>指定された Date オブジェクトを書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Date オブジェクトを書式化します.</p>
-
+			<p>指定された Date オブジェクトを書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -483,7 +458,7 @@ Format クラスを定義する必要があります.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>このフォーマットによる文字列表現<br>
+					string<br>このフォーマットによる文字列表現
 				</div>
 
 
@@ -498,6 +473,7 @@ Format クラスを定義する必要があります.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -508,15 +484,11 @@ Format クラスを定義する必要があります.</p>
 		<code><a href="source-class-Peach.DT.SimpleFormat.html#224-232" title="Go to source code">formatDatetime</a>( <span><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Datetime オブジェクトを書式化します.</p>
-
+			<p>指定された Datetime オブジェクトを書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Datetime オブジェクトを書式化します.</p>
-
+			<p>指定された Datetime オブジェクトを書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -527,7 +499,7 @@ Format クラスを定義する必要があります.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>このフォーマットによる文字列表現<br>
+					string<br>このフォーマットによる文字列表現
 				</div>
 
 
@@ -542,6 +514,7 @@ Format クラスを定義する必要があります.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -552,15 +525,11 @@ Format クラスを定義する必要があります.</p>
 		<code><a href="source-class-Peach.DT.SimpleFormat.html#234-248" title="Go to source code">formatTimestamp</a>( <span><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Timestamp オブジェクトを書式化します.</p>
-
+			<p>指定された Timestamp オブジェクトを書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Timestamp オブジェクトを書式化します.</p>
-
+			<p>指定された Timestamp オブジェクトを書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -571,7 +540,7 @@ Format クラスを定義する必要があります.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>このフォーマットによる文字列表現<br>
+					string<br>このフォーマットによる文字列表現
 				</div>
 
 
@@ -604,11 +573,11 @@ Format クラスを定義する必要があります.</p>
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

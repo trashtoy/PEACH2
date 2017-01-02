@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Peach\Http\Header\CookieItem | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Peach.Http.Header.CookieItem.html">CookieItem</a></li>
+				<li><a href="class-Peach.Http.Header.CookieOptions.html">CookieOptions</a></li>
+				<li><a href="class-Peach.Http.Header.HttpDate.html">HttpDate</a></li>
+				<li><a href="class-Peach.Http.Header.NoField.html">NoField</a></li>
+				<li><a href="class-Peach.Http.Header.QualityValues.html">QualityValues</a></li>
+				<li><a href="class-Peach.Http.Header.Raw.html">Raw</a></li>
+				<li><a href="class-Peach.Http.Header.SetCookie.html">SetCookie</a></li>
+				<li><a href="class-Peach.Http.Header.Status.html">Status</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Http.Header.html" title="Summary of Peach\Http\Header"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class CookieItem</h1>
+
+
+	<div class="description">
+	<p>1 行分の Set-Cookie ヘッダーをあらわすクラスです.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Http.html">Http</a>\<a href="namespace-Peach.Http.Header.html">Header</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Peach.Http.Header.CookieItem.html#32-94" title="Go to source code">Peach/Http/Header/CookieItem.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.Http.Header.CookieItem.html#58-70" title="Go to source code">__construct</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span>, <span><code><a href="class-Peach.Http.Header.CookieOptions.html">Peach\Http\Header\CookieOptions</a></code> <var>$options</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>指定されたキーおよび値の cookie を持つ CookieItem オブジェクトを構築します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定されたキーおよび値の cookie を持つ CookieItem オブジェクトを構築します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>cookie のキー</dd>
+					<dt><var>$value</var></dt>
+					<dd>cookie の値</dd>
+					<dt><var>$options</var></dt>
+					<dd>その cookie が持つ属性</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="format" id="_format">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_format">#</a>
+		<code><a href="source-class-Peach.Http.Header.CookieItem.html#72-81" title="Go to source code">format</a>( )</code>
+
+		<div class="description short">
+			<p>Set-Cookie ヘッダーの値 ("Set-Cookie: " に続く文字列部分) を書式化します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set-Cookie ヘッダーの値 ("Set-Cookie: " に続く文字列部分) を書式化します.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>Set-Cookie ヘッダーの値部分
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

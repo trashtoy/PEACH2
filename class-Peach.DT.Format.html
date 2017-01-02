@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Interface Peach\DT\Format | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+				<li class="active">
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -80,8 +121,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -96,9 +136,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -109,23 +146,16 @@
 
 
 	<div class="description">
-	
-<p>文字列から時間オブジェクトへの変換と,
-時間オブジェクトから文字列への変換をサポートするインタフェースです.
-このインタフェースで定義されている各メソッドは,
-以下の場所から使われることを想定しています.
+	<p>文字列から時間オブジェクトへの変換と, 時間オブジェクトから文字列への変換をサポートするインタフェースです.
+このインタフェースで定義されている各メソッドは, 以下の場所から使われることを想定しています.
 ユーザー自身がこれらのメソッドを呼び出す機会は基本的にありません.</p>
 
 <ul>
-	<li><code><a href="class-Peach.DT.Time.html#_format">Peach\DT\Time::format()</a></code></li>
-
-	<li><code><a href="class-Peach.DT.Date.html#_parse">Peach\DT\Date::parse()</a></code></li>
-
-	<li><code><a href="class-Peach.DT.Datetime.html#_parse">Peach\DT\Datetime::parse()</a></code></li>
-
-	<li><code><a href="class-Peach.DT.Timestamp.html#_parse">Peach\DT\Timestamp::parse()</a></code></li>
+<li><a href="Time::format">Time::format</a></li>
+<li><a href="Date::parse">Date::parse</a></li>
+<li><a href="Datetime::parse">Datetime::parse</a></li>
+<li><a href="Timestamp::parse">Timestamp::parse</a></li>
 </ul>
-
 	</div>
 
 
@@ -154,7 +184,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.DT.Format.html#30-92" title="Go to source code">Peach/DT/Format.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.DT.Format.html#30-92" title="Go to source code">Peach/DT/Format.php</a>
+		<br>
 	</div>
 
 
@@ -165,6 +196,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
 			
 			</code>
@@ -175,19 +207,13 @@
 		<code><a href="source-class-Peach.DT.Format.html#42-49" title="Go to source code">parseDate</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を解析して DATE
-型の時間オブジェクトに変換します.
+			<p>指定された文字列を解析して DATE 型の時間オブジェクトに変換します.
 解析に失敗した場合は例外をスローします.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を解析して DATE
-型の時間オブジェクトに変換します.
+			<p>指定された文字列を解析して DATE 型の時間オブジェクトに変換します.
 解析に失敗した場合は例外をスローします.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -198,7 +224,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code><br>解析結果
 				</div>
 
 
@@ -211,6 +237,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
 			
 			</code>
@@ -221,19 +248,13 @@
 		<code><a href="source-class-Peach.DT.Format.html#51-58" title="Go to source code">parseDatetime</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を解析して DATETIME
-型の時間オブジェクトに変換します.
+			<p>指定された文字列を解析して DATETIME 型の時間オブジェクトに変換します.
 解析に失敗した場合は例外をスローします.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を解析して DATETIME
-型の時間オブジェクトに変換します.
+			<p>指定された文字列を解析して DATETIME 型の時間オブジェクトに変換します.
 解析に失敗した場合は例外をスローします.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -244,7 +265,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code><br>解析結果
 				</div>
 
 
@@ -257,6 +278,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code>
 			
 			</code>
@@ -267,19 +289,13 @@
 		<code><a href="source-class-Peach.DT.Format.html#60-67" title="Go to source code">parseTimestamp</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を解析して TIMESTAMP
-型の時間オブジェクトに変換します.
+			<p>指定された文字列を解析して TIMESTAMP 型の時間オブジェクトに変換します.
 解析に失敗した場合は例外をスローします.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を解析して TIMESTAMP
-型の時間オブジェクトに変換します.
+			<p>指定された文字列を解析して TIMESTAMP 型の時間オブジェクトに変換します.
 解析に失敗した場合は例外をスローします.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -290,7 +306,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code></code><br>解析結果<br>
+					<code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code><br>解析結果
 				</div>
 
 
@@ -303,6 +319,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -313,15 +330,11 @@
 		<code><a href="source-class-Peach.DT.Format.html#69-75" title="Go to source code">formatDate</a>( <span><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Date オブジェクトを書式化します.</p>
-
+			<p>指定された Date オブジェクトを書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Date オブジェクトを書式化します.</p>
-
+			<p>指定された Date オブジェクトを書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -332,7 +345,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>このフォーマットによる文字列表現<br>
+					string<br>このフォーマットによる文字列表現
 				</div>
 
 
@@ -345,6 +358,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -355,15 +369,11 @@
 		<code><a href="source-class-Peach.DT.Format.html#77-83" title="Go to source code">formatDatetime</a>( <span><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Datetime オブジェクトを書式化します.</p>
-
+			<p>指定された Datetime オブジェクトを書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Datetime オブジェクトを書式化します.</p>
-
+			<p>指定された Datetime オブジェクトを書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -374,7 +384,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>このフォーマットによる文字列表現<br>
+					string<br>このフォーマットによる文字列表現
 				</div>
 
 
@@ -387,6 +397,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -397,15 +408,11 @@
 		<code><a href="source-class-Peach.DT.Format.html#85-91" title="Go to source code">formatTimestamp</a>( <span><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Timestamp オブジェクトを書式化します.</p>
-
+			<p>指定された Timestamp オブジェクトを書式化します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Timestamp オブジェクトを書式化します.</p>
-
+			<p>指定された Timestamp オブジェクトを書式化します.</p>
 
 
 				<h4>Parameters</h4>
@@ -416,7 +423,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>このフォーマットによる文字列表現<br>
+					string<br>このフォーマットによる文字列表現
 				</div>
 
 
@@ -447,11 +454,11 @@
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

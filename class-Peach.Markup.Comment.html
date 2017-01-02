@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Markup\Comment | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -108,9 +150,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -121,11 +160,8 @@
 
 
 	<div class="description">
-	
-<p>マークアップ言語のコメントをあらわすクラスです.
-単なるコメントとしての用途だけでなく,
-任意のノードをコメントアウトすることも出来ます.</p>
-
+	<p>マークアップ言語のコメントをあらわすクラスです.
+単なるコメントとしての用途だけでなく, 任意のノードをコメントアウトすることも出来ます.</p>
 	</div>
 
 	<dl class="tree">
@@ -153,7 +189,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.Comment.html#31-127" title="Go to source code">Peach/Markup/Comment.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Markup.Comment.html#31-138" title="Go to source code">Peach/Markup/Comment.php</a>
+		<br>
 	</div>
 
 
@@ -164,6 +201,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -174,31 +212,25 @@
 		<code><a href="source-class-Peach.Markup.Comment.html#61-75" title="Go to source code">__construct</a>( <span>string <var>$prefix</var> = <span class="php-quote">&quot;&quot;</span></span>, <span>string <var>$suffix</var> = <span class="php-quote">&quot;&quot;</span></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された prefix と suffix を持つ Comment
-オブジェクトを構築します. prefix と suffix は,
-主に条件付きコメントの先頭 ("[if IE 6]&gt;" など) と 末尾
-("&lt;![endif]" など) に使用されます.
+			<p>指定された prefix と suffix を持つ Comment オブジェクトを構築します.
+prefix と suffix は, 主に条件付きコメントの先頭 ("[if IE 6]>" など) と
+末尾 ("&lt;![endif]" など) に使用されます.
 引数を指定しない場合は通常のコメントノードを生成します.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された prefix と suffix を持つ Comment
-オブジェクトを構築します. prefix と suffix は,
-主に条件付きコメントの先頭 ("[if IE 6]&gt;" など) と 末尾
-("&lt;![endif]" など) に使用されます.
+			<p>指定された prefix と suffix を持つ Comment オブジェクトを構築します.
+prefix と suffix は, 主に条件付きコメントの先頭 ("[if IE 6]>" など) と
+末尾 ("&lt;![endif]" など) に使用されます.
 引数を指定しない場合は通常のコメントノードを生成します.</p>
-
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$prefix</var></dt>
-					<dd>コメントの冒頭 ("[if IE 6]&amp;gt;" など)</dd>
+					<dd>コメントの冒頭 ("[if IE 6]>" など)</dd>
 					<dt><var>$suffix</var></dt>
-					<dd>コメントの末尾 ("&amp;lt;![endif]" など)</dd>
+					<dd>コメントの末尾 ("&lt;![endif]" など)</dd>
 				</dl></div>
 
 
@@ -212,6 +244,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -222,21 +255,17 @@
 		<code><a href="source-class-Peach.Markup.Comment.html#77-85" title="Go to source code">getPrefix</a>( )</code>
 
 		<div class="description short">
-			
-<p>コメントの冒頭の文字列を返します.</p>
-
+			<p>コメントの冒頭の文字列を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>コメントの冒頭の文字列を返します.</p>
-
+			<p>コメントの冒頭の文字列を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>コメントの冒頭文字列. 存在しない場合は空文字列<br>
+					string<br>コメントの冒頭文字列. 存在しない場合は空文字列
 				</div>
 
 
@@ -249,6 +278,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -259,21 +289,17 @@
 		<code><a href="source-class-Peach.Markup.Comment.html#87-95" title="Go to source code">getSuffix</a>( )</code>
 
 		<div class="description short">
-			
-<p>コメントの末尾の文字列を返します.</p>
-
+			<p>コメントの末尾の文字列を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>コメントの末尾の文字列を返します.</p>
-
+			<p>コメントの末尾の文字列を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>コメントの末尾の文字列. 存在しない場合は空文字列<br>
+					string<br>コメントの末尾の文字列. 存在しない場合は空文字列
 				</div>
 
 
@@ -286,6 +312,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -296,15 +323,13 @@
 		<code><a href="source-class-Peach.Markup.Comment.html#97-106" title="Go to source code">accept</a>( <span><code><a href="class-Peach.Markup.Context.html">Peach\Markup\Context</a></code> <var>$context</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Context にこのノードを処理させます. <code><a href="class-Peach.Markup.Context.html#_handleComment">Peach\Markup\Context::handleComment()</a></code> を呼び出します.</p>
-
+			<p>指定された Context にこのノードを処理させます.
+<a href="Context::handleComment()">Context::handleComment()</a> を呼び出します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Context にこのノードを処理させます. <code><a href="class-Peach.Markup.Context.html#_handleComment">Peach\Markup\Context::handleComment()</a></code> を呼び出します.</p>
-
+			<p>指定された Context にこのノードを処理させます.
+<a href="Context::handleComment()">Context::handleComment()</a> を呼び出します.</p>
 
 
 				<h4>Parameters</h4>
@@ -322,33 +347,28 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="append" id="_append">
+	<tr data-order="appendNode" id="_appendNode">
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_append">#</a>
-		<code><a href="source-class-Peach.Markup.Comment.html#108-116" title="Go to source code">append</a>( <span>mixed <var>$var</var></span> )</code>
+		<a class="anchor" href="#_appendNode">#</a>
+		<code><a href="source-class-Peach.Markup.Comment.html#108-116" title="Go to source code">appendNode</a>( <span>mixed <var>$var</var></span> )</code>
 
 		<div class="description short">
-			
-<p>このコメントにテキストまたはノードを追加します.
-ノードを追加した場合,
-このコメントノードは引数のノードのコメントアウトとして働きます.</p>
-
+			<p>このコメントにテキストまたはノードを追加します.
+ノードを追加した場合, このコメントノードは引数のノードのコメントアウトとして働きます.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このコメントにテキストまたはノードを追加します.
-ノードを追加した場合,
-このコメントノードは引数のノードのコメントアウトとして働きます.</p>
-
+			<p>このコメントにテキストまたはノードを追加します.
+ノードを追加した場合, このコメントノードは引数のノードのコメントアウトとして働きます.</p>
 
 
 				<h4>Parameters</h4>
@@ -362,7 +382,7 @@
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Peach.Markup.Container.html#_append">Peach\Markup\Container::append()</a></code></div>
+				<div class="list"><code><a href="class-Peach.Markup.Container.html#_appendNode">Peach\Markup\Container::appendNode()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -370,6 +390,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			array
 			
 			</code>
@@ -380,21 +401,17 @@
 		<code><a href="source-class-Peach.Markup.Comment.html#118-126" title="Go to source code">getChildNodes</a>( )</code>
 
 		<div class="description short">
-			
-<p>このコメントノードに含まれる子ノードの一覧を返します.</p>
-
+			<p>このコメントノードに含まれる子ノードの一覧を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このコメントノードに含まれる子ノードの一覧を返します.</p>
-
+			<p>このコメントノードに含まれる子ノードの一覧を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>子ノードの一覧<br>
+					array<br>子ノードの一覧
 				</div>
 
 
@@ -402,6 +419,44 @@
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Peach.Markup.Container.html#_getChildNodes">Peach\Markup\Container::getChildNodes()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAppendee" id="_getAppendee">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAppendee">#</a>
+		<code><a href="source-class-Peach.Markup.Comment.html#128-137" title="Go to source code">getAppendee</a>( )</code>
+
+		<div class="description short">
+			<p>このオブジェクトを <a href="Container::appendNode()">Container::appendNode()</a> に指定した場合,
+このオブジェクト自身が追加されます.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>このオブジェクトを <a href="Container::appendNode()">Container::appendNode()</a> に指定した場合,
+このオブジェクト自身が追加されます.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code><br>このオブジェクトを 1 つだけ含んだ NodeList
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Markup.Component.html#_getAppendee">Peach\Markup\Component::getAppendee()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -427,11 +482,11 @@
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

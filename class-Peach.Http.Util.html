@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Peach\Http\Util | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Http.Body.html">Body</a></li>
+				<li><a href="class-Peach.Http.DefaultEndpoint.html">DefaultEndpoint</a></li>
+				<li><a href="class-Peach.Http.Request.html">Request</a></li>
+				<li><a href="class-Peach.Http.Response.html">Response</a></li>
+				<li class="active"><a href="class-Peach.Http.Util.html">Util</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Http.BodyRenderer.html">BodyRenderer</a></li>
+				<li><a href="class-Peach.Http.Endpoint.html">Endpoint</a></li>
+				<li><a href="class-Peach.Http.HeaderField.html">HeaderField</a></li>
+				<li><a href="class-Peach.Http.MultiHeaderField.html">MultiHeaderField</a></li>
+				<li><a href="class-Peach.Http.SingleHeaderField.html">SingleHeaderField</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Http.html" title="Summary of Peach\Http"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Util</h1>
+
+
+	<div class="description">
+	<p>HTTP メッセージを扱う際によく使われる機能を集めたユーティリティクラスです.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Http.html">Http</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Peach.Http.Util.html#37-260" title="Go to source code">Peach/Http/Util.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="validateHeaderName" id="_validateHeaderName">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validateHeaderName">#</a>
+		<code><a href="source-class-Peach.Http.Util.html#47-72" title="Go to source code">validateHeaderName</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			<p>指定された文字列が HTTP ヘッダー名として妥当かどうかを検証します.
+文字列が半角アルファベット・数字・ハイフンから成る場合のみ妥当とします.
+妥当な文字列でない場合は InvalidArgumentException をスローします.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された文字列が HTTP ヘッダー名として妥当かどうかを検証します.
+文字列が半角アルファベット・数字・ハイフンから成る場合のみ妥当とします.
+妥当な文字列でない場合は InvalidArgumentException をスローします.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>ヘッダー名</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>引数がヘッダー名として不正だった場合
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="validateHeaderValue" id="_validateHeaderValue">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validateHeaderValue">#</a>
+		<code><a href="source-class-Peach.Http.Util.html#74-101" title="Go to source code">validateHeaderValue</a>( <span>string <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>指定された文字列が HTTP ヘッダーの値として妥当かどうかを検証します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された文字列が HTTP ヘッダーの値として妥当かどうかを検証します.</p>
+
+<p><a href="https://tools.ietf.org/html/rfc7230">RFC 7230</a> で定義された以下の ABNF に基いて妥当性の判定を行います.</p>
+
+<pre><span class="php-keyword2">header</span>-field   = field-name <span class="php-quote">&quot;:&quot;</span> OWS field-value OWS
+
+field-name     = token
+field-value    = *( field-content / obs-fold )
+field-content  = field-vchar [ <span class="php-num">1</span>*( SP / HTAB ) field-vchar ]
+field-vchar    = VCHAR / obs-text
+
+obs-fold       = CRLF <span class="php-num">1</span>*( SP / HTAB )</pre>
+
+<p>妥当な文字列でない場合は InvalidArgumentException をスローします.
+obs-text および obs-fold については RFC7230 で廃止されているため例外として処理します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd>検査対象のヘッダー値</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>引数がヘッダー値として不正だった場合
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkResponseUpdate" id="_checkResponseUpdate">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkResponseUpdate">#</a>
+		<code><a href="source-class-Peach.Http.Util.html#158-179" title="Go to source code">checkResponseUpdate</a>( <span><code><a href="class-Peach.Http.Request.html">Peach\Http\Request</a></code> <var>$request</var></span>, <span><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code> <var>$lastModified</var></span>, <span>string <var>$etag</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>指定された Request の If-Modified-Since および If-None-Match ヘッダーを参照し,
+この Request がキャッシュしているリソースの最新版が存在するかどうかを判定します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された Request の If-Modified-Since および If-None-Match ヘッダーを参照し,
+この Request がキャッシュしているリソースの最新版が存在するかどうかを判定します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$request</var></dt>
+					<dd>判定対象の Request</dd>
+					<dt><var>$lastModified</var></dt>
+					<dd>サーバー側リソースの最終更新日時</dd>
+					<dt><var>$etag</var></dt>
+					<dd>サーバー側リソースの ETag</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseHeader" id="_parseHeader">
+
+		<td class="attributes"><code>
+			 public static
+
+			<code><a href="class-Peach.Http.HeaderField.html">Peach\Http\HeaderField</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseHeader">#</a>
+		<code><a href="source-class-Peach.Http.Util.html#181-215" title="Go to source code">parseHeader</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>指定されたヘッダー名, ヘッダー値の組み合わせから
+HeaderField オブジェクトを構築します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定されたヘッダー名, ヘッダー値の組み合わせから
+HeaderField オブジェクトを構築します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>ヘッダー名</dd>
+					<dt><var>$value</var></dt>
+					<dd>ヘッダー値</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Peach.Http.HeaderField.html">Peach\Http\HeaderField</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

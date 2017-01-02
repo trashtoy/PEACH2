@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Peach\Http\DefaultEndpoint | PEACH2</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Peach.Http.Body.html">Body</a></li>
+				<li class="active"><a href="class-Peach.Http.DefaultEndpoint.html">DefaultEndpoint</a></li>
+				<li><a href="class-Peach.Http.Request.html">Request</a></li>
+				<li><a href="class-Peach.Http.Response.html">Response</a></li>
+				<li><a href="class-Peach.Http.Util.html">Util</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Peach.Http.BodyRenderer.html">BodyRenderer</a></li>
+				<li><a href="class-Peach.Http.Endpoint.html">Endpoint</a></li>
+				<li><a href="class-Peach.Http.HeaderField.html">HeaderField</a></li>
+				<li><a href="class-Peach.Http.MultiHeaderField.html">MultiHeaderField</a></li>
+				<li><a href="class-Peach.Http.SingleHeaderField.html">SingleHeaderField</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Peach.Http.html" title="Summary of Peach\Http"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class DefaultEndpoint</h1>
+
+
+	<div class="description">
+	<p>一般的な WEB アプリケーションで使用されることを想定した Endpoint です.</p>
+
+<p>このクラスは $_GET, $_POST, $_SERVER などの情報を基にして Request を構築します.
+send() メソッドでは Response の内容を
+<a href="http://php.net/manual/function.header.php">header()</a> および
+<a href="http://php.net/manual/function.echo.php">echo()</a> を利用してクライアントに送信します.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Peach\Http\DefaultEndpoint</span></b>			
+			 implements 
+				<a href="class-Peach.Http.Endpoint.html"><span>Peach\Http\Endpoint</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Http.html">Http</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Peach.Http.DefaultEndpoint.html#34-173" title="Go to source code">Peach/Http/DefaultEndpoint.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Peach.Http.DefaultEndpoint.html#52-57" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			<p>新しい DefaultEndpoint インスタンスを構築します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>新しい DefaultEndpoint インスタンスを構築します.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRequest" id="_getRequest">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Peach.Http.Request.html">Peach\Http\Request</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRequest">#</a>
+		<code><a href="source-class-Peach.Http.DefaultEndpoint.html#106-118" title="Go to source code">getRequest</a>( )</code>
+
+		<div class="description short">
+			<p>受信した HTTP リクエストを $_GET, $_POST, $_SERVER などのグローバル変数を参照して
+Request オブジェクトに変換し, その結果を返します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>受信した HTTP リクエストを $_GET, $_POST, $_SERVER などのグローバル変数を参照して
+Request オブジェクトに変換し, その結果を返します.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Peach.Http.Request.html">Peach\Http\Request</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Http.Endpoint.html#_getRequest">Peach\Http\Endpoint::getRequest()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="send" id="_send">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_send">#</a>
+		<code><a href="source-class-Peach.Http.DefaultEndpoint.html#120-152" title="Go to source code">send</a>( <span><code><a href="class-Peach.Http.Response.html">Peach\Http\Response</a></code> <var>$response</var></span> )</code>
+
+		<div class="description short">
+			<p>指定された Response オブジェクトを header() や echo()
+などを使ってクライアントに送信します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>指定された Response オブジェクトを header() や echo()
+などを使ってクライアントに送信します.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$response</var></dt>
+					<dd>送信対象の Response オブジェクト</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Http.Endpoint.html#_send">Peach\Http\Endpoint::send()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

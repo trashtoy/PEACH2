@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Util\HashMapEntry | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li class="active">
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -76,8 +117,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -92,9 +132,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -105,9 +142,7 @@
 
 
 	<div class="description">
-	
-<p><code><a href="class-Peach.Util.HashMap.html">Peach\Util\HashMap</a></code> の内部で使われる MapEntry です.</p>
-
+	<p><code><a href="class-Peach.Util.HashMap.html">Peach\Util\HashMap</a></code> の内部で使われる MapEntry です.</p>
 	</div>
 
 	<dl class="tree">
@@ -141,8 +176,9 @@
 		
 
 				<b>See:</b>
-				<code><code><a href="class-Peach.Util.HashMap.html#_createEntry">Peach\Util\HashMap::createEntry()</a></code></code><br>
-		<b>Located at</b> <a href="source-class-Peach.Util.HashMapEntry.html#30-62" title="Go to source code">Peach/Util/HashMapEntry.php</a><br>
+				<code><a href="class-Peach.Util.HashMap.html#_createEntry">Peach\Util\HashMap::createEntry()</a></code><br>
+			<b>Located at</b> <a href="source-class-Peach.Util.HashMapEntry.html#30-62" title="Go to source code">Peach/Util/HashMapEntry.php</a>
+		<br>
 	</div>
 
 
@@ -153,6 +189,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -163,25 +200,19 @@
 		<code><a href="source-class-Peach.Util.HashMapEntry.html#37-51" title="Go to source code">keyEquals</a>( <span>mixed <var>$key</var></span>, <span><code><a href="class-Peach.Util.Equator.html">Peach\Util\Equator</a></code> <var>$e</var></span> )</code>
 
 		<div class="description short">
-			
-<p>このエントリーのキーと引数のキーを比較します.
-このメソッドは <code><a href="class-Peach.Util.HashMap.html#_put">Peach\Util\HashMap::put()</a></code> または <code><a href="class-Peach.Util.HashMap.html#_containsKey">Peach\Util\HashMap::containsKey()</a></code>
-でキーが既に存在するかどうか調べるために使用されます.
-このメソッドは, Java
-で例えると「パッケージプライベート」に相当します.
+			<p>このエントリーのキーと引数のキーを比較します.
+このメソッドは <a href="HashMap::put">HashMap::put</a> または
+<a href="HashMap::containsKey">HashMap::containsKey</a> でキーが既に存在するかどうか調べるために使用されます.
+このメソッドは, Java で例えると「パッケージプライベート」に相当します.
 エンドユーザーが直接使う機会はありません.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このエントリーのキーと引数のキーを比較します.
-このメソッドは <code><a href="class-Peach.Util.HashMap.html#_put">Peach\Util\HashMap::put()</a></code> または <code><a href="class-Peach.Util.HashMap.html#_containsKey">Peach\Util\HashMap::containsKey()</a></code>
-でキーが既に存在するかどうか調べるために使用されます.
-このメソッドは, Java
-で例えると「パッケージプライベート」に相当します.
+			<p>このエントリーのキーと引数のキーを比較します.
+このメソッドは <a href="HashMap::put">HashMap::put</a> または
+<a href="HashMap::containsKey">HashMap::containsKey</a> でキーが既に存在するかどうか調べるために使用されます.
+このメソッドは, Java で例えると「パッケージプライベート」に相当します.
 エンドユーザーが直接使う機会はありません.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -194,7 +225,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>このエントリーのキーと引数が等しい場合に true<br>
+					boolean<br>このエントリーのキーと引数が等しい場合に true
 				</div>
 
 
@@ -207,6 +238,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -217,15 +249,11 @@
 		<code><a href="source-class-Peach.Util.HashMapEntry.html#53-61" title="Go to source code">setValue</a>( <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
-<p>このエントリーの値を新しい値に更新します.</p>
-
+			<p>このエントリーの値を新しい値に更新します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このエントリーの値を新しい値に更新します.</p>
-
+			<p>このエントリーの値を新しい値に更新します.</p>
 
 
 				<h4>Parameters</h4>
@@ -282,11 +310,11 @@
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

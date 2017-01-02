@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Util\Strings | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li class="active">
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -76,8 +117,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -92,9 +132,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -105,9 +142,7 @@
 
 
 	<div class="description">
-	
-<p>文字列処理に関するユーティリティクラスです</p>
-
+	<p>文字列処理に関するユーティリティクラスです</p>
 	</div>
 
 
@@ -124,7 +159,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Util.html">Util</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Util.Strings.html#30-244" title="Go to source code">Peach/Util/Strings.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Util.Strings.html#30-244" title="Go to source code">Peach/Util/Strings.php</a>
+		<br>
 	</div>
 
 
@@ -135,6 +171,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			array
 			
 			</code>
@@ -145,28 +182,20 @@
 		<code><a href="source-class-Peach.Util.Strings.html#40-64" title="Go to source code">explode</a>( <span>string <var>$separator</var></span>, <span>string <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
-<p>内部関数の <a href="http://jp1.php.net/manual/ja/function.explode.php">explode()</a> のカスタム版です. 基本的にはオリジナルの explode()
-と同じですが, 以下の点が異なります.</p>
-
+			<p>内部関数の <a href="http://jp1.php.net/manual/ja/function.explode.php">explode()</a> のカスタム版です.
+基本的にはオリジナルの explode() と同じですが, 以下の点が異なります.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>内部関数の <a href="http://jp1.php.net/manual/ja/function.explode.php">explode()</a> のカスタム版です. 基本的にはオリジナルの explode()
-と同じですが, 以下の点が異なります.</p>
+			<p>内部関数の <a href="http://jp1.php.net/manual/ja/function.explode.php">explode()</a> のカスタム版です.
+基本的にはオリジナルの explode() と同じですが, 以下の点が異なります.</p>
 
 <ul>
-	<li>$separator が空文字列の場合に空の配列を返す
-	(オリジナルは FALSE を返す)</li>
-
-	<li>$value が文字列以外の場合, <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
-	の結果を使用する</li>
+<li>$separator が空文字列の場合に空の配列を返す (オリジナルは FALSE を返す)</li>
+<li>$value が文字列以外の場合, <a href="Values::stringValue">Values::stringValue</a> の結果を使用する</li>
 </ul>
 
-<p>引数をどのように指定しても,
-返り値が必ず配列型になることが特徴です.</p>
-
+<p>引数をどのように指定しても, 返り値が必ず配列型になることが特徴です.</p>
 
 
 				<h4>Parameters</h4>
@@ -179,9 +208,8 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>セパレータが見つからないときは長さ 1 の配列,
-対象が空文字列の場合は空の配列, それ以外は explode()
-と同じ.<br>
+					array<br><p>セパレータが見つからないときは長さ 1 の配列,
+               対象が空文字列の場合は空の配列, それ以外は explode() と同じ.</p>
 				</div>
 
 
@@ -194,6 +222,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			array
 			
 			</code>
@@ -204,19 +233,15 @@
 		<code><a href="source-class-Peach.Util.Strings.html#66-77" title="Go to source code">getLines</a>( <span>string <var>$str</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を行単位で分割します. 引数の文字列を
-CR, LF, CRLF で分割し, 結果の配列を返します.
+			<p>指定された文字列を行単位で分割します.
+引数の文字列を CR, LF, CRLF で分割し, 結果の配列を返します.
 結果の配列の各要素に改行コードは含まれません.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を行単位で分割します. 引数の文字列を
-CR, LF, CRLF で分割し, 結果の配列を返します.
+			<p>指定された文字列を行単位で分割します.
+引数の文字列を CR, LF, CRLF で分割し, 結果の配列を返します.
 結果の配列の各要素に改行コードは含まれません.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -227,7 +252,7 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>行単位で分割された文字列の配列<br>
+					array<br>行単位で分割された文字列の配列
 				</div>
 
 
@@ -240,6 +265,7 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 
 		<td class="attributes"><code>
 			 public static
+
 			boolean
 			
 			</code>
@@ -250,15 +276,11 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 		<code><a href="source-class-Peach.Util.Strings.html#79-88" title="Go to source code">isWhitespace</a>( <span>string <var>$str</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列が空白文字の集合からなる文字列かどうかを返します.</p>
-
+			<p>指定された文字列が空白文字の集合からなる文字列かどうかを返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列が空白文字の集合からなる文字列かどうかを返します.</p>
-
+			<p>指定された文字列が空白文字の集合からなる文字列かどうかを返します.</p>
 
 
 				<h4>Parameters</h4>
@@ -269,8 +291,8 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>引数が NULL, 空文字列, "\r", "\n", "\t",
-半角スペースから成る文字列の場合に TRUE, それ以外は FALSE<br>
+					boolean<br><p>引数が NULL, 空文字列, "\r", "\n", "\t",
+                    半角スペースから成る文字列の場合に TRUE, それ以外は FALSE</p>
 				</div>
 
 
@@ -283,6 +305,7 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 
 		<td class="attributes"><code>
 			 public static
+
 			string
 			
 			</code>
@@ -293,23 +316,15 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 		<code><a href="source-class-Peach.Util.Strings.html#90-111" title="Go to source code">basedir</a>( <span>string <var>$basedir</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を基底ディレクトリに変換します.
-引数が空文字列か, '/'
-で終わる文字列の場合は引数をそのまま返します.
-それ以外の場合は, 引数の末尾に '/'
-を連結した文字列を返します.</p>
-
+			<p>指定された文字列を基底ディレクトリに変換します.
+引数が空文字列か, '/' で終わる文字列の場合は引数をそのまま返します.
+それ以外の場合は, 引数の末尾に '/' を連結した文字列を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を基底ディレクトリに変換します.
-引数が空文字列か, '/'
-で終わる文字列の場合は引数をそのまま返します.
-それ以外の場合は, 引数の末尾に '/'
-を連結した文字列を返します.</p>
-
+			<p>指定された文字列を基底ディレクトリに変換します.
+引数が空文字列か, '/' で終わる文字列の場合は引数をそのまま返します.
+それ以外の場合は, 引数の末尾に '/' を連結した文字列を返します.</p>
 
 
 				<h4>Parameters</h4>
@@ -320,7 +335,7 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>基底ディレクトリ名<br>
+					string<br>基底ディレクトリ名
 				</div>
 
 
@@ -333,6 +348,7 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 
 		<td class="attributes"><code>
 			 public static
+
 			integer
 			
 			</code>
@@ -343,35 +359,25 @@ CR, LF, CRLF で分割し, 結果の配列を返します.
 		<code><a href="source-class-Peach.Util.Strings.html#113-143" title="Go to source code">getRawIndex</a>( <span>string <var>$text</var></span>, <span>string <var>$chr</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列の中で、"\"
-によるエスケープ処理のされていない文字列があらわれる
-最初のインデックスを返します. 偶数個の "\"
-が続いた後に対象の文字列が出現した場合に、そのインデックスを返り値とします.
-奇数個の "\" の後の文字については, その直前の "\"
-によってエスケープされているとみなして スルーします.
-以下に例を示します.</p>
-
+			<p>指定された文字列の中で、"\" によるエスケープ処理のされていない文字列があらわれる
+最初のインデックスを返します.
+偶数個の "\" が続いた後に対象の文字列が出現した場合に、そのインデックスを返り値とします.
+奇数個の "\" の後の文字については, その直前の "\" によってエスケープされているとみなして
+スルーします. 以下に例を示します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列の中で、"\"
-によるエスケープ処理のされていない文字列があらわれる
-最初のインデックスを返します. 偶数個の "\"
-が続いた後に対象の文字列が出現した場合に、そのインデックスを返り値とします.
-奇数個の "\" の後の文字については, その直前の "\"
-によってエスケープされているとみなして スルーします.
-以下に例を示します.</p>
+			<p>指定された文字列の中で、"\" によるエスケープ処理のされていない文字列があらわれる
+最初のインデックスを返します.
+偶数個の "\" が続いた後に対象の文字列が出現した場合に、そのインデックスを返り値とします.
+奇数個の "\" の後の文字については, その直前の "\" によってエスケープされているとみなして
+スルーします. 以下に例を示します.</p>
 
-<pre>
-getRawIndex(&quot;AB=CD=EF&quot;, &quot;=&quot;)     =&gt; 2
-getRawIndex(&quot;AB\\=CD=EF&quot;, &quot;=&quot;)   =&gt; 6
-getRawIndex(&quot;AB\\\\=CD=EF&quot;, &quot;=&quot;) =&gt; 4
-</pre>
+<pre>getRawIndex(<span class="php-quote">&quot;AB=CD=EF&quot;</span>, <span class="php-quote">&quot;=&quot;</span>)     =&gt; <span class="php-num">2</span>
+getRawIndex(<span class="php-quote">&quot;AB\\=CD=EF&quot;</span>, <span class="php-quote">&quot;=&quot;</span>)   =&gt; <span class="php-num">6</span>
+getRawIndex(<span class="php-quote">&quot;AB\\\\=CD=EF&quot;</span>, <span class="php-quote">&quot;=&quot;</span>) =&gt; <span class="php-num">4</span></pre>
 
 <p>インデックスが存在しない場合は FALSE を返します.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -384,7 +390,7 @@ getRawIndex(&quot;AB\\\\=CD=EF&quot;, &quot;=&quot;) =&gt; 4
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>インデックス. ただし存在しない場合は FALSE<br>
+					integer<br>インデックス. ただし存在しない場合は FALSE
 				</div>
 
 
@@ -397,6 +403,7 @@ getRawIndex(&quot;AB\\\\=CD=EF&quot;, &quot;=&quot;) =&gt; 4
 
 		<td class="attributes"><code>
 			 public static
+
 			boolean
 			
 			</code>
@@ -407,21 +414,15 @@ getRawIndex(&quot;AB\\\\=CD=EF&quot;, &quot;=&quot;) =&gt; 4
 		<code><a href="source-class-Peach.Util.Strings.html#145-167" title="Go to source code">startsWith</a>( <span>string <var>$text</var></span>, <span>string <var>$prefix</var></span> )</code>
 
 		<div class="description short">
-			
-<p>ある文字列が指定された文字列で始まっているかどうかを判別します.
+			<p>ある文字列が指定された文字列で始まっているかどうかを判別します.
 $prefix が空文字列の場合は TRUE を返します.
-引数が文字列以外の場合は <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
-が適用されます.</p>
-
+引数が文字列以外の場合は <a href="Values::stringValue">Values::stringValue</a> が適用されます.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>ある文字列が指定された文字列で始まっているかどうかを判別します.
+			<p>ある文字列が指定された文字列で始まっているかどうかを判別します.
 $prefix が空文字列の場合は TRUE を返します.
-引数が文字列以外の場合は <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
-が適用されます.</p>
-
+引数が文字列以外の場合は <a href="Values::stringValue">Values::stringValue</a> が適用されます.</p>
 
 
 				<h4>Parameters</h4>
@@ -434,7 +435,7 @@ $prefix が空文字列の場合は TRUE を返します.
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>引数 $text の先頭が $prefix である場合に TRUE<br>
+					boolean<br>引数 $text の先頭が $prefix である場合に TRUE
 				</div>
 
 
@@ -447,6 +448,7 @@ $prefix が空文字列の場合は TRUE を返します.
 
 		<td class="attributes"><code>
 			 public static
+
 			boolean
 			
 			</code>
@@ -457,21 +459,15 @@ $prefix が空文字列の場合は TRUE を返します.
 		<code><a href="source-class-Peach.Util.Strings.html#169-192" title="Go to source code">endsWith</a>( <span>string <var>$text</var></span>, <span>string <var>$suffix</var></span> )</code>
 
 		<div class="description short">
-			
-<p>ある文字列が指定された文字列で終了しているかどうかを判別します.
+			<p>ある文字列が指定された文字列で終了しているかどうかを判別します.
 $suffix が空文字列の場合は TRUE を返します.
-引数が文字列以外の場合は <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
-が適用されます.</p>
-
+引数が文字列以外の場合は <a href="Values::stringValue">Values::stringValue</a> が適用されます.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>ある文字列が指定された文字列で終了しているかどうかを判別します.
+			<p>ある文字列が指定された文字列で終了しているかどうかを判別します.
 $suffix が空文字列の場合は TRUE を返します.
-引数が文字列以外の場合は <code><a href="class-Peach.Util.Values.html#_stringValue">Peach\Util\Values::stringValue()</a></code>
-が適用されます.</p>
-
+引数が文字列以外の場合は <a href="Values::stringValue">Values::stringValue</a> が適用されます.</p>
 
 
 				<h4>Parameters</h4>
@@ -484,7 +480,7 @@ $suffix が空文字列の場合は TRUE を返します.
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>引数 $text の末尾が $suffix に等しい場合に TRUE<br>
+					boolean<br>引数 $text の末尾が $suffix に等しい場合に TRUE
 				</div>
 
 
@@ -497,6 +493,7 @@ $suffix が空文字列の場合は TRUE を返します.
 
 		<td class="attributes"><code>
 			 public static
+
 			boolean
 			
 			</code>
@@ -507,30 +504,19 @@ $suffix が空文字列の場合は TRUE を返します.
 		<code><a href="source-class-Peach.Util.Strings.html#194-212" title="Go to source code">endsWithRawChar</a>( <span>string <var>$text</var></span>, <span>string <var>$chr</var></span> )</code>
 
 		<div class="description short">
-			
-<p>ある文字列が指定された文字で終了して,
-かつエスケープ処理されていないかを判別します.
+			<p>ある文字列が指定された文字で終了して, かつエスケープ処理されていないかを判別します.
 以下に例を示します.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>ある文字列が指定された文字で終了して,
-かつエスケープ処理されていないかを判別します.
+			<p>ある文字列が指定された文字で終了して, かつエスケープ処理されていないかを判別します.
 以下に例を示します.</p>
 
 <ul>
-	<li>("[ABC]", "]") =&gt; TRUE</li>
-
-	<li>("[ABC\\]", "]") =&gt; FALSE ("\\" がその後ろの "]"
-	をエスケープしているとみなされる)</li>
-
-	<li>("[ABC\\\\]", "]") =&gt; TRUE ("\\\\"
-	が一つの文字として扱われるため, 直後の "]"
-	に影響しない)</li>
+<li>("[ABC]", "]") => TRUE</li>
+<li>("[ABC&#92;]", "]") => FALSE ("&#92;" がその後ろの "]" をエスケープしているとみなされる)</li>
+<li>("[ABC&#92;&#92;]", "]") => TRUE ("&#92;&#92;" が一つの文字として扱われるため, 直後の "]" に影響しない)</li>
 </ul>
-
 
 
 				<h4>Parameters</h4>
@@ -543,8 +529,7 @@ $suffix が空文字列の場合は TRUE を返します.
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>引数 $text の末尾が, '\' でエスケープされていない $chr
-で終了している場合のみ TRUE<br>
+					boolean<br>引数 $text の末尾が, '\' でエスケープされていない $chr で終了している場合のみ TRUE
 				</div>
 
 
@@ -557,6 +542,7 @@ $suffix が空文字列の場合は TRUE を返します.
 
 		<td class="attributes"><code>
 			 public static
+
 			string
 			
 			</code>
@@ -567,49 +553,25 @@ $suffix が空文字列の場合は TRUE を返します.
 		<code><a href="source-class-Peach.Util.Strings.html#214-243" title="Go to source code">template</a>( <span>string <var>$template</var></span>, <span>array <var>$args</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
-			
-<p>文字列内に含まれる {0}, {1}, {2}
-などのテンプレート変数を, $args
-内の各要素で置き換えます. 例えば</p>
+			<p>文字列内に含まれる {0}, {1}, {2} などのテンプレート変数を, $args 内の各要素で置き換えます. 例えば</p>
 
-<pre>
-template(<span
-class="php-quote">'My name is {0}. I am {1} years old'</span>, <span
-class="php-keyword1">array</span>(<span class="php-quote">'Taro'</span>, <span
-class="php-num">18</span>));
-</pre>
+<pre>template(<span class="php-quote">'My name is {0}. I am {1} years old'</span>, <span class="php-keyword1">array</span>(<span class="php-quote">'Taro'</span>, <span class="php-num">18</span>));</pre>
 
 <p>の結果は次のようになります.</p>
 
-<pre>
-<span
-class="php-quote">&quot;My name is Taro. I am 18 years old&quot;</span>
-</pre>
-
+<pre><span class="php-quote">&quot;My name is Taro. I am 18 years old&quot;</span></pre>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>文字列内に含まれる {0}, {1}, {2}
-などのテンプレート変数を, $args
-内の各要素で置き換えます. 例えば</p>
+			<p>文字列内に含まれる {0}, {1}, {2} などのテンプレート変数を, $args 内の各要素で置き換えます. 例えば</p>
 
-<pre>
-template(<span
-class="php-quote">'My name is {0}. I am {1} years old'</span>, <span
-class="php-keyword1">array</span>(<span class="php-quote">'Taro'</span>, <span
-class="php-num">18</span>));
-</pre>
+<pre>template(<span class="php-quote">'My name is {0}. I am {1} years old'</span>, <span class="php-keyword1">array</span>(<span class="php-quote">'Taro'</span>, <span class="php-num">18</span>));</pre>
 
 <p>の結果は次のようになります.</p>
 
-<pre>
-<span
-class="php-quote">&quot;My name is Taro. I am 18 years old&quot;</span>
-</pre>
+<pre><span class="php-quote">&quot;My name is Taro. I am 18 years old&quot;</span></pre>
 
 <p>$template が NULL の場合は NULL を返します.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -622,7 +584,7 @@ class="php-quote">&quot;My name is Taro. I am 18 years old&quot;</span>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>テンプレートの適用結果<br>
+					string<br>テンプレートの適用結果
 				</div>
 
 
@@ -653,11 +615,11 @@ class="php-quote">&quot;My name is Taro. I am 18 years old&quot;</span>
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

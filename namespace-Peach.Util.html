@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Namespace Peach\Util | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li class="active">
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -76,8 +117,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -91,9 +131,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -108,13 +145,13 @@
 <caption>Classes summary</caption>
 <tr>
 	<td class="name"><a href="class-Peach.Util.AbstractMapEntry.html">AbstractMapEntry</a></td>
-	<td>デフォルトの <code><a href="class-Peach.Util.MapEntry.html">Peach\Util\MapEntry</a></code> の実装です. このクラスでは
-getKey(), getValue() のみ実装されています.</td>
+	<td><p>デフォルトの <code><a href="class-Peach.Util.MapEntry.html">Peach\Util\MapEntry</a></code> の実装です.
+このクラスでは getKey(), getValue() のみ実装されています.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.ArrayMap.html">ArrayMap</a></td>
-	<td>PHP の配列機能を使った Map の実装です.
-このマップはキーに整数または文字列しか使えないという制限があります.</td>
+	<td><p>PHP の配列機能を使った Map の実装です.
+このマップはキーに整数または文字列しか使えないという制限があります.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.ArrayMapEntry.html">ArrayMapEntry</a></td>
@@ -126,9 +163,9 @@ getKey(), getValue() のみ実装されています.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.DefaultComparator.html">DefaultComparator</a></td>
-	<td>デフォルトのコンパレータです. <code><a href="class-Peach.Util.Arrays.html#_sort">Peach\Util\Arrays::sort()</a></code>
-などのメソッドで,
-引数にコンパレータが指定されなかった場合に適用されます.</td>
+	<td><p>デフォルトのコンパレータです.
+<a href="Arrays::sort">Arrays::sort</a> などのメソッドで,
+引数にコンパレータが指定されなかった場合に適用されます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.DefaultEquator.html">DefaultEquator</a></td>
@@ -136,12 +173,12 @@ getKey(), getValue() のみ実装されています.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.HashMap.html">HashMap</a></td>
-	<td>任意の値やオブジェクトをキーに指定することが出来る Map
-です. 格納のアルゴリズムは <a href="http://docs.oracle.com/javase/jp/7/api/java/util/HashMap.html">java.util.HashMap</a> を参考にしています.
-キーに使用するオブジェクトは, 出来る限り不変
-(イミュータブル) なものを使用してください.
+	<td><p>任意の値やオブジェクトをキーに指定することが出来る Map です. 格納のアルゴリズムは
+<a href="http://docs.oracle.com/javase/jp/7/api/java/util/HashMap.html">java.util.HashMap</a>
+を参考にしています.
+キーに使用するオブジェクトは, 出来る限り不変 (イミュータブル) なものを使用してください.
 キーに設定したオブジェクトに対して外部から変更が加わった場合,
-このオブジェクトの動作は保障されません.</td>
+このオブジェクトの動作は保障されません.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.HashMapEntry.html">HashMapEntry</a></td>
@@ -165,26 +202,27 @@ getKey(), getValue() のみ実装されています.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.Comparator.html">Comparator</a></td>
-	<td>与えられた二つの値を比較するインタフェースです.
-このインタフェースは <code><a href="class-Peach.Util.Arrays.html#_sort">Peach\Util\Arrays::sort()</a></code>
-の引数として使われます. Java における <a href="http://docs.oracle.com/javase/jp/7/api/java/util/Comparator.html">java.util.Comparator</a>
-と同じ用途で使われることを想定しています.</td>
+	<td><p>与えられた二つの値を比較するインタフェースです.
+このインタフェースは <a href="Arrays::sort">Arrays::sort</a> の引数として使われます.
+Java における
+<a href="http://docs.oracle.com/javase/jp/7/api/java/util/Comparator.html">java.util.Comparator</a>
+と同じ用途で使われることを想定しています.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.Equator.html">Equator</a></td>
-	<td>二つの値が等価かどうかを調べるためのインタフェースです.
-<code><a href="class-Peach.Util.HashMap.html">Peach\Util\HashMap</a></code>
-などでキーの等価性をチェックするために使用されます.</td>
+	<td><p>二つの値が等価かどうかを調べるためのインタフェースです.
+<code><a href="class-Peach.Util.HashMap.html">Peach\Util\HashMap</a></code> などでキーの等価性をチェックするために使用されます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.Map.html">Map</a></td>
-	<td>キーと値のマッピングを管理するインタフェースです. API
-は <a href="http://docs.oracle.com/javase/jp/7/api/java/util/Map.html">java.util.Map</a> を参考にして作られています.</td>
+	<td><p>キーと値のマッピングを管理するインタフェースです. API は
+<a href="http://docs.oracle.com/javase/jp/7/api/java/util/Map.html">java.util.Map</a>
+を参考にして作られています.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Util.MapEntry.html">MapEntry</a></td>
-	<td>マップに含まれるキーと値のペアをあらわすインタフェースです.
-<code><a href="class-Peach.Util.Map.html#_entryList">Peach\Util\Map::entryList()</a></code> の返り値として使用されます.</td>
+	<td><p>マップに含まれるキーと値のペアをあらわすインタフェースです.
+<a href="Map::entryList">Map::entryList</a> の返り値として使用されます.</p></td>
 </tr>
 </table>
 
@@ -194,11 +232,11 @@ getKey(), getValue() のみ実装されています.</td>
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js?bb23bd0a51c32e151945eb05c184fa4b01d23b5b"></script>
+<script src="elementlist.js?726173cb4677690d4a96d764ea7f6b479d83ab49"></script>
 </body>
 </html>

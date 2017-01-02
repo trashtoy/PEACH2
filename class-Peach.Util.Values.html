@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Util\Values | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li class="active">
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -76,8 +117,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -92,9 +132,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -105,9 +142,7 @@
 
 
 	<div class="description">
-	
-<p>値の各種変換を行うユーティリティクラスです.</p>
-
+	<p>値の各種変換を行うユーティリティクラスです.</p>
 	</div>
 
 
@@ -124,7 +159,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Util.html">Util</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Util.Values.html#30-222" title="Go to source code">Peach/Util/Values.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Util.Values.html#30-222" title="Go to source code">Peach/Util/Values.php</a>
+		<br>
 	</div>
 
 
@@ -135,6 +171,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			integer
 			
 			</code>
@@ -145,16 +182,13 @@
 		<code><a href="source-class-Peach.Util.Values.html#40-80" title="Go to source code">intValue</a>( <span>mixed <var>$value</var></span>, <span>integer <var>$min</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$max</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された値を整数に変換します. この関数は変換処理に
-<a href="http://jp1.php.net/manual/ja/function.intval.php">intval()</a> を利用します.</p>
-
+			<p>指定された値を整数に変換します.
+この関数は変換処理に <a href="http://jp1.php.net/manual/ja/function.intval.php">intval()</a> を利用します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された値を整数に変換します. この関数は変換処理に
-<a href="http://jp1.php.net/manual/ja/function.intval.php">intval()</a> を利用します.</p>
+			<p>指定された値を整数に変換します.
+この関数は変換処理に <a href="http://jp1.php.net/manual/ja/function.intval.php">intval()</a> を利用します.</p>
 
 <p>最小値が指定されている場合,
 変換後の値が最小値より小さければ最小値を返します.</p>
@@ -162,14 +196,10 @@
 <p>最小値と最大値の両方が指定されている場合,
 変換後の値が最大値より大きければ最大値を返します.</p>
 
-<p>最小値が最大値より大きい場合,
-最大値の指定は無視されます.
-最大値のみ指定したい場合は, 最小値を NULL
-にしてください.</p>
+<p>最小値が最大値より大きい場合, 最大値の指定は無視されます.
+最大値のみ指定したい場合は, 最小値を NULL にしてください.</p>
 
-<p>引数にオブジェクトが指定された場合は 1
-として扱います.</p>
-
+<p>引数にオブジェクトが指定された場合は 1 として扱います.</p>
 
 
 				<h4>Parameters</h4>
@@ -177,16 +207,14 @@
 					<dt><var>$value</var></dt>
 					<dd>変換元の値</dd>
 					<dt><var>$min</var></dt>
-					<dd>最小値 (省略可). 変換後の値がこの値よりも小さい場合は,
-この値を返す.</dd>
+					<dd>最小値 (省略可). 変換後の値がこの値よりも小さい場合は, この値を返す.</dd>
 					<dt><var>$max</var></dt>
-					<dd>最大値 (省略可). 変換後の値がこの値よりも大きい場合は,
-この値を返す.</dd>
+					<dd>最大値 (省略可). 変換後の値がこの値よりも大きい場合は, この値を返す.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>引数を整数に変換した値<br>
+					integer<br>引数を整数に変換した値
 				</div>
 
 
@@ -199,6 +227,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			string
 			
 			</code>
@@ -209,21 +238,17 @@
 		<code><a href="source-class-Peach.Util.Values.html#82-106" title="Go to source code">stringValue</a>( <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された値を文字列型に変換します.</p>
-
+			<p>指定された値を文字列型に変換します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された値を文字列型に変換します.</p>
+			<p>指定された値を文字列型に変換します.</p>
 
-<p>__toString() が定義されているオブジェクトの場合は
-__toString() の結果,
+<p>__toString() が定義されているオブジェクトの場合は __toString() の結果,
 それ以外のオブジェクトはクラス名を返します.
-リソース型の場合は <a href="http://jp1.php.net/manual/ja/function.get-resource-type.php">get_resource_type()</a> にリソース ID を付け足した結果を返します.
+リソース型の場合は <a href="http://jp1.php.net/manual/ja/function.get-resource-type.php">get_resource_type()</a> にリソース ID
+を付け足した結果を返します.
 それ以外は string 型にキャストした結果を返します.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -234,7 +259,7 @@ __toString() の結果,
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>変換後の文字列<br>
+					string<br>変換後の文字列
 				</div>
 
 
@@ -247,6 +272,7 @@ __toString() の結果,
 
 		<td class="attributes"><code>
 			 public static
+
 			array
 			
 			</code>
@@ -257,29 +283,22 @@ __toString() の結果,
 		<code><a href="source-class-Peach.Util.Values.html#108-129" title="Go to source code">arrayValue</a>( <span>mixed <var>$value</var></span>, <span>boolean <var>$wrap</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された値を配列に変換します.
+			<p>指定された値を配列に変換します.
 引数が配列の場合は引数をそのまま返します.
-配列以外の値の場合は,
-第二引数によって結果が変わります.</p>
-
+配列以外の値の場合は, 第二引数によって結果が変わります.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された値を配列に変換します.
+			<p>指定された値を配列に変換します.
 引数が配列の場合は引数をそのまま返します.
-配列以外の値の場合は,
-第二引数によって結果が変わります.</p>
+配列以外の値の場合は, 第二引数によって結果が変わります.</p>
 
 <ul>
-	<li>$wrap = TRUE の場合, 引数を長さ 1 の配列として返す.</li>
-
-	<li>$wrap = FALSE の場合, 空の配列を返す.</li>
+<li>$wrap = TRUE の場合, 引数を長さ 1 の配列として返す.</li>
+<li>$wrap = FALSE の場合, 空の配列を返す.</li>
 </ul>
 
 <p>デフォルトでは $wrap = FALSE となります.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -292,7 +311,7 @@ __toString() の結果,
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>変換後の配列<br>
+					array<br>変換後の配列
 				</div>
 
 
@@ -305,6 +324,7 @@ __toString() の結果,
 
 		<td class="attributes"><code>
 			 public static
+
 			boolean
 			
 			</code>
@@ -315,35 +335,31 @@ __toString() の結果,
 		<code><a href="source-class-Peach.Util.Values.html#131-169" title="Go to source code">boolValue</a>( <span>mixed <var>$value</var></span>, <span>boolean <var>$defaultValue</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された値を bool 型に変換します. この関数は "Yes",
-"No", "True", "False", "OK", "NG" などの文字列を bool
-に変換する用途を想定したものです.</p>
-
+			<p>指定された値を bool 型に変換します.
+この関数は "Yes", "No", "True", "False", "OK", "NG" などの文字列を
+bool に変換する用途を想定したものです.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された値を bool 型に変換します. この関数は "Yes",
-"No", "True", "False", "OK", "NG" などの文字列を bool
-に変換する用途を想定したものです.</p>
+			<p>指定された値を bool 型に変換します.
+この関数は "Yes", "No", "True", "False", "OK", "NG" などの文字列を
+bool に変換する用途を想定したものです.</p>
 
 <p>引数が bool 型の場合は引数をそのまま返します.</p>
 
-<p>引数が文字列型の場合, 先頭の 1 バイトが T, Y, O
-のいずれかの場合は TRUE, 先頭の 1 バイトが F, N
-のいずれかの場合は FALSE, それ以外は文字列を bool
-にキャストした結果を返します.
+<p>引数が文字列型の場合,
+先頭の 1 バイトが T, Y, O のいずれかの場合は TRUE,
+先頭の 1 バイトが F, N のいずれかの場合は FALSE,
+それ以外は文字列を bool にキャストした結果を返します.
 (大文字・小文字は区別しません)</p>
 
 <p>引数が数値型の場合, bool にキャストした結果を返します.
 すなわち 0 以外の値は TRUE, 0 の場合は FALSE を返します.</p>
 
-<p>以上の条件にあてはまらない値の場合, $defaultValue が NULL
-または未指定の場合は第 1 引数を bool
-にキャストした結果を返します. $defaultValue
-が指定されている場合はその bool 値を返します.</p>
-
+<p>以上の条件にあてはまらない値の場合,
+$defaultValue が NULL または未指定の場合は第 1 引数を
+bool にキャストした結果を返します.
+$defaultValue が指定されている場合はその bool 値を返します.</p>
 
 
 				<h4>Parameters</h4>
@@ -356,7 +372,7 @@ __toString() の結果,
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>変換後の bool 値<br>
+					boolean<br>変換後の bool 値
 				</div>
 
 
@@ -369,6 +385,7 @@ __toString() の結果,
 
 		<td class="attributes"><code>
 			 public static
+
 			
 			
 			</code>
@@ -379,19 +396,17 @@ __toString() の結果,
 		<code><a href="source-class-Peach.Util.Values.html#210-221" title="Go to source code">getType</a>( <span>mixed <var>$var</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された値の型を返します. 内部関数の <a href="http://jp1.php.net/manual/ja/function.gettype.php">gettype()</a> とほぼ同じ動作をしますが,
+			<p>指定された値の型を返します.
+内部関数の <a href="http://jp1.php.net/manual/ja/function.gettype.php">gettype()</a> とほぼ同じ動作をしますが,
 引数にオブジェクトを指定した場合に文字列 "object"
 ではなくその値のクラス名を返すところが異なります.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された値の型を返します. 内部関数の <a href="http://jp1.php.net/manual/ja/function.gettype.php">gettype()</a> とほぼ同じ動作をしますが,
+			<p>指定された値の型を返します.
+内部関数の <a href="http://jp1.php.net/manual/ja/function.gettype.php">gettype()</a> とほぼ同じ動作をしますが,
 引数にオブジェクトを指定した場合に文字列 "object"
 ではなくその値のクラス名を返すところが異なります.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -429,11 +444,11 @@ __toString() の結果,
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

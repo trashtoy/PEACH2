@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Namespace Peach\Markup | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -107,9 +149,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -123,59 +162,62 @@
 <table class="summary" id="classes">
 <caption>Classes summary</caption>
 <tr>
+	<td class="name"><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></td>
+	<td><p>HTML や RSS など, 特定のマークアップ言語に特化した Helper
+クラスを新たに実装する際に利用するスケルトン実装です.</p></td>
+</tr>
+<tr>
 	<td class="name"><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></td>
-	<td>SGML や XML
-をマークアップするための必要最低限の書式化ルールを定義した抽象基底クラスです.</td>
+	<td>SGML や XML をマークアップするための必要最低限の書式化ルールを定義した抽象基底クラスです.</td>
+</tr>
+<tr>
+	<td class="name"><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></td>
+	<td><p>汎用的な Helper オブジェクトです.
+コンストラクタ引数に指定された Builder および空要素タグ一覧をもとにノードの生成・出力を行います.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></td>
-	<td>既存の BreakControl
-の振る舞いを拡張するためのラッパークラスです.
+	<td><p>既存の BreakControl の振る舞いを拡張するためのラッパークラスです.
 このクラスは Decorator パターンで設計されています.
 このクラスを継承して新しい BreakControl クラスを作り,
-breaks() をオーバーライドして利用してください.</td>
+breaks() をオーバーライドして利用してください.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Builder.html">Builder</a></td>
-	<td>与えられた Component を加工して HTML
-コードなどに変換するためのクラスです.</td>
+	<td>与えられた Component を加工して HTML コードなどに変換するためのクラスです.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Code.html">Code</a></td>
-	<td>整形済のテキストデータをあらわすノードです.
-例えば以下のような箇所で使用されることを想定しています.</td>
+	<td><p>整形済のテキストデータをあらわすノードです.
+例えば以下のような箇所で使用されることを想定しています.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Comment.html">Comment</a></td>
-	<td>マークアップ言語のコメントをあらわすクラスです.
-単なるコメントとしての用途だけでなく,
-任意のノードをコメントアウトすることも出来ます.</td>
+	<td><p>マークアップ言語のコメントをあらわすクラスです.
+単なるコメントとしての用途だけでなく, 任意のノードをコメントアウトすることも出来ます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.ContainerElement.html">ContainerElement</a></td>
-	<td>内部に子ノードを含めることができる要素です.
-子ノードが存在しない場合は "&lt;tag&gt;&lt;/tag&gt;"
-のように書式化されます.</td>
+	<td><p>内部に子ノードを含めることができる要素です.
+子ノードが存在しない場合は "<tag></tag>" のように書式化されます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Context.html">Context</a></td>
-	<td>各ノードを変換する処理を担当するクラスです.
-このクラスは Visitor パターンにより設計されています
-(Visitor クラスに相当します). <code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code>
-クラスと連携して以下のように動作します.</td>
+	<td><p>各ノードを変換する処理を担当するクラスです.
+このクラスは Visitor パターンにより設計されています (Visitor クラスに相当します).
+<code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code> クラスと連携して以下のように動作します.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.DebugBuilder.html">DebugBuilder</a></td>
-	<td>デバッグ用の Builder です. この Builder は build()
-実行時に自動的にデバッグ文字列の echo を行います. (自動
-echo を無効化することも出来ます)</td>
+	<td><p>デバッグ用の Builder です.
+この Builder は build() 実行時に自動的にデバッグ文字列の echo を行います.
+(自動 echo を無効化することも出来ます)</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.DebugContext.html">DebugContext</a></td>
-	<td>デバッグのために使用される Context です. この Context は,
-handle メソッドを実行した時に自動で echo を行います.
-出力内容は,
-ノードツリーの構造を可視化した文字列となります.</td>
+	<td><p>デバッグのために使用される Context です.
+この Context は, handle メソッドを実行した時に自動で echo を行います.
+出力内容は, ノードツリーの構造を可視化した文字列となります.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.DefaultBreakControl.html">DefaultBreakControl</a></td>
@@ -183,14 +225,12 @@ handle メソッドを実行した時に自動で echo を行います.
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.DefaultBuilder.html">DefaultBuilder</a></td>
-	<td>HTML や XML などを出力する際に使う, デフォルトの Builder
-です. このクラスは,
-以下の条件をカスタマイズすることが出来ます.</td>
+	<td><p>HTML や XML などを出力する際に使う, デフォルトの Builder です.
+このクラスは, 以下の条件をカスタマイズすることが出来ます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></td>
-	<td>与えられたノードを HTML や XML
-などの文字列に変換するクラスです.</td>
+	<td>与えられたノードを HTML や XML などの文字列に変換するクラスです.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Element.html">Element</a></td>
@@ -198,28 +238,19 @@ handle メソッドを実行した時に自動で echo を行います.
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></td>
-	<td>空要素をあらわすノードです. この要素は通常 "&lt;tag&gt;"
-もしくは "&lt;tag /&gt;" のようにレンダリングされます. HTML
-の IMG 要素などは, このクラスを使って表現します.</td>
-</tr>
-<tr>
-	<td class="name"><a href="class-Peach.Markup.Helper.html">Helper</a></td>
-	<td>ノードの生成を簡略化するための API
-を備えたヘルパーです.
-ノードの構築およびマークアップ出力の手間を省力化するためのクラスです.</td>
+	<td><p>空要素をあらわすノードです.
+この要素は通常 "<tag>" もしくは "<tag />" のようにレンダリングされます.
+HTML の IMG 要素などは, このクラスを使って表現します.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></td>
-	<td>既存の Component をラップして,
-ノードツリーの構築を簡略化・省力化するための糖衣構文を備えたクラスです.
-主に (MVC フレームワークで言うところの) View
-の範囲で使用されることを想定しています.</td>
+	<td><p>既存の Component をラップして, ノードツリーの構築を簡略化・省力化するための糖衣構文を備えたクラスです.
+主に (MVC フレームワークで言うところの) View の範囲で使用されることを想定しています.</p></td>
 </tr>
 <tr>
-	<td class="name"><a href="class-Peach.Markup.Html.html">Html</a></td>
-	<td>HTML の出力に特化したユーティリティクラスです.
-このクラスに紐付いているグローバルな <code><a href="class-Peach.Markup.Helper.html">Peach\Markup\Helper</a></code>
-オブジェクトを使って HTML のマークアップを行います.</td>
+	<td class="name"><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></td>
+	<td><p>HTML の出力に特化した Helper です.
+XML 宣言, DOCTYPE 宣言, select 要素やコメントの出力機能などを備えています.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Indent.html">Indent</a></td>
@@ -227,19 +258,18 @@ handle メソッドを実行した時に自動で echo を行います.
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></td>
-	<td>一切の改行をしない BreakControl です. この BreakControl
-を使ってノードの出力を行った場合, 出力結果には改行文字
-CR または LF が出現せず, 1 行のコードが生成されます.</td>
+	<td><p>一切の改行をしない BreakControl です.
+この BreakControl を使ってノードの出力を行った場合, 出力結果には改行文字 CR または LF
+が出現せず, 1 行のコードが生成されます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></td>
-	<td>開始タグの名前をもとに, 改行するかどうかを判定する
-BreakControl です.</td>
+	<td>開始タグの名前をもとに, 改行するかどうかを判定する BreakControl です.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.NameValidator.html">NameValidator</a></td>
-	<td>XML の仕様書で定義されている以下の EBNF に基づいて,
-要素名や属性名などのバリデーションを行います.</td>
+	<td><p>XML の仕様書で定義されている以下の EBNF に基づいて,
+要素名や属性名などのバリデーションを行います.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.NodeList.html">NodeList</a></td>
@@ -247,8 +277,7 @@ BreakControl です.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.None.html">None</a></td>
-	<td>「何もない」ことをあらわす Component です. (Null Object
-パターン)</td>
+	<td>「何もない」ことをあらわす Component です. (Null Object パターン)</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.SgmlRenderer.html">SgmlRenderer</a></td>
@@ -256,9 +285,9 @@ BreakControl です.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Text.html">Text</a></td>
-	<td>要素内に含まれるテキストをあらわすノードです.
+	<td><p>要素内に含まれるテキストをあらわすノードです.
 このノードに '&amp;' などの特殊文字が含まれていた場合,
-レンダリングされる際に適切な文字参照に自動変換されます.</td>
+レンダリングされる際に適切な文字参照に自動変換されます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.XmlRenderer.html">XmlRenderer</a></td>
@@ -274,22 +303,27 @@ BreakControl です.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Component.html">Component</a></td>
-	<td><code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code>
-で処理可能なパーツであることを示すインタフェースです.
-このインタフェースを実装したオブジェクトは <code><a href="class-Peach.Markup.Builder.html#_build">Peach\Markup\Builder::build()</a></code> メソッドの引数に指定して HTML
-コードなどに加工することが出来ます.</td>
+	<td><p><code><a href="class-Peach.Markup.Builder.html">Peach\Markup\Builder</a></code> で処理可能なパーツであることを示すインタフェースです.
+このインタフェースを実装したオブジェクトは
+<a href="Builder::build()">Builder::build()</a> メソッドの引数に指定して
+HTML コードなどに加工することが出来ます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Container.html">Container</a></td>
-	<td>ノードを内部に含めることが出来るインタフェースです.
-このインタフェースを実装したクラスに <code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code> や
-<code><a href="class-Peach.Markup.ContainerElement.html">Peach\Markup\ContainerElement</a></code> などがあります.</td>
+	<td><p>ノードを内部に含めることが出来るインタフェースです.
+このインタフェースを実装したクラスに
+<code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code> や <code><a href="class-Peach.Markup.ContainerElement.html">Peach\Markup\ContainerElement</a></code> などがあります.</p></td>
+</tr>
+<tr>
+	<td class="name"><a href="class-Peach.Markup.Helper.html">Helper</a></td>
+	<td><p>ノードの生成を簡略化するための API を備えたヘルパーです.
+このインタフェースを使用することで,
+ノードの構築およびマークアップ出力の手間を省力化することができます.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Node.html">Node</a></td>
-	<td>Component
-の中でも特にマークアップ言語を構成するパーツであることを示すマーカーインタフェースです.
-具体的には以下のようなクラスが該当します.</td>
+	<td><p>Component の中でも特にマークアップ言語を構成するパーツであることを示すマーカーインタフェースです.
+具体的には以下のようなクラスが該当します.</p></td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Peach.Markup.Renderer.html">Renderer</a></td>
@@ -303,11 +337,11 @@ BreakControl です.</td>
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js?bb23bd0a51c32e151945eb05c184fa4b01d23b5b"></script>
+<script src="elementlist.js?726173cb4677690d4a96d764ea7f6b479d83ab49"></script>
 </body>
 </html>

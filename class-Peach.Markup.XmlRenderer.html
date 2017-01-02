@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Markup\XmlRenderer | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -108,9 +150,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -121,11 +160,9 @@
 
 
 	<div class="description">
-	
-<p>XML 形式の文書を書式化するための Renderer です.</p>
+	<p>XML 形式の文書を書式化するための Renderer です.</p>
 
 <p>XHTML や RSS などを整形する場合はこちらを使用します.</p>
-
 	</div>
 
 	<dl class="tree">
@@ -158,7 +195,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.XmlRenderer.html#30-99" title="Go to source code">Peach/Markup/XmlRenderer.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Markup.XmlRenderer.html#30-99" title="Go to source code">Peach/Markup/XmlRenderer.php</a>
+		<br>
 	</div>
 
 
@@ -169,6 +207,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			<code><a href="class-Peach.Markup.XmlRenderer.html">Peach\Markup\XmlRenderer</a></code>
 			
 			</code>
@@ -179,25 +218,21 @@
 		<code><a href="source-class-Peach.Markup.XmlRenderer.html#48-61" title="Go to source code">getInstance</a>( )</code>
 
 		<div class="description short">
-			
-<p>このクラスのインスタンスを取得します.</p>
-
+			<p>このクラスのインスタンスを取得します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このクラスのインスタンスを取得します.</p>
-
+			<p>このクラスのインスタンスを取得します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.XmlRenderer.html">Peach\Markup\XmlRenderer</a></code></code><br>このクラスの唯一のインスタンス<br>
+					<code><a href="class-Peach.Markup.XmlRenderer.html">Peach\Markup\XmlRenderer</a></code><br>このクラスの唯一のインスタンス
 				</div>
 
 
-				<h4>CodeCoverageIgnore</h4>
+				<h4>Codecoverageignore</h4>
 				<div class="list">
 				</div>
 
@@ -209,6 +244,7 @@
 
 		<td class="attributes"><code>
 			 protected 
+
 			string
 			
 			</code>
@@ -219,17 +255,13 @@
 		<code><a href="source-class-Peach.Markup.XmlRenderer.html#63-74" title="Go to source code">formatBooleanAttribute</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
-			
-<p>値の省略された属性値を書式化します. attr="attr"
-形式の文字列を返します.</p>
-
+			<p>値の省略された属性値を書式化します.
+attr="attr" 形式の文字列を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>値の省略された属性値を書式化します. attr="attr"
-形式の文字列を返します.</p>
-
+			<p>値の省略された属性値を書式化します.
+attr="attr" 形式の文字列を返します.</p>
 
 
 				<h4>Parameters</h4>
@@ -240,13 +272,13 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>attr="attr" 形式の文字列<br>
+					string<br>attr="attr" 形式の文字列
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.Markup.AbstractRenderer.html#_formatBooleanAttribute">Peach\Markup\AbstractRenderer::formatBooleanAttribute()</a></code></code><br>
+						<code><a href="class-Peach.Markup.AbstractRenderer.html#_formatBooleanAttribute">Peach\Markup\AbstractRenderer::formatBooleanAttribute()</a></code><br>
 				</div>
 
 
@@ -257,6 +289,7 @@
 
 		<td class="attributes"><code>
 			 protected 
+
 			string
 			
 			</code>
@@ -267,17 +300,11 @@
 		<code><a href="source-class-Peach.Markup.XmlRenderer.html#76-87" title="Go to source code">formatAttribute</a>( <span>string <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された属性を書式化します. name="attr"
-形式の文字列を返します.</p>
-
+			<p>指定された属性を書式化します. name="attr" 形式の文字列を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された属性を書式化します. name="attr"
-形式の文字列を返します.</p>
-
+			<p>指定された属性を書式化します. name="attr" 形式の文字列を返します.</p>
 
 
 				<h4>Parameters</h4>
@@ -290,13 +317,13 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>name="value" 形式の文字列<br>
+					string<br>name="value" 形式の文字列
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.Markup.AbstractRenderer.html#_formatAttribute">Peach\Markup\AbstractRenderer::formatAttribute()</a></code></code><br>
+						<code><a href="class-Peach.Markup.AbstractRenderer.html#_formatAttribute">Peach\Markup\AbstractRenderer::formatAttribute()</a></code><br>
 				</div>
 
 
@@ -307,6 +334,7 @@
 
 		<td class="attributes"><code>
 			 protected 
+
 			string
 			
 			</code>
@@ -317,29 +345,23 @@
 		<code><a href="source-class-Peach.Markup.XmlRenderer.html#89-98" title="Go to source code">formatEmptyTagSuffix</a>( )</code>
 
 		<div class="description short">
-			
-<p>空要素タグの末尾を書式化します. 文字列 " /&gt;"
-を返します.</p>
-
+			<p>空要素タグの末尾を書式化します. 文字列 " />" を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>空要素タグの末尾を書式化します. 文字列 " /&gt;"
-を返します.</p>
-
+			<p>空要素タグの末尾を書式化します. 文字列 " />" を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>文字列 " /&gt;"<br>
+					string<br>文字列 " />"
 				</div>
 
 
 				<h4>See</h4>
 				<div class="list">
-						<code><code><a href="class-Peach.Markup.AbstractRenderer.html#_formatEmptyTagSuffix">Peach\Markup\AbstractRenderer::formatEmptyTagSuffix()</a></code></code><br>
+						<code><a href="class-Peach.Markup.AbstractRenderer.html#_formatEmptyTagSuffix">Peach\Markup\AbstractRenderer::formatEmptyTagSuffix()</a></code><br>
 				</div>
 
 
@@ -382,19 +404,20 @@
 				<a href="source-class-Peach.Markup.XmlRenderer.html#37-41" title="Go to source code"><var>$XMLDEC</var></a>
 
 			<div class="description short">
-				
-<p>最も単純なXML宣言です.</p>
-
+				<p>最も単純なXML宣言です.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>最も単純なXML宣言です.</p>
-
+				<p>最も単純なXML宣言です.</p>
 
 			</div>
 		</td>
-		<td class="value"><div><a href="#$XMLDEC" class="anchor">#</a><code><span class="php-quote">'&lt;?xml version=&quot;1.0&quot;?&gt;'</span></code></div></td>
+		<td class="value">
+			<div>
+				<a href="#$XMLDEC" class="anchor">#</a>
+				<code><span class="php-quote">'&lt;?xml version=&quot;1.0&quot;?&gt;'</span></code>
+			</div>
+		</td>
 	</tr>
 	</table>
 
@@ -406,11 +429,11 @@
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

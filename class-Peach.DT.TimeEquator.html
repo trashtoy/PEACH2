@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\DT\TimeEquator | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+				<li class="active">
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -80,8 +121,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -96,9 +136,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -109,10 +146,9 @@
 
 
 	<div class="description">
-	
-<p>時間オブジェクトの比較を行うための Equator です.
-このクラスは, 時間オブジェクトをキーとした <code><a href="class-Peach.Util.HashMap.html">Peach\Util\HashMap</a></code> を構築する際に使用してください.</p>
-
+	<p>時間オブジェクトの比較を行うための Equator です.
+このクラスは, 時間オブジェクトをキーとした <code><a href="class-Peach.Util.HashMap.html">Peach\Util\HashMap</a></code>
+を構築する際に使用してください.</p>
 	</div>
 
 	<dl class="tree">
@@ -138,7 +174,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.DT.TimeEquator.html#32-184" title="Go to source code">Peach/DT/TimeEquator.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.DT.TimeEquator.html#32-184" title="Go to source code">Peach/DT/TimeEquator.php</a>
+		<br>
 	</div>
 
 
@@ -149,6 +186,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -159,68 +197,46 @@
 		<code><a href="source-class-Peach.DT.TimeEquator.html#48-88" title="Go to source code">__construct</a>( <span>mixed <var>$fields</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
-<p>比較対象のフィールドを指定して, 新しい TimeEquator
-オブジェクトを作成します.
+			<p>比較対象のフィールドを指定して, 新しい TimeEquator オブジェクトを作成します.
 引数の指定方法には以下の方法があります.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>比較対象のフィールドを指定して, 新しい TimeEquator
-オブジェクトを作成します.
+			<p>比較対象のフィールドを指定して, 新しい TimeEquator オブジェクトを作成します.
 引数の指定方法には以下の方法があります.</p>
 
-<pre>
-<span class="php-keyword1">new</span> TimeEquator();
-<span
-class="php-keyword1">new</span> TimeEquator(<span
-class="php-keyword1">array</span>(<span
-class="php-quote">&quot;hour&quot;</span>, <span
-class="php-quote">&quot;minute&quot;</span>, <span
-class="php-quote">&quot;second&quot;</span>));
-<span
-class="php-keyword1">new</span> TimeEquator(<span
-class="php-quote">&quot;date&quot;</span>);
-<span
-class="php-keyword1">new</span> TimeEquator(<span
-class="php-keyword2">Time</span>::TYPE_DATE);
-</pre>
+<pre><span class="php-keyword1">new</span> TimeEquator();
+<span class="php-keyword1">new</span> TimeEquator(<span class="php-keyword1">array</span>(<span class="php-quote">&quot;hour&quot;</span>, <span class="php-quote">&quot;minute&quot;</span>, <span class="php-quote">&quot;second&quot;</span>));
+<span class="php-keyword1">new</span> TimeEquator(<span class="php-quote">&quot;date&quot;</span>);
+<span class="php-keyword1">new</span> TimeEquator(<span class="php-keyword2">Time</span>::TYPE_DATE);</pre>
 
-<p>引数なしでオブジェクトを生成した場合,
-このオブジェクトは <code><a href="class-Peach.DT.Time.html#_equals">Peach\DT\Time::equals()</a></code>
-を使って比較を行います. 通常は,
-引数なしのコンストラクタを使う代わりに <code><a href="class-Peach.DT.TimeEquator.html#_getDefault">Peach\DT\TimeEquator::getDefault()</a></code> を使用してください.</p>
+<p>引数なしでオブジェクトを生成した場合, このオブジェクトは
+<a href="Time::equals()">Time::equals()</a> を使って比較を行います.
+通常は, 引数なしのコンストラクタを使う代わりに
+<a href="TimeEquator::getDefault()">TimeEquator::getDefault()</a> を使用してください.</p>
 
 <p>引数に比較対象のフィールドを配列で指定した場合,
 指定されたフィールドすべてが等しい場合に等価とみなします.</p>
 
-<p>比較対象のフィールドが 1 つだけの場合,
-そのフィールドを文字列で指定することもできます.</p>
+<p>比較対象のフィールドが 1 つだけの場合, そのフィールドを文字列で指定することもできます.</p>
 
 <p>また, 以下の定数を使用することもできます.</p>
 
 <ul>
-	<li><code><a href="class-Peach.DT.Time.html#TYPE_DATE">Peach\DT\Time::<b>TYPE_DATE</b></a></code></li>
-
-	<li><code><a href="class-Peach.DT.Time.html#TYPE_DATETIME">Peach\DT\Time::<b>TYPE_DATETIME</b></a></code></li>
-
-	<li><code><a href="class-Peach.DT.Time.html#TYPE_TIMESTAMP">Peach\DT\Time::<b>TYPE_TIMESTAMP</b></a></code></li>
+<li><a href="Time::TYPE_DATE">Time::TYPE_DATE</a></li>
+<li><a href="Time::TYPE_DATETIME">Time::TYPE_DATETIME</a></li>
+<li><a href="Time::TYPE_TIMESTAMP">Time::TYPE_TIMESTAMP</a></li>
 </ul>
 
 <p>それぞれ</p>
 
 <ul>
-	<li>array("year", "month", "date")</li>
-
-	<li>array("year", "month", "date", "hour", "minute")</li>
-
-	<li>array("year", "month", "date", "hour", "minute", "second")</li>
+<li>array("year", "month", "date")</li>
+<li>array("year", "month", "date", "hour", "minute")</li>
+<li>array("year", "month", "date", "hour", "minute", "second")</li>
 </ul>
 
 <p>を指定した場合と同じになります.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -240,6 +256,7 @@ class="php-keyword2">Time</span>::TYPE_DATE);
 
 		<td class="attributes"><code>
 			 public static
+
 			<code><a href="class-Peach.DT.TimeEquator.html">Peach\DT\TimeEquator</a></code>
 			
 			</code>
@@ -250,25 +267,19 @@ class="php-keyword2">Time</span>::TYPE_DATE);
 		<code><a href="source-class-Peach.DT.TimeEquator.html#117-129" title="Go to source code">getDefault</a>( )</code>
 
 		<div class="description short">
-			
-<p>デフォルトの Equator オブジェクトを返します.
-このオブジェクトは <code><a href="class-Peach.DT.Time.html#_equals">Peach\DT\Time::equals()</a></code>
-を使って等値性を調べます.</p>
-
+			<p>デフォルトの Equator オブジェクトを返します.
+このオブジェクトは <a href="Time::equals()">Time::equals()</a> を使って等値性を調べます.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>デフォルトの Equator オブジェクトを返します.
-このオブジェクトは <code><a href="class-Peach.DT.Time.html#_equals">Peach\DT\Time::equals()</a></code>
-を使って等値性を調べます.</p>
-
+			<p>デフォルトの Equator オブジェクトを返します.
+このオブジェクトは <a href="Time::equals()">Time::equals()</a> を使って等値性を調べます.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.TimeEquator.html">Peach\DT\TimeEquator</a></code></code><br>TimeEquator<br>
+					<code><a href="class-Peach.DT.TimeEquator.html">Peach\DT\TimeEquator</a></code>
 				</div>
 
 
@@ -281,6 +292,7 @@ class="php-keyword2">Time</span>::TYPE_DATE);
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -291,21 +303,15 @@ class="php-keyword2">Time</span>::TYPE_DATE);
 		<code><a href="source-class-Peach.DT.TimeEquator.html#131-160" title="Go to source code">equate</a>( <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$var1</var></span>, <span><code><a href="class-Peach.DT.Time.html">Peach\DT\Time</a></code> <var>$var2</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された 2
-つの時間オブジェクトが等しいかどうか調べます. この
-Equator に設定されているフィールドについて比較を行い,
+			<p>指定された 2 つの時間オブジェクトが等しいかどうか調べます.
+この Equator に設定されているフィールドについて比較を行い,
 全て等しい場合のみ TRUE を返します.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された 2
-つの時間オブジェクトが等しいかどうか調べます. この
-Equator に設定されているフィールドについて比較を行い,
+			<p>指定された 2 つの時間オブジェクトが等しいかどうか調べます.
+この Equator に設定されているフィールドについて比較を行い,
 全て等しい場合のみ TRUE を返します.</p>
-
 
 
 				<h4>Parameters</h4>
@@ -318,12 +324,12 @@ Equator に設定されているフィールドについて比較を行い,
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>2 つの時間オブジェクトが等しいと判断された場合のみ TRUE<br>
+					boolean<br>2 つの時間オブジェクトが等しいと判断された場合のみ TRUE
 				</div>
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>引数に Time インスタンス以外の値が指定された場合<br>
+					InvalidArgumentException<br>引数に Time インスタンス以外の値が指定された場合
 				</div>
 
 
@@ -337,6 +343,7 @@ Equator に設定されているフィールドについて比較を行い,
 
 		<td class="attributes"><code>
 			 public 
+
 			integer
 			
 			</code>
@@ -347,15 +354,11 @@ Equator に設定されているフィールドについて比較を行い,
 		<code><a href="source-class-Peach.DT.TimeEquator.html#162-183" title="Go to source code">hashCode</a>( <span>mixed <var>$var</var></span> )</code>
 
 		<div class="description short">
-			
-<p>年・月・日・時・分・秒の各フィールドからハッシュ値を算出します.</p>
-
+			<p>年・月・日・時・分・秒の各フィールドからハッシュ値を算出します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>年・月・日・時・分・秒の各フィールドからハッシュ値を算出します.</p>
-
+			<p>年・月・日・時・分・秒の各フィールドからハッシュ値を算出します.</p>
 
 
 				<h4>Parameters</h4>
@@ -366,12 +369,12 @@ Equator に設定されているフィールドについて比較を行い,
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>ハッシュ値<br>
+					integer<br>ハッシュ値
 				</div>
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>引数が Time インスタンスでなかった場合<br>
+					InvalidArgumentException<br>引数が Time インスタンスでなかった場合
 				</div>
 
 
@@ -403,11 +406,11 @@ Equator に設定されているフィールドについて比較を行い,
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

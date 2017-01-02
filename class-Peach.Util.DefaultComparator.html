@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Util\DefaultComparator | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li class="active">
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -76,8 +117,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -92,9 +132,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -105,11 +142,9 @@
 
 
 	<div class="description">
-	
-<p>デフォルトのコンパレータです. <code><a href="class-Peach.Util.Arrays.html#_sort">Peach\Util\Arrays::sort()</a></code>
-などのメソッドで,
+	<p>デフォルトのコンパレータです.
+<a href="Arrays::sort">Arrays::sort</a> などのメソッドで,
 引数にコンパレータが指定されなかった場合に適用されます.</p>
-
 	</div>
 
 	<dl class="tree">
@@ -135,7 +170,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Util.html">Util</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Util.DefaultComparator.html#30-177" title="Go to source code">Peach/Util/DefaultComparator.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Util.DefaultComparator.html#30-177" title="Go to source code">Peach/Util/DefaultComparator.php</a>
+		<br>
 	</div>
 
 
@@ -146,6 +182,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			integer
 			
 			</code>
@@ -156,17 +193,13 @@
 		<code><a href="source-class-Peach.Util.DefaultComparator.html#37-63" title="Go to source code">compare</a>( <span>mixed <var>$var1</var></span>, <span>mixed <var>$var2</var></span> )</code>
 
 		<div class="description short">
-			
-<p>二つの値を比較します. $var1 === $var2 の場合は 0
-を返します.</p>
-
+			<p>二つの値を比較します.
+$var1 === $var2 の場合は 0 を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>二つの値を比較します. $var1 === $var2 の場合は 0
-を返します.</p>
-
+			<p>二つの値を比較します.
+$var1 === $var2 の場合は 0 を返します.</p>
 
 
 				<h4>Parameters</h4>
@@ -179,8 +212,10 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>比較した結果, $var1 &gt; $var1 の場合は正, $var2 &gt; $var1
-の場合は負, $var1 == $var2 の場合は 0<br>
+					integer<br><p>比較した結果,
+                    $var1 > $var1 の場合は正,
+                    $var2 > $var1 の場合は負,
+                    $var1 == $var2 の場合は 0</p>
 				</div>
 
 
@@ -195,6 +230,7 @@
 
 		<td class="attributes"><code>
 			 public static
+
 			<code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code>
 			
 			</code>
@@ -205,25 +241,21 @@
 		<code><a href="source-class-Peach.Util.DefaultComparator.html#163-176" title="Go to source code">getInstance</a>( )</code>
 
 		<div class="description short">
-			
-<p>唯一のインスタンスを返します.</p>
-
+			<p>唯一のインスタンスを返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>唯一のインスタンスを返します.</p>
-
+			<p>唯一のインスタンスを返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code></code><br>DefaultComparator<br>
+					<code><a href="class-Peach.Util.DefaultComparator.html">Peach\Util\DefaultComparator</a></code>
 				</div>
 
 
-				<h4>CodeCoverageIgnore</h4>
+				<h4>Codecoverageignore</h4>
 				<div class="list">
 				</div>
 
@@ -253,11 +285,11 @@
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

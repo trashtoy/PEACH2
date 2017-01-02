@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\DT\HttpDateFormat | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.DT.html">DT</a>
+				<li class="active">
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li>
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -80,8 +121,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -96,9 +136,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -109,30 +146,19 @@
 
 
 	<div class="description">
-	
-<p>HTTP-Date の書式を扱うクラスです. parse 系メソッドは,
-以下の 3 種類のフォーマットを解釈することが出来ます.</p>
+	<p>HTTP-Date の書式を扱うクラスです.
+parse 系メソッドは, 以下の 3 種類のフォーマットを解釈することが出来ます.</p>
 
-<pre>
-<span
-class="php-quote">&quot;Fri, 13 Feb 2009 23:31:30 GMT&quot;</span>   <span
-class="php-comment">#RFC 822, updated by RFC 1123</span>
-<span
-class="php-quote">&quot;Friday, 13-Feb-09 23:31:30 GMT&quot;</span>  <span
-class="php-comment">#RFC 850, obsoleted by RFC 1036</span>
-<span
-class="php-quote">&quot;Fri Feb 13 23:31:30 2009&quot;</span>        <span
-class="php-comment">#ANSI C's asctime() format</span>
-</pre>
+<pre><span class="php-quote">&quot;Fri, 13 Feb 2009 23:31:30 GMT&quot;</span>   <span class="php-comment">#RFC 822, updated by RFC 1123</span>
+<span class="php-quote">&quot;Friday, 13-Feb-09 23:31:30 GMT&quot;</span>  <span class="php-comment">#RFC 850, obsoleted by RFC 1036</span>
+<span class="php-quote">&quot;Fri Feb 13 23:31:30 2009&quot;</span>        <span class="php-comment">#ANSI C's asctime() format</span></pre>
 
-<p>format 系メソッドは, 一番上の RFC 1123
-形式のフォーマットで文字列を生成します.</p>
+<p>format 系メソッドは, 一番上の RFC 1123 形式のフォーマットで文字列を生成します.</p>
 
-<p>このクラスは parse および format を行う際に, 内部時刻と
-GMT の自動変換を行います.</p>
+<p>このクラスは parse および format を行う際に, 内部時刻と GMT の自動変換を行います.</p>
 
-<p>参考文献: <a href="http://www.arielworks.net/articles/2004/0125a">モジュール版PHPで「If-Modified-Since」に対応する</a></p>
-
+<p>参考文献:
+<a href="http://www.arielworks.net/articles/2004/0125a">モジュール版PHPで「If-Modified-Since」に対応する</a></p>
 	</div>
 
 	<dl class="tree">
@@ -158,7 +184,8 @@ GMT の自動変換を行います.</p>
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.DT.html">DT</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.DT.HttpDateFormat.html#30-282" title="Go to source code">Peach/DT/HttpDateFormat.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.DT.HttpDateFormat.html#30-282" title="Go to source code">Peach/DT/HttpDateFormat.php</a>
+		<br>
 	</div>
 
 
@@ -169,6 +196,7 @@ GMT の自動変換を行います.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -179,34 +207,27 @@ GMT の自動変換を行います.</p>
 		<code><a href="source-class-Peach.DT.HttpDateFormat.html#55-70" title="Go to source code">__construct</a>( <span>integer <var>$offset</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
-<p>新しいフォーマットを生成します. 引数 $offset
-を指定した場合, parse または format を行った際に,
+			<p>新しいフォーマットを生成します.
+引数 $offset を指定した場合, parse または format を行った際に,
 指定された時差の量だけ時刻に補正がかかります.
-もしも時差に応じた自動変換が必要ない場合は $offset に 0
-を指定してください.</p>
-
+もしも時差に応じた自動変換が必要ない場合は $offset に 0 を指定してください.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>新しいフォーマットを生成します. 引数 $offset
-を指定した場合, parse または format を行った際に,
+			<p>新しいフォーマットを生成します.
+引数 $offset を指定した場合, parse または format を行った際に,
 指定された時差の量だけ時刻に補正がかかります.
-もしも時差に応じた自動変換が必要ない場合は $offset に 0
-を指定してください.</p>
+もしも時差に応じた自動変換が必要ない場合は $offset に 0 を指定してください.</p>
 
-<p>引数を省略した場合は, システム時刻の時差 (<code><a href="class-Peach.DT.Util.html#_getTimeZoneOffset">Peach\DT\Util::getTimeZoneOffset()</a></code> の返り値と等価) を使用します.
-特に必要がなければ引数なしのコンストラクタを使う代わりに
-<code><a href="class-Peach.DT.HttpDateFormat.html#_getInstance">Peach\DT\HttpDateFormat::getInstance()</a></code> を使ってください.</p>
-
+<p>引数を省略した場合は, システム時刻の時差 (<a href="Util::getTimeZoneOffset()">Util::getTimeZoneOffset()</a> の返り値と等価)
+を使用します. 特に必要がなければ引数なしのコンストラクタを使う代わりに
+<a href="HttpDateFormat::getInstance()">HttpDateFormat::getInstance()</a> を使ってください.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$offset</var></dt>
-					<dd>時間オブジェクトの時差 (単位は分,
-省略した場合はシステム設定の値を使用)</dd>
+					<dd>時間オブジェクトの時差 (単位は分, 省略した場合はシステム設定の値を使用)</dd>
 				</dl></div>
 
 
@@ -220,6 +241,7 @@ GMT の自動変換を行います.</p>
 
 		<td class="attributes"><code>
 			 public static
+
 			<code><a href="class-Peach.DT.HttpDateFormat.html">Peach\DT\HttpDateFormat</a></code>
 			
 			</code>
@@ -230,25 +252,18 @@ GMT の自動変換を行います.</p>
 		<code><a href="source-class-Peach.DT.HttpDateFormat.html#72-90" title="Go to source code">getInstance</a>( <span>boolean <var>$clearCache</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
-			
-<p>デフォルトのインスタンスを返します.
+			<p>デフォルトのインスタンスを返します.
 このメソッドは引数なしでコンストラクタを呼び出した場合と同じ結果を返しますが,
-返り値がキャッシュされるため,
-複数の場所で同じインスタンスを使いまわすことができます.</p>
-
+返り値がキャッシュされるため, 複数の場所で同じインスタンスを使いまわすことができます.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>デフォルトのインスタンスを返します.
+			<p>デフォルトのインスタンスを返します.
 このメソッドは引数なしでコンストラクタを呼び出した場合と同じ結果を返しますが,
-返り値がキャッシュされるため,
-複数の場所で同じインスタンスを使いまわすことができます.</p>
+返り値がキャッシュされるため, 複数の場所で同じインスタンスを使いまわすことができます.</p>
 
-<p>システムのタイムゾーン設定を動的に変更した場合は,
-変更前のキャッシュを破棄する必要があるため, 引数
-$clearCache に TRUE を指定して実行してください.</p>
-
+<p>システムのタイムゾーン設定を動的に変更した場合は, 変更前のキャッシュを破棄する必要があるため,
+引数 $clearCache に TRUE を指定して実行してください.</p>
 
 
 				<h4>Parameters</h4>
@@ -259,7 +274,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.HttpDateFormat.html">Peach\DT\HttpDateFormat</a></code></code><br>デフォルトのインスタンス<br>
+					<code><a href="class-Peach.DT.HttpDateFormat.html">Peach\DT\HttpDateFormat</a></code><br>デフォルトのインスタンス
 				</div>
 
 
@@ -272,6 +287,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code>
 			
 			</code>
@@ -282,17 +298,11 @@ $clearCache に TRUE を指定して実行してください.</p>
 		<code><a href="source-class-Peach.DT.HttpDateFormat.html#92-102" title="Go to source code">parseDate</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p><code><a href="class-Peach.DT.HttpDateFormat.html#_parseTimestamp">Peach\DT\HttpDateFormat::parseTimestamp()</a></code> の実行結果を Date
-にキャストします.</p>
-
+			<p><a href="HttpDateFormat::parseTimestamp()">HttpDateFormat::parseTimestamp()</a> の実行結果を Date にキャストします.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p><code><a href="class-Peach.DT.HttpDateFormat.html#_parseTimestamp">Peach\DT\HttpDateFormat::parseTimestamp()</a></code> の実行結果を Date
-にキャストします.</p>
-
+			<p><a href="HttpDateFormat::parseTimestamp()">HttpDateFormat::parseTimestamp()</a> の実行結果を Date にキャストします.</p>
 
 
 				<h4>Parameters</h4>
@@ -303,12 +313,12 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code></code><br>変換結果<br>
+					<code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code><br>変換結果
 				</div>
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>フォーマットが不正な場合<br>
+					InvalidArgumentException<br>フォーマットが不正な場合
 				</div>
 
 
@@ -322,6 +332,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code>
 			
 			</code>
@@ -332,17 +343,11 @@ $clearCache に TRUE を指定して実行してください.</p>
 		<code><a href="source-class-Peach.DT.HttpDateFormat.html#104-114" title="Go to source code">parseDatetime</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p><code><a href="class-Peach.DT.HttpDateFormat.html#_parseTimestamp">Peach\DT\HttpDateFormat::parseTimestamp()</a></code> の実行結果を Datetime
-にキャストします.</p>
-
+			<p><a href="HttpDateFormat::parseTimestamp()">HttpDateFormat::parseTimestamp()</a> の実行結果を Datetime にキャストします.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p><code><a href="class-Peach.DT.HttpDateFormat.html#_parseTimestamp">Peach\DT\HttpDateFormat::parseTimestamp()</a></code> の実行結果を Datetime
-にキャストします.</p>
-
+			<p><a href="HttpDateFormat::parseTimestamp()">HttpDateFormat::parseTimestamp()</a> の実行結果を Datetime にキャストします.</p>
 
 
 				<h4>Parameters</h4>
@@ -353,12 +358,12 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code></code><br>変換結果<br>
+					<code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code><br>変換結果
 				</div>
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>フォーマットが不正な場合<br>
+					InvalidArgumentException<br>フォーマットが不正な場合
 				</div>
 
 
@@ -372,6 +377,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code>
 			
 			</code>
@@ -382,15 +388,11 @@ $clearCache に TRUE を指定して実行してください.</p>
 		<code><a href="source-class-Peach.DT.HttpDateFormat.html#116-155" title="Go to source code">parseTimestamp</a>( <span>string <var>$format</var></span> )</code>
 
 		<div class="description short">
-			
-<p>HTTP-date 形式のフォーマットを Timestamp に変換します.</p>
-
+			<p>HTTP-date 形式のフォーマットを Timestamp に変換します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>HTTP-date 形式のフォーマットを Timestamp に変換します.</p>
-
+			<p>HTTP-date 形式のフォーマットを Timestamp に変換します.</p>
 
 
 				<h4>Parameters</h4>
@@ -401,12 +403,12 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code></code><br>変換結果<br>
+					<code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code><br>変換結果
 				</div>
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>フォーマットが不正な場合<br>
+					InvalidArgumentException<br>フォーマットが不正な場合
 				</div>
 
 
@@ -420,6 +422,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -430,21 +433,13 @@ $clearCache に TRUE を指定して実行してください.</p>
 		<code><a href="source-class-Peach.DT.HttpDateFormat.html#157-167" title="Go to source code">formatDate</a>( <span><code><a href="class-Peach.DT.Date.html">Peach\DT\Date</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>この日付の 00:00 の時刻を GMT に変換した結果を Http-date
-にして返します. 例えばシステム時刻の時差が UTC+9
-だった場合, 前日の 15:00 の HTTP-date
-表現を返り値とします.</p>
-
+			<p>この日付の 00:00 の時刻を GMT に変換した結果を Http-date にして返します.
+例えばシステム時刻の時差が UTC+9 だった場合, 前日の 15:00 の HTTP-date 表現を返り値とします.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この日付の 00:00 の時刻を GMT に変換した結果を Http-date
-にして返します. 例えばシステム時刻の時差が UTC+9
-だった場合, 前日の 15:00 の HTTP-date
-表現を返り値とします.</p>
-
+			<p>この日付の 00:00 の時刻を GMT に変換した結果を Http-date にして返します.
+例えばシステム時刻の時差が UTC+9 だった場合, 前日の 15:00 の HTTP-date 表現を返り値とします.</p>
 
 
 				<h4>Parameters</h4>
@@ -455,7 +450,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>この日付の HTTP-date 表現<br>
+					string<br>この日付の HTTP-date 表現
 				</div>
 
 
@@ -470,6 +465,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -480,15 +476,11 @@ $clearCache に TRUE を指定して実行してください.</p>
 		<code><a href="source-class-Peach.DT.HttpDateFormat.html#169-187" title="Go to source code">formatDatetime</a>( <span><code><a href="class-Peach.DT.Datetime.html">Peach\DT\Datetime</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>この時刻の HTTP-date 表現を返します.</p>
-
+			<p>この時刻の HTTP-date 表現を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この時刻の HTTP-date 表現を返します.</p>
-
+			<p>この時刻の HTTP-date 表現を返します.</p>
 
 
 				<h4>Parameters</h4>
@@ -499,7 +491,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>この時刻の HTTP-date 表現<br>
+					string<br>この時刻の HTTP-date 表現
 				</div>
 
 
@@ -514,6 +506,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -524,15 +517,11 @@ $clearCache に TRUE を指定して実行してください.</p>
 		<code><a href="source-class-Peach.DT.HttpDateFormat.html#189-198" title="Go to source code">formatTimestamp</a>( <span><code><a href="class-Peach.DT.Timestamp.html">Peach\DT\Timestamp</a></code> <var>$d</var></span> )</code>
 
 		<div class="description short">
-			
-<p>この時刻の HTTP-date 表現を返します.</p>
-
+			<p>この時刻の HTTP-date 表現を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この時刻の HTTP-date 表現を返します.</p>
-
+			<p>この時刻の HTTP-date 表現を返します.</p>
 
 
 				<h4>Parameters</h4>
@@ -543,7 +532,7 @@ $clearCache に TRUE を指定して実行してください.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>この時刻の HTTP-date 表現<br>
+					string<br>この時刻の HTTP-date 表現
 				</div>
 
 
@@ -576,11 +565,11 @@ $clearCache に TRUE を指定して実行してください.</p>
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

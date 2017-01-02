@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="generator" content="ApiGen 2.8.0">
 
 	<title>Class Peach\Markup\HelperObject | PEACH2</title>
 
-	<link rel="stylesheet" href="resources/style.css?3901564645">
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', "UA-51283850-4"]);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 
 <body>
@@ -17,21 +27,52 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Peach.html">Peach<span></span></a>
+				<li class="active">
+					<a href="namespace-Peach.html">
+						Peach<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Peach.DF.html">DF</a>
+				<li>
+					<a href="namespace-Peach.DF.html">
+						DF					</a>
+
 						</li>
-				<li><a href="namespace-Peach.DT.html">DT</a>
+				<li>
+					<a href="namespace-Peach.DT.html">
+						DT					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Peach.Markup.html">Markup</a>
+				<li>
+					<a href="namespace-Peach.Http.html">
+						Http<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Peach.Http.Body.html">
+						Body					</a>
+
 						</li>
-				<li><a href="namespace-Peach.Util.html">Util</a>
+				<li>
+					<a href="namespace-Peach.Http.Header.html">
+						Header					</a>
+
 						</li>
 							</ul></li>
-				<li><a href="namespace-PHP.html">PHP</a>
+				<li class="active">
+					<a href="namespace-Peach.Markup.html">
+						Markup					</a>
+
 						</li>
+				<li>
+					<a href="namespace-Peach.Util.html">
+						Util					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
 
@@ -41,7 +82,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Peach.Markup.AbstractHelper.html">AbstractHelper</a></li>
 				<li><a href="class-Peach.Markup.AbstractRenderer.html">AbstractRenderer</a></li>
+				<li><a href="class-Peach.Markup.BaseHelper.html">BaseHelper</a></li>
 				<li><a href="class-Peach.Markup.BreakControlWrapper.html">BreakControlWrapper</a></li>
 				<li><a href="class-Peach.Markup.Builder.html">Builder</a></li>
 				<li><a href="class-Peach.Markup.Code.html">Code</a></li>
@@ -55,9 +98,8 @@
 				<li><a href="class-Peach.Markup.DefaultContext.html">DefaultContext</a></li>
 				<li><a href="class-Peach.Markup.Element.html">Element</a></li>
 				<li><a href="class-Peach.Markup.EmptyElement.html">EmptyElement</a></li>
-				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li class="active"><a href="class-Peach.Markup.HelperObject.html">HelperObject</a></li>
-				<li><a href="class-Peach.Markup.Html.html">Html</a></li>
+				<li><a href="class-Peach.Markup.HtmlHelper.html">HtmlHelper</a></li>
 				<li><a href="class-Peach.Markup.Indent.html">Indent</a></li>
 				<li><a href="class-Peach.Markup.MinimalBreakControl.html">MinimalBreakControl</a></li>
 				<li><a href="class-Peach.Markup.NameBreakControl.html">NameBreakControl</a></li>
@@ -74,6 +116,7 @@
 				<li><a href="class-Peach.Markup.BreakControl.html">BreakControl</a></li>
 				<li><a href="class-Peach.Markup.Component.html">Component</a></li>
 				<li><a href="class-Peach.Markup.Container.html">Container</a></li>
+				<li><a href="class-Peach.Markup.Helper.html">Helper</a></li>
 				<li><a href="class-Peach.Markup.Node.html">Node</a></li>
 				<li><a href="class-Peach.Markup.Renderer.html">Renderer</a></li>
 			</ul>
@@ -92,8 +135,7 @@
 	<form id="search">
 		<input type="hidden" name="cx" value="">
 		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text">
-		<input type="submit" value="Search">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -108,9 +150,6 @@
 <span>Class</span>			</li>
 		</ul>
 		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -121,12 +160,8 @@
 
 
 	<div class="description">
-	
-<p>既存の Component をラップして,
-ノードツリーの構築を簡略化・省力化するための糖衣構文を備えたクラスです.
-主に (MVC フレームワークで言うところの) View
-の範囲で使用されることを想定しています.</p>
-
+	<p>既存の Component をラップして, ノードツリーの構築を簡略化・省力化するための糖衣構文を備えたクラスです.
+主に (MVC フレームワークで言うところの) View の範囲で使用されることを想定しています.</p>
 	</div>
 
 	<dl class="tree">
@@ -152,7 +187,8 @@
 		<b>Namespace:</b> <a href="namespace-Peach.html">Peach</a>\<a href="namespace-Peach.Markup.html">Markup</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Peach.Markup.HelperObject.html#31-258" title="Go to source code">Peach/Markup/HelperObject.php</a><br>
+			<b>Located at</b> <a href="source-class-Peach.Markup.HelperObject.html#32-312" title="Go to source code">Peach/Markup/HelperObject.php</a>
+		<br>
 	</div>
 
 
@@ -163,6 +199,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -170,26 +207,18 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#50-62" title="Go to source code">__construct</a>( <span><code><a href="class-Peach.Markup.Helper.html">Peach\Markup\Helper</a></code> <var>$helper</var></span>, <span>mixed <var>$var</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#51-63" title="Go to source code">__construct</a>( <span><code><a href="class-Peach.Markup.Helper.html">Peach\Markup\Helper</a></code> <var>$helper</var></span>, <span>mixed <var>$var</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Helper
-オブジェクトに紐付けられた新しいインスタンスを構築します.
-このコンストラクタは <code><a href="class-Peach.Markup.Helper.html#_createObject">Peach\Markup\Helper::createObject()</a></code>
-から呼び出されます. 通常は,
-エンドユーザーがコンストラクタを直接呼び出す機会はありません.</p>
-
+			<p>指定された Helper オブジェクトに紐付けられた新しいインスタンスを構築します.
+このコンストラクタは <a href="Helper::tag()">Helper::tag()</a> から呼び出されます.
+通常は, エンドユーザーがコンストラクタを直接呼び出す機会はありません.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Helper
-オブジェクトに紐付けられた新しいインスタンスを構築します.
-このコンストラクタは <code><a href="class-Peach.Markup.Helper.html#_createObject">Peach\Markup\Helper::createObject()</a></code>
-から呼び出されます. 通常は,
-エンドユーザーがコンストラクタを直接呼び出す機会はありません.</p>
-
+			<p>指定された Helper オブジェクトに紐付けられた新しいインスタンスを構築します.
+このコンストラクタは <a href="Helper::tag()">Helper::tag()</a> から呼び出されます.
+通常は, エンドユーザーがコンストラクタを直接呼び出す機会はありません.</p>
 
 
 				<h4>Parameters</h4>
@@ -211,6 +240,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.Markup.Component.html">Peach\Markup\Component</a></code>
 			
 			</code>
@@ -218,24 +248,20 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getNode">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#64-71" title="Go to source code">getNode</a>( )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#98-105" title="Go to source code">getNode</a>( )</code>
 
 		<div class="description short">
-			
-<p>このオブジェクトがラップしているノードを返します.</p>
-
+			<p>このオブジェクトがラップしているノードを返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このオブジェクトがラップしているノードを返します.</p>
-
+			<p>このオブジェクトがラップしているノードを返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.Component.html">Peach\Markup\Component</a></code></code><br>Component<br>
+					<code><a href="class-Peach.Markup.Component.html">Peach\Markup\Component</a></code>
 				</div>
 
 
@@ -244,10 +270,50 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="appendNode" id="_appendNode">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_appendNode">#</a>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#107-120" title="Go to source code">appendNode</a>( <span>mixed <var>$var</var></span> )</code>
+
+		<div class="description short">
+			<p>このオブジェクトの子ノードとして, 指定された値を追加します.
+このオブジェクトがラップしているオブジェクトが Container でない場合は何もしません.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>このオブジェクトの子ノードとして, 指定された値を追加します.
+このオブジェクトがラップしているオブジェクトが Container でない場合は何もしません.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd>追加される値</dd>
+				</dl></div>
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Markup.Container.html#_appendNode">Peach\Markup\Container::appendNode()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="append" id="_append">
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 			
 			</code>
@@ -255,24 +321,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_append">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#73-89" title="Go to source code">append</a>( <span>mixed <var>$var</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#122-133" title="Go to source code">append</a>( <span>mixed <var>$var</var></span> )</code>
 
 		<div class="description short">
-			
-<p>このオブジェクトの子ノードとして,
-指定された値を追加します.
-このオブジェクトがラップしているオブジェクトが Container
-でない場合は何もしません.</p>
-
+			<p>このオブジェクトの子ノードとして, 指定された値を追加して, 最後に自分自身を返します.
+メソッドチェーンを可能にするための appendNode() のシンタックスシュガーです.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このオブジェクトの子ノードとして,
-指定された値を追加します.
-このオブジェクトがラップしているオブジェクトが Container
-でない場合は何もしません.</p>
-
+			<p>このオブジェクトの子ノードとして, 指定された値を追加して, 最後に自分自身を返します.
+メソッドチェーンを可能にするための appendNode() のシンタックスシュガーです.</p>
 
 
 				<h4>Parameters</h4>
@@ -283,14 +341,12 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code></code><br>自分自身<br>
+					<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code><br>自分自身
 				</div>
 
 
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Peach.Markup.Container.html#_append">Peach\Markup\Container::append()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -298,6 +354,7 @@
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 			
 			</code>
@@ -305,44 +362,28 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_appendTo">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#91-108" title="Go to source code">appendTo</a>( <span><code><a href="class-Peach.Markup.Container.html">Peach\Markup\Container</a></code> <var>$container</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#135-152" title="Go to source code">appendTo</a>( <span><code><a href="class-Peach.Markup.Container.html">Peach\Markup\Container</a></code> <var>$container</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された Container にこのオブジェクトを追加します.
-以下の 2 つのコードは, どちらも $obj2 の中に $obj1
-を追加しています.</p>
+			<p>指定された Container にこのオブジェクトを追加します.
+以下の 2 つのコードは, どちらも $obj2 の中に $obj1 を追加しています.</p>
 
-<pre>
-<span class="php-var">$obj1</span>-&gt;appendTo(<span
-class="php-var">$obj2</span>);
-<span
-class="php-var">$obj2</span>-&gt;append(<span
-class="php-var">$obj1</span>);
-</pre>
+<pre><span class="php-var">$obj1</span>-&gt;appendTo(<span class="php-var">$obj2</span>);
+<span class="php-var">$obj2</span>-&gt;append(<span class="php-var">$obj1</span>);</pre>
 
-<p><code><a href="class-Peach.Markup.HelperObject.html#_append">Peach\Markup\HelperObject::append()</a></code> との違いは, 返り値が $obj1
-になるか $obj2 になるかという点にあります.</p>
-
+<p><a href="HelperObject::append()">HelperObject::append()</a>
+との違いは, 返り値が $obj1 になるか $obj2 になるかという点にあります.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された Container にこのオブジェクトを追加します.
-以下の 2 つのコードは, どちらも $obj2 の中に $obj1
-を追加しています.</p>
+			<p>指定された Container にこのオブジェクトを追加します.
+以下の 2 つのコードは, どちらも $obj2 の中に $obj1 を追加しています.</p>
 
-<pre>
-<span class="php-var">$obj1</span>-&gt;appendTo(<span
-class="php-var">$obj2</span>);
-<span
-class="php-var">$obj2</span>-&gt;append(<span
-class="php-var">$obj1</span>);
-</pre>
+<pre><span class="php-var">$obj1</span>-&gt;appendTo(<span class="php-var">$obj2</span>);
+<span class="php-var">$obj2</span>-&gt;append(<span class="php-var">$obj1</span>);</pre>
 
-<p><code><a href="class-Peach.Markup.HelperObject.html#_append">Peach\Markup\HelperObject::append()</a></code> との違いは, 返り値が $obj1
-になるか $obj2 になるかという点にあります.</p>
-
+<p><a href="HelperObject::append()">HelperObject::append()</a>
+との違いは, 返り値が $obj1 になるか $obj2 になるかという点にあります.</p>
 
 
 				<h4>Parameters</h4>
@@ -353,7 +394,7 @@ class="php-var">$obj1</span>);
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code></code><br>自分自身<br>
+					<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code><br>自分自身
 				</div>
 
 
@@ -366,6 +407,7 @@ class="php-var">$obj1</span>);
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 			
 			</code>
@@ -373,18 +415,14 @@ class="php-var">$obj1</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_appendCode">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#110-123" title="Go to source code">appendCode</a>( <span>string|<code><a href="class-Peach.Markup.Code.html">Peach\Markup\Code</a></code> <var>$code</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#154-167" title="Go to source code">appendCode</a>( <span>string|<code><a href="class-Peach.Markup.Code.html">Peach\Markup\Code</a></code> <var>$code</var></span> )</code>
 
 		<div class="description short">
-			
-<p>指定された文字列を整形済コードとして追加します.</p>
-
+			<p>指定された文字列を整形済コードとして追加します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>指定された文字列を整形済コードとして追加します.</p>
-
+			<p>指定された文字列を整形済コードとして追加します.</p>
 
 
 				<h4>Parameters</h4>
@@ -395,7 +433,7 @@ class="php-var">$obj1</span>);
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code></code><br>このオブジェクト自身<br>
+					<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code><br>このオブジェクト自身
 				</div>
 
 
@@ -408,6 +446,7 @@ class="php-var">$obj1</span>);
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 			
 			</code>
@@ -415,35 +454,41 @@ class="php-var">$obj1</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_attr">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#125-161" title="Go to source code">attr</a>( )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#169-205" title="Go to source code">attr</a>( <span>string|array|<code><a href="class-Peach.Util.ArrayMap.html">Peach\Util\ArrayMap</a></code> <var>$var</var>,…</span> )</code>
 
 		<div class="description short">
-			
-<p><code><a href="class-Peach.Markup.Element.html#_setAttribute">Peach\Markup\Element::setAttribute()</a></code> および <code><a href="class-Peach.Markup.Element.html#_setAttributes">Peach\Markup\Element::setAttributes()</a></code>
-の糖衣構文です. 引数が配列の場合は setAttributes() を実行し,
+			<p><a href="Element::setAttribute()">Element::setAttribute()</a>
+および
+<a href="Element::setAttributes()">Element::setAttributes()</a>
+の糖衣構文です.
+引数が配列の場合は setAttributes() を実行し,
 引数が 1 つ以上の文字列の場合は setAttribute() を実行します.
-もしもこのオブジェクトがラップしているノードが Element
-ではなかった場合, このメソッドは何も行いません.</p>
-
+もしもこのオブジェクトがラップしているノードが Element ではなかった場合,
+このメソッドは何も行いません.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p><code><a href="class-Peach.Markup.Element.html#_setAttribute">Peach\Markup\Element::setAttribute()</a></code> および <code><a href="class-Peach.Markup.Element.html#_setAttributes">Peach\Markup\Element::setAttributes()</a></code>
-の糖衣構文です. 引数が配列の場合は setAttributes() を実行し,
+			<p><a href="Element::setAttribute()">Element::setAttribute()</a>
+および
+<a href="Element::setAttributes()">Element::setAttributes()</a>
+の糖衣構文です.
+引数が配列の場合は setAttributes() を実行し,
 引数が 1 つ以上の文字列の場合は setAttribute() を実行します.
-もしもこのオブジェクトがラップしているノードが Element
-ではなかった場合, このメソッドは何も行いません.</p>
+もしもこのオブジェクトがラップしているノードが Element ではなかった場合,
+このメソッドは何も行いません.</p>
 
-<p>jQuery のようなメソッドチェインを実現するため,
-このオブジェクト自身を返します.</p>
-
+<p>jQuery のようなメソッドチェインを実現するため, このオブジェクト自身を返します.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var>,…</dt>
+					<dd>セットする属性</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code></code><br>このオブジェクト自身<br>
+					<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code><br>このオブジェクト自身
 				</div>
 
 
@@ -456,6 +501,7 @@ class="php-var">$obj1</span>);
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 			
 			</code>
@@ -463,26 +509,20 @@ class="php-var">$obj1</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_children">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#163-178" title="Go to source code">children</a>( )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#207-222" title="Go to source code">children</a>( )</code>
 
 		<div class="description short">
-			
-<p>このオブジェクトの子ノード一覧をあらわす HelperObject
-を返します.</p>
-
+			<p>このオブジェクトの子ノード一覧をあらわす HelperObject を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このオブジェクトの子ノード一覧をあらわす HelperObject
-を返します.</p>
-
+			<p>このオブジェクトの子ノード一覧をあらわす HelperObject を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code></code><br>HelperObject<br>
+					<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 				</div>
 
 
@@ -495,6 +535,7 @@ class="php-var">$obj1</span>);
 
 		<td class="attributes"><code>
 			 public 
+
 			mixed
 			
 			</code>
@@ -502,24 +543,20 @@ class="php-var">$obj1</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_write">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#180-188" title="Go to source code">write</a>( )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#224-232" title="Go to source code">write</a>( )</code>
 
 		<div class="description short">
-			
-<p>この HelperObject をレンダリングします.</p>
-
+			<p>この HelperObject をレンダリングします.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この HelperObject をレンダリングします.</p>
-
+			<p>この HelperObject をレンダリングします.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>mixed</code><br>出力結果. デフォルトではマークアップされた結果の文字列<br>
+					mixed<br>出力結果. デフォルトではマークアップされた結果の文字列
 				</div>
 
 
@@ -532,6 +569,7 @@ class="php-var">$obj1</span>);
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -539,24 +577,20 @@ class="php-var">$obj1</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_debug">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#190-201" title="Go to source code">debug</a>( )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#234-245" title="Go to source code">debug</a>( )</code>
 
 		<div class="description short">
-			
-<p>この HelperObject をデバッグ出力します.</p>
-
+			<p>この HelperObject をデバッグ出力します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この HelperObject をデバッグ出力します.</p>
-
+			<p>この HelperObject をデバッグ出力します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>string<br>
+					string
 				</div>
 
 
@@ -569,6 +603,7 @@ class="php-var">$obj1</span>);
 
 		<td class="attributes"><code>
 			 public 
+
 			<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code>
 			
 			</code>
@@ -576,34 +611,24 @@ class="php-var">$obj1</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_prototype">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#203-213" title="Go to source code">prototype</a>( )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#247-257" title="Go to source code">prototype</a>( )</code>
 
 		<div class="description short">
-			
-<p>この HelperObject
-がラップしている要素の属性をコピーして,
-新しい要素を生成します.
-もしもラップしているオブジェクトが Element
-ではなかった場合は 空の NodeList をラップする HelperObject
-を返します.</p>
-
+			<p>この HelperObject がラップしている要素の属性をコピーして, 新しい要素を生成します.
+もしもラップしているオブジェクトが Element ではなかった場合は
+空の NodeList をラップする HelperObject を返します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>この HelperObject
-がラップしている要素の属性をコピーして,
-新しい要素を生成します.
-もしもラップしているオブジェクトが Element
-ではなかった場合は 空の NodeList をラップする HelperObject
-を返します.</p>
-
+			<p>この HelperObject がラップしている要素の属性をコピーして, 新しい要素を生成します.
+もしもラップしているオブジェクトが Element ではなかった場合は
+空の NodeList をラップする HelperObject を返します.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code></code><br>コピーされた要素をラップする HelperObject<br>
+					<code><a href="class-Peach.Markup.HelperObject.html">Peach\Markup\HelperObject</a></code><br>コピーされた要素をラップする HelperObject
 				</div>
 
 
@@ -616,6 +641,7 @@ class="php-var">$obj1</span>);
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -623,20 +649,14 @@ class="php-var">$obj1</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_accept">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#237-244" title="Go to source code">accept</a>( <span><code><a href="class-Peach.Markup.Context.html">Peach\Markup\Context</a></code> <var>$context</var></span> )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#281-288" title="Go to source code">accept</a>( <span><code><a href="class-Peach.Markup.Context.html">Peach\Markup\Context</a></code> <var>$context</var></span> )</code>
 
 		<div class="description short">
-			
-<p>このオブジェクトがラップしているノードの accept()
-を呼び出します.</p>
-
+			<p>このオブジェクトがラップしているノードの accept() を呼び出します.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このオブジェクトがラップしているノードの accept()
-を呼び出します.</p>
-
+			<p>このオブジェクトがラップしているノードの accept() を呼び出します.</p>
 
 
 				<h4>Parameters</h4>
@@ -658,6 +678,7 @@ class="php-var">$obj1</span>);
 
 		<td class="attributes"><code>
 			 public 
+
 			array
 			
 			</code>
@@ -665,30 +686,26 @@ class="php-var">$obj1</span>);
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getChildNodes">#</a>
-		<code><a href="source-class-Peach.Markup.HelperObject.html#246-257" title="Go to source code">getChildNodes</a>( )</code>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#290-301" title="Go to source code">getChildNodes</a>( )</code>
 
 		<div class="description short">
-			
-<p>このオブジェクトの子ノードの一覧を取得します.
-もしもこのオブジェクトがラップしているノードが Container Container だった場合は,
-そのオブジェクトの子ノードの一覧を返します.
+			<p>このオブジェクトの子ノードの一覧を取得します.
+もしもこのオブジェクトがラップしているノードが Container Container
+だった場合は, そのオブジェクトの子ノードの一覧を返します.
 それ以外は空の配列を返します.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>このオブジェクトの子ノードの一覧を取得します.
-もしもこのオブジェクトがラップしているノードが Container Container だった場合は,
-そのオブジェクトの子ノードの一覧を返します.
+			<p>このオブジェクトの子ノードの一覧を取得します.
+もしもこのオブジェクトがラップしているノードが Container Container
+だった場合は, そのオブジェクトの子ノードの一覧を返します.
 それ以外は空の配列を返します.</p>
-
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>array<br>
+					array
 				</div>
 
 
@@ -696,6 +713,42 @@ class="php-var">$obj1</span>);
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Peach.Markup.Container.html#_getChildNodes">Peach\Markup\Container::getChildNodes()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAppendee" id="_getAppendee">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAppendee">#</a>
+		<code><a href="source-class-Peach.Markup.HelperObject.html#303-311" title="Go to source code">getAppendee</a>( )</code>
+
+		<div class="description short">
+			<p>このオブジェクトがラップしているノードの getApendee() の結果を返します.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>このオブジェクトがラップしているノードの getApendee() の結果を返します.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Peach.Markup.NodeList.html">Peach\Markup\NodeList</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Peach.Markup.Component.html#_getAppendee">Peach\Markup\Component::getAppendee()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -721,11 +774,11 @@ class="php-var">$obj1</span>);
 </div>
 
 	<div id="footer">
-		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		PEACH2 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?1093664697"></script>
-<script src="elementlist.js?1670841986"></script>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>
