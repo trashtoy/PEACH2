@@ -2,6 +2,7 @@
 namespace Peach\DF\JsonCodec;
 
 use stdClass;
+use Peach\DF\JsonCodec;
 use Peach\Util\ArrayMap;
 
 class ObjectExprTest extends \PHPUnit_Framework_TestCase
@@ -41,22 +42,60 @@ class ObjectExprTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * handle() および getResult() のテストです.
+     * OBJECT_AS_ARRAY オプションの有無によって返される結果が stdClass と配列で変化することを確認します.
+     * 
+     * @param mixed   $expected
+     * @param Context $context
+     * @dataProvider  forTestHandleAndGetResult
      * @covers Peach\DF\JsonCodec\ObjectExpr::handle
      * @covers Peach\DF\JsonCodec\ObjectExpr::getResult
+     * @covers Peach\DF\JsonCodec\ObjectExpr::getContainer
+     * @covers Peach\DF\JsonCodec\ObjectExpr_ArrayContainer::__construct
+     * @covers Peach\DF\JsonCodec\ObjectExpr_ArrayContainer::getResult
+     * @covers Peach\DF\JsonCodec\ObjectExpr_ArrayContainer::setMember
+     * @covers Peach\DF\JsonCodec\ObjectExpr_StdClassContainer::__construct
+     * @covers Peach\DF\JsonCodec\ObjectExpr_StdClassContainer::getResult
+     * @covers Peach\DF\JsonCodec\ObjectExpr_StdClassContainer::setMember
      */
-    public function testHandleAndGetResult()
+    public function testHandleAndGetResult($expected, Context $context)
     {
-        $context  = new Context('{ "a" : -3.14, "b": [true, false, true],"c" : "xxxx", "d": null  }   ,', new ArrayMap());
-        $expr     = $this->object;
-        $expected = new stdClass();
-        $expected->a = -3.14;
-        $expected->b = array(true, false, true);
-        $expected->c = "xxxx";
-        $expected->d = null;
-        
+        $expr = $this->object;
         $expr->handle($context);
         $this->assertEquals($expected, $expr->getResult());
         $this->assertSame(",", $context->current());
+    }
+    
+    /**
+     * testHandleAndGetResult() のデータセットです.
+     * OBJECT_AS_ARRAY オプションが有効の場合は配列, 無効の場合は stdClass
+     * オブジェクトが期待される結果となります.
+     * 
+     * @return array
+     */
+    public function forTestHandleAndGetResult()
+    {
+        $context1  = new Context('{ "a" : -3.14, "b": [true, false, true],"c" : "xxxx", "d": null  }   ,', new ArrayMap());
+        $expected1 = new stdClass();
+        $expected1->a = -3.14;
+        $expected1->b = array(true, false, true);
+        $expected1->c = "xxxx";
+        $expected1->d = null;
+        
+        $options   = new ArrayMap();
+        $options->put(JsonCodec::OBJECT_AS_ARRAY, true);
+        $context2  = new Context('{ "a" : -3.14, "b": [true, false, true],"c" : "xxxx", "d": null  }   ,', $options);
+        $expected2 = array(
+            "a" => -3.14,
+            "b" => array(true, false, true),
+            "c" => "xxxx",
+            "d" => null,
+        );
+        
+        return array(
+            array($expected1, $context1),
+            array($expected2, $context2),
+        );
     }
     
     /**

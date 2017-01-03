@@ -45,6 +45,7 @@ class UnixTimeFormat implements Format
     /**
      * このクラスのインスタンスを取得します.
      * @return UnixTimeFormat
+     * @codeCoverageIgnore
      */
     public static function getInstance()
     {

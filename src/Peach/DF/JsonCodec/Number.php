@@ -61,23 +61,30 @@ use Peach\DF\JsonCodec;
 class Number implements Expression
 {
     /**
-     *
+     * handle() の解析結果です.
+     * 
      * @var string
      */
     private $result;
     
     /**
-     *
+     * handle() の解析結果が float かどうかを判定します.
+     * 
      * @var bool
      */
     private $isFloat;
     
     /**
-     *
+     * PHP の int 型変数で表現できない巨大整数について, 
+     * string 型に変換するかどうかを表すオプションです.
+     * 
      * @var bool
      */
     private $bigNumAsString;
     
+    /**
+     * 新しい Number インスタンスを構築します.
+     */
     public function __construct()
     {
         $this->result         = "";
@@ -100,6 +107,7 @@ class Number implements Expression
     }
     
     /**
+     * "-" 記号を読み込みます.
      * 
      * @param Context $context
      */
@@ -112,6 +120,8 @@ class Number implements Expression
     }
     
     /**
+     * 数値部分 (以下の BNF 記法) を読み込みます.
+     * 
      * int = zero / ( digit1-9 *DIGIT )
      * 
      * @param Context $context
@@ -121,7 +131,7 @@ class Number implements Expression
         // check zero
         if ($context->current() === "0") {
             if (preg_match("/^0[0-9]$/", $context->getSequence(2))) {
-                $context->throwException("Integral part must not start with 0");
+                throw $context->createException("Integral part must not start with 0");
             }
             $this->result .= "0";
             $context->next();
@@ -134,6 +144,7 @@ class Number implements Expression
     }
     
     /**
+     * 1 文字目の数字を読み込みます.
      * 
      * @param Context $context
      */
@@ -143,11 +154,12 @@ class Number implements Expression
             $this->result .= $context->current();
             $context->next();
         } else {
-            $context->throwException("Invalid number format");
+            throw $context->createException("Invalid number format");
         }
     }
     
     /**
+     * 2 文字目以降の数字列を読み込みます.
      * 
      * @param Context $context
      */
@@ -222,6 +234,8 @@ class Number implements Expression
     }
     
     /**
+     * 解析結果を返します.
+     * 返り値の型は解析内容に応じて整数, 文字列, float のいずれかとなります.
      * 
      * @return numeric
      */

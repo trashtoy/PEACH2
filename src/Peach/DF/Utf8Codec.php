@@ -156,7 +156,7 @@ class Utf8Codec implements Codec
                 return $i;
             }
         }
-        // @codeCoverageIngoreStart
+        // @codeCoverageIgnoreStart
         throw new Exception("Illegal state");
         // @codeCoverageIgnoreEnd
     }

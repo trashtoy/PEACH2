@@ -21,8 +21,17 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->helper = new Helper(new DefaultBuilder(), array("meta", "input", "br"));
+        $this->helper = $this->createTestHelper();
         $this->object = new HelperObject($this->helper, "sample");
+    }
+    
+    /**
+     * 
+     * @return BaseHelper
+     */
+    private function createTestHelper()
+    {
+        return new BaseHelper(new DefaultBuilder(), array("meta", "input", "br"));
     }
     
     /**
@@ -36,63 +45,74 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
     /**
      * コンストラクタの第 2 引数に指定された値によって, 返される値が変化することを確認します.
      * 
-     * - {@link Node Node} 型オブジェクトの場合: 同一のオブジェクト
-     * - {@link HelperObject HelperObject} 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
+     * - {@link Node} 型オブジェクトの場合: 引数自身
+     * - {@link NodeList} 型オブジェクトの場合: 引数自身
+     * - {@link HelperObject} 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
      * - 文字列の場合: 引数の文字列を要素名に持つ新しい {@link Element}
      * - null または空文字列の場合: 空の {@link NodeList}
      * - それ以外: 引数の文字列表現のテキストノード
      * 
+     * @param  Component $expected
+     * @param  mixed     $var
      * @covers Peach\Markup\HelperObject::__construct
+     * @covers Peach\Markup\HelperObject::createNode
      * @covers Peach\Markup\HelperObject::getNode
+     * @dataProvider forTestGetNode
      */
-    public function testGetNode()
+    public function testGetNode($expected, $var)
     {
         $h    = $this->helper;
-        
-        $node = new EmptyElement("br");
-        $obj1 = new HelperObject($h, $node);
-        $this->assertSame($node, $obj1->getNode());
-        
-        $div  = new ContainerElement("div");
-        $div->setAttribute("id", "test");
-        $div->append("Sample Text");
-        $ho   = new HelperObject($h, $div);
-        $obj2 = new HelperObject($h, $ho);
-        $this->assertSame($div, $obj2->getNode());
-        
-        $obj3 = new HelperObject($h, "p");
-        $this->assertEquals(new ContainerElement("p"), $obj3->getNode());
-        
-        $emptyList = new NodeList();
-        $obj4      = new HelperObject($h, null);
-        $this->assertEquals($emptyList, $obj4->getNode());
-        $obj5      = new HelperObject($h, "");
-        $this->assertEquals($emptyList, $obj5->getNode());
-        
-        $datetime = new Datetime(2012, 5, 21, 7, 34);
-        $textNode = new Text("2012-05-21 07:34");
-        $obj6     = new HelperObject($h, $datetime);
-        $this->assertEquals($textNode, $obj6->getNode());
+        $obj  = new HelperObject($h, $var);
+        $this->assertEquals($expected, $obj->getNode());
     }
     
+    /**
+     * @return array
+     */
+    public function forTestGetNode()
+    {
+        $h         = $this->createTestHelper();
+        $node      = new EmptyElement("br");
+        $nodeList  = new NodeList(array("First", "Second", "Third"));
+        $p         = new ContainerElement("p");
+        $emptyList = new NodeList();
+        $datetime  = new Datetime(2012, 5, 21, 7, 34);
+        $textNode  = new Text("2012-05-21 07:34");
+        
+        $div = new ContainerElement("div");
+        $div->setAttribute("id", "test");
+        $div->appendNode("Sample Text");
+        $ho  = $h->tag($div);
+        
+        return array(
+            array($node, $node),         // Node 型オブジェクトの場合: 引数自身
+            array($nodeList, $nodeList), // NodeList 型オブジェクトの場合: 引数自身
+            array($div, $ho),            // HelperObject 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
+            array($p, "p"),              // 文字列の場合: 引数の文字列を要素名に持つ新しい Element
+            array($emptyList, null),     // null の場合: 空の NodeList
+            array($emptyList, ""),       // 空文字列の場合: 空の NodeList
+            array($textNode, $datetime), // それ以外: 引数の文字列表現のテキストノード
+        );
+    }
+       
     /**
      * ラップしているノードが Container の場合は子ノードが追加され,
      * そうでない場合は何も変化しないことを確認します.
      * 
-     * @covers Peach\Markup\HelperObject::append
+     * @covers Peach\Markup\HelperObject::appendNode
      */
-    public function testAppend()
+    public function testAppendNode()
     {
         $h    = $this->helper;
         
         $obj1 = new HelperObject($h, "p");
-        $obj1->append("Sample Text");
+        $obj1->appendNode("Sample Text");
         $p    = new ContainerElement("p");
-        $p->append("Sample Text");
+        $p->appendNode("Sample Text");
         $this->assertEquals($p,  $obj1->getNode());
         
         $obj2 = new HelperObject($h, "br");
-        $obj2->append("Sample Text");
+        $obj2->appendNode("Sample Text");
         $br   = new EmptyElement("br");
         $this->assertEquals($br, $obj2->getNode());
     }
@@ -114,7 +134,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($childNodes);
         
         $p = new ContainerElement("p");
-        $p->append("Sample Text");
+        $p->appendNode("Sample Text");
         $this->assertEquals($p, $childNodes[0]);
     }
     
@@ -136,7 +156,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         ));
         $code   = new Code($str);
         $script = new ContainerElement("script");
-        $script->append($code);
+        $script->appendNode($code);
         
         $obj1   = new HelperObject($h, "script");
         $obj1->appendCode($code);
@@ -199,9 +219,9 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($obj1, $obj1->children());
         
         $p         = new ContainerElement("p");
-        $p->append("First");
-        $p->append("Second");
-        $p->append("Third");
+        $p->appendNode("First");
+        $p->appendNode("Second");
+        $p->appendNode("Third");
         $obj2      = new HelperObject($h, $p);
         $this->assertEquals($obj1, $obj2->children());
         
@@ -224,7 +244,7 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         $b    = new DefaultBuilder();
         $b->setRenderer("SGML");
         $b->setIndent(new Indent(0, "  ", Indent::LF));
-        $h2   = new Helper($b, array("meta", "input", "br"));
+        $h2   = new BaseHelper($b, array("meta", "input", "br"));
         $obj2 = TestUtil::createTestHelperObject($h2);
         $this->assertSame(TestUtil::getCustomBuildResult(), $obj2->write());
     }
@@ -306,14 +326,51 @@ class HelperObjectTest extends \PHPUnit_Framework_TestCase
         );
         
         $p        = new ContainerElement("p");
-        $p->append("First");
-        $p->append("Second");
-        $p->append("Third");
+        $p->appendNode("First");
+        $p->appendNode("Second");
+        $p->appendNode("Third");
         $obj1     = new HelperObject($h, $p);
         $this->assertEquals($expected, $obj1->getChildNodes());
         
         $text     = new Text("This is test");
         $obj2     = new HelperObject($h, $text);
         $this->assertSame(array(), $obj2->getChildNodes());
+    }
+    
+    /**
+     * このオブジェクトがラップしているノードの getAppendee() と同じ結果となることを確認します.
+     * 
+     * @covers Peach\Markup\HelperObject::getAppendee
+     */
+    public function testGetAppendee()
+    {
+        $h        = $this->helper;
+        $nodeList = new NodeList();
+        $nodeList->appendNode("First");
+        $nodeList->appendNode("Second");
+        $nodeList->appendNode("Third");
+        $obj      = new HelperObject($h, $nodeList);
+        $this->assertEquals($nodeList->getAppendee(), $obj->getAppendee());
+    }
+    
+    /**
+     * append() のテストです. 以下を確認します.
+     * 
+     * - appendNode() と同じ処理が行われること
+     * - 自分自身を返り値として返すこと
+     * 
+     * @covers Peach\Markup\HelperObject::append
+     */
+    public function testAppend()
+    {
+        $h = $this->helper;
+        $obj = new HelperObject($h, "p");
+        
+        $expected = new ContainerElement("p");
+        $expected->appendNode("Test");
+        
+        $returnValue = $obj->append("Test");
+        $this->assertSame($obj, $returnValue);
+        $this->assertEquals($expected, $obj->getNode());
     }
 }

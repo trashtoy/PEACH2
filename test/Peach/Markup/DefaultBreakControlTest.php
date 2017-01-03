@@ -45,24 +45,24 @@ class DefaultBreakControlTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($obj->breaks($e1));
         
         $e2  = new ContainerElement("pre");
-        $e2->append(new Code("some script"));
+        $e2->appendNode(new Code("some script"));
         $this->assertTrue($obj->breaks($e2));
         
         $e3  = new ContainerElement("container");
-        $e3->append($e1);
+        $e3->appendNode($e1);
         $this->assertFalse($obj->breaks($e3));
         
         $e4  = new ContainerElement("container");
-        $e4->append($e2);
+        $e4->appendNode($e2);
         $this->assertTrue($obj->breaks($e4));
         
         $e5  = new ContainerElement("span");
-        $e5->append("some text");
+        $e5->appendNode("some text");
         $this->assertFalse($obj->breaks($e5));
         
         $e6  = new ContainerElement("span");
-        $e6->append("first text");
-        $e6->append("second test");
+        $e6->appendNode("first text");
+        $e6->appendNode("second test");
         $this->assertTrue($obj->breaks($e6));
     }
     

@@ -41,17 +41,22 @@ namespace Peach\DF\JsonCodec;
 class Member implements Expression
 {
     /**
-     *
+     * handle() の結果得られた object のキーです.
+     * 
      * @var string
      */
     private $key;
     
     /**
-     *
+     * handle() の結果得られた object の値です.
+     * 
      * @var mixed
      */
     private $value;
     
+    /**
+     * 新しい Member オブジェクトを構築します.
+     */
     public function __construct()
     {
         $this->key   = null;
@@ -59,6 +64,7 @@ class Member implements Expression
     }
     
     /**
+     * 現在の Context から member 部分を読み込みます.
      * 
      * @param Context $context
      */
@@ -77,6 +83,7 @@ class Member implements Expression
     }
     
     /**
+     * handle() の結果得られた object のキーを返します.
      * 
      * @return string
      */
@@ -86,6 +93,7 @@ class Member implements Expression
     }
     
     /**
+     * handle() の結果得られた object の値を返します.
      * 
      * @return mixed
      */

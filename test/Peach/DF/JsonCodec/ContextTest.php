@@ -123,9 +123,12 @@ class ContextTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers Peach\DF\JsonCodec\Context::throwException
+     * "エラー文言 at line 行数, column 列数" 形式のエラーメッセージを持つ
+     * DecodeException を生成することを確認します.
+     * 
+     * @covers Peach\DF\JsonCodec\Context::createException
      */
-    public function testThrowException()
+    public function testCreateException()
     {
         $context = new Context("This\nis\r\na pen.", new ArrayMap());
         
@@ -133,12 +136,8 @@ class ContextTest extends \PHPUnit_Framework_TestCase
         for ($i = 0; $i < 10; $i++) {
             $context->next();
         }
-        try {
-            $context->throwException("Test");
-            $this->fail();
-        } catch (DecodeException $e) {
-            $this->assertSame("Test at line 3, column 3", $e->getMessage());
-        }
+        $e = $context->createException("Test");
+        $this->assertSame("Test at line 3, column 3", $e->getMessage());
     }
     
     /**

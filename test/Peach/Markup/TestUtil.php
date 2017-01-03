@@ -14,8 +14,8 @@ class TestUtil
         if ($html === null) {
             $html = new ContainerElement("html");
             $html->setAttribute("lang", "ja");
-            $html->append(self::createHead());
-            $html->append(self::createBody());
+            $html->appendNode(self::createHead());
+            $html->appendNode(self::createBody());
         }
         return $html;
     }
@@ -28,11 +28,11 @@ class TestUtil
         $meta   = new EmptyElement("meta");
         $meta->setAttributes(array("http-equiv" => "Content-Type", "content" => "text/html; charset=UTF-8"));
         $title  = new ContainerElement("title");
-        $title->append("TEST PAGE");
+        $title->appendNode("TEST PAGE");
         
         $head   = new ContainerElement("head");
-        $head->append($meta);
-        $head->append($title);
+        $head->appendNode($meta);
+        $head->appendNode($title);
         return $head;
     }
     
@@ -42,7 +42,7 @@ class TestUtil
     private static function createBody()
     {
         $body   = new ContainerElement("body");
-        $body->append(self::createForm());
+        $body->appendNode(self::createForm());
         return $body;
     }
     
@@ -62,13 +62,13 @@ class TestUtil
         
         $form   = new ContainerElement("form");
         $form->setAttributes(array("method" => "post", "action" => "sample.php"));
-        $form->append("Name");
-        $form->append($text);
-        $form->append($br);
-        $form->append($check);
-        $form->append("Enable something");
-        $form->append($br);
-        $form->append($submit);
+        $form->appendNode("Name");
+        $form->appendNode($text);
+        $form->appendNode($br);
+        $form->appendNode($check);
+        $form->appendNode("Enable something");
+        $form->appendNode($br);
+        $form->appendNode($submit);
         return $form;
     }
     
@@ -78,25 +78,25 @@ class TestUtil
      */
     public static function createTestHelperObject(Helper $h)
     {
-        return $h->createObject("html")
+        return $h->tag("html")
             ->attr("lang", "ja")
-            ->append($h->createObject("head")
-                ->append($h->createObject("meta")->attr(array("http-equiv" => "Content-Type", "content" => "text/html; charset=UTF-8")))
-                ->append($h->createObject("title")->append("TEST PAGE"))
+            ->append($h->tag("head")
+                ->append($h->tag("meta")->attr(array("http-equiv" => "Content-Type", "content" => "text/html; charset=UTF-8")))
+                ->append($h->tag("title")->append("TEST PAGE"))
             )
-            ->append($h->createObject("body")
-                ->append($h->createObject("form")
+            ->append($h->tag("body")
+                ->append($h->tag("form")
                     ->attr(array("method" => "post", "action" => "sample.php"))
                     ->append("Name")
-                    ->append($h->createObject("input")->attr(array("type" => "text", "name" => "param1", "value" => "")))
-                    ->append($h->createObject("br"))
-                    ->append($h->createObject("input")
+                    ->append($h->tag("input")->attr(array("type" => "text", "name" => "param1", "value" => "")))
+                    ->append($h->tag("br"))
+                    ->append($h->tag("input")
                         ->attr(array("type" => "checkbox", "name" => "flag1", "value" => "1"))
                         ->attr("checked")
                     )
                     ->append("Enable something")
-                    ->append($h->createObject("br"))
-                    ->append($h->createObject("input")->attr(array("type" => "submit", "name" => "submit", "value" => "Send")))
+                    ->append($h->tag("br"))
+                    ->append($h->tag("input")->attr(array("type" => "submit", "name" => "submit", "value" => "Send")))
                 )
             );
     }

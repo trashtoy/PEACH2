@@ -110,9 +110,9 @@ class Comment implements Container, Node
      * ノードを追加した場合, このコメントノードは引数のノードのコメントアウトとして働きます.
      * @param mixed $var このコメントに追加するテキストまたはノード
      */
-    public function append($var)
+    public function appendNode($var)
     {
-        $this->nodeList->append($var);
+        $this->nodeList->appendNode($var);
     }
     
     /**
@@ -123,5 +123,16 @@ class Comment implements Container, Node
     public function getChildNodes()
     {
         return $this->nodeList->getChildNodes();
+    }
+    
+    /**
+     * このオブジェクトを {@link Container::appendNode()} に指定した場合,
+     * このオブジェクト自身が追加されます.
+     * 
+     * @return NodeList このオブジェクトを 1 つだけ含んだ NodeList
+     */
+    public function getAppendee()
+    {
+        return new NodeList($this);
     }
 }

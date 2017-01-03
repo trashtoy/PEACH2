@@ -40,4 +40,12 @@ interface Component
      * @param Context $context この Component を処理する Context
      */
     public function accept(Context $context);
+    
+    /**
+     * このオブジェクトが {@link Container::appendNode()} の引数に指定された際に,
+     * 実際に追加されるノードの一覧を返します.
+     * 
+     * @return NodeList Container に追加されるオブジェクト
+     */
+    public function getAppendee();
 }

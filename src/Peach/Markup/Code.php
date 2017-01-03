@@ -83,4 +83,15 @@ class Code implements Node
     {
         return $this->text;
     }
+    
+    /**
+     * このオブジェクトを {@link Container::appendNode()} に指定した場合,
+     * このオブジェクト自身が追加されます.
+     * 
+     * @return NodeList このオブジェクトを 1 つだけ含んだ NodeList
+     */
+    public function getAppendee()
+    {
+        return new NodeList($this);
+    }
 }

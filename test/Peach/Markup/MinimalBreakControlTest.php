@@ -32,8 +32,8 @@ class MinimalBreakControlTest extends \PHPUnit_Framework_TestCase
     public function testBreaks()
     {
         $node = new ContainerElement("span");
-        $node->append("first text");
-        $node->append("second test");
+        $node->appendNode("first text");
+        $node->appendNode("second test");
         $this->assertFalse($this->object->breaks($node));
     }
 

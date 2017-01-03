@@ -82,7 +82,7 @@ class StringExpr implements Expression
     {
         $quot = $context->current();
         if ($quot !== '"') {
-            $context->throwException("A string must be quoted by '\"'");
+            throw $context->createException("A string must be quoted by '\"'");
         }
         $context->next();
         $value = "";
@@ -110,7 +110,7 @@ class StringExpr implements Expression
             }
         }
         
-        $context->throwException("End of quotation mark not found");
+        throw $context->createException("End of quotation mark not found");
     }
     
     /**
@@ -129,7 +129,7 @@ class StringExpr implements Expression
         
         $hex = dechex($codePoint);
         $num = (0x10 <= $codePoint) ? $hex : "0" . $hex;
-        $context->throwException("Unicode code point %x{$num} is not allowed for string");
+        throw $context->createException("Unicode code point %x{$num} is not allowed for string");
     }
     
     /**
@@ -165,12 +165,12 @@ class StringExpr implements Expression
         
         // decode \uXXXX
         if ($current !== "u") {
-            $context->throwException("Invalid escape sequence ('\\{$current}')");
+            throw $context->createException("Invalid escape sequence ('\\{$current}')");
         }
         $context->next();
         $hex = $context->getSequence(4);
         if (!preg_match("/^[0-9A-Fa-f]{4}$/", $hex)) {
-            $context->throwException("Invalid hexadecimal sequence (Expected: \\uXXXX)");
+            throw $context->createException("Invalid hexadecimal sequence (Expected: \\uXXXX)");
         }
         $context->skip(4);
         return $context->encodeCodepoint(hexdec($hex));

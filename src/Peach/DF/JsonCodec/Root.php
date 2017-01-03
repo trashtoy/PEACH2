@@ -39,14 +39,23 @@ namespace Peach\DF\JsonCodec;
  */
 class Root implements Expression
 {
+    /**
+     * デコードした結果の値です.
+     *
+     * @var mixed
+     */
     private $result;
     
+    /**
+     * 新しい Root インスタンスを構築します.
+     */
     public function __construct()
     {
         $this->result = null;
     }
     
     /**
+     * 指定された Context を解析します.
      * 
      * @param Context $context
      * @throws DecodeException
@@ -61,15 +70,16 @@ class Root implements Expression
         
         if ($context->hasNext()) {
             $current = $context->current();
-            $context->throwException("Unexpected character('{$current}')");
+            throw $context->createException("Unexpected character('{$current}')");
         }
         
         $this->result = $value->getResult();
     }
     
     /**
+     * 解析結果を返します.
      * 
-     * @return string
+     * @return mixed
      */
     public function getResult()
     {

@@ -65,32 +65,30 @@ class NodeList implements Container
     {
         $this->nodeList = array();
         $this->owner    = $owner;
-        $this->append($var);
+        $this->appendNode($var);
     }
     
     /**
      * この NodeList に実際に追加される値を返します.
      * 
      * @param  mixed $var
-     * @return Component|array 追加されるノード (またはノードの配列)
+     * @return Node[] 追加されるノードの配列
      */
-    private function getAppendee($var)
+    private function prepareAppendee($var)
     {
-        if ($var instanceof None) {
-            return null;
-        }
         if ($var instanceof Node) {
             return $var;
         }
-        if ($var instanceof Container) {
-            return $var->getChildNodes();
+        if ($var instanceof Component) {
+            return $var->getAppendee()->getChildNodes();
         }
+        
         if (is_array($var)) {
             $result = array();
             foreach ($var as $i) {
-                $appendee = $this->getAppendee($i);
+                $appendee = $this->prepareAppendee($i);
                 if (is_array($appendee)) {
-                    $result = array_merge($result, $appendee);
+                    array_splice($result, count($result), 0, $appendee);
                 } else {
                     $result[] = $appendee;
                 }
@@ -98,10 +96,10 @@ class NodeList implements Container
             return $result;
         }
         if (!isset($var)) {
-            return null;
+            return array();
         }
         
-        return new Text(Values::stringValue($var));
+        return array(new Text(Values::stringValue($var)));
     }
     
     /**
@@ -118,13 +116,9 @@ class NodeList implements Container
      * 
      * @param Node|Container|array|string $var
      */
-    public function append($var)
+    public function appendNode($var)
     {
-        $appendee = $this->getAppendee($var);
-        if ($appendee === null) {
-            return;
-        }
-        
+        $appendee = $this->prepareAppendee($var);
         if (isset($this->owner)) {
             $this->checkOwner($appendee);
         }
@@ -188,5 +182,17 @@ class NodeList implements Container
     public function getChildNodes()
     {
         return $this->nodeList;
+    }
+
+    /**
+     * この NodeList 自身を返します.
+     * この NodeList が Container に追加される場合,
+     * このオブジェクトの代わりに NodeList に含まれる各ノードが追加されます.
+     * 
+     * @return Component このオブジェクト
+     */
+    public function getAppendee()
+    {
+        return $this;
     }
 }

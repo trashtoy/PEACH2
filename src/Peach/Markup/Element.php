@@ -202,4 +202,15 @@ abstract class Element implements Node
     {
         return $this->attributes->asArray();
     }
+    
+    /**
+     * このオブジェクトを {@link Container::appendNode()} に指定した場合,
+     * このオブジェクト自身が追加されます.
+     * 
+     * @return NodeList このオブジェクトを 1 つだけ含んだ NodeList
+     */
+    public function getAppendee()
+    {
+        return new NodeList($this);
+    }
 }

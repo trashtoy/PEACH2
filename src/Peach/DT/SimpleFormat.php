@@ -394,7 +394,7 @@ class SimpleFormat implements Format
             $pattern = $this->getPatternByPart($part);
             $matched = $pattern->match($input);
             if ($matched === null) {
-                $this->throwFormatException($input, $this->format);
+                throw $this->createFormatException($input, $this->format);
             }
             $pattern->apply($result, $matched);
             $input = substr($input, strlen($matched));
@@ -403,14 +403,14 @@ class SimpleFormat implements Format
     }
     
     /**
-     * 文字列を時間オブジェクトに変換する際に, 不正な文字列が指定された場合に例外をスローします.
+     * 文字列を時間オブジェクトに変換する際に, 不正な文字列が指定されたことをあらわす例外を生成します.
      * 
      * @param  string $format   指定された文字列
      * @param  string $expected 想定されるパターン文字列
-     * @throws \InvalidArgumentException
+     * @return \InvalidArgumentException
      */
-    private function throwFormatException($format, $expected)
+    private function createFormatException($format, $expected)
     {
-        throw new \InvalidArgumentException("Illegal format({$format}). Expected: {$expected}");
+        return new \InvalidArgumentException("Illegal format({$format}). Expected: {$expected}");
     }
 }

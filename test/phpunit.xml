@@ -1,8 +1,35 @@
 <phpunit>
     <filter>
-        <blacklist>
-            <file>../src/autoload.php</file>
-            <file>../src/SplClassLoader.php</file>
-        </blacklist>
+        <whitelist>
+            <directory>../src/Peach</directory>
+            <exclude>
+                <!-- インタフェースを除外 -->
+                <file>../src/Peach/Util/Comparable.php</file>
+                <file>../src/Peach/Util/Comparator.php</file>
+                <file>../src/Peach/Util/Equator.php</file>
+                <file>../src/Peach/Util/Map.php</file>
+                <file>../src/Peach/Util/MapEntry.php</file>
+                <file>../src/Peach/DT/Time.php</file>
+                <file>../src/Peach/DT/Format.php</file>
+                <file>../src/Peach/DT/SimpleFormat/Pattern.php</file>
+                <file>../src/Peach/Markup/Component.php</file>
+                <file>../src/Peach/Markup/Container.php</file>
+                <file>../src/Peach/Markup/Node.php</file>
+                <file>../src/Peach/Markup/Renderer.php</file>
+                <file>../src/Peach/Markup/BreakControl.php</file>
+                <file>../src/Peach/Markup/Helper.php</file>
+                <file>../src/Peach/DF/Codec.php</file>
+                <file>../src/Peach/DF/JsonCodec/Expression.php</file>
+                <flie>../src/Peach/DF/JsonCodec/DecodeException.php</flie>
+                <file>../src/Peach/Http/Endpoint.php</file>
+                <file>../src/Peach/Http/BodyRenderer.php</file>
+                <file>../src/Peach/Http/HeaderField.php</file>
+                <file>../src/Peach/Http/SingleHeaderField.php</file>
+                <file>../src/Peach/Http/MultiHeaderField.php</file>
+                
+                <!-- 副作用を含んでいるため単体テストが困難なクラスを除外 -->
+                <file>../src/Peach/Http/DefaultEndpoint.php</file>
+            </exclude>
+        </whitelist>
     </filter>
 </phpunit>

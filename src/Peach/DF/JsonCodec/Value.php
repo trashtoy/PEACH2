@@ -99,7 +99,7 @@ class Value implements Expression
                 $this->result = $string->getResult();
                 break;
             default:
-                $context->throwException("Invalid value format");
+                throw $context->createException("Invalid value format");
         }
     }
     
@@ -125,7 +125,7 @@ class Value implements Expression
         $count = strlen($literal);
         if ($context->getSequence($count) !== $literal) {
             $current = $context->current();
-            $context->throwException("Unexpected character found ('{$current}')");
+            throw $context->createException("Unexpected character found ('{$current}')");
         }
         $this->result = $value;
         $context->skip($count);

@@ -27,6 +27,7 @@
  */
 namespace Peach\Markup;
 use Peach\Util\ArrayMap;
+use Peach\Util\Values;
 
 /**
  * 既存の Component をラップして, ノードツリーの構築を簡略化・省力化するための糖衣構文を備えたクラスです.
@@ -49,7 +50,7 @@ class HelperObject implements Container
     
     /**
      * 指定された Helper オブジェクトに紐付けられた新しいインスタンスを構築します.
-     * このコンストラクタは {@link Helper::createObject()} から呼び出されます.
+     * このコンストラクタは {@link Helper::tag()} から呼び出されます.
      * 通常は, エンドユーザーがコンストラクタを直接呼び出す機会はありません.
      * 
      * @param Helper $helper
@@ -58,7 +59,40 @@ class HelperObject implements Container
     public function __construct(Helper $helper, $var)
     {
         $this->helper = $helper;
-        $this->node   = $helper->createNode($var);
+        $this->node   = $this->createNode($var, $helper);
+    }
+    
+    /**
+     * 引数の値をノードに変換します.
+     * 返り値は, 引数によって以下のようになります.
+     * 
+     * - {@link Node} 型オブジェクトの場合: 引数自身
+     * - {@link NodeList} 型オブジェクトの場合: 引数自身
+     * - {@link HelperObject} 型オブジェクトの場合: 引数のオブジェクトがラップしているノード
+     * - 文字列の場合: 引数の文字列を要素名に持つ新しい {@link Element}
+     * - null または空文字列の場合: 空の {@link NodeList}
+     * - 上記に当てはまらない場合: 引数の文字列表現をあらわす {@link Text} ノード
+     * 
+     * @param  mixed $var     変換対象の値
+     * @param  Helper $helper ノードの生成に利用する Helper オブジェクト
+     * @return Component      変換後のノード
+     */
+    private function createNode($var, Helper $helper)
+    {
+        if ($var instanceof Node) {
+            return $var;
+        }
+        if ($var instanceof NodeList) {
+            return $var;
+        }
+        if ($var instanceof HelperObject) {
+            return $var->getNode();
+        }
+        if (is_string($var) && strlen($var)) {
+            return $helper->createElement($var);
+        }
+        $nodeName = Values::stringValue($var);
+        return strlen($nodeName) ? new Text($nodeName) : new NodeList();
     }
     
     /**
@@ -75,16 +109,26 @@ class HelperObject implements Container
      * このオブジェクトがラップしているオブジェクトが Container でない場合は何もしません.
      * 
      * @param  mixed $var   追加される値
-     * @return HelperObject 自分自身
      */
-    public function append($var)
+    public function appendNode($var)
     {
         $node = $this->node;
         if ($node instanceof Container) {
             $appendee = ($var instanceof HelperObject) ? $var->getNode() : $var;
-            $node->append($appendee);
+            $node->appendNode($appendee);
         }
-        
+    }
+    
+    /**
+     * このオブジェクトの子ノードとして, 指定された値を追加して, 最後に自分自身を返します.
+     * メソッドチェーンを可能にするための appendNode() のシンタックスシュガーです.
+     * 
+     * @param  mixed $var   追加される値
+     * @return HelperObject 自分自身
+     */
+    public function append($var)
+    {
+        $this->appendNode($var);
         return $this;
     }
     
@@ -103,7 +147,7 @@ class HelperObject implements Container
      */
     public function appendTo(Container $container)
     {
-        $container->append($this->getNode());
+        $container->appendNode($this->getNode());
         return $this;
     }
     
@@ -170,7 +214,7 @@ class HelperObject implements Container
             return $this;
         }
         
-        $result = $this->helper->createObject(null);
+        $result = $this->helper->tag(null);
         if ($this->node instanceof Container) {
             $result->append($this->node->getChildNodes());
         }
@@ -209,7 +253,7 @@ class HelperObject implements Container
      */
     public function prototype()
     {
-        return $this->helper->createObject($this->createPrototype());
+        return $this->helper->tag($this->createPrototype());
     }
     
     /**
@@ -254,5 +298,15 @@ class HelperObject implements Container
     {
         $node = $this->node;
         return ($node instanceof Container) ? $node->getChildNodes() : array();
+    }
+    
+    /**
+     * このオブジェクトがラップしているノードの getApendee() の結果を返します.
+     * 
+     * @return NodeList
+     */
+    public function getAppendee()
+    {
+        return $this->node->getAppendee();
     }
 }

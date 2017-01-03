@@ -46,32 +46,57 @@ class NodeListTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Container で定義されている append() の仕様通りに動作することを確認します.
+     * Container で定義されている appendNode() の仕様通りに動作することを確認します.
      * 
-     * @covers Peach\Markup\NodeList::append
+     * @covers Peach\Markup\NodeList::appendNode
      * @covers Peach\Markup\NodeList::getAppendee
+     * @covers Peach\Markup\NodeList::prepareAppendee
      * @see    Peach\Markup\ContainerTestImpl::testAppend
      */
-    public function testAppend()
+    public function testAppendNode()
     {
         $test = new ContainerTestImpl($this, $this->object);
-        $test->testAppend();
+        $test->testAppendNode();
     }
     
     /**
-     * 自分自身を含むノードを append しようとした場合に例外をスローすることを確認します.
+     * 配列を引数として appeneNode を実行した場合,
+     * 配列に含まれるそれぞれの値が個別に追加されることを確認します.
      * 
-     * @covers Peach\Markup\NodeList::append
+     * @covers Peach\Markup\NodeList::appendNode
+     * @covers Peach\Markup\NodeList::prepareAppendee
+     */
+    public function testAppendNodeByArray()
+    {
+        $arr = array(
+            "Test1",
+            new EmptyElement("br"),
+            new Code("Test2"),
+        );
+        $expected = array(
+            new Text("Test1"),
+            new EmptyElement("br"),
+            new Code("Test2"),
+        );
+        $obj = new NodeList();
+        $obj->appendNode($arr);
+        $this->assertEquals($expected, $obj->getChildNodes());
+    }
+    
+    /**
+     * 自分自身を含むノードを引数に appendNode() を実行した場合に例外をスローすることを確認します.
+     * 
+     * @covers Peach\Markup\NodeList::appendNode
      * @covers Peach\Markup\NodeList::checkOwner
      * @expectedException \InvalidArgumentException
      */
-    public function testAppendFail()
+    public function testAppendNodeFail()
     {
         $a        = new ContainerElement("a");
         $b        = new ContainerElement("b");
         $c        = new ContainerElement("c");
         $nodeList = new NodeList(array($a, $b, $c));
-        $c->append($nodeList);
+        $c->appendNode($nodeList);
     }
     
     /**

@@ -51,6 +51,18 @@ class CodeTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * このオブジェクト自身を返すことを確認します.
+     * 
+     * @covers Peach\Markup\Code::getAppendee
+     */
+    public function testGetAppendee()
+    {
+        $obj      = $this->object;
+        $expected = new NodeList($obj);
+        $this->assertEquals($expected, $obj->getAppendee());
+    }
+    
+    /**
      * コンストラクタに指定した文字列を返すことを確認します.
      * 
      * @covers Peach\Markup\Code::__toString

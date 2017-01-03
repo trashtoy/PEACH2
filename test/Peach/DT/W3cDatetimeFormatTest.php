@@ -57,6 +57,7 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * - format 時にタイムゾーン文字列を付与しない
      * 
      * @covers Peach\DT\W3cDatetimeFormat::getInstance
+     * @covers Peach\DT\W3cDatetimeFormat::formatTimezone
      */
     public function testGetInstance()
     {
@@ -87,7 +88,7 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException InvalidArgumentException
      * @covers Peach\DT\W3cDatetimeFormat::parseDate
-     * @covers Peach\DT\W3cDatetimeFormat::throwFormatException
+     * @covers Peach\DT\W3cDatetimeFormat::createFormatException
      */
     public function testParseDateFail()
     {
@@ -122,7 +123,7 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException InvalidArgumentException
      * @covers Peach\DT\W3cDatetimeFormat::parseDatetime
-     * @covers Peach\DT\W3cDatetimeFormat::throwFormatException
+     * @covers Peach\DT\W3cDatetimeFormat::createFormatException
      */
     public function testParseDatetimeFail()
     {
@@ -157,7 +158,7 @@ class W3cDatetimeFormatTest extends \PHPUnit_Framework_TestCase
      * 
      * @expectedException InvalidArgumentException
      * @covers Peach\DT\W3cDatetimeFormat::parseTimestamp
-     * @covers Peach\DT\W3cDatetimeFormat::throwFormatException
+     * @covers Peach\DT\W3cDatetimeFormat::createFormatException
      */
     public function testParseTimestampFail()
     {
