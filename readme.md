@@ -8,7 +8,7 @@ Features
 --------
 
 ### Util
-Object-oriented array manipulation modules like 
+Object-oriented array manipulation modules like
 [Java Collections Framework](http://docs.oracle.com/javase/8/docs/technotes/guides/collections/).
 
 - Map interface like java.util.HashMap. You can use objects as key.
@@ -41,6 +41,10 @@ All the classes of this module implement interface Codec.
 - SerializationCodec: wrapping [serialize](http://php.net/manual/function.serialize.php) and [unserialize](http://php.net/manual/function.unserialize.php)
 - CodecChain: concatenating multiple Codec instances
 
+### Http
+HTTP message handling module with minimal side effects.
+By implementing the interface Endpoint as a mock, you can check the behavior of the web application with a simple unit test.
+
 Requirements
 ------------
 
@@ -51,6 +55,12 @@ That's all.
 
 How to use
 ----------
+
+### Composer
+You can install using composer by the following command:  
+`composer require trashtoy/peach2`
+
+### Autoloading
 Require autoload.php  
 `require_once("/path/to/PEACH2/autoload.php");`  
 or set up autoload manually.
