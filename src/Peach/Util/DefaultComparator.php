@@ -63,30 +63,15 @@ class DefaultComparator implements Comparator
     }
     
     /**
-     * var_dump の出力から, 冒頭の object(#x) 部分を除いた文字列を返します.
+     * 指定されたオブジェクトの文字列表現です.
+     * print_r の出力結果を返します.
      * 
      * @param  mixed  $var
      * @return string オブジェクトの文字列表現
      */
     private static function dump($var)
     {
-        ob_start();
-        var_dump($var);
-        $data = ob_get_contents();
-        ob_end_clean();
-        
-        $classNamePattern = "([a-zA-Z_\\x7f-\\xff][a-zA-Z0-9\\\\_\\x7f-\\xff]*)";
-        
-        // xdebug の設定によって処理が変わるため, コードカバレージの対象外とします
-        // @codeCoverageIgnoreStart
-        if (preg_match("/^object\\({$classNamePattern}\\)#(\\d+)/", $data)) {
-            return preg_replace("/^object\\({$classNamePattern}\\)#(\\d+)/", "$1", $data);
-        }
-        if (preg_match("/^class {$classNamePattern}#(\\d+)/", $data)) {
-            return preg_replace("/^class {$classNamePattern}#(\\d+)/", "$1", $data);
-        }
-        return $data;
-        // @codeCoverageIgnoreEnd
+        return print_r($var, true);
     }
     
     /**
