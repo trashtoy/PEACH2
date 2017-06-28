@@ -237,11 +237,44 @@ class Arrays
         if (!isset($c)) {
             $c = DefaultComparator::getInstance();
         }
-        $func = function ($var1, $var2) use ($c) {
-            return $c->compare($var1, $var2);
+        
+        $keyComparator = DefaultComparator::getInstance();
+        $func          = function ($entry1, $entry2) use ($c, $keyComparator) {
+            $var1 = $entry1[1];
+            $var2 = $entry2[1];
+            if (0 !== ($comp = $c->compare($var1, $var2))) {
+                return $comp;
+            }
+            
+            $key1 = $entry1[0];
+            $key2 = $entry2[0];
+            return $keyComparator->compare($key1, $key2);
         };
-        uasort($arr, $func);
-        return $arr;
+        $entryList = self::createEntryList($arr);
+        usort($entryList, $func);
+        $result = array();
+        foreach ($entryList as $entry) {
+            $key = $entry[0];
+            $var = $entry[1];
+            $result[$key] = $var;
+        }
+        return $result;
+    }
+    
+    /**
+     * asort() でキーと値をそれぞれ比較できるようにするため,
+     * 指定された配列のデータを整えます。
+     * 
+     * @param array $arr
+     * @return array
+     */
+    private static function createEntryList(array $arr)
+    {
+        $result = array();
+        foreach ($arr as $key => $value) {
+            $result[] = array($key, $value);
+        }
+        return $result;
     }
     
     /**
