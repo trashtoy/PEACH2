@@ -320,7 +320,7 @@ class ArraysTest extends \PHPUnit_Framework_TestCase
     public function testUnique()
     {
         $test     = array(1, 3, "2", 7, 5, 0, 8, "3", 2, 9, 3, 6, "5", 4);
-        $expected = array(0 => 1, 3 => 7, 4 => 5, 5 => 0, 6 => 8, 7 => "3", 8 => 2, 9 => 9, 11 => 6, 13 => 4);
+        $expected = array(0 => 1, 1 => 3, 2 => "2", 3 => 7, 4 => 5, 5 => 0, 6 => 8, 9 => 9, 11 => 6, 13 => 4);
         $result   = Arrays::unique($test);
         $this->assertSame($expected, $result);
     }
