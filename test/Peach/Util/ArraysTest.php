@@ -217,6 +217,7 @@ class ArraysTest extends \PHPUnit_Framework_TestCase
      * - 返り値の添字が維持されること
      * 
      * @covers Peach\Util\Arrays::asort
+     * @covers Peach\Util\Arrays::createEntryList
      */
     public function testAsort()
     {
@@ -253,6 +254,32 @@ class ArraysTest extends \PHPUnit_Framework_TestCase
         $subject7  = array_combine($reversed, $reversed);
         $test7     = Arrays::asort($subject7);
         $this->assertSame($expected2, $test7);
+    }
+    
+    /**
+     * asort() で配列内の各要素を比較する際,
+     * 等価な要素同士の比較についてはキーの値でソートされることを確認します.
+     * 
+     * @covers Peach\Util\Arrays::asort
+     * @covers Peach\Util\Arrays::createEntryList
+     */
+    public function testAsortForKeys()
+    {
+        $test = array(
+            "2z" => "b",
+            "y"  => "a",
+            20   => "b",
+            "x"  => "a",
+            "2a" => "b",
+        );
+        $expected = array(
+            "x"  => "a",
+            "y"  => "a",
+            20   => "b",
+            "2a" => "b",
+            "2z" => "b",
+        );
+        $this->assertSame($expected, Arrays::asort($test));
     }
     
     /**
@@ -293,7 +320,7 @@ class ArraysTest extends \PHPUnit_Framework_TestCase
     public function testUnique()
     {
         $test     = array(1, 3, "2", 7, 5, 0, 8, "3", 2, 9, 3, 6, "5", 4);
-        $expected = array(0 => 1, 3 => 7, 4 => 5, 5 => 0, 6 => 8, 7 => "3", 8 => 2, 9 => 9, 11 => 6, 13 => 4);
+        $expected = array(0 => 1, 1 => 3, 2 => "2", 3 => 7, 4 => 5, 5 => 0, 6 => 8, 9 => 9, 11 => 6, 13 => 4);
         $result   = Arrays::unique($test);
         $this->assertSame($expected, $result);
     }
